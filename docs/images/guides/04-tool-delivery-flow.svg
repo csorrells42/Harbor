@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="1120" height="770" preserveAspectRatio="xMinYMin meet" viewBox="0 0 1120 770" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="1120" height="770"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-770)" style="clip-path: url(#clip)">
+		<g transform="">
+			<rect x="0" y="0" width="1120" height="770" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="32" y="714.0" style="font-family: Helvetica-Bold; font-size: 32px;fill: rgb(8%,16%,26%); stroke:none;" transform="translate(0,1428) scale(1,-1)">Discovery and execution are separate steps</text>
+			<text x="32" y="678.0" style="font-family: Helvetica; font-size: 20px;fill: rgb(37%,43%,50%); stroke:none;" transform="translate(0,1356) scale(1,-1)">Tool Delivery changes what a client sees and how it finds the tool to invoke.</text>
+			<path d="M 32,654 L 1088,654 Z" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 2;"/>
+			<rect x="32" y="467" width="500" height="153" rx="12" ry="12" style="stroke: rgb(79%,85%,89%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(91%,94%,100%); fill-rule: evenodd;"/>
+			<text x="52" y="581.0" style="font-family: Helvetica-Bold; font-size: 23px;fill: rgb(8%,16%,26%); stroke:none;" transform="translate(0,1162) scale(1,-1)">All tools</text>
+			<text x="52" y="545.56" style="font-family: Helvetica; font-size: 20px;fill: rgb(15%,21%,27%); stroke:none;" transform="translate(0,1091) scale(1,-1)">Receive the full tool definitions. Choose an exact</text>
+			<text x="52" y="519.9599999999999" style="font-family: Helvetica; font-size: 20px;fill: rgb(15%,21%,27%); stroke:none;" transform="translate(0,1039) scale(1,-1)">tool name and valid arguments.</text>
+			<rect x="588" y="467" width="500" height="153" rx="12" ry="12" style="stroke: rgb(79%,85%,89%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(89%,95%,94%); fill-rule: evenodd;"/>
+			<text x="608" y="581.0" style="font-family: Helvetica-Bold; font-size: 23px;fill: rgb(8%,16%,26%); stroke:none;" transform="translate(0,1162) scale(1,-1)">Search / Hybrid</text>
+			<text x="608" y="545.56" style="font-family: Helvetica; font-size: 20px;fill: rgb(15%,21%,27%); stroke:none;" transform="translate(0,1091) scale(1,-1)">Query discovery. Read the returned names and</text>
+			<text x="608" y="519.9599999999999" style="font-family: Helvetica; font-size: 20px;fill: rgb(15%,21%,27%); stroke:none;" transform="translate(0,1039) scale(1,-1)">input schemas before choosing a tool.</text>
+			<path d="M 282,467 L 282,422 Z" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 2.8;"/>
+			<path d="M 282,422 L 560,422 Z" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 2.8;"/>
+			<path d="M 560,422 L 560,386 Z" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 2.8;"/>
+			<polygon points="560 386, 555.2057 394.7758, 564.7943 394.7758" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 1; fill: rgb(3%,49%,52%); fill-rule: evenodd;"/>
+			<path d="M 838,467 L 838,422 Z" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 2.8;"/>
+			<path d="M 838,422 L 560,422 Z" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 2.8;"/>
+			<rect x="210" y="268" width="700" height="118" rx="12" ry="12" style="stroke: rgb(79%,85%,89%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(93%,96%,97%); fill-rule: evenodd;"/>
+			<text x="230" y="347.0" style="font-family: Helvetica-Bold; font-size: 23px;fill: rgb(8%,16%,26%); stroke:none;" transform="translate(0,694) scale(1,-1)">Invoke through the selected mode</text>
+			<text x="230" y="311.56" style="font-family: Helvetica; font-size: 20px;fill: rgb(15%,21%,27%); stroke:none;" transform="translate(0,623) scale(1,-1)">Use its required call interface, tool name and arguments.</text>
+			<rect x="32" y="108" width="310" height="110" rx="12" ry="12" style="stroke: rgb(79%,85%,89%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(93%,96%,97%); fill-rule: evenodd;"/>
+			<text x="52" y="179.0" style="font-family: Helvetica-Bold; font-size: 23px;fill: rgb(8%,16%,26%); stroke:none;" transform="translate(0,358) scale(1,-1)">Harbor routes</text>
+			<text x="52" y="143.55999999999995" style="font-family: Helvetica; font-size: 20px;fill: rgb(15%,21%,27%); stroke:none;" transform="translate(0,287) scale(1,-1)">Match the namespaced tool.</text>
+			<rect x="405" y="108" width="310" height="110" rx="12" ry="12" style="stroke: rgb(79%,85%,89%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(93%,96%,97%); fill-rule: evenodd;"/>
+			<text x="425" y="179.0" style="font-family: Helvetica-Bold; font-size: 23px;fill: rgb(8%,16%,26%); stroke:none;" transform="translate(0,358) scale(1,-1)">Upstream executes</text>
+			<text x="425" y="143.55999999999995" style="font-family: Helvetica; font-size: 20px;fill: rgb(15%,21%,27%); stroke:none;" transform="translate(0,287) scale(1,-1)">The child server performs it.</text>
+			<rect x="778" y="108" width="310" height="110" rx="12" ry="12" style="stroke: rgb(79%,85%,89%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(93%,96%,97%); fill-rule: evenodd;"/>
+			<text x="798" y="179.0" style="font-family: Helvetica-Bold; font-size: 23px;fill: rgb(8%,16%,26%); stroke:none;" transform="translate(0,358) scale(1,-1)">Client receives result</text>
+			<text x="798" y="143.55999999999995" style="font-family: Helvetica; font-size: 20px;fill: rgb(15%,21%,27%); stroke:none;" transform="translate(0,287) scale(1,-1)">Inspect the actual outcome.</text>
+			<path d="M 342,163 L 405,163 Z" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 2.8;"/>
+			<polygon points="405 163, 396.2242 158.2057, 396.2242 167.7943" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 1; fill: rgb(3%,49%,52%); fill-rule: evenodd;"/>
+			<path d="M 715,163 L 778,163 Z" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 2.8;"/>
+			<polygon points="778 163, 769.2242 158.2057, 769.2242 167.7943" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 1; fill: rgb(3%,49%,52%); fill-rule: evenodd;"/>
+			<path d="M 560,268 L 560,248 Z" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 2.8;"/>
+			<path d="M 560,248 L 187,248 Z" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 2.8;"/>
+			<path d="M 187,248 L 187,218 Z" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 2.8;"/>
+			<polygon points="187 218, 182.2057 226.7758, 191.7943 226.7758" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 1; fill: rgb(3%,49%,52%); fill-rule: evenodd;"/>
+			<rect x="32" y="15" width="1056" height="72" rx="10" ry="10" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(89%,95%,94%); fill-rule: evenodd;"/>
+			<text x="50" y="56.0" style="font-family: Helvetica; font-size: 19px;fill: rgb(8%,16%,26%); stroke:none;" transform="translate(0,112) scale(1,-1)">Discovery is not execution or a permission boundary. Code Mode can look up schemas and compose tool calls in</text>
+			<text x="50" y="31.68" style="font-family: Helvetica; font-size: 19px;fill: rgb(8%,16%,26%); stroke:none;" transform="translate(0,63) scale(1,-1)">Python; use the documented mode interface.</text>
+		</g>
+	</g>
+</svg>

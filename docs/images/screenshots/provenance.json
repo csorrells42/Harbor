@@ -29,6 +29,32 @@
   },
   "screenshots": [
     {
+      "file": "00-harbor-overview.png",
+      "selector": "Complete application viewport; no element crop",
+      "state": "Fresh source-app profile on Diagnostics, with complete navigation and application shell, real whole-host gauges and available temperature series. No configured child servers, verified Hermes session or campaign.",
+      "sha256": "7dc757975faf2f4b69b7b7452c615b878643f8a7b69cba1b859b257c5a5dcc55",
+      "width": 1440,
+      "height": 1080,
+      "capturedAt": "2026-09-19T06:13:37.788Z",
+      "sourceHashes": {
+        "src/desktop/main.cjs": "9bd62d963fd5c71195b505bffc622c5f54f22ac8965d2da9f6a7a4a04d3b454d",
+        "src/ui/index.html": "6affeee2ea4d865529d91ed1247c54b3dc5a9031ef8aabda41f78e7911b2943a",
+        "src/ui/app.js": "f76ad44fadb1e5a7bf86406698799da3cad76a1dc5bb62f62c14c18f0ecc90f2",
+        "src/ui/styles.css": "c277f0e4f474734a354a9b39e0866504ca510777dac5c00543a82bf552bb3c1d",
+        "src/diagnostics/ui.js": "d33211fdaeb75f24217a9e72b87b00db0bb7720715f91038f0569cdc1cf65148",
+        "src/diagnostics/system-ui.js": "b6bb6f2518c71590ac9fda216aea13507791a9ada6dbaadc4b16b8ddd32df2ff",
+        "src/diagnostics/temperature-ui.js": "f4f9545f60916a8a843e8cc6cdf14787fa559fe2dc4bcaa03045adf64969f98f",
+        "src/diagnostics/ui.css": "82caf65f70921094915dd3bf318e3b851a0b86b39ff543c0c5890909770317fa"
+      },
+      "privacyChecks": {
+        "noPersonalPathsOrNames": true,
+        "noCredentialsVisible": true,
+        "noClipboardActions": true
+      },
+      "historyIsNewSession": true,
+      "review": "Direct visual inspection passed: full navigation, application shell, four gauges, real temperature chart and legend visible; no private paths, keys or prior tasks; unretouched complete viewport."
+    },
+    {
       "file": "01-gateway-protections.png",
       "selector": "#gateway-auth-form",
       "state": "Fresh profile: Use API key and Loopback only enabled; stored generated key never read or displayed; key field empty.",
@@ -138,11 +164,11 @@
   ],
   "rendererErrors": [],
   "review": {
-    "completedAt": "2026-09-19T03:37:58.038Z",
-    "result": "All eight final images directly inspected for privacy, legibility and faithful application state.",
+    "completedAt": "2026-09-19T06:14:09.138Z",
+    "result": "All nine final images directly inspected for privacy, legibility and faithful application state.",
     "noPrivatePathsOrCredentialsVisible": true,
     "noInventedTelemetryOrCampaignResults": true,
-    "framing": "Genuine UI element crops; campaign image is a native viewport crop. No UI text, values or images were fabricated or retouched.",
+    "framing": "Overview is the complete application viewport. Detail figures are genuine UI element crops; campaign image is a native viewport crop. No UI text, values or images were fabricated or retouched.",
     "limits": [
       "Hardware history contains only this newly opened session; ACPI thermal zones are not labelled as CPU-core measurements.",
       "Connections crop shows the HTTP placeholder preview, not the connected-app list.",

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="1120" height="815" preserveAspectRatio="xMinYMin meet" viewBox="0 0 1120 815" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="1120" height="815"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-815)" style="clip-path: url(#clip)">
+		<g transform="">
+			<rect x="0" y="0" width="1120" height="815" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="32" y="759.0" style="font-family: Helvetica-Bold; font-size: 32px;fill: rgb(8%,16%,26%); stroke:none;" transform="translate(0,1518) scale(1,-1)">How a tool request moves through Harbor</text>
+			<text x="32" y="723.0" style="font-family: Helvetica; font-size: 20px;fill: rgb(37%,43%,50%); stroke:none;" transform="translate(0,1446) scale(1,-1)">The desktop manages connections; the gateway routes tool calls.</text>
+			<path d="M 32,699 L 1088,699 Z" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 2;"/>
+			<rect x="377" y="559" width="366" height="111" rx="12" ry="12" style="stroke: rgb(79%,85%,89%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(91%,94%,100%); fill-rule: evenodd;"/>
+			<text x="397" y="631.0" style="font-family: Helvetica-Bold; font-size: 23px;fill: rgb(8%,16%,26%); stroke:none;" transform="translate(0,1262) scale(1,-1)">Harbor desktop UI</text>
+			<text x="397" y="595.56" style="font-family: Helvetica; font-size: 20px;fill: rgb(15%,21%,27%); stroke:none;" transform="translate(0,1191) scale(1,-1)">Settings and lifecycle controls</text>
+			<path d="M 560,559 L 560,494 Z" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 2.8;"/>
+			<polygon points="560 494, 555.2057 502.7758, 564.7943 502.7758" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 1; fill: rgb(3%,49%,52%); fill-rule: evenodd;"/>
+			<text x="578" y="523.0" style="font-family: Helvetica; font-size: 17px;fill: rgb(37%,43%,50%); stroke:none;" transform="translate(0,1046) scale(1,-1)">local IPC</text>
+			<rect x="32" y="342" width="275" height="158" rx="12" ry="12" style="stroke: rgb(79%,85%,89%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(93%,96%,97%); fill-rule: evenodd;"/>
+			<text x="52" y="461.0" style="font-family: Helvetica-Bold; font-size: 23px;fill: rgb(8%,16%,26%); stroke:none;" transform="translate(0,922) scale(1,-1)">Native HTTP client</text>
+			<text x="52" y="426.56" style="font-family: Helvetica; font-size: 19px;fill: rgb(15%,21%,27%); stroke:none;" transform="translate(0,853) scale(1,-1)">Uses the current gateway</text>
+			<text x="52" y="402.24" style="font-family: Helvetica; font-size: 19px;fill: rgb(15%,21%,27%); stroke:none;" transform="translate(0,804) scale(1,-1)">endpoint and saved key</text>
+			<text x="52" y="377.92" style="font-family: Helvetica; font-size: 19px;fill: rgb(15%,21%,27%); stroke:none;" transform="translate(0,755) scale(1,-1)">when enabled.</text>
+			<rect x="32" y="166" width="275" height="158" rx="12" ry="12" style="stroke: rgb(79%,85%,89%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(93%,96%,97%); fill-rule: evenodd;"/>
+			<text x="52" y="285.0" style="font-family: Helvetica-Bold; font-size: 23px;fill: rgb(8%,16%,26%); stroke:none;" transform="translate(0,570) scale(1,-1)">Stdio-only client</text>
+			<text x="52" y="250.55999999999995" style="font-family: Helvetica; font-size: 19px;fill: rgb(15%,21%,27%); stroke:none;" transform="translate(0,501) scale(1,-1)">Uses the Harbor stdio</text>
+			<text x="52" y="226.23999999999995" style="font-family: Helvetica; font-size: 19px;fill: rgb(15%,21%,27%); stroke:none;" transform="translate(0,452) scale(1,-1)">bridge to reach that HTTP</text>
+			<text x="52" y="201.91999999999996" style="font-family: Helvetica; font-size: 19px;fill: rgb(15%,21%,27%); stroke:none;" transform="translate(0,403) scale(1,-1)">gateway.</text>
+			<rect x="377" y="275" width="366" height="219" rx="12" ry="12" style="stroke: rgb(79%,85%,89%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(89%,95%,94%); fill-rule: evenodd;"/>
+			<text x="397" y="455.0" style="font-family: Helvetica-Bold; font-size: 23px;fill: rgb(8%,16%,26%); stroke:none;" transform="translate(0,910) scale(1,-1)">Harbor Hub + gateway</text>
+			<text x="397" y="419.56" style="font-family: Helvetica; font-size: 20px;fill: rgb(15%,21%,27%); stroke:none;" transform="translate(0,839) scale(1,-1)">Selected bind address</text>
+			<text x="397" y="393.96" style="font-family: Helvetica; font-size: 20px;fill: rgb(15%,21%,27%); stroke:none;" transform="translate(0,787) scale(1,-1)">Bearer key when enabled</text>
+			<text x="397" y="368.36" style="font-family: Helvetica; font-size: 20px;fill: rgb(15%,21%,27%); stroke:none;" transform="translate(0,736) scale(1,-1)">Tool catalog and routing</text>
+			<text x="397" y="342.76" style="font-family: Helvetica; font-size: 20px;fill: rgb(15%,21%,27%); stroke:none;" transform="translate(0,685) scale(1,-1)">Shared child connections</text>
+			<path d="M 307,432 L 377,432 Z" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 2.8;"/>
+			<polygon points="377 432, 368.2242 427.2057, 368.2242 436.7943" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 1; fill: rgb(3%,49%,52%); fill-rule: evenodd;"/>
+			<path d="M 307,256 L 345,256 Z" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 2.8;"/>
+			<path d="M 345,256 L 345,327 Z" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 2.8;"/>
+			<path d="M 345,327 L 377,327 Z" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 2.8;"/>
+			<polygon points="377 327, 368.2242 322.2057, 368.2242 331.7943" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 1; fill: rgb(3%,49%,52%); fill-rule: evenodd;"/>
+			<rect x="813" y="345" width="275" height="155" rx="12" ry="12" style="stroke: rgb(79%,85%,89%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(93%,96%,97%); fill-rule: evenodd;"/>
+			<text x="833" y="461.0" style="font-family: Helvetica-Bold; font-size: 23px;fill: rgb(8%,16%,26%); stroke:none;" transform="translate(0,922) scale(1,-1)">Managed servers</text>
+			<text x="833" y="426.56" style="font-family: Helvetica; font-size: 19px;fill: rgb(15%,21%,27%); stroke:none;" transform="translate(0,853) scale(1,-1)">Stdio or HTTP/SSE. Harbor</text>
+			<text x="833" y="402.24" style="font-family: Helvetica; font-size: 19px;fill: rgb(15%,21%,27%); stroke:none;" transform="translate(0,804) scale(1,-1)">owns the processes it</text>
+			<text x="833" y="377.92" style="font-family: Helvetica; font-size: 19px;fill: rgb(15%,21%,27%); stroke:none;" transform="translate(0,755) scale(1,-1)">launches.</text>
+			<rect x="813" y="166" width="275" height="148" rx="12" ry="12" style="stroke: rgb(79%,85%,89%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(93%,96%,97%); fill-rule: evenodd;"/>
+			<text x="833" y="275.0" style="font-family: Helvetica-Bold; font-size: 23px;fill: rgb(8%,16%,26%); stroke:none;" transform="translate(0,550) scale(1,-1)">External servers</text>
+			<text x="833" y="240.55999999999995" style="font-family: Helvetica; font-size: 19px;fill: rgb(15%,21%,27%); stroke:none;" transform="translate(0,481) scale(1,-1)">HTTP/SSE. Lifecycle</text>
+			<text x="833" y="216.23999999999995" style="font-family: Helvetica; font-size: 19px;fill: rgb(15%,21%,27%); stroke:none;" transform="translate(0,432) scale(1,-1)">remains with their outside</text>
+			<text x="833" y="191.91999999999996" style="font-family: Helvetica; font-size: 19px;fill: rgb(15%,21%,27%); stroke:none;" transform="translate(0,383) scale(1,-1)">owner.</text>
+			<path d="M 743,429 L 813,429 Z" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 2.8;"/>
+			<polygon points="813 429, 804.2242 424.2057, 804.2242 433.7943" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 1; fill: rgb(3%,49%,52%); fill-rule: evenodd;"/>
+			<path d="M 743,335 L 778,335 Z" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 2.8;"/>
+			<path d="M 778,335 L 778,252 Z" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 2.8;"/>
+			<path d="M 778,252 L 813,252 Z" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 2.8;"/>
+			<polygon points="813 252, 804.2242 247.2057, 804.2242 256.7943" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 1; fill: rgb(3%,49%,52%); fill-rule: evenodd;"/>
+			<rect x="377" y="102" width="366" height="119" rx="12" ry="12" style="stroke: rgb(79%,85%,89%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(91%,94%,100%); fill-rule: evenodd;"/>
+			<text x="397" y="182.0" style="font-family: Helvetica-Bold; font-size: 23px;fill: rgb(8%,16%,26%); stroke:none;" transform="translate(0,364) scale(1,-1)">Discovery workers</text>
+			<text x="397" y="146.55999999999995" style="font-family: Helvetica; font-size: 20px;fill: rgb(15%,21%,27%); stroke:none;" transform="translate(0,293) scale(1,-1)">Optional search and Hybrid modes</text>
+			<path d="M 560,221 L 560,275 Z" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 2.8; stroke-dasharray: 7, 5;"/>
+			<polygon points="560 275, 564.7943 266.2242, 555.2057 266.2242" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 1; fill: rgb(3%,49%,52%); fill-rule: evenodd;"/>
+			<rect x="32" y="13" width="1056" height="72" rx="10" ry="10" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(89%,95%,94%); fill-rule: evenodd;"/>
+			<text x="50" y="54.0" style="font-family: Helvetica; font-size: 19px;fill: rgb(8%,16%,26%); stroke:none;" transform="translate(0,108) scale(1,-1)">Responses return along the same route. Harbor proxies tools, not a chat model. Upstream state is shared; discovery</text>
+			<text x="50" y="29.68" style="font-family: Helvetica; font-size: 19px;fill: rgb(8%,16%,26%); stroke:none;" transform="translate(0,59) scale(1,-1)">modes do not create per-client permissions.</text>
+		</g>
+	</g>
+</svg>

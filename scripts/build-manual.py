@@ -159,9 +159,16 @@ def main():
     parser=argparse.ArgumentParser();parser.add_argument('--root',type=Path,default=Path(__file__).resolve().parents[1]);args=parser.parse_args()
     root=args.root.resolve();source=root/'docs/HARBOR-MANUAL.md';meta=json.loads((root/'docs/manual-release.json').read_text(encoding='utf-8'));meta['sourceSha256']=hashlib.sha256(source.read_bytes()).hexdigest()
     register_fonts();s=styles();out=root/'HARBOR-MANUAL.pdf';doc=ManualDoc(out,meta)
-    story=[Spacer(1,65),Paragraph('HARBOR',s['CoverTitle']),Paragraph('Installation &amp;<br/>Operations Manual',s['CoverSub']),Spacer(1,20),Paragraph('Quickstart · Connections · Configuration<br/>Tool delivery · Diagnostics · Maintenance<br/>Subsystems · Repositories · Recovery',s['CoverMeta']),Spacer(1,30),Paragraph('Christopher Sorrells (csorrells42)',s['CoverMeta']),Paragraph('<link href="mailto:clsorrells42@gmail.com" color="#087d86">clsorrells42@gmail.com</link>',s['CoverMeta']),Spacer(1,14),Paragraph(inline(meta['edition']),s['CoverMeta']),Paragraph(inline(meta['scope']),s['CoverMeta']),Paragraph(inline('Reviewed '+meta['reviewed']),s['CoverMeta']),Spacer(1,20),Paragraph('The complete operator reference for the Harbor desktop application and its Windows Portable toolbox. The same manual is available as searchable Markdown in the project repository.',s['CoverMeta']),PageBreak(),Paragraph('Contents',s['ManualH1'])]
+    source_text=source.read_text(encoding='utf-8')
+    preamble=source_text.split('\n## ',1)[0]
+    overview=re.search(r'^!\[([^\]]+)\]\(([^)]+)\)$',preamble,re.M)
+    story=[Spacer(1,12),Paragraph('HARBOR',s['CoverTitle']),Paragraph('Installation &amp; Operations Manual',s['CoverSub'])]
+    if overview:
+        story.append(figure(overview[2],overview[1],s,doc.width,source.parent))
+        source_text=source_text[:overview.start()]+source_text[overview.end():]
+    story.extend([Spacer(1,12),Paragraph(inline(meta['scope']),s['CoverMeta']),Paragraph('Christopher Sorrells (csorrells42)<br/><link href="mailto:clsorrells42@gmail.com" color="#087d86">clsorrells42@gmail.com</link>',s['CoverMeta']),Paragraph(inline(meta['edition']),s['CoverMeta']),Paragraph(inline('Reviewed '+meta['reviewed']),s['CoverMeta']),PageBreak(),Paragraph('Contents',s['ManualH1'])])
     toc=TableOfContents();toc.levelStyles=[ParagraphStyle('TOC0',fontName='Body-Bold',fontSize=10,leading=15,textColor=NAVY,spaceBefore=8),ParagraphStyle('TOC1',fontName='Body',fontSize=8.5,leading=12,leftIndent=14,textColor=GRAY)]
-    story.extend([toc,PageBreak()]);story.extend(markdown_story(source.read_text(encoding='utf-8'),s,doc.width,source.parent))
+    story.extend([toc,PageBreak()]);story.extend(markdown_story(source_text,s,doc.width,source.parent))
     doc.multiBuild(story)
     print(json.dumps({'pdf':str(out),'bytes':out.stat().st_size,'sha256':hashlib.sha256(out.read_bytes()).hexdigest(),'sourceSha256':hashlib.sha256(source.read_bytes()).hexdigest()}))
 

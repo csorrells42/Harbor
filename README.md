@@ -8,6 +8,8 @@ Created by **Christopher Sorrells (csorrells42)**. Contact: **[clsorrells42@gmai
 
 Harbor runs tool servers once and connects them to multiple compatible AI clients. Its desktop interface manages server lifecycles, startup selections, API-key authentication, connection settings, tool discovery modes and portable maintenance. Diagnostics provides controlled Hermes harness tests, hardware gauges and temperature history.
 
+![Harbor desktop with live system monitoring and the main navigation](docs/images/screenshots/00-harbor-overview.png)
+
 ## Complete documentation
 
 - **[Read the full operating manual](docs/HARBOR-MANUAL.md)** — installation, quickstart, every tab, configuration, endpoints, connection examples, tool delivery, Diagnostics, maintenance, component repositories, source builds, troubleshooting and licensing.
@@ -83,7 +85,7 @@ Complete or cancel any Diagnostics campaign first. In a complete Portable instal
 
 ## Accounts, access and boundaries
 
-- **Source-security gate: pending until the dedicated scanner works.** Functional tests and builds do not constitute security clearance. No substitute manual source-security audit is claimed.
+- **Security clearance is blocked pending a fix and retest.** The manual source-security review completed September 19, 2026 and confirmed one Medium-severity issue: switching from network access with a required key to key off with loopback on can briefly leave the previous network listener unauthenticated while settings work is pending. The dedicated scanner failed before registration and did not run. See the manual for scope and limits.
 - The intentionally deferred Brave API key affects live Brave searches, not the core application. The manual includes the later setup steps.
 - GitHub and optional hosted providers require their own local sign-in or credentials; none are included in this repository.
 - The gateway proxies MCP **tools**. Upstream prompts, resources, sampling, roots and elicitation are not proxied.
@@ -101,6 +103,8 @@ The checked-in PDF is ready to read. To regenerate it from Markdown:
 python -m pip install -r scripts/requirements-manual.txt
 python scripts/build-manual.py
 ```
+
+The manual includes nine real UI screenshots and six explanatory workflow diagrams. To regenerate the diagram assets, install `scripts/requirements-visual-guides.txt` and run `python scripts/build-visual-guides.py`; then rebuild the PDF. The diagram generator writes PNG and editable SVG files under `docs/images/guides`.
 
 The generator reads `docs/HARBOR-MANUAL.md` and `docs/manual-release.json`, writes `HARBOR-MANUAL.pdf`, and performs no network requests. Update release evidence and dependency notices when the corresponding code or dependencies change.
 

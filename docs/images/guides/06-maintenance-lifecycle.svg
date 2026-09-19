@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="1120" height="1060" preserveAspectRatio="xMinYMin meet" viewBox="0 0 1120 1060" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="1120" height="1060"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-1060)" style="clip-path: url(#clip)">
+		<g transform="">
+			<rect x="0" y="0" width="1120" height="1060" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="32" y="1004.0" style="font-family: Helvetica-Bold; font-size: 32px;fill: rgb(8%,16%,26%); stroke:none;" transform="translate(0,2008) scale(1,-1)">Maintenance: follow the final status</text>
+			<text x="32" y="968.0" style="font-family: Helvetica; font-size: 20px;fill: rgb(37%,43%,50%); stroke:none;" transform="translate(0,1936) scale(1,-1)">Pause work, read the outcome, then use the appropriate resume or restart path.</text>
+			<path d="M 32,944 L 1088,944 Z" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 2;"/>
+			<rect x="32" y="820" width="1056" height="92" rx="12" ry="12" style="stroke: rgb(79%,85%,89%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(89%,95%,94%); fill-rule: evenodd;"/>
+			<text x="52" y="874.0" style="font-family: Helvetica-Bold; font-size: 22px;fill: rgb(8%,16%,26%); stroke:none;" transform="translate(0,1748) scale(1,-1)">1 Finish work before maintenance</text>
+			<text x="52" y="838.84" style="font-family: Helvetica; font-size: 20px;fill: rgb(15%,21%,27%); stroke:none;" transform="translate(0,1677) scale(1,-1)">Finish or stop client tasks; finish or cancel Diagnostics explicitly.</text>
+			<path d="M 560,820 L 560,805 Z" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 2.8;"/>
+			<path d="M 560,805 L 283,805 Z" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 2.8;"/>
+			<path d="M 283,805 L 283,787 Z" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 2.8;"/>
+			<polygon points="283 787, 278.2057 795.7758, 287.7943 795.7758" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 1; fill: rgb(3%,49%,52%); fill-rule: evenodd;"/>
+			<rect x="32" y="664" width="503" height="123" rx="12" ry="12" style="stroke: rgb(79%,85%,89%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(93%,96%,97%); fill-rule: evenodd;"/>
+			<text x="52" y="749.0" style="font-family: Helvetica-Bold; font-size: 22px;fill: rgb(8%,16%,26%); stroke:none;" transform="translate(0,1498) scale(1,-1)">2 Enter maintenance mode</text>
+			<text x="52" y="714.8399999999999" style="font-family: Helvetica; font-size: 19px;fill: rgb(15%,21%,27%); stroke:none;" transform="translate(0,1429) scale(1,-1)">Pause calls, suspend delivery workers and stop</text>
+			<text x="52" y="690.5199999999999" style="font-family: Helvetica; font-size: 19px;fill: rgb(15%,21%,27%); stroke:none;" transform="translate(0,1381) scale(1,-1)">Harbor-owned child services.</text>
+			<rect x="585" y="664" width="503" height="123" rx="12" ry="12" style="stroke: rgb(79%,85%,89%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(93%,96%,97%); fill-rule: evenodd;"/>
+			<text x="605" y="749.0" style="font-family: Helvetica-Bold; font-size: 22px;fill: rgb(8%,16%,26%); stroke:none;" transform="translate(0,1498) scale(1,-1)">3 Choose an action</text>
+			<text x="605" y="714.8399999999999" style="font-family: Helvetica; font-size: 19px;fill: rgb(15%,21%,27%); stroke:none;" transform="translate(0,1429) scale(1,-1)">Update and build or Rebuild where available. Wait;</text>
+			<text x="605" y="690.5199999999999" style="font-family: Helvetica; font-size: 19px;fill: rgb(15%,21%,27%); stroke:none;" transform="translate(0,1381) scale(1,-1)">read phase and log.</text>
+			<path d="M 535,725 L 585,725 Z" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 2.8;"/>
+			<polygon points="585 725, 576.2242 720.2057, 576.2242 729.7943" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 1; fill: rgb(3%,49%,52%); fill-rule: evenodd;"/>
+			<path d="M 836,664 L 836,625 Z" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 2.8;"/>
+			<path d="M 836,625 L 560,625 Z" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 2.8;"/>
+			<path d="M 560,625 L 560,583 Z" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 2.8;"/>
+			<polygon points="560 583, 555.2057 591.7758, 564.7943 591.7758" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 1; fill: rgb(3%,49%,52%); fill-rule: evenodd;"/>
+			<rect x="361" y="503" width="398" height="80" rx="12" ry="12" style="stroke: rgb(79%,85%,89%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(89%,95%,94%); fill-rule: evenodd;"/>
+			<text x="381" y="543.0" style="font-family: Helvetica-Bold; font-size: 24px;fill: rgb(8%,16%,26%); stroke:none;" transform="translate(0,1086) scale(1,-1)">4 Read the final status</text>
+			<path d="M 361,543 L 286,543 Z" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 2.8;"/>
+			<path d="M 286,543 L 286,460 Z" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 2.8;"/>
+			<polygon points="286 460, 281.2057 468.7758, 290.7943 468.7758" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 1; fill: rgb(3%,49%,52%); fill-rule: evenodd;"/>
+			<path d="M 759,543 L 837,543 Z" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 2.8;"/>
+			<path d="M 837,543 L 837,460 Z" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 2.8;"/>
+			<polygon points="837 460, 832.2057 468.7758, 841.7943 468.7758" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 1; fill: rgb(3%,49%,52%); fill-rule: evenodd;"/>
+			<rect x="32" y="280" width="503" height="180" rx="12" ry="12" style="stroke: rgb(79%,85%,89%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(91%,94%,100%); fill-rule: evenodd;"/>
+			<text x="52" y="422.0" style="font-family: Helvetica-Bold; font-size: 22px;fill: rgb(8%,16%,26%); stroke:none;" transform="translate(0,844) scale(1,-1)">Component complete / current</text>
+			<text x="52" y="385.84000000000003" style="font-family: Helvetica; font-size: 21px;fill: rgb(15%,21%,27%); stroke:none;" transform="translate(0,771) scale(1,-1)">Resume servers. Reconnect the client and check</text>
+			<text x="52" y="358.96000000000004" style="font-family: Helvetica; font-size: 21px;fill: rgb(15%,21%,27%); stroke:none;" transform="translate(0,717) scale(1,-1)">a representative operation.</text>
+			<rect x="585" y="280" width="503" height="180" rx="12" ry="12" style="stroke: rgb(79%,85%,89%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(91%,94%,100%); fill-rule: evenodd;"/>
+			<text x="605" y="422.0" style="font-family: Helvetica-Bold; font-size: 22px;fill: rgb(8%,16%,26%); stroke:none;" transform="translate(0,844) scale(1,-1)">Harbor: restart-required</text>
+			<text x="605" y="386.84000000000003" style="font-family: Helvetica; font-size: 20px;fill: rgb(15%,21%,27%); stroke:none;" transform="translate(0,773) scale(1,-1)">Quit and stop servers from the tray. Use Start</text>
+			<text x="605" y="361.24" style="font-family: Helvetica; font-size: 20px;fill: rgb(15%,21%,27%); stroke:none;" transform="translate(0,722) scale(1,-1)">Harbor; the launcher activates the verified app.</text>
+			<text x="605" y="335.64000000000004" style="font-family: Helvetica; font-size: 20px;fill: rgb(15%,21%,27%); stroke:none;" transform="translate(0,671) scale(1,-1)">Reconnect and check.</text>
+			<rect x="32" y="119" width="1056" height="150" rx="12" ry="12" style="stroke: rgb(79%,85%,89%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(93%,96%,97%); fill-rule: evenodd;"/>
+			<text x="52" y="230.0" style="font-family: Helvetica-Bold; font-size: 23px;fill: rgb(8%,16%,26%); stroke:none;" transform="translate(0,460) scale(1,-1)">If something fails, follow the reported state</text>
+			<text x="52" y="195.55999999999995" style="font-family: Helvetica; font-size: 19px;fill: rgb(15%,21%,27%); stroke:none;" transform="translate(0,391) scale(1,-1)">Current version retained: inspect the log, fix the cause and retry.</text>
+			<text x="52" y="171.23999999999995" style="font-family: Helvetica; font-size: 19px;fill: rgb(15%,21%,27%); stroke:none;" transform="translate(0,342) scale(1,-1)">Activated but metadata needs recovery: preserve records, then quit and restart.</text>
+			<text x="52" y="146.91999999999996" style="font-family: Helvetica; font-size: 19px;fill: rgb(15%,21%,27%); stroke:none;" transform="translate(0,293) scale(1,-1)">Launcher failure: inspect launch-error.txt and the named application path.</text>
+			<rect x="32" y="18" width="1056" height="72" rx="10" ry="10" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(89%,95%,94%); fill-rule: evenodd;"/>
+			<text x="50" y="59.0" style="font-family: Helvetica; font-size: 19px;fill: rgb(8%,16%,26%); stroke:none;" transform="translate(0,118) scale(1,-1)">One maintenance job runs at a time. Closing the window only hides Harbor. The current retention policy keeps no user</text>
+			<text x="50" y="34.68" style="font-family: Helvetica; font-size: 19px;fill: rgb(8%,16%,26%); stroke:none;" transform="translate(0,69) scale(1,-1)">rollback copy.</text>
+		</g>
+	</g>
+</svg>

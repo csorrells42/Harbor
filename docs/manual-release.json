@@ -1,7 +1,7 @@
 {
   "edition": "Harbor 0.2.0 · Windows Portable · September 2026",
   "scope": "Operator manual and source-build reference",
-  "reviewed": "2026-09-18",
+  "reviewed": "2026-09-19",
   "verification": {
     "sourceRegression": {
       "total": 235,
@@ -25,16 +25,30 @@
     "sourceDesktopPassed": 6,
     "nativeAuthenticationPassed": 1,
     "sourceSecurityGate": {
-      "status": "pending",
-      "reason": "Dedicated scanner registration did not complete",
-      "manualSubstituteAudit": false
+      "status": "blocked_pending_fix_and_retest",
+      "manualReview": {
+        "completed": "2026-09-19",
+        "confirmedFindings": 1,
+        "severity": "Medium",
+        "findingId": "HARBOR-MANUAL-GATEWAY-001",
+        "fullyReadFiles": 56,
+        "productionFixIncluded": false,
+        "verifiedWorkaround": false
+      },
+      "automatedScanner": {
+        "status": "did_not_run",
+        "reason": "Failed before registration"
+      }
     },
     "documentation": {
-      "screenshots": 8,
+      "screenshots": 9,
       "chapters": 16,
       "jsonExamples": 10,
       "source": "docs/HARBOR-MANUAL.md",
-      "screenshotProvenance": "docs/images/screenshots/provenance.json"
+      "screenshotProvenance": "docs/images/screenshots/provenance.json",
+      "openingScreenshot": "docs/images/screenshots/00-harbor-overview.png",
+      "workflowDiagrams": 6,
+      "totalFigures": 15
     },
     "diagnosticsLifecyclePassed": 13,
     "maintenanceLauncherPassed": 29

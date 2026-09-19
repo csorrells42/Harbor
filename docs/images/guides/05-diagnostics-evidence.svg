@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="1120" height="870" preserveAspectRatio="xMinYMin meet" viewBox="0 0 1120 870" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="1120" height="870"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-870)" style="clip-path: url(#clip)">
+		<g transform="">
+			<rect x="0" y="0" width="1120" height="870" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="32" y="814.0" style="font-family: Helvetica-Bold; font-size: 32px;fill: rgb(8%,16%,26%); stroke:none;" transform="translate(0,1628) scale(1,-1)">From trial evidence to a useful comparison</text>
+			<text x="32" y="778.0" style="font-family: Helvetica; font-size: 20px;fill: rgb(37%,43%,50%); stroke:none;" transform="translate(0,1556) scale(1,-1)">A campaign varies delivery settings on the installed harness and model pairing.</text>
+			<path d="M 32,754 L 1088,754 Z" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 2;"/>
+			<rect x="32" y="611" width="581" height="114" rx="12" ry="12" style="stroke: rgb(79%,85%,89%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(93%,96%,97%); fill-rule: evenodd;"/>
+			<text x="52" y="687.0" style="font-family: Helvetica-Bold; font-size: 22px;fill: rgb(8%,16%,26%); stroke:none;" transform="translate(0,1374) scale(1,-1)">1 Verify Hermes + model</text>
+			<text x="52" y="652.84" style="font-family: Helvetica; font-size: 19px;fill: rgb(15%,21%,27%); stroke:none;" transform="translate(0,1305) scale(1,-1)">Confirm the actual configured pairing before testing.</text>
+			<path d="M 322,611 L 322,601 Z" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 2.8;"/>
+			<polygon points="322 601, 317.2057 609.7758, 326.7943 609.7758" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 1; fill: rgb(3%,49%,52%); fill-rule: evenodd;"/>
+			<rect x="32" y="487" width="581" height="114" rx="12" ry="12" style="stroke: rgb(79%,85%,89%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(93%,96%,97%); fill-rule: evenodd;"/>
+			<text x="52" y="563.0" style="font-family: Helvetica-Bold; font-size: 22px;fill: rgb(8%,16%,26%); stroke:none;" transform="translate(0,1126) scale(1,-1)">2 Build the test matrix</text>
+			<text x="52" y="528.8399999999999" style="font-family: Helvetica; font-size: 19px;fill: rgb(15%,21%,27%); stroke:none;" transform="translate(0,1057) scale(1,-1)">Delivery variants x tasks x repetitions, within time and resource</text>
+			<text x="52" y="504.5199999999999" style="font-family: Helvetica; font-size: 19px;fill: rgb(15%,21%,27%); stroke:none;" transform="translate(0,1009) scale(1,-1)">limits.</text>
+			<path d="M 322,487 L 322,477 Z" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 2.8;"/>
+			<polygon points="322 477, 317.2057 485.7758, 326.7943 485.7758" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 1; fill: rgb(3%,49%,52%); fill-rule: evenodd;"/>
+			<rect x="32" y="363" width="581" height="114" rx="12" ry="12" style="stroke: rgb(79%,85%,89%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(93%,96%,97%); fill-rule: evenodd;"/>
+			<text x="52" y="439.0" style="font-family: Helvetica-Bold; font-size: 22px;fill: rgb(8%,16%,26%); stroke:none;" transform="translate(0,878) scale(1,-1)">3 Run fresh trials</text>
+			<text x="52" y="404.84" style="font-family: Helvetica; font-size: 19px;fill: rgb(15%,21%,27%); stroke:none;" transform="translate(0,809) scale(1,-1)">Use fresh Hermes sessions and private synthetic fixtures.</text>
+			<path d="M 322,363 L 322,353 Z" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 2.8;"/>
+			<polygon points="322 353, 317.2057 361.7758, 326.7943 361.7758" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 1; fill: rgb(3%,49%,52%); fill-rule: evenodd;"/>
+			<rect x="32" y="239" width="581" height="114" rx="12" ry="12" style="stroke: rgb(79%,85%,89%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(93%,96%,97%); fill-rule: evenodd;"/>
+			<text x="52" y="315.0" style="font-family: Helvetica-Bold; font-size: 22px;fill: rgb(8%,16%,26%); stroke:none;" transform="translate(0,630) scale(1,-1)">4 Collect evidence</text>
+			<text x="52" y="280.84000000000003" style="font-family: Helvetica; font-size: 19px;fill: rgb(15%,21%,27%); stroke:none;" transform="translate(0,561) scale(1,-1)">Acceptance, tool calls, fixture state, final response, elapsed time</text>
+			<text x="52" y="256.52000000000004" style="font-family: Helvetica; font-size: 19px;fill: rgb(15%,21%,27%); stroke:none;" transform="translate(0,513) scale(1,-1)">and resources.</text>
+			<path d="M 322,239 L 322,229 Z" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 2.8;"/>
+			<polygon points="322 229, 317.2057 237.7758, 326.7943 237.7758" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 1; fill: rgb(3%,49%,52%); fill-rule: evenodd;"/>
+			<rect x="32" y="115" width="581" height="114" rx="12" ry="12" style="stroke: rgb(79%,85%,89%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(89%,95%,94%); fill-rule: evenodd;"/>
+			<text x="52" y="191.0" style="font-family: Helvetica-Bold; font-size: 22px;fill: rgb(8%,16%,26%); stroke:none;" transform="translate(0,382) scale(1,-1)">5 Check eligibility + grade</text>
+			<text x="52" y="156.84000000000003" style="font-family: Helvetica; font-size: 19px;fill: rgb(15%,21%,27%); stroke:none;" transform="translate(0,313) scale(1,-1)">Apply the independent rubric; retain excluded trials visibly.</text>
+			<text x="682" y="678.0" style="font-family: Helvetica-Bold; font-size: 25px;fill: rgb(8%,16%,26%); stroke:none;" transform="translate(0,1356) scale(1,-1)">Four comparison views</text>
+			<rect x="682" y="547" width="406" height="105" rx="12" ry="12" style="stroke: rgb(79%,85%,89%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(91%,94%,100%); fill-rule: evenodd;"/>
+			<text x="702" y="613.0" style="font-family: Helvetica-Bold; font-size: 23px;fill: rgb(8%,16%,26%); stroke:none;" transform="translate(0,1226) scale(1,-1)">Harbor configurations</text>
+			<text x="702" y="578.56" style="font-family: Helvetica; font-size: 19px;fill: rgb(15%,21%,27%); stroke:none;" transform="translate(0,1157) scale(1,-1)">Compare matched delivery setups</text>
+			<rect x="682" y="421" width="406" height="105" rx="12" ry="12" style="stroke: rgb(79%,85%,89%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(91%,94%,100%); fill-rule: evenodd;"/>
+			<text x="702" y="487.0" style="font-family: Helvetica-Bold; font-size: 23px;fill: rgb(8%,16%,26%); stroke:none;" transform="translate(0,974) scale(1,-1)">Models</text>
+			<text x="702" y="452.56" style="font-family: Helvetica; font-size: 19px;fill: rgb(15%,21%,27%); stroke:none;" transform="translate(0,905) scale(1,-1)">Outcomes grouped by model</text>
+			<rect x="682" y="295" width="406" height="105" rx="12" ry="12" style="stroke: rgb(79%,85%,89%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(91%,94%,100%); fill-rule: evenodd;"/>
+			<text x="702" y="361.0" style="font-family: Helvetica-Bold; font-size: 23px;fill: rgb(8%,16%,26%); stroke:none;" transform="translate(0,722) scale(1,-1)">Harnesses</text>
+			<text x="702" y="326.55999999999995" style="font-family: Helvetica; font-size: 19px;fill: rgb(15%,21%,27%); stroke:none;" transform="translate(0,653) scale(1,-1)">Outcomes grouped by harness</text>
+			<rect x="682" y="169" width="406" height="105" rx="12" ry="12" style="stroke: rgb(79%,85%,89%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(91%,94%,100%); fill-rule: evenodd;"/>
+			<text x="702" y="235.0" style="font-family: Helvetica-Bold; font-size: 23px;fill: rgb(8%,16%,26%); stroke:none;" transform="translate(0,470) scale(1,-1)">Combinations</text>
+			<text x="702" y="200.55999999999995" style="font-family: Helvetica; font-size: 19px;fill: rgb(15%,21%,27%); stroke:none;" transform="translate(0,401) scale(1,-1)">Outcomes for each full pairing</text>
+			<path d="M 613,179 L 650,179 Z" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 2.8;"/>
+			<path d="M 650,179 L 650,600 Z" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 2.8;"/>
+			<path d="M 650,600 L 682,600 Z" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 2.8;"/>
+			<polygon points="682 600, 673.2242 595.2057, 673.2242 604.7943" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 1; fill: rgb(3%,49%,52%); fill-rule: evenodd;"/>
+			<path d="M 650,474 L 682,474 Z" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 2.8;"/>
+			<polygon points="682 474, 673.2242 469.2057, 673.2242 478.7943" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 1; fill: rgb(3%,49%,52%); fill-rule: evenodd;"/>
+			<path d="M 650,348 L 682,348 Z" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 2.8;"/>
+			<polygon points="682 348, 673.2242 343.2057, 673.2242 352.7943" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 1; fill: rgb(3%,49%,52%); fill-rule: evenodd;"/>
+			<path d="M 650,222 L 682,222 Z" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 2.8;"/>
+			<polygon points="682 222, 673.2242 217.2057, 673.2242 226.7943" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 1; fill: rgb(3%,49%,52%); fill-rule: evenodd;"/>
+			<rect x="32" y="17" width="1056" height="72" rx="10" ry="10" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(89%,95%,94%); fill-rule: evenodd;"/>
+			<text x="50" y="58.0" style="font-family: Helvetica; font-size: 19px;fill: rgb(8%,16%,26%); stroke:none;" transform="translate(0,116) scale(1,-1)">Compare matched tasks and coverage. More matched pairings are needed to rank models or harnesses. A completed</text>
+			<text x="50" y="33.68" style="font-family: Helvetica; font-size: 19px;fill: rgb(8%,16%,26%); stroke:none;" transform="translate(0,67) scale(1,-1)">run alone is not verified task success.</text>
+		</g>
+	</g>
+</svg>

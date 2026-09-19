@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="1120" height="750" preserveAspectRatio="xMinYMin meet" viewBox="0 0 1120 750" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="1120" height="750"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-750)" style="clip-path: url(#clip)">
+		<g transform="">
+			<rect x="0" y="0" width="1120" height="750" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="32" y="694.0" style="font-family: Helvetica-Bold; font-size: 32px;fill: rgb(8%,16%,26%); stroke:none;" transform="translate(0,1388) scale(1,-1)">What travels with a Portable folder?</text>
+			<text x="32" y="658.0" style="font-family: Helvetica; font-size: 20px;fill: rgb(37%,43%,50%); stroke:none;" transform="translate(0,1316) scale(1,-1)">Quit and stop servers first. Keep the complete directory tree together.</text>
+			<path d="M 32,634 L 1088,634 Z" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 2;"/>
+			<rect x="32" y="270" width="1056" height="328" rx="14" ry="14" style="stroke: rgb(79%,85%,89%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(93%,96%,97%); fill-rule: evenodd;"/>
+			<text x="56" y="554.0" style="font-family: Helvetica-Bold; font-size: 26px;fill: rgb(8%,16%,26%); stroke:none;" transform="translate(0,1108) scale(1,-1)">Harbor Portable folder</text>
+			<rect x="56" y="303" width="482" height="222" rx="12" ry="12" style="stroke: rgb(79%,85%,89%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="76" y="486.0" style="font-family: Helvetica-Bold; font-size: 23px;fill: rgb(8%,16%,26%); stroke:none;" transform="translate(0,972) scale(1,-1)">Application and tools</text>
+			<text x="76" y="450.56" style="font-family: Helvetica; font-size: 20px;fill: rgb(15%,21%,27%); stroke:none;" transform="translate(0,901) scale(1,-1)">application/</text>
+			<text x="76" y="424.96" style="font-family: Helvetica; font-size: 20px;fill: rgb(15%,21%,27%); stroke:none;" transform="translate(0,849) scale(1,-1)">packages/</text>
+			<text x="76" y="399.36" style="font-family: Helvetica; font-size: 20px;fill: rgb(15%,21%,27%); stroke:none;" transform="translate(0,798) scale(1,-1)">runtimes/</text>
+			<text x="76" y="373.76" style="font-family: Helvetica; font-size: 20px;fill: rgb(15%,21%,27%); stroke:none;" transform="translate(0,747) scale(1,-1)">support/</text>
+			<rect x="564" y="303" width="500" height="222" rx="12" ry="12" style="stroke: rgb(79%,85%,89%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(89%,95%,94%); fill-rule: evenodd;"/>
+			<text x="584" y="486.0" style="font-family: Helvetica-Bold; font-size: 23px;fill: rgb(8%,16%,26%); stroke:none;" transform="translate(0,972) scale(1,-1)">Saved state and user content</text>
+			<text x="584" y="450.56" style="font-family: Helvetica; font-size: 20px;fill: rgb(15%,21%,27%); stroke:none;" transform="translate(0,901) scale(1,-1)">data/: settings, credentials, workspaces, memory</text>
+			<text x="584" y="424.96" style="font-family: Helvetica; font-size: 20px;fill: rgb(15%,21%,27%); stroke:none;" transform="translate(0,849) scale(1,-1)">and Diagnostics.</text>
+			<text x="584" y="399.36" style="font-family: Helvetica; font-size: 20px;fill: rgb(15%,21%,27%); stroke:none;" transform="translate(0,798) scale(1,-1)">Keep maintenance records for recovery.</text>
+			<path d="M 286,270 L 286,216 Z" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 2.8;"/>
+			<polygon points="286 216, 281.2057 224.7758, 290.7943 224.7758" style="stroke: rgb(3%,49%,52%); stroke-linecap: butt; stroke-width: 1; fill: rgb(3%,49%,52%); fill-rule: evenodd;"/>
+			<rect x="56" y="96" width="482" height="120" rx="12" ry="12" style="stroke: rgb(79%,85%,89%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(91%,94%,100%); fill-rule: evenodd;"/>
+			<text x="76" y="177.0" style="font-family: Helvetica-Bold; font-size: 23px;fill: rgb(8%,16%,26%); stroke:none;" transform="translate(0,354) scale(1,-1)">Destination folder</text>
+			<text x="76" y="141.55999999999995" style="font-family: Helvetica; font-size: 20px;fill: rgb(15%,21%,27%); stroke:none;" transform="translate(0,283) scale(1,-1)">Copy or move the whole Portable tree.</text>
+			<rect x="564" y="96" width="500" height="120" rx="12" ry="12" style="stroke: rgb(79%,85%,89%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="584" y="177.0" style="font-family: Helvetica-Bold; font-size: 23px;fill: rgb(8%,16%,26%); stroke:none;" transform="translate(0,354) scale(1,-1)">Review separately</text>
+			<text x="584" y="141.55999999999995" style="font-family: Helvetica; font-size: 20px;fill: rgb(15%,21%,27%); stroke:none;" transform="translate(0,283) scale(1,-1)">External project paths, account stores and model</text>
+			<text x="584" y="115.95999999999995" style="font-family: Helvetica; font-size: 20px;fill: rgb(15%,21%,27%); stroke:none;" transform="translate(0,231) scale(1,-1)">services.</text>
+			<rect x="32" y="10" width="1056" height="72" rx="10" ry="10" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(89%,95%,94%); fill-rule: evenodd;"/>
+			<text x="50" y="51.0" style="font-family: Helvetica; font-size: 19px;fill: rgb(8%,16%,26%); stroke:none;" transform="translate(0,102) scale(1,-1)">Private data and credentials travel with the folder. External locations and services do not. Review absolute paths and</text>
+			<text x="50" y="26.68" style="font-family: Helvetica; font-size: 19px;fill: rgb(8%,16%,26%); stroke:none;" transform="translate(0,53) scale(1,-1)">authentication after relocation.</text>
+		</g>
+	</g>
+</svg>

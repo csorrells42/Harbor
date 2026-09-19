@@ -1,5 +1,7 @@
 # Harbor installation and operations manual
 
+![Harbor desktop with live system monitoring and the main navigation](images/screenshots/00-harbor-overview.png)
+
 Author: **Christopher Sorrells (csorrells42)** · [clsorrells42@gmail.com](mailto:clsorrells42@gmail.com)
 
 This is the full source for the packaged PDF manual.
@@ -29,6 +31,10 @@ The current Portable installation has a configured toolbox and built-in maintena
 Diagnostic model/harness quality is established by actual campaigns, not by an installed package or a green build. Cloud semantic providers need their own working credentials; local protocol tests do not validate a real provider account. The release verification appendix separates these conditions from implemented functionality.
 
 ## 2. Quickstart
+
+![From a complete Portable folder to one verified client operation](images/guides/01-quickstart-path.png)
+
+Follow the connection path first, then explore delivery modes and Diagnostics. Each stage establishes something different: an online gateway and discovered tools are prerequisites, while the final check verifies an actual operation.
 
 ### Use an existing Portable bundle
 
@@ -116,6 +122,10 @@ Closing the Harbor window hides it; the gateway and child servers keep running. 
 
 ### Files and data to preserve
 
+
+![Portable application files, private state and external dependencies](images/guides/02-portable-folder.png)
+
+Use **Quit and stop servers** before transferring the complete folder. Its `data/` tree includes saved configuration, work and credential files, so an existing installation is private material. Review external project paths, machine-bound account access and the separately installed Hermes/model service at the destination. The relocation steps below cover those dependencies and exported client paths.
 
 | Path relative to portable root | Purpose and handling |
 |---|---|
@@ -393,7 +403,11 @@ Review both switches, then select **Apply protections** to save changes. A blank
 | On | Off | Devices that can reach the selected bind address can connect using the saved bearer key. |
 | Off | Off | Devices that can reach the selected bind address can connect without a key. |
 
-All four combinations are supported. Change either or both switches and select **Apply protections** to save both choices together as one update. If that update fails, the previous saved protections remain active. Turning off the key does not turn off loopback, and turning off loopback does not turn off the key. To view, replace or rotate the initial saved key:
+All four final combinations are supported. Change either or both switches and select **Apply protections** to save both choices. Turning off the key does not turn off loopback, and turning off loopback does not turn off the key.
+
+**Known transition issue, confirmed September 19, 2026:** starting with network access and a required API key, changing both switches to key off and loopback on can briefly leave the previous network listener unauthenticated while settings work is pending. The default loopback-only state is not remotely exposed by this finding. A fix and retest are pending; no workaround has been verified. See Release verification for the audit scope.
+
+To view, replace or rotate the initial saved key:
 
 1. Open **This Server → Gateway access**.
 2. Enter a key in **Gateway API key**, or select **Generate new key**. The generator creates a `harbor_` token from 32 random bytes. Generation fills the draft field only; it does not replace the active saved key yet.
@@ -573,6 +587,10 @@ For Hybrid, select at least two search methods and review their settings before 
 | Portkey — Cloudflare Workers AI / `portkey-workers` | Semantic discovery through the account's embedding endpoint. | Cloudflare endpoint, `@cf/` model, dimensions and API key. |
 | Hybrid / `hybrid` | Searches each selected method, merges and deduplicates exact namespaced tools, returns full schemas and matching methods. Code Mode adds schema/execution tools if included. | Two or more distinct methods from the six search/code modes. All tools and Hybrid cannot be members. |
 
+![Direct tool definitions and searched schemas lead to the same upstream execution](images/guides/04-tool-delivery-flow.png)
+
+All tools exposes definitions immediately; search modes first return matching names and input schemas. The client still has to select and invoke the intended tool through the mode's interface. Discovery alone does not perform the requested task or establish a permission boundary. Code Mode adds schema lookup and Python composition of tool calls.
+
 **Results per search method** accepts 1–50, and limits each method before Hybrid merges its results. Hybrid's final list can therefore be larger. Ranking combines method ranks, not uncalibrated scores from different engines. If one Hybrid method fails, successful methods can return results alongside warnings. If every method fails, search fails explicitly. Stopped servers disappear from the searchable catalog.
 
 In **Search settings**, **Minimum relevance** accepts 0–1 (default 0.25) for semantic matches. Lower values admit more weak matches; higher values can exclude usable tools. The four **Local search model** choices are:
@@ -749,6 +767,10 @@ This is a conformance task pack with exact sequence requirements. A different va
 
 **Harbor configurations**, **Models**, **Harnesses** and **Combinations** group observations by those respective identities. Each trial records the selected Harbor settings, relevant Harbor source fingerprint, harness revision/source fingerprint, configured model/provider/reasoning, hardware identity, suite version, task and repetition. A combination identifies the full configuration/harness/model/hardware tuple.
 
+![Independent trial evidence feeds four comparison views](images/guides/05-diagnostics-evidence.png)
+
+The grader combines observed actions, synthetic fixture state and the required response; a harness's own completion claim is recorded separately. Eligibility checks govern quality rates, while excluded trials remain visible. The four views organize the evidence available: comparing multiple models or harnesses requires additional supported pairings and matched coverage.
+
 The current adapter observes one Hermes/model pairing within a campaign. Thus the Models and Harnesses views usually contain one entry; they have not ranked multiple alternatives. The latest campaign is shown after restart. Older campaign directories remain on disk, but a matched cross-campaign browser/aggregate is not implemented.
 
 A provisional configuration leader requires matching task/repetition/pairing/hardware coverage, at least five eligible observations per configuration and no exclusions. Ordering uses completion first, instruction adherence second and successful-trial median latency third. Completion receives a descriptive Wilson 95% interval. The implemented confirmed-winner rule requires the leading completion interval to be entirely above the others. This is an interval-separation rule for the tested sample, not a paired statistical test, multiple-comparison correction or proof of a universal optimum. Repeated tasks can be correlated. There is no overall weighted score that trades incorrect work for speed.
@@ -771,6 +793,10 @@ The fresh source profile shown here has no Portable component recipes to run. In
 6. For an ordinary MCP component, select **Resume servers** after the job finishes. Harbor restarts the saved resume set; current code excludes entries removed during maintenance and logs individual restart failures without blocking the others.
 7. For **Harbor Portable**, wait for **restart-required**, then use tray **Quit and stop servers** and launch through **Start Harbor**. The launcher activates the verified packaged application. Opening the old executable directly bypasses this activation mechanism.
 8. Reconnect the client if necessary and verify representative operations, not only tool counts. Inspect **Children Servers Statuses** and **Activity** for per-server errors.
+
+![Follow the final maintenance status through resume, restart or recovery](images/guides/06-maintenance-lifecycle.png)
+
+Read the final status before acting. A component update normally returns through **Resume servers**; a Harbor application update requires **Quit and stop servers** and the Portable launcher. A failure before activation retains the current component. A failure after activation can require metadata recovery, so preserve the recorded activation state and follow the reported recovery path.
 
 **Rebuild is not guaranteed offline or bit-for-bit reproducible.** `npm ci` uses lockfiles, but Python source recipes can resolve dependencies from their declared constraints, and downloads may be required if caches are missing. A browser-package update does not automatically replace every browser runtime: the maintenance notes require a matching bundled browser where necessary. Core Node/Python/Git/Typst/Chromium runtimes are not separate automatically updated components in the current maintenance manifest.
 
@@ -1036,6 +1062,10 @@ The authoritative recipe list for a distributed bundle is its root `maintenance.
 
 ## 11. Architecture and data ownership
 
+![Clients, the Harbor gateway, shared child servers and desktop controls](images/guides/03-gateway-architecture.png)
+
+Clients reach the HTTP gateway directly or through the stdio bridge. The gateway applies the selected bind and API-key settings, then routes namespaced calls through shared upstream connections. Desktop controls use local IPC. Harbor supervises the processes it launches; an external service keeps its outside owner. Optional discovery workers change how tools are found.
+
 The application has five operational layers:
 
 1. **Desktop shell and IPC:** Electron loads local UI assets and a narrow preload API. The renderer has context isolation and no Node integration; navigation/new windows and permission requests are restricted. Ordinary configuration remains in the local desktop, not an HTTP administration endpoint.
@@ -1207,26 +1237,28 @@ The license files below are included in the documentation package under `third-p
 
 ### Release identity and evidence
 
-Reviewed **September 18, 2026**: **Harbor 0.2.0**, Windows x64 Portable, Electron 44.3.0, MCP TypeScript SDK 1.30.0 and Node.js 24. Evidence covers real Windows desktop/runtime acceptance and controlled source fixtures.
+Runtime reviewed **September 18, 2026**: **Harbor 0.2.0**, Windows x64 Portable, Electron 44.3.0, MCP TypeScript SDK 1.30.0 and Node.js 24. Evidence covers Windows desktop acceptance and controlled source fixtures.
 
 | Verification | Observed result and scope |
 | --- | --- |
-| Complete source regression suite | **235 tests: 233 passed, 0 failed, 2 skipped** in 168.177 seconds. Only two optional WSL checks skipped. Native authentication, launcher, installed-Hermes and six-task Diagnostics acceptance were enabled. |
-| Gateway access controls | Native desktop acceptance passed for all four combinations of **Use API key** and **Loopback only**, generated first-setup credentials, saved disabled choices after restart, key generation/rotation, and client-session invalidation. |
-| Credentials and client configuration | HTTP and stdio configuration copies carried the saved key only through explicit copy actions; ordinary previews and snapshots excluded it. Missing/wrong keys were rejected. |
-| Delivery with authentication | All tools, FastMCP BM25/Regex/Code Mode, Portkey local semantic search and Hybrid worked against the authenticated gateway. These checks do not establish the quality of every model's discovery choices. |
-| Targeted source and desktop checks | Focused checks passed: gateway authentication 31; renderer UI 56; source desktop 6; Diagnostics lifecycle 13; maintenance/launcher 29. The full suite also exercised real Hermes, native authentication and campaign persistence. |
-| Default toolbox operations | Real-runtime operations covered PDF, Office, DuckDB, MarkItDown, DBHub, Memory, Git, Sequential Thinking, host files/processes, Chromium, Typst, GitHub, Context7 and Exa. Evidence is specific to the tested operation, account and environment. |
-| Licensing evidence | All 19 default server entries, their local package versions, 66 notice/index hashes and four model-asset sets were reconciled with the inspected installation. Full-toolbox binary/source obligations remain as described in the licensing chapter. |
-| Manual consistency | The PDF records its Markdown source SHA-256 and embeds eight real screenshots. JSON examples, local links and required topics are validated; all figure pages are visually checked. |
+| Complete source regression suite | **235 tests: 233 passed, 0 failed, 2 optional WSL checks skipped**, 168.177 seconds. Native authentication, launcher, installed Hermes and six-task Diagnostics acceptance were enabled. |
+| Gateway access controls | All four final protection combinations, first-setup credentials, saved disabled choices, rotation and session invalidation passed. The later audit found a transition defect described below. |
+| Credentials and client configuration | Explicit HTTP/stdio copies carried the saved key; ordinary previews excluded it. Missing/wrong keys were rejected. |
+| Delivery with authentication | All tools, FastMCP BM25/Regex/Code Mode, Portkey local semantic search and Hybrid passed. This does not establish every model's discovery quality. |
+| Focused source and desktop checks | Gateway authentication 31; renderer UI 56; source desktop 6; Diagnostics lifecycle 13; maintenance/launcher 29. |
+| Default toolbox operations | Real operations covered PDF, Office, DuckDB, MarkItDown, DBHub, Memory, Git, Sequential Thinking, host files/processes, Chromium, Typst, GitHub, Context7 and Exa. Results apply to the tested operation, account and environment. |
+| Licensing evidence | All 19 default server entries, local versions, 66 notice/index hashes and four model-asset sets were reconciled. Full-toolbox redistribution obligations remain in the licensing chapter. |
+| Manual consistency | The PDF records its Markdown SHA-256 and embeds nine real screenshots and six workflow diagrams. Figure pixels, JSON examples, links and topics are validated; figure pages are visually checked. |
 
 ### Recheck after updates
 
-After updates, use the normal shortcut, check saved protections, connect a client, run a checkable tool operation and restart to verify settings. Finish or cancel Diagnostics before maintenance; apply the build chapter's tests to code changes.
+Use the normal shortcut, check saved protections, connect a client, run a checkable tool operation and restart to verify settings. Complete or cancel Diagnostics before maintenance. Apply the build chapter's tests to code changes.
 
-Brave Search credentials remain deferred. Protocol fixtures do not validate real Brave or hosted embedding accounts. Model/harness quality requires matched diagnostic campaigns; no universally best combination is claimed.
+Brave credentials remain deferred. Fixtures do not validate live Brave or hosted embedding accounts. Model/harness quality requires matched campaigns; no universally best combination is claimed.
 
-**Source-security gate: pending until the dedicated scanner works.** Registration did not complete; no substitute manual source-security audit or full security clearance is claimed. Functional tests do not close that gate.
+**Security clearance: blocked pending fix and retest.** The manual source-security review completed **September 19, 2026** with **one confirmed Medium-severity finding, HARBOR-MANUAL-GATEWAY-001**. The combined protection transition described in Configuration can temporarily leave the previous network listener unauthenticated. The default loopback-only state is not remotely exposed by this finding. No production fix or verified workaround is included.
 
-Toolbox advisories remain for FastMCP 2 paths outside the inspected stdio configuration and for cryptography constrained by Word's dependencies. Reassess these when updating or redistributing.
+The review fully read 56 distinct files and reproduced the defect with an isolated harmless tool. Other passing checks do not negate it. Third-party dependencies were not exhaustively source-audited. The dedicated automated scanner failed before registration and did not run.
+
+Toolbox advisories remain for FastMCP 2 paths outside the inspected stdio configuration and for cryptography constrained by Word's dependencies. Reassess when updating or redistributing.
 
