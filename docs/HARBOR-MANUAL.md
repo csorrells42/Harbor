@@ -405,7 +405,7 @@ Review both switches, then select **Apply protections** to save changes. A blank
 
 All four final combinations are supported. Change either or both switches and select **Apply protections** to save both choices. Turning off the key does not turn off loopback, and turning off loopback does not turn off the key.
 
-**Known transition issue, confirmed September 19, 2026:** starting with network access and a required API key, changing both switches to key off and loopback on can briefly leave the previous network listener unauthenticated while settings work is pending. The default loopback-only state is not remotely exposed by this finding. A fix and retest are pending; no workaround has been verified. See Release verification for the audit scope.
+While gateway protection or settings changes are waiting to apply or are being applied, Harbor blocks new public requests, including time spent waiting for another save. Clients may receive HTTP **503** during this interval. Wait for the operation to finish, then reconnect using the current endpoint and the saved key when key use is enabled. Authentication changes also invalidate existing public sessions. If an error prevents Harbor from restoring a consistent saved state, client access stays blocked until recovery succeeds. All four final combinations of **Use API key** and **Loopback only** remain available.
 
 To view, replace or rotate the initial saved key:
 
@@ -424,7 +424,7 @@ The first-setup defaults above describe the desktop application. The standalone 
 
 #### Storage, disabling and rotation
 
-Portable stores gateway authentication in `data/auth/gateway.json`, separately from `data/harbor-settings.json` and child-server configuration. Its schema is:
+Portable stores gateway authentication in `data/auth/gateway.json`, separately from `data/harbor-settings.json` and child-server configuration. The usual settled form is:
 
 ```json
 {
@@ -436,7 +436,13 @@ Portable stores gateway authentication in `data/auth/gateway.json`, separately f
 
 This example is a placeholder, not a suggested production secret. The real file contains the saved key in plaintext; it is not encrypted or stored only as a hash. The code uses a temporary file and rename when saving and requests owner-only mode `0600` where the operating system honors it. This is not an encrypted Windows credential vault or a claim of a specially configured Windows ACL. Portable copies include this file unless deliberately excluded. Do not publish it, include it in screenshots, or point the public source exporter at the live `data` tree. Ordinary authentication status exposes only `enabled` and `hasKey`; the secret is excluded from general snapshots, logs and previews.
 
-To rotate the key, enter or generate a replacement, keep **Use API key** selected, and choose **Apply protections**. Then use **Copy configuration** and reconnect each client. The old key stops authenticating new requests, and public/client-created sessions are disconnected. There is one current shared key, with no configured overlap/expiry/grace-period field. Harbor's own catalog workers use their separate internal credential so normal delivery can continue without restarting child servers. Finish important client operations before rotating: disconnecting a session does not undo tool actions already performed.
+During a save that coordinates credentials with gateway settings, `gateway.json` may also contain an optional `settings` object with the complete validated settings for that operation. This is a temporary recovery record. Harbor retires it after the settings file and running gateway have committed successfully. If an interruption or cleanup failure leaves the record behind, the next startup replays it into `data/harbor-settings.json` before opening the gateway listener and attempts to retire it.
+
+Let startup finish recovery before making offline settings edits. Once recovery has completed and the temporary record has been retired, stop Harbor before editing its settings file. In ordinary settled operation, `data/harbor-settings.json` remains the settings source; the authentication file is not a permanent second settings source.
+
+To rotate the key, enter or generate a replacement, keep **Use API key** selected, and choose **Apply protections**. Then use **Copy configuration** and reconnect each client. The old key stops authenticating new requests, and public/client-created sessions are disconnected. There is one current shared key, with no configured overlap/expiry/grace-period field. Harbor's own catalog workers use their separate internal credential, and child-server processes stay running. Finish important client operations before rotating: disconnecting a session does not undo tool actions already performed.
+
+Changing or rotating the key, or changing whether a key is required, without changing loopback/network access does not rebuild the listener or initialize optional discovery workers. Clients still need to reconnect after authentication changes.
 
 To disable the key requirement, clear **Use API key** and select **Apply protections**. This retains the saved key for reuse; it does not delete the key file, change **Loopback only**, or revoke an upstream provider credential. When key use is disabled, copied client configurations omit authentication headers/environment entries. To permit network connections, separately clear **Loopback only** and Apply. Either disabled choice persists after restart, including when both are disabled. The local desktop control remains the normal recovery path for a client with an old or lost key.
 
@@ -1126,7 +1132,7 @@ For public release, package application code, documentation, dependency/license 
 | HTTP 404 | Check the exact path and absence of added query/trailing slash. An invalid old MCP session also requires reconnecting. |
 | HTTP 400 or invalid/missing session on browser GET | Use a real MCP initialize handshake instead of treating the route as a web page. |
 | HTTP 413 | Request body exceeded the gateway's 1 MiB limit. Reduce the request size. |
-| HTTP 503 / Gateway unavailable | Check whether maintenance has paused the gateway or shutdown/rebinding is in progress. Resume after maintenance finishes, then reconnect. |
+| HTTP 503 / Gateway unavailable | Check maintenance, shutdown, rebinding or a queued settings/protection change. Wait, then reconnect. If recovery failed, resolve the save error and apply protections again. |
 | Zero raw tools | Check child-server statuses and Activity. Saving/importing a definition does not start it. |
 | Only a few tools visible to the model | Check active delivery mode. Search modes advertise discovery/invocation entry points, not the complete raw catalog. |
 | Unknown tool / stale tool schema | Reconnect the client and discover again after server or delivery changes. Use the exact returned name and schema. |
@@ -1237,17 +1243,16 @@ The license files below are included in the documentation package under `third-p
 
 ### Release identity and evidence
 
-Runtime reviewed **September 18, 2026**: **Harbor 0.2.0**, Windows x64 Portable, Electron 44.3.0, MCP TypeScript SDK 1.30.0 and Node.js 24. Evidence covers Windows desktop acceptance and controlled source fixtures.
+Source repair verified **September 19, 2026**: **Harbor 0.2.0**, Windows x64, Electron 44.3.0, MCP TypeScript SDK 1.30.0 and Node.js 24. Machine-specific package and installation results belong to the accompanying `HARBOR-QA-REPORT.md` and verification records. Earlier Portable acceptance remains historical evidence.
 
 | Verification | Observed result and scope |
 | --- | --- |
-| Complete source regression suite | **235 tests: 233 passed, 0 failed, 2 optional WSL checks skipped**, 168.177 seconds. Native authentication, launcher, installed Hermes and six-task Diagnostics acceptance were enabled. |
-| Gateway access controls | All four final protection combinations, first-setup credentials, saved disabled choices, rotation and session invalidation passed. The later audit found a transition defect described below. |
-| Credentials and client configuration | Explicit HTTP/stdio copies carried the saved key; ordinary previews excluded it. Missing/wrong keys were rejected. |
-| Delivery with authentication | All tools, FastMCP BM25/Regex/Code Mode, Portkey local semantic search and Hybrid passed. This does not establish every model's discovery quality. |
-| Focused source and desktop checks | Gateway authentication 31; renderer UI 56; source desktop 6; Diagnostics lifecycle 13; maintenance/launcher 29. |
-| Default toolbox operations | Real operations covered PDF, Office, DuckDB, MarkItDown, DBHub, Memory, Git, Sequential Thinking, host files/processes, Chromium, Typst, GitHub, Context7 and Exa. Results apply to the tested operation, account and environment. |
-| Licensing evidence | All 19 default server entries, local versions, 66 notice/index hashes and four model-asset sets were reconciled. Full-toolbox redistribution obligations remain in the licensing chapter. |
+| Complete repaired-source suite | **252 tests: 250 passed, 0 failed, 2 optional WSL checks skipped**, 228.575 seconds. Native GUI, authentication, installed Hermes fixtures, local semantic models and FastMCP checks were enabled. |
+| Protection repair matrix | **34 passed, 0 failed, 0 skipped**, including 16 transaction tests. Covers queued saves, slow requests, rollback failures, interrupted-save recovery, offline edits and key-only changes without discovery runtimes. |
+| Gateway access controls | All four final combinations, disabled-state persistence, omitted-key preservation, rotation, session invalidation and child-process continuity passed. The actual desktop regression fails on prepatch source and passes with the repair. |
+| Delivery and client configuration | Real FastMCP BM25, Regex, Code and Hybrid search/calls passed. Explicit client copies carry saved credentials; ordinary previews exclude them. This does not establish every model's discovery quality. |
+| Historical Portable toolbox baseline | September 18 operations covered PDF, Office, DuckDB, MarkItDown, DBHub, Memory, Git, Sequential Thinking, host files/processes, Chromium, Typst, GitHub, Context7 and Exa. Earlier relocation/soak evidence is not a fresh repaired-build acceptance result. |
+| Licensing evidence | All 19 default entries, versions, 66 notice/index hashes and four model-asset sets were reconciled with the inspected installation. Full-toolbox redistribution obligations remain in the licensing chapter. |
 | Manual consistency | The PDF records its Markdown SHA-256 and embeds nine real screenshots and six workflow diagrams. Figure pixels, JSON examples, links and topics are validated; figure pages are visually checked. |
 
 ### Recheck after updates
@@ -1256,9 +1261,9 @@ Use the normal shortcut, check saved protections, connect a client, run a checka
 
 Brave credentials remain deferred. Fixtures do not validate live Brave or hosted embedding accounts. Model/harness quality requires matched campaigns; no universally best combination is claimed.
 
-**Security clearance: blocked pending fix and retest.** The manual source-security review completed **September 19, 2026** with **one confirmed Medium-severity finding, HARBOR-MANUAL-GATEWAY-001**. The combined protection transition described in Configuration can temporarily leave the previous network listener unauthenticated. The default loopback-only state is not remotely exposed by this finding. No production fix or verified workaround is included.
+**Confirmed source finding repaired.** The September 19 manual review found **HARBOR-MANUAL-GATEWAY-001 (Medium)**. The verified repair blocks public requests during queued protection/settings changes, coordinates saved credentials with the listener, and recovers interrupted saves before listening. It cannot undo tool side effects dispatched before a change begins.
 
-The review fully read 56 distinct files and reproduced the defect with an isolated harmless tool. Other passing checks do not negate it. Third-party dependencies were not exhaustively source-audited. The dedicated automated scanner failed before registration and did not run.
+The original review fully read 56 files. Independent candidate review found no surviving admission bypass and identified two compatibility regressions; both were repaired and passed subsequent core regressions. The independent reviewer did not rerun that revised candidate. This is remediation within the manual audit scope, not a blanket security certification. The dedicated scanner failed before registration and did not run; third-party dependencies were not exhaustively source-audited.
 
-Toolbox advisories remain for FastMCP 2 paths outside the inspected stdio configuration and for cryptography constrained by Word's dependencies. Reassess when updating or redistributing.
+Existing dependency advisories and clean-machine portability limits remain. Reassess them when updating or redistributing.
 

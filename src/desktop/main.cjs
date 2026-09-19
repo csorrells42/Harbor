@@ -60,7 +60,7 @@ async function start() {
   const authentication=await createGatewayAuthentication({dataDir:app.getPath('userData'),defaultEnabled:true});
   hub = await createHub({configPath, settingsPath, authentication, ...(port === undefined ? {} : {port})});
   const {createDeliverySettings}=await import('../core/delivery-credentials.mjs');
-  const saveDelivery=createDeliverySettings({dataDir:app.getPath('userData'),portableRoot,getSettings:()=>hub.getSettings(),updateSettings:settings=>hub.updateSettings(settings)});
+  const saveDelivery=createDeliverySettings({dataDir:app.getPath('userData'),portableRoot,getSettings:()=>hub.getSettings(),updateSettings:settings=>hub.patchSettings(settings,'delivery')});
   const getDiagnostics=()=>diagnosticsPromise??=(import('../diagnostics/service.mjs').then(({createDiagnostics})=>createDiagnostics({dataDir:path.join(app.getPath('userData'),'diagnostics')})).catch(error=>{diagnosticsPromise=undefined;throw error;}));
   const entry = path.resolve(__dirname, '../ui/index.html');
   const entryUrl = pathToFileURL(entry).href;
@@ -72,17 +72,7 @@ async function start() {
     generateGatewayKey:()=>generateGatewayKey(),
     updateGatewayAuth:input=>{
       if(shutdownStarted)throw new Error('Harbor is shutting down.');
-      const captured=structuredClone(input);
-      if(captured&&Object.hasOwn(captured,'loopbackOnly')&&typeof captured.loopbackOnly!=='boolean')throw new Error('Choose whether to accept connections only from this computer.');
-      const job=authWrites.then(async()=>{
-        try{
-          await authentication.update(captured,async()=>{
-            const settings=hub.getSettings();
-            if(typeof captured.loopbackOnly==='boolean'&&settings.networkEnabled===captured.loopbackOnly)await hub.updateSettings({...settings,networkEnabled:!captured.loopbackOnly});
-          });
-        }catch(error){await hub.authenticationChanged();throw error;}
-        await hub.authenticationChanged();refreshTray();return protectionStatus();
-      });
+      const job=hub.updateGatewayAuth(input).then(result=>{refreshTray();return result;});
       authWrites=job.catch(()=>{});return job;
     },
     copyGatewayKey:()=>{const key=authentication.key();if(!key)throw new Error('No gateway API key has been saved.');clipboard.writeText(key);return true;},
@@ -104,7 +94,7 @@ async function start() {
     updateComponent: (id,options) => {if(!maintenance)throw new Error('Maintenance recipes are available in Harbor Portable');return maintenance.start(id,options);},
     rollbackComponent: id => {if(!maintenance)throw new Error('Maintenance recipes are available in Harbor Portable');return maintenance.rollback(id);},
     getSettings: () => hub.getSettings(),
-    updateSettings: async settings => {const result=await hub.updateSettings(settings);refreshTray();return result;},
+    updateSettings: async settings => {const result=await hub.patchSettings(settings);refreshTray();return result;},
     saveServer: config => hub.saveServer(config),
     setServerStartup: (id,enabled) => hub.setServerStartup(id,enabled),
     removeServer: id => hub.removeServer(id),

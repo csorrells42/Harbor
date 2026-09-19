@@ -4,11 +4,11 @@
   "reviewed": "2026-09-19",
   "verification": {
     "sourceRegression": {
-      "total": 235,
-      "passed": 233,
+      "total": 252,
+      "passed": 250,
       "failed": 0,
       "skipped": 2,
-      "durationSeconds": 168.177,
+      "durationSeconds": 228.575067,
       "skippedScope": "Two optional WSL checks",
       "enabledAcceptance": [
         "bundled delivery modes",
@@ -18,26 +18,37 @@
         "native Diagnostics IPC",
         "six-task native Diagnostics campaign",
         "restart and persistence"
-      ]
+      ],
+      "cancelled": 0,
+      "verified": "2026-09-19"
     },
-    "authFocusedPassed": 31,
-    "rendererPassed": 56,
-    "sourceDesktopPassed": 6,
-    "nativeAuthenticationPassed": 1,
     "sourceSecurityGate": {
-      "status": "blocked_pending_fix_and_retest",
+      "status": "verified_remediation_within_manual_audit_scope",
       "manualReview": {
         "completed": "2026-09-19",
         "confirmedFindings": 1,
         "severity": "Medium",
         "findingId": "HARBOR-MANUAL-GATEWAY-001",
         "fullyReadFiles": 56,
-        "productionFixIncluded": false,
-        "verifiedWorkaround": false
+        "productionFixIncluded": true,
+        "remediatedSourceFindings": 1,
+        "openSourceFindings": 0
       },
       "automatedScanner": {
         "status": "did_not_run",
         "reason": "Failed before registration"
+      },
+      "remediation": {
+        "verified": "2026-09-19",
+        "sourceOutcome": "verified",
+        "applicationOutcome": "tracked_in_accompanying_installation_verification_records",
+        "boundRuntimeTestStagingFiles": 53,
+        "sourceBindingSha256": "05aaf4a09247a4ee3197eb94770486f784f9b89d047fd6fa16f3f02d7b04a08c",
+        "independentReviewCycles": 1,
+        "independentCandidateBypassFound": false,
+        "compatibilityRegressionsRepairedAndRetested": 2,
+        "finalCompatibilityRetest": "Parent validation of real core regressions; independent reviewer did not rerun final candidate",
+        "applicationEvidence": "HARBOR-QA-REPORT.md and verification records accompanying the tested installation"
       }
     },
     "documentation": {
@@ -50,7 +61,24 @@
       "workflowDiagrams": 6,
       "totalFigures": 15
     },
-    "diagnosticsLifecyclePassed": 13,
-    "maintenanceLauncherPassed": 29
+    "protectionRepairFocused": {
+      "total": 34,
+      "passed": 34,
+      "failed": 0,
+      "skipped": 0,
+      "transactionTests": 16
+    },
+    "priorInstalledBaseline": {
+      "verified": "2026-09-18",
+      "scope": "Earlier installed Portable, relocation and soak evidence; not fresh repaired-build acceptance",
+      "focusedCounts": {
+        "authFocusedPassed": 31,
+        "rendererPassed": 56,
+        "sourceDesktopPassed": 6,
+        "nativeAuthenticationPassed": 1,
+        "diagnosticsLifecyclePassed": 13,
+        "maintenanceLauncherPassed": 29
+      }
+    }
   }
 }

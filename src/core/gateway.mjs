@@ -8,7 +8,7 @@ import { Server } from '@modelcontextprotocol/sdk/server/index.js';
 import { StreamableHTTPServerTransport } from '@modelcontextprotocol/sdk/server/streamableHttp.js';
 import { ListToolsRequestSchema, CallToolRequestSchema, isInitializeRequest, McpError, ErrorCode } from '@modelcontextprotocol/sdk/types.js';
 
-export async function createGateway({ host, port, upstreams, log, toolTimeoutMs, toolMode='all', mcpPath = '/mcp', networkEnabled = false, allowedOrigins = [], isOpen = () => true, authentication, ...deliverySettings }) {
+export async function createGateway({ host, port, upstreams, log, toolTimeoutMs, toolMode='all', mcpPath = '/mcp', networkEnabled = false, allowedOrigins = [], isOpen = () => true, isPublicOpen = () => true, authentication, ...deliverySettings }) {
   const sessions = new Map(), liveSessions = new Set();
   const catalogToken = randomBytes(32).toString('base64url');
   const catalogAuthorization = Buffer.from('Bearer '+catalogToken);
@@ -22,6 +22,7 @@ export async function createGateway({ host, port, upstreams, log, toolTimeoutMs,
     if(internal||!authentication)return true;
     try{return authentication.accepts(header)===true;}catch{return false;}
   };
+  const publicUnavailable=(internal,res)=>{if(internal||isPublicOpen())return false;res.writeHead(503);res.end('Gateway protections are changing; retry shortly');return true;};
   const unauthorized = res => {res.writeHead(401,{'Content-Type':'application/json','WWW-Authenticate':'Bearer realm="Harbor"','Cache-Control':'no-store'});res.end(JSON.stringify({error:'Unauthorized'}));};
   const catalogPath=`${mcpPath}/_harbor_catalog`;
   let router;
@@ -65,6 +66,7 @@ export async function createGateway({ host, port, upstreams, log, toolTimeoutMs,
       res.writeHead(204); res.end(); return;
     }
     const internal = isInternal(req.headers.authorization,catalogOnly);
+    if(publicUnavailable(internal,res))return;
     const requestRevision = authenticationRevision;
     if(!accepts(req.headers.authorization,internal)){unauthorized(res);return;}
     let body;
@@ -76,6 +78,7 @@ export async function createGateway({ host, port, upstreams, log, toolTimeoutMs,
         chunks.push(chunk);
       }
       if(!accepts(req.headers.authorization,internal)||(!internal&&requestRevision!==authenticationRevision)){unauthorized(res);return;}
+      if(publicUnavailable(internal,res))return;
       body = JSON.parse(Buffer.concat(chunks).toString());
     }
     if (closing || !http.listening || !isOpen()) { res.writeHead(503); res.end('Gateway unavailable'); return; }
@@ -86,7 +89,7 @@ export async function createGateway({ host, port, upstreams, log, toolTimeoutMs,
     if (!session && !id && req.method === 'POST' && isInitializeRequest(body)) {
       const server = new Server({ name: 'mcp-harbor', version: '0.2.0' }, { capabilities: { tools: { listChanged: true } }, instructions: gatewayInstructions });
       const transport = new StreamableHTTPServerTransport({ sessionIdGenerator: randomUUID, onsessioninitialized: async sessionId => {
-        if(session.revoked||(!internal&&requestRevision!==authenticationRevision)){await server.close();return;}
+        if(session.revoked||(!internal&&(!isPublicOpen()||requestRevision!==authenticationRevision))){await server.close();return;}
         sessions.set(sessionId,session);
       } });
       session = { server, transport, info: undefined, catalogOnly, internal, revoked:false };liveSessions.add(session);created=true;
@@ -96,8 +99,10 @@ export async function createGateway({ host, port, upstreams, log, toolTimeoutMs,
       };
       server.onclose = () => {sessions.delete(transport.sessionId);liveSessions.delete(session);};
       server.onerror = error => log('', 'error', `Client session: ${error.message}`);
-      server.setRequestHandler(ListToolsRequestSchema, async request => catalogOnly||toolMode==='all' ? ({ tools: upstreams.tools().map(({ serverId, originalName, ...tool }) => tool) }) : router.list(request.params));
+      const checkDispatch=()=>{if(closing||!isOpen()||session.revoked||(!internal&&!isPublicOpen()))throw new McpError(ErrorCode.InternalError,'Gateway unavailable');};
+      server.setRequestHandler(ListToolsRequestSchema, async request => {checkDispatch();return catalogOnly||toolMode==='all' ? ({ tools: upstreams.tools().map(({ serverId, originalName, ...tool }) => tool) }) : router.list(request.params);});
       server.setRequestHandler(CallToolRequestSchema, async (request, extra) => {
+        checkDispatch();
         if(!catalogOnly&&toolMode!=='all')return router.call(request.params,{timeout:toolTimeoutMs,signal:extra.signal});
         return callRaw(request.params,{signal:extra.signal});
       });
@@ -108,6 +113,7 @@ export async function createGateway({ host, port, upstreams, log, toolTimeoutMs,
     if(!accepts(req.headers.authorization,internal)||(!internal&&requestRevision!==authenticationRevision)){
       if(created)await session.server.close();unauthorized(res);return;
     }
+    if(publicUnavailable(internal,res)){if(created)await session.server.close();return;}
     try{await session.transport.handleRequest(req, res, body);}
     finally{if(created&&!session.transport.sessionId)await session.server.close();}
   }

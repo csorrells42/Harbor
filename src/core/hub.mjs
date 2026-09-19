@@ -3,11 +3,14 @@ import { loadConfigs, persistConfigs, validateConfig } from './config.mjs';
 import { Upstreams } from './upstreams.mjs';
 import { dirname, join } from 'node:path';
 import { loadSettings, persistSettings, validateSettings } from './settings.mjs';
+import {SEARCH_DEFAULTS} from './delivery-options.js';
 
 export async function createHub({ configPath, settingsPath = configPath && join(dirname(configPath), 'harbor-settings.json'), port, host, toolTimeoutMs, requestTimeoutMs, authentication } = {}) {
   if (!configPath) throw new Error('configPath is required');
   if (host !== undefined && !['127.0.0.1', '::1', 'localhost'].includes(host)) throw new Error('Gateway must bind to loopback');
-  let settings = await loadSettings(settingsPath);
+  const authority=authentication?.settings?.();
+  let settings = authority?validateSettings(authority):await loadSettings(settingsPath);
+  if(authority)await authentication.update({enabled:authentication.status().enabled},()=>persistSettings(settingsPath,settings),{settings});
   settings = { ...settings, ...(port === undefined ? {} : { port }), ...(toolTimeoutMs === undefined ? {} : { toolTimeoutMs }), ...(requestTimeoutMs === undefined ? {} : { requestTimeoutMs }) };
   host ??= settings.networkEnabled ? settings.bindAddress : '127.0.0.1';
   let configs = await loadConfigs(configPath);
@@ -15,7 +18,7 @@ export async function createHub({ configPath, settingsPath = configPath && join(
   let closePromise;
   let maintenance = false;
   let resumeIds = [];
-  let writes = Promise.resolve();
+  let writes = Promise.resolve(),protectionChanges=0;
   const logs = [];
   const log = (serverId, level, message) => {
     logs.push({ time: new Date().toISOString(), serverId, level, message: String(message).slice(0, 8192) });
@@ -24,7 +27,7 @@ export async function createHub({ configPath, settingsPath = configPath && join(
   const upstreams = new Upstreams(configs, log, () => gateway.changed(), { requestTimeoutMs: settings.requestTimeoutMs });
   let gateway;
   async function openGateway(next, bind) {
-    const instance = await createGateway({ ...next, host: bind, upstreams, log, authentication, isOpen: () => !closed && !maintenance && gateway === instance });
+    const instance = await createGateway({ ...next, host: bind, upstreams, log, authentication, isOpen: () => !closed && !maintenance, isPublicOpen: () => gateway === instance && protectionChanges===0 && authentication?.available?.()!==false });
     return instance;
   }
   gateway = await openGateway(settings, host);
@@ -35,41 +38,72 @@ export async function createHub({ configPath, settingsPath = configPath && join(
     writes = task.catch(() => {});
     return task;
   }
+  // This helper runs only inside the common write queue, including protection changes.
+  async function applySettings(next) {
+    const nextHost = next.networkEnabled ? next.bindAddress : '127.0.0.1';
+    let candidate;
+    const changed = next.port !== settings.port || next.mcpPath !== settings.mcpPath || nextHost !== host;
+    // Same-port binds may overlap. Suspend sockets, not SDK sessions or children,
+    // so a failed candidate can restore the original listener and session IDs.
+    const paused = changed && next.port === settings.port;
+    if (paused) await gateway.pause();
+    try {
+      if (changed) candidate = await openGateway(next, nextHost);
+      await (candidate??gateway).prepareMode(next);
+      if (closed) throw new Error('Hub is closed');
+      await persistSettings(settingsPath, next);
+    } catch (error) {
+      await candidate?.close();
+      if (paused) await gateway.resume();
+      throw error;
+    }
+    // Publish the committed listener and settings in one synchronous step.
+    // Candidate HTTP requests were gated by openGateway until this point.
+    const old = gateway;
+    if (candidate) gateway = candidate;
+    host = nextHost;
+    settings = next;
+    gateway.configure(next);
+    upstreams.requestTimeoutMs = next.requestTimeoutMs;
+    if (candidate)await old.close().catch(error=>log('','warn',`Previous gateway cleanup: ${error.message}`));
+    return structuredClone(settings);
+  }
+  function protectedWrite(operation){
+    // Close public admission before waiting behind an existing settings/config write.
+    protectionChanges++;
+    return serial(operation).finally(()=>{protectionChanges--;});
+  }
+  async function commitSettings(next){
+    if(!authentication?.update)return applySettings(next);
+    await authentication.update({enabled:authentication.status().enabled},()=>applySettings(next),{settings:next});
+    return structuredClone(settings);
+  }
   return {
     get endpoint() { return gateway.endpoint; },
     getSettings() { return structuredClone(settings); },
     authenticationChanged() { return serial(() => gateway.revokePublicSessions()); },
     async updateSettings(input) {
-      if (closed) throw new Error('Hub is closed');
-      const next = validateSettings(input);
-      return serial(async () => {
-        const nextHost = next.networkEnabled ? next.bindAddress : '127.0.0.1';
-        let candidate;
-        const changed = next.port !== settings.port || next.mcpPath !== settings.mcpPath || nextHost !== host;
-        // Same-port binds may overlap. Suspend sockets, not SDK sessions or children,
-        // so a failed candidate can restore the original listener and session IDs.
-        const paused = changed && next.port === settings.port;
-        if (paused) await gateway.pause();
-        try {
-          if (changed) candidate = await openGateway(next, nextHost);
-          await (candidate??gateway).prepareMode(next);
-          if (closed) throw new Error('Hub is closed');
-          await persistSettings(settingsPath, next);
-        } catch (error) {
-          await candidate?.close();
-          if (paused) await gateway.resume();
-          throw error;
-        }
-        // Publish the committed listener and settings in one synchronous step.
-        // Candidate HTTP requests were gated by openGateway until this point.
-        const old = gateway;
-        if (candidate) gateway = candidate;
-        host = nextHost;
-        settings = next;
-        gateway.configure(next);
-        upstreams.requestTimeoutMs = next.requestTimeoutMs;
-        if (candidate) await old.close();
-        return structuredClone(settings);
+      const next=validateSettings(input);
+      return protectedWrite(()=>commitSettings(next));
+    },
+    patchSettings(input,group='advanced'){
+      if(!input||typeof input!=='object'||Array.isArray(input))return Promise.reject(new Error('Settings fields are required'));
+      const allowed=group==='delivery'?['toolMode',...Object.keys(SEARCH_DEFAULTS)]:['port','bindAddress','mcpPath','requestTimeoutMs','toolTimeoutMs','allowedOrigins'];
+      const patch=structuredClone(Object.fromEntries(Object.entries(input).filter(([key])=>allowed.includes(key))));
+      return protectedWrite(()=>commitSettings(validateSettings({...settings,...patch})));
+    },
+    updateGatewayAuth(input){
+      if(!authentication?.update)return Promise.reject(new Error('Gateway authentication is unavailable'));
+      const captured=structuredClone(input);
+      if(!captured||typeof captured.enabled!=='boolean'||(Object.hasOwn(captured,'loopbackOnly')&&typeof captured.loopbackOnly!=='boolean'))return Promise.reject(new Error('Choose the gateway protections'));
+      return protectedWrite(async()=>{
+        await gateway.revokePublicSessions();
+        try{
+          const next=validateSettings({...settings,...(typeof captured.loopbackOnly==='boolean'?{networkEnabled:!captured.loopbackOnly}:{})});
+          if(next.networkEnabled!==settings.networkEnabled)await authentication.update(captured,()=>applySettings(next),{settings:next});
+          else await authentication.update(captured);
+          return {...authentication.status(),loopbackOnly:!settings.networkEnabled};
+        }finally{await gateway.revokePublicSessions();}
       });
     },
     snapshot() { const endpoint = gateway.endpoint, auth=authentication?.status?.(); return structuredClone({ endpoint, maintenance, authentication:{enabled:auth?.enabled===true,hasKey:auth?.hasKey===true}, settings, endpoints: gateway.endpoints, servers: upstreams.snapshot(), tools: upstreams.tools(), clients: gateway.clients(), logs }); },

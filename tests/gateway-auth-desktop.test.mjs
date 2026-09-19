@@ -40,13 +40,13 @@ test('native gateway key controls protect HTTP and bridge clients, rotate keys a
   if(process.env.HARBOR_TOOL_RUNTIME_ROOT){
    const original=(await authorized.listTools()).tools[0].name;
    for(const mode of ['bm25','regex','code','portkey-local','hybrid','all']){
-    await page.evaluate(settings=>window.harbor.updateSettings(settings),{...before,toolMode:mode});
+    await page.evaluate(settings=>window.harbor.updateDeliverySettings({settings}),{...before,toolMode:mode});
     const advertised=(await authorized.listTools()).tools;assert(advertised.length);
     if(mode!=='all'){const params=mode==='code'?{name:'search',arguments:{query:'echo',detail:'full'}}:{name:'search_tools',arguments:mode==='regex'?{pattern:'echo'}:{query:'repeat echo text'}};const r=await authorized.callTool(params,undefined,{timeout:120000});assert(!r.isError,mode+' '+JSON.stringify(r));assert(JSON.stringify(r).includes(original),mode+' '+JSON.stringify(r));}
     const request=mode==='all'?{name:original,arguments:{text:'authenticated'}}:mode==='code'?{name:'execute',arguments:{code:`return await call_tool(${JSON.stringify(original)}, {"text":"authenticated"})`}}:{name:'call_tool',arguments:{name:original,arguments:{text:'authenticated'}}};
     const r=await authorized.callTool(request,undefined,{timeout:120000});assert(!r.isError,mode);assert(JSON.stringify(r).includes('authenticated'),mode);
    }
-   await page.evaluate(s=>window.harbor.updateSettings(s),before);
+   await page.evaluate(s=>window.harbor.updateDeliverySettings({settings:s}),before);
   }
   await setAuth(key2);assert.equal((await fetch(info.endpoint,{headers:{Authorization:'Bearer '+key1}})).status,401);await assert.rejects(authorized.listTools());
   authorized=await connect(info.endpoint,key2);assert((await authorized.listTools()).tools.length);

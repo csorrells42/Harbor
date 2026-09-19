@@ -5,7 +5,7 @@ import {dbhubRecipe} from './dbhub-component.mjs';
 import {officeComponents,officeRecipe} from './office-components.mjs';
 const source=process.cwd(),root=path.join(source,'.harbor-build/Harbor Portable');
 const copy=async(a,b,filter)=>{await fs.mkdir(path.dirname(b),{recursive:true});await fs.cp(a,b,{recursive:true,...(filter?{filter}:{})});};
-const sourceBundleItems=['src','assets','tests','package.json','package-lock.json','README.md','playwright.config.mjs','HARBOR-MANUAL.pdf','LICENSE','LICENSING.md','THIRD-PARTY-NOTICES.txt','docs','third-party','scripts/build-manual.py','scripts/requirements-manual.txt'];
+const sourceBundleItems=['src','assets','tests','package.json','package-lock.json','README.md','playwright.config.mjs','HARBOR-MANUAL.pdf','LICENSE','LICENSING.md','THIRD-PARTY-NOTICES.txt','docs','third-party','scripts/build-manual.py','scripts/requirements-manual.txt','scripts/build-visual-guides.py','scripts/requirements-visual-guides.txt'];
 const portableDocuments=['HARBOR-MANUAL.pdf','LICENSE','LICENSING.md','THIRD-PARTY-NOTICES.txt','third-party'];
 const sourceCopyExclusions=new Set(['node_modules','.git','.harbor-build','artifact','test-results','playwright-report','__pycache__','.pytest_cache','.venv','.cache','_build','.build','tmp','temp']);
 const copySource=(a,b)=>copy(a,b,p=>{

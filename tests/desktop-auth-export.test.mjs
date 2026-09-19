@@ -5,7 +5,7 @@ import path from 'node:path';
 import os from 'node:os';
 import {EventEmitter,once} from 'node:events';
 import {createServer} from 'node:http';
-import {Module,createRequire} from 'node:module';
+import {Module,createRequire,syncBuiltinESMExports} from 'node:module';
 import {fileURLToPath,pathToFileURL} from 'node:url';
 import vm from 'node:vm';
 import {connectionInfo} from '../src/desktop/policy.mjs';
@@ -98,4 +98,30 @@ test('failed network bind rolls the desktop combined update back to its previous
   d.call('copyGatewayKey');assert.equal(d.copies.at(-1),secret);
   const oldKey=await fetch(d.runtime.hub.endpoint,{headers:{Authorization:`Bearer ${secret}`}});assert.notEqual(oldKey.status,401);assert.notEqual(oldKey.status,403);await oldKey.body?.cancel();
   const newKey=await fetch(d.runtime.hub.endpoint,{headers:{Authorization:`Bearer ${replacement}`}});assert.equal(newKey.status,401);await newKey.body?.cancel();
+});
+
+
+test('desktop protection changes deny the old listener while queued behind a settings save',async t=>{
+  const d=await desktop(t);
+  await d.call('updateGatewayAuth',{enabled:true,key:secret});
+  await d.call('updateSettings',{...d.call('getSettings'),bindAddress:'127.0.0.2'});
+  await d.call('updateGatewayAuth',{enabled:true,loopbackOnly:false});
+  const oldEndpoint=d.runtime.hub.endpoint;
+  const request=async()=>{const res=await fetch(oldEndpoint,{signal:AbortSignal.timeout(3000)});await res.body?.cancel();return res.status;};
+  assert.equal(await request(),401);
+  const original=fs.rename;let release,entered,settingsWrite,authWrite,held=false;
+  const gate=new Promise(r=>release=r),waiting=new Promise(r=>entered=r);
+  fs.rename=async(...args)=>{if(!held&&args[1]===path.join(d.dir,'harbor-settings.json')){held=true;entered();await gate;}return original(...args);};
+  syncBuiltinESMExports();
+  try{
+    settingsWrite=d.call('updateSettings',{...d.call('getSettings'),requestTimeoutMs:61000});
+    await Promise.race([waiting,new Promise((_,reject)=>setTimeout(()=>reject(Error('Settings save did not reach the interception')),3000))]);
+    authWrite=d.call('updateGatewayAuth',{enabled:false,loopbackOnly:true});
+    assert.equal(await request(),503);
+    assert.equal(d.call('getGatewayAuth').enabled,true,'Queued protection change must not publish a weaker key policy');
+    release();await settingsWrite;await authWrite;
+    assert.deepEqual(d.call('getGatewayAuth'),{enabled:false,hasKey:true,loopbackOnly:true});
+    assert.equal(new URL(d.runtime.hub.endpoint).hostname,'127.0.0.1');
+    const final=await fetch(d.runtime.hub.endpoint);assert.equal(final.status,400);await final.body?.cancel();
+  }finally{release();await Promise.allSettled([settingsWrite,authWrite]);fs.rename=original;syncBuiltinESMExports();}
 });

@@ -85,7 +85,7 @@ Complete or cancel any Diagnostics campaign first. In a complete Portable instal
 
 ## Accounts, access and boundaries
 
-- **Security clearance is blocked pending a fix and retest.** The manual source-security review completed September 19, 2026 and confirmed one Medium-severity issue: switching from network access with a required key to key off with loopback on can briefly leave the previous network listener unauthenticated while settings work is pending. The dedicated scanner failed before registration and did not run. See the manual for scope and limits.
+- **Confirmed source-security finding repaired.** The September 19, 2026 manual review identified one Medium-severity protection-transition issue. Its source repair passed 34 focused checks and the full suite (250 passed, 2 optional WSL skips, no failures). The dedicated scanner failed before registration and did not run. This is verified remediation within the manual review scope, not a blanket security certification. Machine-specific package and installation results are recorded separately in the accompanying `HARBOR-QA-REPORT.md` and verification records.
 - The intentionally deferred Brave API key affects live Brave searches, not the core application. The manual includes the later setup steps.
 - GitHub and optional hosted providers require their own local sign-in or credentials; none are included in this repository.
 - The gateway proxies MCP **tools**. Upstream prompts, resources, sampling, roots and elicitation are not proxied.

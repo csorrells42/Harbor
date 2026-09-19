@@ -39,6 +39,6 @@ try{
   await fs.writeFile('evidence/portable/delivery-live.json',JSON.stringify({application:current.path,tools:before.tools.length,servers:before.servers.length,selected:before.servers.filter(s=>s.autoStart).map(s=>s.id),evidence},null,2));
   console.log(JSON.stringify(evidence));
 }finally{
-  if(initial)await (await app.firstWindow()).evaluate(s=>window.harbor.updateSettings(s),initial).catch(()=>{});
+  if(initial)await (await app.firstWindow()).evaluate(s=>window.harbor.updateDeliverySettings({settings:s}),initial).catch(()=>{});
   await client.close();const exited=new Promise(resolve=>app.process().once('exit',resolve));await app.evaluate(({app})=>app.quit()).catch(()=>{});await exited;
 }
