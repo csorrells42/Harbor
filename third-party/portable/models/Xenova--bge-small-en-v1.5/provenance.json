@@ -1,0 +1,53 @@
+{
+  "id": "Xenova/bge-small-en-v1.5",
+  "repository": "https://huggingface.co/Xenova/bge-small-en-v1.5",
+  "checkedRevision": "ea104dacec62c0de699686887e3f920caeb4f3e3",
+  "licenseDeclaredByConvertedCard": null,
+  "localFiles": [
+    {
+      "path": "config.json",
+      "bytes": 683,
+      "sha256": "fa73f90bf92c8cace1fbcb709626306f2bdbc9ea3e5b5f94b440df9b6aa56350",
+      "gitBlobSha1": "0c4d86248983ce46dfc09a9091b6f56bb0224550",
+      "remoteLfsSha256": null,
+      "remoteGitBlobSha1": "0c4d86248983ce46dfc09a9091b6f56bb0224550",
+      "matches": true
+    },
+    {
+      "path": "onnx/model_quantized.onnx",
+      "bytes": 34014426,
+      "sha256": "6c9c6101a956d62dfb5e7190c538226c0c5bb9cb27b651234b6df063ee7dbfe4",
+      "gitBlobSha1": "2d792d46dac2724cc6dffaaf38ecb4f5d51f4334",
+      "remoteLfsSha256": "6c9c6101a956d62dfb5e7190c538226c0c5bb9cb27b651234b6df063ee7dbfe4",
+      "remoteGitBlobSha1": "e5f3a4e07c216a5b862d3ce4858052a8521ac3c9",
+      "matches": true
+    },
+    {
+      "path": "tokenizer.json",
+      "bytes": 711396,
+      "sha256": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+      "gitBlobSha1": "688882a79f44442ddc1f60d70334a7ff5df0fb47",
+      "remoteLfsSha256": null,
+      "remoteGitBlobSha1": "688882a79f44442ddc1f60d70334a7ff5df0fb47",
+      "matches": true
+    },
+    {
+      "path": "tokenizer_config.json",
+      "bytes": 366,
+      "sha256": "9261e7d79b44c8195c1cada2b453e55b00aeb81e907a6664974b4d7776172ab3",
+      "gitBlobSha1": "37fca74771bc76a8e01178ce3a6055a0995f8093",
+      "remoteLfsSha256": null,
+      "remoteGitBlobSha1": "37fca74771bc76a8e01178ce3a6055a0995f8093",
+      "matches": true
+    }
+  ],
+  "base": {
+    "id": "BAAI/bge-small-en-v1.5",
+    "repository": "https://huggingface.co/BAAI/bge-small-en-v1.5",
+    "checkedRevision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+    "licenseDeclaredByCard": "mit",
+    "note": "Base repository identified by converted model card; base license does not silently invent a missing conversion-specific grant"
+  },
+  "correspondence": "All installed model files byte-match this exact repository revision by LFS SHA-256 or Git blob SHA-1. This establishes an equivalent source revision, not the original download time/revision.",
+  "allLocalFilesMatchCheckedRevision": true
+}

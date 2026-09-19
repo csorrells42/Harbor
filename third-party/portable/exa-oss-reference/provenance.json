@@ -1,0 +1,7 @@
+{
+  "id": "exa-oss-reference",
+  "repository": "https://github.com/exa-labs/exa-mcp-server",
+  "checkedRevision": "15ffb50519e719dc791cdc750ce5ed1934c0a1ed",
+  "license": "MIT",
+  "note": "Related open-source connector only. The configured Exa server is hosted; this source revision/license does not identify or govern the hosted service."
+}

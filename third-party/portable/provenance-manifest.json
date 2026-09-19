@@ -1,0 +1,869 @@
+{
+  "format": 1,
+  "observedAt": "2026-09-19T02:23:34.025Z",
+  "scope": "Primary third-party notice remediation; not an exhaustive SBOM or binary redistribution clearance",
+  "files": [
+    {
+      "path": "uv/LICENSE-MIT",
+      "bytes": 1077,
+      "sha256": "860e3d7a86b84e6a7012c7a635fc64df475cebc6cce34dfeb73a5982ec58176c",
+      "sourceUrl": "https://raw.githubusercontent.com/astral-sh/uv/c4be691531385fd7563e2a29d9bfa2e19b4c2025/LICENSE-MIT",
+      "component": "uv",
+      "revision": "c4be691531385fd7563e2a29d9bfa2e19b4c2025",
+      "license": "Apache-2.0 OR MIT"
+    },
+    {
+      "path": "uv/LICENSE-APACHE",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "sourceUrl": "https://raw.githubusercontent.com/astral-sh/uv/c4be691531385fd7563e2a29d9bfa2e19b4c2025/LICENSE-APACHE",
+      "component": "uv",
+      "revision": "c4be691531385fd7563e2a29d9bfa2e19b4c2025",
+      "license": "Apache-2.0 OR MIT"
+    },
+    {
+      "path": "uv/provenance.json",
+      "bytes": 498,
+      "sha256": "be64554fae3a9b8119614abf6e8c1dca1ebee54417fdb7ade6e9642482d0660d",
+      "generated": true
+    },
+    {
+      "path": "github-cli/LICENSE",
+      "bytes": 1068,
+      "sha256": "6da4adc42392c8485e40b4251c7e332fc3352df1947c9ffade71dd60b14a7a4f",
+      "sourceUrl": "https://raw.githubusercontent.com/cli/cli/b300f2ec7ec9dc9addc39b2ad88c54097ded7ca0/LICENSE",
+      "component": "github-cli",
+      "revision": "b300f2ec7ec9dc9addc39b2ad88c54097ded7ca0",
+      "license": "MIT"
+    },
+    {
+      "path": "github-cli/provenance.json",
+      "bytes": 487,
+      "sha256": "c965641d8c7812779c6dcdee5604964bd10bbc77a0a2b0aa257458388cb5d1dd",
+      "generated": true
+    },
+    {
+      "path": "pandoc/COPYING.md",
+      "bytes": 17787,
+      "sha256": "9d56cac92294e206af026a5502bee0fed77200b08b51ec28aa63c9efda4dcfdd",
+      "sourceUrl": "https://raw.githubusercontent.com/jgm/pandoc/19c1f6552b12c70741674f509f8064ae506f29db/COPYING.md",
+      "component": "pandoc",
+      "revision": "19c1f6552b12c70741674f509f8064ae506f29db",
+      "license": "GPL-2.0-or-later"
+    },
+    {
+      "path": "pandoc/pandoc.cabal",
+      "bytes": 42063,
+      "sha256": "8d6da253046492c0742731254e30d91d8f32b5a0654e19da4375c0b392e4237c",
+      "sourceUrl": "https://raw.githubusercontent.com/jgm/pandoc/19c1f6552b12c70741674f509f8064ae506f29db/pandoc.cabal",
+      "component": "pandoc",
+      "revision": "19c1f6552b12c70741674f509f8064ae506f29db",
+      "license": "GPL-2.0-or-later"
+    },
+    {
+      "path": "pandoc/provenance.json",
+      "bytes": 529,
+      "sha256": "1f3be5777a3f2b43412a3bda0a028f5cc2971388f2b37aacc1d1f8f0578ae7f0",
+      "generated": true
+    },
+    {
+      "path": "node/LICENSE",
+      "bytes": 157606,
+      "sha256": "148eacf7863ef4329224a29398623077200a27194aa075569faf4a0a85566ca5",
+      "sourceUrl": "https://raw.githubusercontent.com/nodejs/node/cdc1b38d40cb567b7ad0b39c86addf830a0af0ae/LICENSE",
+      "component": "node",
+      "revision": "cdc1b38d40cb567b7ad0b39c86addf830a0af0ae",
+      "license": "MIT plus bundled third-party notices"
+    },
+    {
+      "path": "node/provenance.json",
+      "bytes": 523,
+      "sha256": "4f62e09c2f411d4da40887d2b144c985eeab914e358e49fcae48334caf32b882",
+      "generated": true
+    },
+    {
+      "path": "serena/LICENSE",
+      "bytes": 3470,
+      "sha256": "6239f4be78ccff409aedfbce88ac89b26f488f76aac7ab199fb6876dc7fdeb4c",
+      "sourcePathWithinPortable": "packages/serena/LICENSE",
+      "license": "GPL-3.0-or-later application; MIT SolidLSP"
+    },
+    {
+      "path": "serena/GPL-3.0-or-later.txt",
+      "bytes": 35149,
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+      "sourcePathWithinPortable": "packages/serena/LICENSES/GPL-3.0-or-later.txt",
+      "license": "GPL-3.0-or-later"
+    },
+    {
+      "path": "serena/MIT.txt",
+      "bytes": 1066,
+      "sha256": "16017e50562bb112006f6f32d17ca989e0e573b011bd6790b642018b1c195b0c",
+      "sourcePathWithinPortable": "packages/serena/LICENSES/MIT.txt",
+      "license": "MIT"
+    },
+    {
+      "path": "git/LICENSE.txt",
+      "bytes": 19125,
+      "sha256": "454649ddc02b5cc098513cea28db6592b45ac0a906386287c4d48cf8dbde651c",
+      "sourcePathWithinPortable": "runtimes/git/LICENSE.txt",
+      "license": "GPL-2.0 with project-specific introduction"
+    },
+    {
+      "path": "ffmpeg/COPYING.LGPLv2.1",
+      "bytes": 26526,
+      "sha256": "b634ab5640e258563c536e658cad87080553df6f34f62269a21d554844e58bfe",
+      "sourcePathWithinPortable": "runtimes/browsers/ffmpeg-1011/COPYING.LGPLv2.1",
+      "license": "LGPL-2.1"
+    },
+    {
+      "path": "pymupdf/LICENSE-DECLARATION.txt",
+      "bytes": 64,
+      "sha256": "40e60697600535eabfb5ae05f72829d88cfe8d02dd4792f5a754f6f51dabe55b",
+      "sourcePathWithinPortable": "packages/pdf-tools/python/pymupdf-1.28.2.dist-info/COPYING",
+      "license": "AGPL-3.0 or Artifex commercial license"
+    },
+    {
+      "path": "pymupdf/METADATA.txt",
+      "bytes": 26483,
+      "sha256": "5c1fc460889bd3ff8d213e6c0f29154a8cd3576505f4844d7c3e089fa45eed40",
+      "sourcePathWithinPortable": "packages/pdf-tools/python/pymupdf-1.28.2.dist-info/METADATA",
+      "license": "AGPL-3.0 or Artifex commercial license"
+    },
+    {
+      "path": "npm/LICENSE",
+      "bytes": 9977,
+      "sha256": "af1573a67c9d9051fbf8a9c123a22b7f51ec58cb6a588b4c23bead776dd046ab",
+      "sourcePathWithinPortable": "runtimes/node/node_modules/npm/LICENSE",
+      "license": "Artistic-2.0 plus dependency notices"
+    },
+    {
+      "path": "pnpm/LICENSE",
+      "bytes": 1170,
+      "sha256": "e0a867ff513ea7be2a0ddc339ac6a031e459a38668e077b8f0e649544062f9f2",
+      "sourcePathWithinPortable": "runtimes/node/node_modules/pnpm/LICENSE",
+      "license": "MIT"
+    },
+    {
+      "path": "typst/LICENSE",
+      "bytes": 9723,
+      "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+      "sourcePathWithinPortable": "runtimes/typst/LICENSE",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "typst/NOTICE",
+      "bytes": 21066,
+      "sha256": "1778244777547c281b6f5fa9fc0c18ab21f8d4491c803f64e09046800f5fcb26",
+      "sourcePathWithinPortable": "runtimes/typst/NOTICE",
+      "license": "Third-party notices"
+    },
+    {
+      "path": "python/LICENSE.txt",
+      "bytes": 22055,
+      "sha256": "76900732e5f075b725f754000ad5cab1b2cf89e355c1570138476956b6413cd3",
+      "sourcePathWithinPortable": "runtimes/python/LICENSE.txt",
+      "license": "Python and included notices"
+    },
+    {
+      "path": "chromium-headless/LICENSE.headless_shell",
+      "bytes": 2300816,
+      "sha256": "477eecded4058f14bee802ac3a97b439e89ca2a8b4e8aed2ce70485d84c9b5b5",
+      "sourcePathWithinPortable": "runtimes/browsers/chromium_headless_shell-1243/chrome-headless-shell-win64/LICENSE.headless_shell",
+      "license": "Chromium and third-party notices"
+    },
+    {
+      "path": "desktop-commander/LICENSE",
+      "bytes": 1108,
+      "sha256": "e77cff545e0506903bf6a4bf29169fa40911eb76d70d239267df10c5c59370dd",
+      "sourcePathWithinPortable": "packages/general-local/node_modules/@wonderwhy-er/desktop-commander/LICENSE",
+      "license": "MIT"
+    },
+    {
+      "path": "playwright-mcp/LICENSE",
+      "bytes": 11552,
+      "sha256": "9a7110fc2d2f964038e5dc49128f908f29f47a574c961cba16085914e879cbda",
+      "sourcePathWithinPortable": "packages/browser-docs/node_modules/@playwright/mcp/LICENSE",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "context7/LICENSE",
+      "bytes": 1079,
+      "sha256": "85cfb556dc2b22b55d2565674fcdaac82f3f2f6b7a928d27003132721bb6736c",
+      "sourcePathWithinPortable": "packages/browser-docs/node_modules/@upstash/context7-mcp/LICENSE",
+      "license": "MIT"
+    },
+    {
+      "path": "typst-mcp/LICENSE",
+      "bytes": 1067,
+      "sha256": "517bfc931d7ad015c66b15583bd9b6e0a20ef146a9f92b900663aa9ac6f633ec",
+      "sourcePathWithinPortable": "packages/typst-mcp/LICENSE",
+      "license": "MIT"
+    },
+    {
+      "path": "fetch/LICENSE",
+      "bytes": 1059,
+      "sha256": "8cc7c6e33b24ed4ee8fcccc33eccf102549d04fa4cb9737cecc9770dad1080ff",
+      "sourcePathWithinPortable": "packages/python-tools/python/mcp_server_fetch-2026.8.18.dist-info/licenses/LICENSE",
+      "license": "MIT"
+    },
+    {
+      "path": "git-local/LICENSE",
+      "bytes": 1059,
+      "sha256": "8cc7c6e33b24ed4ee8fcccc33eccf102549d04fa4cb9737cecc9770dad1080ff",
+      "sourcePathWithinPortable": "packages/python-tools/python/mcp_server_git-2026.8.18.dist-info/licenses/LICENSE",
+      "license": "MIT"
+    },
+    {
+      "path": "brave-search/LICENSE",
+      "bytes": 1110,
+      "sha256": "43dc6a32f9c44dd4647cdb3f48677a8681c500a89cfd0e682808d241ec4250a9",
+      "sourcePathWithinPortable": "packages/search/node_modules/@brave/brave-search-mcp-server/LICENSE",
+      "license": "MIT"
+    },
+    {
+      "path": "github-mcp/LICENSE",
+      "bytes": 1063,
+      "sha256": "9e48ecfa18e2b15169746a3c97beda4d1d6c6796097038498ca434ca7e0ccd44",
+      "sourcePathWithinPortable": "packages/github/LICENSE",
+      "license": "MIT"
+    },
+    {
+      "path": "pdf-tools/LICENSE",
+      "bytes": 1060,
+      "sha256": "8ff3ce760a3cf8fcf79f5ed7a9d060f06a5937b08a1ff281b2332e5cdcb5f167",
+      "sourcePathWithinPortable": "packages/pdf-tools/LICENSE",
+      "license": "MIT"
+    },
+    {
+      "path": "duckdb/LICENSE",
+      "bytes": 1067,
+      "sha256": "4e3ebcc3d8c289c785293bd9de3113fb4d3c363868cdc40c5e99be7f22fd5942",
+      "sourcePathWithinPortable": "packages/duckdb/LICENSE",
+      "license": "MIT"
+    },
+    {
+      "path": "markitdown/LICENSE",
+      "bytes": 1141,
+      "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383",
+      "sourcePathWithinPortable": "packages/markitdown/LICENSE",
+      "license": "MIT"
+    },
+    {
+      "path": "excel/LICENSE",
+      "bytes": 1062,
+      "sha256": "5db9c606d122367b6575851cd84f9b1d9773a12fafedc4918501d07d13743fdd",
+      "sourcePathWithinPortable": "packages/excel/LICENSE",
+      "license": "MIT"
+    },
+    {
+      "path": "word/LICENSE",
+      "bytes": 1071,
+      "sha256": "e4937e162a0c3dd7d1ef533fa6edc0af8154bf0a66f0e4bcfcadba519e63a3fb",
+      "sourcePathWithinPortable": "packages/word/LICENSE",
+      "license": "MIT"
+    },
+    {
+      "path": "dbhub/LICENSE",
+      "bytes": 1065,
+      "sha256": "4c4b71ccdeaea87bdde160d0fc1d4187e3f7495ca122b9bef78fa0175d9054ba",
+      "sourcePathWithinPortable": "packages/dbhub/LICENSE",
+      "license": "MIT"
+    },
+    {
+      "path": "fastmcp/LICENSE",
+      "bytes": 11356,
+      "sha256": "43070e2d4e532684de521b885f385d0841030efa2b1a20bafb76133a5e1379c1",
+      "sourcePathWithinPortable": "packages/fastmcp-tools/python/fastmcp-4.0.5.dist-info/licenses/LICENSE",
+      "license": "Apache-2.0"
+    },
+    {
+      "path": "portkey/LICENSE",
+      "bytes": 1068,
+      "sha256": "b7f2b7bdc7e52ebd027203c6524cfc59f9917b447ab15cc6374a47c4be8e029d",
+      "sourcePathWithinPortable": "packages/portkey-tools/LICENSE",
+      "license": "MIT"
+    },
+    {
+      "path": "pymupdf/AGPL-3.0.txt",
+      "bytes": 34523,
+      "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+      "sourceUrl": "https://www.gnu.org/licenses/agpl-3.0.txt",
+      "license": "AGPL-3.0",
+      "note": "Complete standard license text accompanies installed dual-license declaration; no commercial license grant is asserted"
+    },
+    {
+      "path": "models/APACHE-2.0.txt",
+      "bytes": 9723,
+      "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+      "sourcePathWithinPortable": "runtimes/typst/LICENSE",
+      "license": "Apache-2.0 standard text; model applicability is documented by the model cards, not granted by this copy"
+    },
+    {
+      "path": "exa-oss-reference/LICENSE",
+      "bytes": 1065,
+      "sha256": "24be95467fdae5332e37b48b7479ff09920c3cc4202fdd02bee8d4e20944220e",
+      "sourceUrl": "https://raw.githubusercontent.com/exa-labs/exa-mcp-server/15ffb50519e719dc791cdc750ce5ed1934c0a1ed/LICENSE",
+      "component": "exa-oss-reference",
+      "revision": "15ffb50519e719dc791cdc750ce5ed1934c0a1ed",
+      "license": "MIT",
+      "note": "Related open-source connector only. The configured Exa server is hosted; this source revision/license does not identify or govern the hosted service."
+    },
+    {
+      "path": "exa-oss-reference/provenance.json",
+      "bytes": 342,
+      "sha256": "6c602df9fe5155602dd58317b79c318a751b981d35f77ca8bc043361870b6fd7",
+      "generated": true
+    },
+    {
+      "path": "models/FlagEmbedding/LICENSE",
+      "bytes": 1065,
+      "sha256": "587a673933425dbc36ec61268d3b954051b2d3ef3c9b322ede357976055ffdd5",
+      "sourceUrl": "https://raw.githubusercontent.com/FlagOpen/FlagEmbedding/fd1a2bdf69488ffebe0327999d4400d8c8058a0b/LICENSE",
+      "component": "models/FlagEmbedding",
+      "revision": "fd1a2bdf69488ffebe0327999d4400d8c8058a0b",
+      "license": "MIT",
+      "note": "License source linked by BAAI base-model cards. Current linked-source notice is preserved separately; no missing conversion-specific license is invented."
+    },
+    {
+      "path": "models/FlagEmbedding/provenance.json",
+      "bytes": 348,
+      "sha256": "4006f2454e77c1f26a0957a5e461579f77dbb81b5f2ee4676e17128e62216eed",
+      "generated": true
+    },
+    {
+      "path": "mcp-server-filesystem/LICENSE",
+      "bytes": 12227,
+      "sha256": "0382b0057770ca05e9c350a50aa3b1c1fea84da0bc81d723bf00b9aa841be58a",
+      "sourceUrl": "https://raw.githubusercontent.com/modelcontextprotocol/servers/a40bc270fb5ece62673f8a1196f57116d885c5eb/LICENSE",
+      "component": "@modelcontextprotocol/server-filesystem",
+      "revision": "a40bc270fb5ece62673f8a1196f57116d885c5eb",
+      "license": "See original license text; licensing transition declaration preserved"
+    },
+    {
+      "path": "mcp-server-filesystem/provenance.json",
+      "bytes": 1429,
+      "sha256": "7b13062bf919e24cb28a7ea863f763345cc2e0542019fa8dd934862b5b478d8f",
+      "generated": true
+    },
+    {
+      "path": "mcp-server-memory/LICENSE",
+      "bytes": 12227,
+      "sha256": "0382b0057770ca05e9c350a50aa3b1c1fea84da0bc81d723bf00b9aa841be58a",
+      "sourceUrl": "https://raw.githubusercontent.com/modelcontextprotocol/servers/a40bc270fb5ece62673f8a1196f57116d885c5eb/LICENSE",
+      "component": "@modelcontextprotocol/server-memory",
+      "revision": "a40bc270fb5ece62673f8a1196f57116d885c5eb",
+      "license": "See original license text; licensing transition declaration preserved"
+    },
+    {
+      "path": "mcp-server-memory/provenance.json",
+      "bytes": 1401,
+      "sha256": "4de0e6d3730516b2620dd0c434db0adbca11a690e65581564fd97440842d9102",
+      "generated": true
+    },
+    {
+      "path": "mcp-server-sequential-thinking/LICENSE",
+      "bytes": 12227,
+      "sha256": "0382b0057770ca05e9c350a50aa3b1c1fea84da0bc81d723bf00b9aa841be58a",
+      "sourceUrl": "https://raw.githubusercontent.com/modelcontextprotocol/servers/a40bc270fb5ece62673f8a1196f57116d885c5eb/LICENSE",
+      "component": "@modelcontextprotocol/server-sequential-thinking",
+      "revision": "a40bc270fb5ece62673f8a1196f57116d885c5eb",
+      "license": "See original license text; licensing transition declaration preserved"
+    },
+    {
+      "path": "mcp-server-sequential-thinking/provenance.json",
+      "bytes": 1492,
+      "sha256": "2920068484b7d49bceb494d0e7bc62ace13ec5a8915c8088ae106a622f0eff7a",
+      "generated": true
+    },
+    {
+      "path": "models/Xenova--all-MiniLM-L6-v2/MODEL-CARD.md",
+      "bytes": 1767,
+      "sha256": "63ea99bf681a2e9eda4f6a537d5ed8fda95d1677111656da37e9cfd080c3af02",
+      "sourceUrl": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/751bff37182d3f1213fa05d7196b954e230abad9/README.md",
+      "model": "Xenova/all-MiniLM-L6-v2",
+      "revision": "751bff37182d3f1213fa05d7196b954e230abad9",
+      "license": "apache-2.0"
+    },
+    {
+      "path": "models/Xenova--all-MiniLM-L6-v2/BASE-MODEL-CARD.md",
+      "bytes": 10502,
+      "sha256": "dcd602d2fd35c203a247304a06fec6654a12f7941b739f9221a064fe8dc3b7f0",
+      "sourceUrl": "https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/1110a243fdf4706b3f48f1d95db1a4f5529b4d41/README.md",
+      "model": "sentence-transformers/all-MiniLM-L6-v2",
+      "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+      "license": "apache-2.0"
+    },
+    {
+      "path": "models/Xenova--all-MiniLM-L6-v2/provenance.json",
+      "bytes": 2339,
+      "sha256": "64f9e0484ca02c274631e72c8f0ad0e13b82b522d83b2c52819b6a0dd072e001",
+      "generated": true,
+      "sourceUrl": "https://huggingface.co/api/models/Xenova/all-MiniLM-L6-v2?blobs=true"
+    },
+    {
+      "path": "models/Xenova--all-MiniLM-L12-v2/MODEL-CARD.md",
+      "bytes": 1124,
+      "sha256": "553da7c9b2dd275d48558fbc37f8a9494185ab3d28865a0f9cc142f1c7e5783c",
+      "sourceUrl": "https://huggingface.co/Xenova/all-MiniLM-L12-v2/resolve/beeb2e4b69e95f188a15cc2e90d09fd035dac229/README.md",
+      "model": "Xenova/all-MiniLM-L12-v2",
+      "revision": "beeb2e4b69e95f188a15cc2e90d09fd035dac229",
+      "license": null
+    },
+    {
+      "path": "models/Xenova--all-MiniLM-L12-v2/BASE-MODEL-CARD.md",
+      "bytes": 10514,
+      "sha256": "a9c5a266121350036e45a733802ac6a8567604be365de01e40aa4b43e5ee594d",
+      "sourceUrl": "https://huggingface.co/sentence-transformers/all-MiniLM-L12-v2/resolve/a50ef00143b4d5391434df20ae11632588ac25be/README.md",
+      "model": "sentence-transformers/all-MiniLM-L12-v2",
+      "revision": "a50ef00143b4d5391434df20ae11632588ac25be",
+      "license": "apache-2.0"
+    },
+    {
+      "path": "models/Xenova--all-MiniLM-L12-v2/provenance.json",
+      "bytes": 2335,
+      "sha256": "8a54321951cee3cfea706f00d28fbda19b911ce56b7c70acade8551e56984cc2",
+      "generated": true,
+      "sourceUrl": "https://huggingface.co/api/models/Xenova/all-MiniLM-L12-v2?blobs=true"
+    },
+    {
+      "path": "models/Xenova--bge-small-en-v1.5/MODEL-CARD.md",
+      "bytes": 3134,
+      "sha256": "ce711ead2cb11725c9c6de69779d918c500ab12c74c5c2437ff0c448ed1566a5",
+      "sourceUrl": "https://huggingface.co/Xenova/bge-small-en-v1.5/resolve/ea104dacec62c0de699686887e3f920caeb4f3e3/README.md",
+      "model": "Xenova/bge-small-en-v1.5",
+      "revision": "ea104dacec62c0de699686887e3f920caeb4f3e3",
+      "license": null
+    },
+    {
+      "path": "models/Xenova--bge-small-en-v1.5/BASE-MODEL-CARD.md",
+      "bytes": 94783,
+      "sha256": "ddb964361a55c6e5dfca6361615854b260c9c960205d04c7520151aaa1d75837",
+      "sourceUrl": "https://huggingface.co/BAAI/bge-small-en-v1.5/resolve/5c38ec7c405ec4b44b94cc5a9bb96e735b38267a/README.md",
+      "model": "BAAI/bge-small-en-v1.5",
+      "revision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+      "license": "mit"
+    },
+    {
+      "path": "models/Xenova--bge-small-en-v1.5/provenance.json",
+      "bytes": 2294,
+      "sha256": "1aafb06ed9fa733da741c48f8cf559c176bd9933fb5b2d8f70d94ddf27e97e9c",
+      "generated": true,
+      "sourceUrl": "https://huggingface.co/api/models/Xenova/bge-small-en-v1.5?blobs=true"
+    },
+    {
+      "path": "models/Xenova--bge-base-en-v1.5/MODEL-CARD.md",
+      "bytes": 3148,
+      "sha256": "1963d4a1a4eddad5efb3c46c9a26d4b4738f13e3f1f6c09117b4d4ee17b515bd",
+      "sourceUrl": "https://huggingface.co/Xenova/bge-base-en-v1.5/resolve/4d6cd88e18e51a5e020c2c305726d76ada9c03cf/README.md",
+      "model": "Xenova/bge-base-en-v1.5",
+      "revision": "4d6cd88e18e51a5e020c2c305726d76ada9c03cf",
+      "license": "mit"
+    },
+    {
+      "path": "models/Xenova--bge-base-en-v1.5/BASE-MODEL-CARD.md",
+      "bytes": 94551,
+      "sha256": "fd29e6117a8c2bc83f8eafb73f261d35341702dcd95c9cc0b34f5be75afa8231",
+      "sourceUrl": "https://huggingface.co/BAAI/bge-base-en-v1.5/resolve/a5beb1e3e68b9ab74eb54cfd186867f64f240e1a/README.md",
+      "model": "BAAI/bge-base-en-v1.5",
+      "revision": "a5beb1e3e68b9ab74eb54cfd186867f64f240e1a",
+      "license": "mit"
+    },
+    {
+      "path": "models/Xenova--bge-base-en-v1.5/provenance.json",
+      "bytes": 2292,
+      "sha256": "16d387ec5177d556f65a243ad081c7188054e444507291882492502cc7cdaf8d",
+      "generated": true,
+      "sourceUrl": "https://huggingface.co/api/models/Xenova/bge-base-en-v1.5?blobs=true"
+    },
+    {
+      "path": "README.md",
+      "bytes": 3713,
+      "sha256": "43b0fe2bd829228c18c5bfc198590f673e28b05f571bc24b1937ccd8f8854453",
+      "generated": true,
+      "note": "Harbor documentation/index; does not replace original upstream notices"
+    },
+    {
+      "path": "default-server-licenses.json",
+      "bytes": 9781,
+      "sha256": "10dd367ebcc5e57428d6a1b22e90e5dad5aba5f25f20e5d29f7f0a28bddc14a0",
+      "generated": true,
+      "note": "Harbor documentation/index; does not replace original upstream notices"
+    },
+    {
+      "path": "exa-oss-reference/HOSTED-SERVICE.md",
+      "bytes": 976,
+      "sha256": "acd8abf8b771dfef84eb5c2e1b3c6ca85c31a74e9220a1355203942860ecc4a2",
+      "generated": true,
+      "note": "Harbor documentation/index; does not replace original upstream notices"
+    }
+  ],
+  "components": [
+    {
+      "id": "uv",
+      "repository": "https://github.com/astral-sh/uv",
+      "tag": "0.12.12",
+      "commit": "c4be691531385fd7563e2a29d9bfa2e19b4c2025",
+      "license": "Apache-2.0 OR MIT",
+      "installed": {
+        "pathWithinPortable": "runtimes/uv/uv.exe",
+        "bytes": 41455408,
+        "sha256": "efb9599543b26b3ea5adc1649bef69788633d9cc25c6cfd97b799e4dfa0c2cfb"
+      },
+      "correspondence": "Source notice pinned to reported installed version; complete binary build/source/dependency correspondence not established"
+    },
+    {
+      "id": "github-cli",
+      "repository": "https://github.com/cli/cli",
+      "tag": "v2.96.0",
+      "commit": "b300f2ec7ec9dc9addc39b2ad88c54097ded7ca0",
+      "license": "MIT",
+      "installed": {
+        "pathWithinPortable": "runtimes/gh/gh.exe",
+        "bytes": 41504056,
+        "sha256": "cd79f16203f1fbe56937c4c96e2b6eadd10549418dcb241d91576ac77af0ac8b"
+      },
+      "correspondence": "Source notice pinned to reported installed version; complete binary build/source/dependency correspondence not established"
+    },
+    {
+      "id": "pandoc",
+      "repository": "https://github.com/jgm/pandoc",
+      "tag": "3.9",
+      "commit": "19c1f6552b12c70741674f509f8064ae506f29db",
+      "license": "GPL-2.0-or-later",
+      "installed": {
+        "pathWithinPortable": "packages/pdf-tools/python/pypandoc/files/pandoc.exe",
+        "bytes": 231717128,
+        "sha256": "ddf6bd05c7f7f48f69e1d711f732dbbe4c53dea7a0603b9d8408fb83d6c394e0"
+      },
+      "correspondence": "Source notice pinned to reported installed version; complete binary build/source/dependency correspondence not established"
+    },
+    {
+      "id": "node",
+      "repository": "https://github.com/nodejs/node",
+      "tag": "v24.19.0",
+      "commit": "cdc1b38d40cb567b7ad0b39c86addf830a0af0ae",
+      "license": "MIT plus bundled third-party notices",
+      "installed": {
+        "pathWithinPortable": "runtimes/node/node.exe",
+        "bytes": 92825416,
+        "sha256": "3602f2bb1a10f2cbab4c36886218a33c1ab3db87290e73b033c46c77147d0237"
+      },
+      "correspondence": "Source notice pinned to reported installed version; complete binary build/source/dependency correspondence not established"
+    },
+    {
+      "id": "exa-oss-reference",
+      "repository": "https://github.com/exa-labs/exa-mcp-server",
+      "checkedRevision": "15ffb50519e719dc791cdc750ce5ed1934c0a1ed",
+      "license": "MIT",
+      "note": "Related open-source connector only. The configured Exa server is hosted; this source revision/license does not identify or govern the hosted service."
+    },
+    {
+      "id": "models/FlagEmbedding",
+      "repository": "https://github.com/FlagOpen/FlagEmbedding",
+      "checkedRevision": "fd1a2bdf69488ffebe0327999d4400d8c8058a0b",
+      "license": "MIT",
+      "note": "License source linked by BAAI base-model cards. Current linked-source notice is preserved separately; no missing conversion-specific license is invented."
+    },
+    {
+      "id": "@modelcontextprotocol/server-filesystem",
+      "version": "2026.8.31",
+      "registryUrl": "https://registry.npmjs.org/@modelcontextprotocol%2Fserver-filesystem/2026.8.31",
+      "gitHead": "a40bc270fb5ece62673f8a1196f57116d885c5eb",
+      "licenseDeclaration": "SEE LICENSE IN LICENSE",
+      "repository": "https://github.com/modelcontextprotocol/servers",
+      "publishedDistribution": {
+        "integrity": "sha512-kKaFkyAh6oipvc9+EAbJ552JafnMnOq5nzmzWkp1jJdBhTAAGpmIpWihUG1+rfNhmEFM98gUZDdCHCDD4v6a7Q==",
+        "shasum": "7f88dfab06d4521a4bf937dccbaeb79d46a3e717",
+        "tarball": "https://registry.npmjs.org/@modelcontextprotocol/server-filesystem/-/server-filesystem-2026.8.31.tgz"
+      },
+      "installedPackageManifest": {
+        "pathWithinPortable": "packages/general-local/node_modules/@modelcontextprotocol/server-filesystem/package.json",
+        "bytes": 1169,
+        "sha256": "8703cc2371e856cf0609b56a7e9dd79988512649f939ef6dcbfdc206d8b29cf1"
+      },
+      "installedLock": {
+        "version": "2026.8.31",
+        "integrity": "sha512-kKaFkyAh6oipvc9+EAbJ552JafnMnOq5nzmzWkp1jJdBhTAAGpmIpWihUG1+rfNhmEFM98gUZDdCHCDD4v6a7Q==",
+        "resolved": "https://registry.npmjs.org/@modelcontextprotocol/server-filesystem/-/server-filesystem-2026.8.31.tgz"
+      },
+      "lockMatchesPublished": true,
+      "correspondence": "Published registry gitHead and matching lock integrity identify source notice; installed files were not re-downloaded or compared to a package archive"
+    },
+    {
+      "id": "@modelcontextprotocol/server-memory",
+      "version": "2026.8.31",
+      "registryUrl": "https://registry.npmjs.org/@modelcontextprotocol%2Fserver-memory/2026.8.31",
+      "gitHead": "a40bc270fb5ece62673f8a1196f57116d885c5eb",
+      "licenseDeclaration": "SEE LICENSE IN LICENSE",
+      "repository": "https://github.com/modelcontextprotocol/servers",
+      "publishedDistribution": {
+        "integrity": "sha512-ljj/3S4aGjxdNSQWw6gucKKGnTLdBPWxzapyY/MT2tOVyZwvxChvevXSLPwx59nKJAlVpUVW+cOlnVRXRwiqMQ==",
+        "shasum": "809f9f4c7e30e5c4e0b34ad0a3781c40664c0bfa",
+        "tarball": "https://registry.npmjs.org/@modelcontextprotocol/server-memory/-/server-memory-2026.8.31.tgz"
+      },
+      "installedPackageManifest": {
+        "pathWithinPortable": "packages/general-local/node_modules/@modelcontextprotocol/server-memory/package.json",
+        "bytes": 1056,
+        "sha256": "b85e6b171da989a8cf4f757b82df857766b50c053524cb2b95a881245dcfa59c"
+      },
+      "installedLock": {
+        "version": "2026.8.31",
+        "integrity": "sha512-ljj/3S4aGjxdNSQWw6gucKKGnTLdBPWxzapyY/MT2tOVyZwvxChvevXSLPwx59nKJAlVpUVW+cOlnVRXRwiqMQ==",
+        "resolved": "https://registry.npmjs.org/@modelcontextprotocol/server-memory/-/server-memory-2026.8.31.tgz"
+      },
+      "lockMatchesPublished": true,
+      "correspondence": "Published registry gitHead and matching lock integrity identify source notice; installed files were not re-downloaded or compared to a package archive"
+    },
+    {
+      "id": "@modelcontextprotocol/server-sequential-thinking",
+      "version": "2026.8.31",
+      "registryUrl": "https://registry.npmjs.org/@modelcontextprotocol%2Fserver-sequential-thinking/2026.8.31",
+      "gitHead": "a40bc270fb5ece62673f8a1196f57116d885c5eb",
+      "licenseDeclaration": "SEE LICENSE IN LICENSE",
+      "repository": "https://github.com/modelcontextprotocol/servers",
+      "publishedDistribution": {
+        "integrity": "sha512-/EMH++1j2e+VmHwpibw1IUPHxA0tcQY09Yo5/OIPwW/8irEKLAufJNGSZQhCK18n8TUvV6WwZyQOuaDKxe/CeQ==",
+        "shasum": "a286b9b678b9ead1fc0ae0d58e1351bd478a23a7",
+        "tarball": "https://registry.npmjs.org/@modelcontextprotocol/server-sequential-thinking/-/server-sequential-thinking-2026.8.31.tgz"
+      },
+      "installedPackageManifest": {
+        "pathWithinPortable": "packages/general-local/node_modules/@modelcontextprotocol/server-sequential-thinking/package.json",
+        "bytes": 1161,
+        "sha256": "2c48d1b17da92ca611ed8b6558f516eddb7c5375c870f2c60a81e5e3ab812d52"
+      },
+      "installedLock": {
+        "version": "2026.8.31",
+        "integrity": "sha512-/EMH++1j2e+VmHwpibw1IUPHxA0tcQY09Yo5/OIPwW/8irEKLAufJNGSZQhCK18n8TUvV6WwZyQOuaDKxe/CeQ==",
+        "resolved": "https://registry.npmjs.org/@modelcontextprotocol/server-sequential-thinking/-/server-sequential-thinking-2026.8.31.tgz"
+      },
+      "lockMatchesPublished": true,
+      "correspondence": "Published registry gitHead and matching lock integrity identify source notice; installed files were not re-downloaded or compared to a package archive"
+    }
+  ],
+  "models": [
+    {
+      "id": "Xenova/all-MiniLM-L6-v2",
+      "repository": "https://huggingface.co/Xenova/all-MiniLM-L6-v2",
+      "checkedRevision": "751bff37182d3f1213fa05d7196b954e230abad9",
+      "licenseDeclaredByConvertedCard": "apache-2.0",
+      "localFiles": [
+        {
+          "path": "config.json",
+          "bytes": 650,
+          "sha256": "7135149f7cffa1a573466c6e4d8423ed73b62fd2332c575bf738a0d033f70df7",
+          "gitBlobSha1": "72147e4ff4426ebedbfa2146c4a0999def51a313",
+          "remoteLfsSha256": null,
+          "remoteGitBlobSha1": "72147e4ff4426ebedbfa2146c4a0999def51a313",
+          "matches": true
+        },
+        {
+          "path": "onnx/model_quantized.onnx",
+          "bytes": 22972370,
+          "sha256": "afdb6f1a0e45b715d0bb9b11772f032c399babd23bfc31fed1c170afc848bdb1",
+          "gitBlobSha1": "712e070a96dae3668c2da046f2cdfd19ba9d4327",
+          "remoteLfsSha256": "afdb6f1a0e45b715d0bb9b11772f032c399babd23bfc31fed1c170afc848bdb1",
+          "remoteGitBlobSha1": "bdb02d11c4446148e92a9210ab4d1013b3450a72",
+          "matches": true
+        },
+        {
+          "path": "tokenizer.json",
+          "bytes": 711661,
+          "sha256": "da0e79933b9ed51798a3ae27893d3c5fa4a201126cef75586296df9b4d2c62a0",
+          "gitBlobSha1": "c17ed520ed8438736732a54957a69306b8822215",
+          "remoteLfsSha256": null,
+          "remoteGitBlobSha1": "c17ed520ed8438736732a54957a69306b8822215",
+          "matches": true
+        },
+        {
+          "path": "tokenizer_config.json",
+          "bytes": 366,
+          "sha256": "9261e7d79b44c8195c1cada2b453e55b00aeb81e907a6664974b4d7776172ab3",
+          "gitBlobSha1": "37fca74771bc76a8e01178ce3a6055a0995f8093",
+          "remoteLfsSha256": null,
+          "remoteGitBlobSha1": "37fca74771bc76a8e01178ce3a6055a0995f8093",
+          "matches": true
+        }
+      ],
+      "base": {
+        "id": "sentence-transformers/all-MiniLM-L6-v2",
+        "repository": "https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2",
+        "checkedRevision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+        "licenseDeclaredByCard": "apache-2.0",
+        "note": "Base repository identified by converted model card; base license does not silently invent a missing conversion-specific grant"
+      },
+      "correspondence": "All installed model files byte-match this exact repository revision by LFS SHA-256 or Git blob SHA-1. This establishes an equivalent source revision, not the original download time/revision.",
+      "allLocalFilesMatchCheckedRevision": true
+    },
+    {
+      "id": "Xenova/all-MiniLM-L12-v2",
+      "repository": "https://huggingface.co/Xenova/all-MiniLM-L12-v2",
+      "checkedRevision": "beeb2e4b69e95f188a15cc2e90d09fd035dac229",
+      "licenseDeclaredByConvertedCard": null,
+      "localFiles": [
+        {
+          "path": "config.json",
+          "bytes": 610,
+          "sha256": "98cfb098e4f623321632b32b3e62d58ea49601e90dd3c13736c42812b4533ab7",
+          "gitBlobSha1": "d0fcb9b31b0e770baadd3710ca18aed70be2f13d",
+          "remoteLfsSha256": null,
+          "remoteGitBlobSha1": "d0fcb9b31b0e770baadd3710ca18aed70be2f13d",
+          "matches": true
+        },
+        {
+          "path": "onnx/model_quantized.onnx",
+          "bytes": 34014366,
+          "sha256": "f51725bc66b2bf5335cacb5c005763b57bcd741172372795819741cd945a9dd9",
+          "gitBlobSha1": "cb618743a4b00a8dae483da016c1be5fdfd60b67",
+          "remoteLfsSha256": "f51725bc66b2bf5335cacb5c005763b57bcd741172372795819741cd945a9dd9",
+          "remoteGitBlobSha1": "30d17e1ae76dfefc2dbd509609a5edd8c98295b4",
+          "matches": true
+        },
+        {
+          "path": "tokenizer.json",
+          "bytes": 711661,
+          "sha256": "da0e79933b9ed51798a3ae27893d3c5fa4a201126cef75586296df9b4d2c62a0",
+          "gitBlobSha1": "c17ed520ed8438736732a54957a69306b8822215",
+          "remoteLfsSha256": null,
+          "remoteGitBlobSha1": "c17ed520ed8438736732a54957a69306b8822215",
+          "matches": true
+        },
+        {
+          "path": "tokenizer_config.json",
+          "bytes": 366,
+          "sha256": "9261e7d79b44c8195c1cada2b453e55b00aeb81e907a6664974b4d7776172ab3",
+          "gitBlobSha1": "37fca74771bc76a8e01178ce3a6055a0995f8093",
+          "remoteLfsSha256": null,
+          "remoteGitBlobSha1": "37fca74771bc76a8e01178ce3a6055a0995f8093",
+          "matches": true
+        }
+      ],
+      "base": {
+        "id": "sentence-transformers/all-MiniLM-L12-v2",
+        "repository": "https://huggingface.co/sentence-transformers/all-MiniLM-L12-v2",
+        "checkedRevision": "a50ef00143b4d5391434df20ae11632588ac25be",
+        "licenseDeclaredByCard": "apache-2.0",
+        "note": "Base repository identified by converted model card; base license does not silently invent a missing conversion-specific grant"
+      },
+      "correspondence": "All installed model files byte-match this exact repository revision by LFS SHA-256 or Git blob SHA-1. This establishes an equivalent source revision, not the original download time/revision.",
+      "allLocalFilesMatchCheckedRevision": true
+    },
+    {
+      "id": "Xenova/bge-small-en-v1.5",
+      "repository": "https://huggingface.co/Xenova/bge-small-en-v1.5",
+      "checkedRevision": "ea104dacec62c0de699686887e3f920caeb4f3e3",
+      "licenseDeclaredByConvertedCard": null,
+      "localFiles": [
+        {
+          "path": "config.json",
+          "bytes": 683,
+          "sha256": "fa73f90bf92c8cace1fbcb709626306f2bdbc9ea3e5b5f94b440df9b6aa56350",
+          "gitBlobSha1": "0c4d86248983ce46dfc09a9091b6f56bb0224550",
+          "remoteLfsSha256": null,
+          "remoteGitBlobSha1": "0c4d86248983ce46dfc09a9091b6f56bb0224550",
+          "matches": true
+        },
+        {
+          "path": "onnx/model_quantized.onnx",
+          "bytes": 34014426,
+          "sha256": "6c9c6101a956d62dfb5e7190c538226c0c5bb9cb27b651234b6df063ee7dbfe4",
+          "gitBlobSha1": "2d792d46dac2724cc6dffaaf38ecb4f5d51f4334",
+          "remoteLfsSha256": "6c9c6101a956d62dfb5e7190c538226c0c5bb9cb27b651234b6df063ee7dbfe4",
+          "remoteGitBlobSha1": "e5f3a4e07c216a5b862d3ce4858052a8521ac3c9",
+          "matches": true
+        },
+        {
+          "path": "tokenizer.json",
+          "bytes": 711396,
+          "sha256": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+          "gitBlobSha1": "688882a79f44442ddc1f60d70334a7ff5df0fb47",
+          "remoteLfsSha256": null,
+          "remoteGitBlobSha1": "688882a79f44442ddc1f60d70334a7ff5df0fb47",
+          "matches": true
+        },
+        {
+          "path": "tokenizer_config.json",
+          "bytes": 366,
+          "sha256": "9261e7d79b44c8195c1cada2b453e55b00aeb81e907a6664974b4d7776172ab3",
+          "gitBlobSha1": "37fca74771bc76a8e01178ce3a6055a0995f8093",
+          "remoteLfsSha256": null,
+          "remoteGitBlobSha1": "37fca74771bc76a8e01178ce3a6055a0995f8093",
+          "matches": true
+        }
+      ],
+      "base": {
+        "id": "BAAI/bge-small-en-v1.5",
+        "repository": "https://huggingface.co/BAAI/bge-small-en-v1.5",
+        "checkedRevision": "5c38ec7c405ec4b44b94cc5a9bb96e735b38267a",
+        "licenseDeclaredByCard": "mit",
+        "note": "Base repository identified by converted model card; base license does not silently invent a missing conversion-specific grant"
+      },
+      "correspondence": "All installed model files byte-match this exact repository revision by LFS SHA-256 or Git blob SHA-1. This establishes an equivalent source revision, not the original download time/revision.",
+      "allLocalFilesMatchCheckedRevision": true
+    },
+    {
+      "id": "Xenova/bge-base-en-v1.5",
+      "repository": "https://huggingface.co/Xenova/bge-base-en-v1.5",
+      "checkedRevision": "4d6cd88e18e51a5e020c2c305726d76ada9c03cf",
+      "licenseDeclaredByConvertedCard": "mit",
+      "localFiles": [
+        {
+          "path": "config.json",
+          "bytes": 717,
+          "sha256": "d83c21fa7366994560727112ef0a31d8a2ec1c280c2a3e66326fdb877f64c91e",
+          "gitBlobSha1": "e86fb509da014deb2e24e7c98e2409ec093e8b16",
+          "remoteLfsSha256": null,
+          "remoteGitBlobSha1": "e86fb509da014deb2e24e7c98e2409ec093e8b16",
+          "matches": true
+        },
+        {
+          "path": "onnx/model_quantized.onnx",
+          "bytes": 110083337,
+          "sha256": "c9729cc84cbd0e9fecc759505d2be65916c9fe05222d7ea26c65fcb3382af38d",
+          "gitBlobSha1": "3cb03a0acd8974f545cdd2e4918bb43f87e9fe32",
+          "remoteLfsSha256": "c9729cc84cbd0e9fecc759505d2be65916c9fe05222d7ea26c65fcb3382af38d",
+          "remoteGitBlobSha1": "53c1e0288be232644a96052ba5ab2b19bc71d77e",
+          "matches": true
+        },
+        {
+          "path": "tokenizer.json",
+          "bytes": 711396,
+          "sha256": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+          "gitBlobSha1": "688882a79f44442ddc1f60d70334a7ff5df0fb47",
+          "remoteLfsSha256": null,
+          "remoteGitBlobSha1": "688882a79f44442ddc1f60d70334a7ff5df0fb47",
+          "matches": true
+        },
+        {
+          "path": "tokenizer_config.json",
+          "bytes": 366,
+          "sha256": "9261e7d79b44c8195c1cada2b453e55b00aeb81e907a6664974b4d7776172ab3",
+          "gitBlobSha1": "37fca74771bc76a8e01178ce3a6055a0995f8093",
+          "remoteLfsSha256": null,
+          "remoteGitBlobSha1": "37fca74771bc76a8e01178ce3a6055a0995f8093",
+          "matches": true
+        }
+      ],
+      "base": {
+        "id": "BAAI/bge-base-en-v1.5",
+        "repository": "https://huggingface.co/BAAI/bge-base-en-v1.5",
+        "checkedRevision": "a5beb1e3e68b9ab74eb54cfd186867f64f240e1a",
+        "licenseDeclaredByCard": "mit",
+        "note": "Base repository identified by converted model card; base license does not silently invent a missing conversion-specific grant"
+      },
+      "correspondence": "All installed model files byte-match this exact repository revision by LFS SHA-256 or Git blob SHA-1. This establishes an equivalent source revision, not the original download time/revision.",
+      "allLocalFilesMatchCheckedRevision": true
+    }
+  ],
+  "unresolved": [
+    {
+      "component": "Xenova/all-MiniLM-L12-v2",
+      "error": "Converted model card does not declare a license; base attribution/license collected without inventing an explicit conversion grant"
+    },
+    {
+      "component": "Xenova/bge-small-en-v1.5",
+      "error": "Converted model card does not declare a license; base attribution/license collected without inventing an explicit conversion grant"
+    }
+  ],
+  "noticeDocumentationCompletedAt": "2026-09-19T02:28:57.794Z"
+}

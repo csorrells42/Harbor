@@ -1,0 +1,13 @@
+{
+  "id": "pandoc",
+  "repository": "https://github.com/jgm/pandoc",
+  "tag": "3.9",
+  "commit": "19c1f6552b12c70741674f509f8064ae506f29db",
+  "license": "GPL-2.0-or-later",
+  "installed": {
+    "pathWithinPortable": "packages/pdf-tools/python/pypandoc/files/pandoc.exe",
+    "bytes": 231717128,
+    "sha256": "ddf6bd05c7f7f48f69e1d711f732dbbe4c53dea7a0603b9d8408fb83d6c394e0"
+  },
+  "correspondence": "Source notice pinned to reported installed version; complete binary build/source/dependency correspondence not established"
+}

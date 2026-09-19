@@ -1,0 +1,257 @@
+{
+  "observedAt": "2026-09-19T02:28:57.783Z",
+  "scope": "Primary licenses for every configured default server; dependencies and hosted service terms are separate",
+  "servers": [
+    {
+      "id": "serena",
+      "name": "Serena",
+      "installedVersion": "serena-agent 2.0.0.dev0",
+      "primaryLicense": "GPL-3.0-or-later application; SolidLSP remains MIT",
+      "noticePaths": [
+        "serena/LICENSE",
+        "serena/GPL-3.0-or-later.txt",
+        "serena/MIT.txt"
+      ],
+      "sourceUrls": [
+        "https://github.com/oraios/serena"
+      ],
+      "qualification": "oraios/serena. Current version is after the project's v2 license transition; an older MIT-only description would be wrong."
+    },
+    {
+      "id": "context7",
+      "name": "Context7",
+      "installedVersion": "@upstash/context7-mcp 4.1.1",
+      "primaryLicense": "MIT",
+      "noticePaths": [
+        "context7/LICENSE"
+      ],
+      "sourceUrls": [
+        "https://github.com/upstash/context7"
+      ],
+      "qualification": "upstash/context7. This identifies the connector code; hosted documentation/API service terms are separate."
+    },
+    {
+      "id": "playwright",
+      "name": "Playwright",
+      "installedVersion": "@playwright/mcp 0.0.82",
+      "primaryLicense": "Apache-2.0",
+      "noticePaths": [
+        "playwright-mcp/LICENSE"
+      ],
+      "sourceUrls": [
+        "https://github.com/microsoft/playwright-mcp"
+      ],
+      "qualification": "microsoft/playwright-mcp. The separately bundled browser, FFmpeg, and other helpers retain their own notices."
+    },
+    {
+      "id": "github",
+      "name": "GitHub",
+      "installedVersion": "GitHub MCP Server v1.12.2",
+      "primaryLicense": "MIT",
+      "noticePaths": [
+        "github-mcp/LICENSE"
+      ],
+      "sourceUrls": [
+        "https://github.com/github/github-mcp-server"
+      ],
+      "qualification": "github/github-mcp-server. GitHub account/service terms and bundled GitHub CLI notices are separate."
+    },
+    {
+      "id": "filesystem",
+      "name": "Filesystem",
+      "installedVersion": "@modelcontextprotocol/server-filesystem 2026.8.31",
+      "primaryLicense": "Apache-2.0 with retained MIT contributions, per the exact source licensing-transition notice",
+      "noticePaths": [
+        "mcp-server-filesystem/LICENSE"
+      ],
+      "sourceUrls": [
+        "https://github.com/modelcontextprotocol/servers/blob/a40bc270fb5ece62673f8a1196f57116d885c5eb/LICENSE"
+      ],
+      "qualification": "Exact published source license. npm says `SEE LICENSE IN LICENSE`; registry gitHead and lock integrity establish this source-notice mapping."
+    },
+    {
+      "id": "memory",
+      "name": "Memory",
+      "installedVersion": "@modelcontextprotocol/server-memory 2026.8.31",
+      "primaryLicense": "Apache-2.0 with retained MIT contributions, per the exact source licensing-transition notice",
+      "noticePaths": [
+        "mcp-server-memory/LICENSE"
+      ],
+      "sourceUrls": [
+        "https://github.com/modelcontextprotocol/servers/blob/a40bc270fb5ece62673f8a1196f57116d885c5eb/LICENSE"
+      ],
+      "qualification": "Exact published source license. This is Generic Memory, not the retired Obsidian integration."
+    },
+    {
+      "id": "sequential-thinking",
+      "name": "Sequential Thinking",
+      "installedVersion": "@modelcontextprotocol/server-sequential-thinking 2026.8.31",
+      "primaryLicense": "Apache-2.0 with retained MIT contributions, per the exact source licensing-transition notice",
+      "noticePaths": [
+        "mcp-server-sequential-thinking/LICENSE"
+      ],
+      "sourceUrls": [
+        "https://github.com/modelcontextprotocol/servers/blob/a40bc270fb5ece62673f8a1196f57116d885c5eb/LICENSE"
+      ],
+      "qualification": "Exact published source license. See the original transition text rather than assuming a uniform MIT license."
+    },
+    {
+      "id": "desktop-commander",
+      "name": "Desktop Commander",
+      "installedVersion": "@wonderwhy-er/desktop-commander 0.2.51",
+      "primaryLicense": "MIT",
+      "noticePaths": [
+        "desktop-commander/LICENSE"
+      ],
+      "sourceUrls": [
+        "https://github.com/wonderwhy-er/DesktopCommanderMCP"
+      ],
+      "qualification": "wonderwhy-er/DesktopCommanderMCP. Dependency terms remain separate."
+    },
+    {
+      "id": "fetch",
+      "name": "Fetch",
+      "installedVersion": "mcp-server-fetch 2026.8.18",
+      "primaryLicense": "MIT, as declared in this installed Python distribution",
+      "noticePaths": [
+        "fetch/LICENSE"
+      ],
+      "sourceUrls": [
+        "https://github.com/modelcontextprotocol/servers/tree/main/src/fetch"
+      ],
+      "qualification": "MCP Fetch source. The installed version's full MIT text is preserved; do not silently replace it with a future source license."
+    },
+    {
+      "id": "git-local",
+      "name": "Git Local",
+      "installedVersion": "mcp-server-git 2026.8.18",
+      "primaryLicense": "MIT, as declared in this installed Python distribution",
+      "noticePaths": [
+        "git-local/LICENSE"
+      ],
+      "sourceUrls": [
+        "https://github.com/modelcontextprotocol/servers/tree/main/src/git"
+      ],
+      "qualification": "MCP Git source. The bundled Git executable separately carries GPL v2 notices."
+    },
+    {
+      "id": "exa",
+      "name": "Exa",
+      "installedVersion": "hosted endpoint; service build/version not published by this configuration",
+      "primaryLicense": "Hosted-service terms, not a locally bundled server-code license. Related open-source connector is MIT",
+      "noticePaths": [
+        "exa-oss-reference/HOSTED-SERVICE.md",
+        "exa-oss-reference/LICENSE"
+      ],
+      "sourceUrls": [
+        "https://exa.ai/assets/Exa_Labs_Terms_of_Service.pdf",
+        "https://github.com/exa-labs/exa-mcp-server"
+      ],
+      "qualification": "Harbor connects to `https://mcp.exa.ai/mcp`. Exa terms govern service use. exa-labs/exa-mcp-server is a related MIT repository; its license does not establish the hosted deployment's identity or replace service terms."
+    },
+    {
+      "id": "brave-search",
+      "name": "Brave Search",
+      "installedVersion": "@brave/brave-search-mcp-server 2.1.4",
+      "primaryLicense": "MIT",
+      "noticePaths": [
+        "brave-search/LICENSE"
+      ],
+      "sourceUrls": [
+        "https://github.com/brave/brave-search-mcp-server"
+      ],
+      "qualification": "brave/brave-search-mcp-server. Brave Search API access is separate; its key and live acceptance remain intentionally deferred."
+    },
+    {
+      "id": "typst-mcp",
+      "name": "Typst PDF Creator",
+      "installedVersion": "typst-mcp 0.1.0",
+      "primaryLicense": "MIT",
+      "noticePaths": [
+        "typst-mcp/LICENSE"
+      ],
+      "sourceUrls": [
+        "https://github.com/edward-lcl/typst-mcp"
+      ],
+      "qualification": "edward-lcl/typst-mcp. The bundled Typst executable separately uses Apache-2.0 plus third-party notices."
+    },
+    {
+      "id": "pdf-tools",
+      "name": "PDF Tools",
+      "installedVersion": "mcp-pdf 2.3.0",
+      "primaryLicense": "MIT for the server project",
+      "noticePaths": [
+        "pdf-tools/LICENSE"
+      ],
+      "sourceUrls": [
+        "https://github.com/rsp2k/mcp-pdf"
+      ],
+      "qualification": "rsp2k/mcp-pdf. Material separate dependencies include PyMuPDF 1.28.2 (**AGPL-3.0 or Artifex commercial**) and Pandoc 3.9 (**GPL-2.0-or-later**). Their collected notices do not by themselves establish source-distribution completeness."
+    },
+    {
+      "id": "duckdb",
+      "name": "DuckDB",
+      "installedVersion": "mcp-server-motherduck 1.0.8",
+      "primaryLicense": "MIT",
+      "noticePaths": [
+        "duckdb/LICENSE"
+      ],
+      "sourceUrls": [
+        "https://github.com/motherduckdb/mcp-server-motherduck"
+      ],
+      "qualification": "motherduckdb/mcp-server-motherduck. Local DuckDB use does not require a MotherDuck account; cloud-service terms would be separate if enabled."
+    },
+    {
+      "id": "markitdown",
+      "name": "MarkItDown",
+      "installedVersion": "markitdown-mcp 0.0.1a7; engine markitdown 0.1.8b3",
+      "primaryLicense": "MIT",
+      "noticePaths": [
+        "markitdown/LICENSE"
+      ],
+      "sourceUrls": [
+        "https://github.com/microsoft/markitdown"
+      ],
+      "qualification": "microsoft/markitdown. The MCP wrapper and conversion engine have distinct version strings; optional service/dependency terms remain separate."
+    },
+    {
+      "id": "excel",
+      "name": "Excel",
+      "installedVersion": "excel-mcp-server 0.1.8",
+      "primaryLicense": "MIT",
+      "noticePaths": [
+        "excel/LICENSE"
+      ],
+      "sourceUrls": [
+        "https://github.com/haris-musa/excel-mcp-server"
+      ],
+      "qualification": "haris-musa/excel-mcp-server. This does not confer a license for Microsoft Excel; the local workbook tool does not require Excel to be installed."
+    },
+    {
+      "id": "word",
+      "name": "Word Documents",
+      "installedVersion": "docx-mcp-server 0.7.4",
+      "primaryLicense": "MIT",
+      "noticePaths": [
+        "word/LICENSE"
+      ],
+      "sourceUrls": [
+        "https://github.com/SecurityRonin/docx-mcp"
+      ],
+      "qualification": "SecurityRonin/docx-mcp. This does not confer a license for Microsoft Word; local DOCX operations do not require Word to be installed."
+    },
+    {
+      "id": "dbhub",
+      "name": "DBHub",
+      "installedVersion": "dbhub 1.2.5",
+      "primaryLicense": "MIT",
+      "noticePaths": [
+        "dbhub/LICENSE"
+      ],
+      "sourceUrls": [
+        "https://github.com/bytebase/dbhub"
+      ],
+      "qualification": "bytebase/dbhub. Database engines, drivers, and any externally connected database service retain their own terms."
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>MCP Harbor</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Application sidebar">
+      <div class="brand"><span class="brand-symbol" data-icon="harbor"></span><span><span id="brand-name">MCP Harbor</span><small id="brand-edition">LOCAL WORKSPACE</small></span></div>
+      <div class="nav-label">WORKSPACE</div>
+      <nav aria-label="Main navigation">
+        <button class="nav-item" data-view="this-server" aria-label="This Server"><span data-icon="harbor"></span>This Server</button>
+        <button class="nav-item active" data-view="servers" aria-label="Children Servers Statuses" aria-current="page"><span data-icon="servers"></span><span class="nav-title">Children Servers Statuses</span><span class="nav-count" id="nav-servers">0</span></button>
+        <button class="nav-item" data-view="tool-delivery" aria-label="Tool Delivery"><span data-icon="search"></span>Tool Delivery</button>
+        <button class="nav-item" data-view="diagnostics" aria-label="Diagnostics"><span data-icon="activity"></span>Diagnostics</button>
+        <button class="nav-item" data-view="advisor" aria-label="Advisor"><span data-icon="shield"></span>Advisor</button>
+        <button class="nav-item" data-view="tools" aria-label="Tools"><span data-icon="tools"></span>Tools<span class="nav-count" id="nav-tools">0</span></button>
+        <button class="nav-item" data-view="activity" aria-label="Activity"><span data-icon="activity"></span>Activity</button>
+        <button class="nav-item" data-view="connections" aria-label="Connections"><span data-icon="connections"></span>Connections</button>
+        <button class="nav-item" data-view="maintenance" aria-label="Maintenance"><span data-icon="tools"></span>Maintenance</button>
+      </nav>
+      <div class="sidebar-bottom"><div class="workspace-note"><span data-icon="shield"></span><span>Local by design<small>One gateway. Your machine.</small></span></div><button class="sidebar-endpoint" id="sidebar-connect">Connection settings <span>↗</span></button><div class="sidebar-footer"><span>MCP HARBOR</span><span>Tools gateway</span></div></div>
+    </aside>
+    <main>
+      <header class="topbar"><div class="breadcrumb"><span>Workspace</span><span class="slash">/</span><strong id="breadcrumb-view">Children Servers Statuses</strong></div><div class="gateway-status" id="gateway-status"><span class="status-dot"></span>Connecting to gateway</div></header>
+      <div id="connection-error" class="banner error-banner" role="alert" hidden></div>
+      <section class="page-heading"><div><h1 id="page-title">Children Servers Statuses</h1><p id="page-subtitle">Manage the servers behind your AI tools.</p></div><div class="actions" id="page-actions"></div></section>
+      <div class="content" id="content" aria-live="off"></div>
+      <footer class="statusbar"><span id="status-summary">Loading workspace…</span><span><span class="status-dot"></span>Local IPC · refreshes every 1.5s</span></footer>
+    </main>
+  </div>
+  <dialog id="server-dialog" aria-labelledby="editor-title">
+    <form id="server-form" novalidate>
+      <div class="dialog-heading"><div><span class="eyebrow">SERVER CONFIGURATION</span><h2 id="editor-title">Add server</h2></div><button type="button" class="icon-button" data-close="server-dialog" aria-label="Close server editor">×</button></div>
+      <div class="dialog-body">
+        <p class="muted">Configure a server, then start it when you’re ready.</p>
+        <div class="field" id="template-field"><label for="template">Start from</label><select id="template"><option value="custom">Custom configuration</option><option value="serena">Serena · semantic coding tools</option><option value="git">Git · repository tools</option></select></div>
+        <div id="template-setup" class="template-setup" hidden>
+          <p id="template-description"></p><p id="template-prerequisite" class="muted"></p>
+          <div class="field"><label for="template-repo">Repository path</label><div class="input-action"><input id="template-repo" placeholder="Choose your repository"><button type="button" id="template-browse">Browse…</button></div><small>For WSL, enter the Linux path (for example /home/you/project).</small></div>
+          <button type="button" id="apply-template">Apply template</button><p class="hint">Only fills this form. Nothing is installed, downloaded or started.</p>
+        </div>
+        <div class="form-grid">
+          <div class="field"><label for="server-name">Server name</label><input id="server-name" name="name" autocomplete="off" placeholder="My MCP server" required></div>
+          <div class="field"><label for="server-id">Server ID</label><input id="server-id" name="id" autocomplete="off" placeholder="my-server" required><small>Stable namespace · letters, numbers, - and _</small></div>
+          <div class="field"><label for="transport">Transport</label><select id="transport" name="transport"><option value="stdio">Standard I/O (stdio)</option><option value="http">Streamable HTTP</option><option value="sse">Server-sent events (SSE)</option></select></div>
+          <div class="field" id="runtime-field"><label for="runtime">Runtime</label><select id="runtime" name="runtime"><option value="native">Native · this machine</option><option value="wsl">WSL · Linux on Windows</option></select></div>
+        </div>
+        <div id="stdio-fields">
+          <div class="field" id="distro-field" hidden><label for="distro">WSL distribution</label><input id="distro" name="distro" placeholder="Default distribution"><small>Commands, environment and paths are resolved inside WSL.</small></div>
+          <div class="field"><label for="command">Command</label><input id="command" name="command" class="mono" placeholder="node, uvx, or an absolute executable path" autocomplete="off"><small>Executable only. Put each argument in the array below; no shell syntax.</small></div>
+          <div class="field"><label for="args">Arguments (JSON array)</label><textarea id="args" name="args" rows="3" spellcheck="false" placeholder='["server.mjs"]'>[]</textarea></div>
+          <div class="field"><label for="cwd">Working directory</label><div class="input-action"><input id="cwd" name="cwd" class="mono" placeholder="Optional absolute directory"><button type="button" id="browse-directory">Browse…</button></div></div>
+          <div class="field"><label for="env">Environment (JSON object)</label><textarea id="env" name="env" rows="3" spellcheck="false">{}</textarea><small>String values only. Stored locally as plain text; avoid sharing config with secrets.</small></div>
+        </div>
+        <div id="remote-fields" hidden><div class="field"><label for="url">Server URL</label><input id="url" name="url" type="url" class="mono" placeholder="https://your-server.example/mcp"><small>Enter the full HTTP/SSE endpoint. Custom authentication headers are not supported.</small></div>
+          <div class="field"><label for="managedProcesses">Managed processes (JSON array)</label><textarea id="managedProcesses" name="managedProcesses" rows="6" spellcheck="false">[]</textarea><small>Optional HTTP/SSE launch section. [] means externally managed: Start, Stop and Restart affect only the connection. A nonempty array makes Harbor own every foreground process and stop them together.</small><small>Each entry: {"command":"node","args":["server.mjs"],"cwd":"optional path","env":{},"runtime":"native","distro":"optional WSL distribution"}. Use runtime "wsl" with Linux commands/paths; WSL requires python3. Do not use detached launchers. Stop the existing service before transferring ownership. Startup uses the gateway initialization/discovery timeout. Values are saved locally in plain text.</small></div>
+        </div>
+        <div class="checkboxes"><label><input type="checkbox" id="autoStart" name="autoStart"> Start automatically when Harbor opens</label><label><input type="checkbox" id="autoRestart" name="autoRestart"> Restart automatically after a failure</label></div>
+        <p class="notice">Shared upstream: all connected apps use this server’s process, tools and mutable state. Use separate entries for project isolation.</p>
+        <div id="form-error" class="form-error" role="alert" hidden></div>
+      </div>
+      <div class="dialog-footer"><span class="muted" id="save-hint">Saving does not start a new server.</span><div class="actions"><button type="button" data-close="server-dialog">Cancel</button><button type="submit" class="primary" id="save-server">Save server</button></div></div>
+    </form>
+  </dialog>
+  <dialog id="import-dialog" aria-labelledby="import-title"><form id="import-form"><div class="dialog-heading"><div><span class="eyebrow">BRING YOUR CONFIGURATION</span><h2 id="import-title">Import servers</h2></div><button class="icon-button" type="button" data-close="import-dialog" aria-label="Close import">×</button></div><div class="dialog-body"><p class="muted">Paste a common MCP configuration. Existing server IDs are never overwritten.</p><div class="field"><label for="import-file">Load a JSON file</label><input id="import-file" type="file" accept=".json,application/json"></div><div class="field"><label for="import-json">Configuration JSON</label><textarea id="import-json" rows="12" spellcheck="false" placeholder='{"mcpServers": {"my-server": {"command": "node", "args": ["server.mjs"]}}' required></textarea></div><p class="notice">Review commands before importing. Imported servers stay stopped until you start them. Configurations can contain secrets.</p><div id="import-error" class="form-error" role="alert" hidden></div></div><div class="dialog-footer"><span class="muted">Common mcpServers format</span><div class="actions"><button type="button" data-close="import-dialog">Cancel</button><button class="primary" type="submit" id="import-submit">Import servers</button></div></div></form></dialog>
+  <dialog id="confirm-dialog" class="small-dialog" aria-labelledby="confirm-title"><div class="dialog-heading"><h2 id="confirm-title">Remove server?</h2></div><div class="dialog-body"><p id="confirm-description"></p></div><div class="dialog-footer"><button data-close="confirm-dialog">Cancel</button><button id="confirm-remove" class="danger">Remove server</button></div></dialog>
+  <dialog id="schema-dialog" aria-labelledby="schema-title"><div class="dialog-heading"><div><span class="eyebrow">TOOL INSPECTOR</span><h2 id="schema-title"></h2></div><button class="icon-button" data-close="schema-dialog" aria-label="Close tool inspector">×</button></div><div class="dialog-body"><p id="schema-description" class="muted"></p><div id="schema-meta" class="hint"></div><h3>Input schema</h3><pre id="schema-json"></pre></div><div class="dialog-footer"><span class="muted">Inspect only · no tool is executed</span><button id="copy-schema">Copy schema</button></div></dialog>
+  <div id="toast" role="status" hidden></div>
+</body>
+</html>

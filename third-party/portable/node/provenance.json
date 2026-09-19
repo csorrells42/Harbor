@@ -1,0 +1,13 @@
+{
+  "id": "node",
+  "repository": "https://github.com/nodejs/node",
+  "tag": "v24.19.0",
+  "commit": "cdc1b38d40cb567b7ad0b39c86addf830a0af0ae",
+  "license": "MIT plus bundled third-party notices",
+  "installed": {
+    "pathWithinPortable": "runtimes/node/node.exe",
+    "bytes": 92825416,
+    "sha256": "3602f2bb1a10f2cbab4c36886218a33c1ab3db87290e73b033c46c77147d0237"
+  },
+  "correspondence": "Source notice pinned to reported installed version; complete binary build/source/dependency correspondence not established"
+}

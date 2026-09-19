@@ -1,0 +1,53 @@
+{
+  "id": "Xenova/all-MiniLM-L6-v2",
+  "repository": "https://huggingface.co/Xenova/all-MiniLM-L6-v2",
+  "checkedRevision": "751bff37182d3f1213fa05d7196b954e230abad9",
+  "licenseDeclaredByConvertedCard": "apache-2.0",
+  "localFiles": [
+    {
+      "path": "config.json",
+      "bytes": 650,
+      "sha256": "7135149f7cffa1a573466c6e4d8423ed73b62fd2332c575bf738a0d033f70df7",
+      "gitBlobSha1": "72147e4ff4426ebedbfa2146c4a0999def51a313",
+      "remoteLfsSha256": null,
+      "remoteGitBlobSha1": "72147e4ff4426ebedbfa2146c4a0999def51a313",
+      "matches": true
+    },
+    {
+      "path": "onnx/model_quantized.onnx",
+      "bytes": 22972370,
+      "sha256": "afdb6f1a0e45b715d0bb9b11772f032c399babd23bfc31fed1c170afc848bdb1",
+      "gitBlobSha1": "712e070a96dae3668c2da046f2cdfd19ba9d4327",
+      "remoteLfsSha256": "afdb6f1a0e45b715d0bb9b11772f032c399babd23bfc31fed1c170afc848bdb1",
+      "remoteGitBlobSha1": "bdb02d11c4446148e92a9210ab4d1013b3450a72",
+      "matches": true
+    },
+    {
+      "path": "tokenizer.json",
+      "bytes": 711661,
+      "sha256": "da0e79933b9ed51798a3ae27893d3c5fa4a201126cef75586296df9b4d2c62a0",
+      "gitBlobSha1": "c17ed520ed8438736732a54957a69306b8822215",
+      "remoteLfsSha256": null,
+      "remoteGitBlobSha1": "c17ed520ed8438736732a54957a69306b8822215",
+      "matches": true
+    },
+    {
+      "path": "tokenizer_config.json",
+      "bytes": 366,
+      "sha256": "9261e7d79b44c8195c1cada2b453e55b00aeb81e907a6664974b4d7776172ab3",
+      "gitBlobSha1": "37fca74771bc76a8e01178ce3a6055a0995f8093",
+      "remoteLfsSha256": null,
+      "remoteGitBlobSha1": "37fca74771bc76a8e01178ce3a6055a0995f8093",
+      "matches": true
+    }
+  ],
+  "base": {
+    "id": "sentence-transformers/all-MiniLM-L6-v2",
+    "repository": "https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2",
+    "checkedRevision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "licenseDeclaredByCard": "apache-2.0",
+    "note": "Base repository identified by converted model card; base license does not silently invent a missing conversion-specific grant"
+  },
+  "correspondence": "All installed model files byte-match this exact repository revision by LFS SHA-256 or Git blob SHA-1. This establishes an equivalent source revision, not the original download time/revision.",
+  "allLocalFilesMatchCheckedRevision": true
+}

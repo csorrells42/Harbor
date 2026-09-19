@@ -1,0 +1,13 @@
+import path from 'node:path';
+import {spawn} from 'node:child_process';
+import {portableEnvironment} from './portable.mjs';
+const root=path.resolve(process.argv[2]),stage=path.resolve(process.argv[3]);
+const node=path.join(root,'runtimes/node/node.exe');
+const pnpm=path.join(root,'runtimes/node/node_modules/pnpm/bin/pnpm.cjs');
+const env={...portableEnvironment(root,process.env),CI:'true'};
+const run=args=>new Promise((resolve,reject)=>{const child=spawn(node,[pnpm,...args],{cwd:stage,env,stdio:'inherit',windowsHide:true});child.on('error',reject);child.on('exit',code=>code===0?resolve():reject(new Error(`pnpm ${args[0]} exited ${code}`)));});
+const install=['install','--frozen-lockfile','--node-linker=hoisted','--package-import-method=copy','--store-dir',path.join(root,'data/cache/pnpm/dbhub')];
+await run(install);
+await run(['run','build']);
+await run(['exec','vitest','run','--project','integration','src/connectors/__tests__/sqlite.integration.test.ts','src/connectors/__tests__/multi-sqlite-sources.integration.test.ts']);
+await run([...install,'--prod']);

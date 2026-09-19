@@ -1,0 +1,25 @@
+{
+  "id": "@modelcontextprotocol/server-sequential-thinking",
+  "version": "2026.8.31",
+  "registryUrl": "https://registry.npmjs.org/@modelcontextprotocol%2Fserver-sequential-thinking/2026.8.31",
+  "gitHead": "a40bc270fb5ece62673f8a1196f57116d885c5eb",
+  "licenseDeclaration": "SEE LICENSE IN LICENSE",
+  "repository": "https://github.com/modelcontextprotocol/servers",
+  "publishedDistribution": {
+    "integrity": "sha512-/EMH++1j2e+VmHwpibw1IUPHxA0tcQY09Yo5/OIPwW/8irEKLAufJNGSZQhCK18n8TUvV6WwZyQOuaDKxe/CeQ==",
+    "shasum": "a286b9b678b9ead1fc0ae0d58e1351bd478a23a7",
+    "tarball": "https://registry.npmjs.org/@modelcontextprotocol/server-sequential-thinking/-/server-sequential-thinking-2026.8.31.tgz"
+  },
+  "installedPackageManifest": {
+    "pathWithinPortable": "packages/general-local/node_modules/@modelcontextprotocol/server-sequential-thinking/package.json",
+    "bytes": 1161,
+    "sha256": "2c48d1b17da92ca611ed8b6558f516eddb7c5375c870f2c60a81e5e3ab812d52"
+  },
+  "installedLock": {
+    "version": "2026.8.31",
+    "integrity": "sha512-/EMH++1j2e+VmHwpibw1IUPHxA0tcQY09Yo5/OIPwW/8irEKLAufJNGSZQhCK18n8TUvV6WwZyQOuaDKxe/CeQ==",
+    "resolved": "https://registry.npmjs.org/@modelcontextprotocol/server-sequential-thinking/-/server-sequential-thinking-2026.8.31.tgz"
+  },
+  "lockMatchesPublished": true,
+  "correspondence": "Published registry gitHead and matching lock integrity identify source notice; installed files were not re-downloaded or compared to a package archive"
+}

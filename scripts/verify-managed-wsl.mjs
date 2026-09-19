@@ -1,0 +1,50 @@
+// Real Ubuntu fixture only: random free port; no existing service ports or user config.
+import assert from 'node:assert/strict';
+import { createServer } from 'node:net';
+import { execFileSync } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
+import { Upstreams } from '../src/core/upstreams.mjs';
+import { validateConfig } from '../src/core/config.mjs';
+import { mkdtemp, readFile, rm } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
+if(process.platform!=='win32')throw new Error('This verification requires Windows and Ubuntu WSL');
+const linuxPath=path=>path.replaceAll('\\','/').replace(/^([A-Za-z]):/,(_,drive)=>`/mnt/${drive.toLowerCase()}`);
+const root=linuxPath(fileURLToPath(new URL('../',import.meta.url)));
+const temp=await mkdtemp(join(tmpdir(),'harbor-wsl-owned-'));
+const fixture=root+'tests/fixtures/managed-network.mjs';
+const listener=createServer();await new Promise(r=>listener.listen(0,'127.0.0.1',r));const port=listener.address().port;await new Promise(r=>listener.close(r));
+const spec=env=>({runtime:'wsl',distro:'Ubuntu',command:'/usr/bin/node',args:[fixture,'a b','$(touch /tmp/HARBOR_MUST_NOT_EXECUTE)'],cwd:root,env:{PORT:String(port),DELAY:'500',OWNED_VALUE:'secret-ish ; $HOME " quotation\nnewline',...env}});
+const config=validateConfig({id:'wsl-fixture',transport:'http',url:`http://127.0.0.1:${port}/mcp`,managedProcesses:[spec({TREE_FILE:linuxPath(join(temp,'tree.json')),DETACHED_CHILD:'1'}),spec({ROLE:'companion'})]});
+const logs=[];const upstreams=new Upstreams([config],(id,level,message)=>logs.push({level,message}),()=>{},{requestTimeoutMs:20000});
+const linuxAlive=pid=>execFileSync('wsl.exe',['--distribution','Ubuntu','--exec','python3','-c','import os,sys; print(os.path.exists("/proc/"+sys.argv[1]))',String(pid)],{encoding:'utf8'}).trim()==='True';
+try {
+ await upstreams.start(config.id);
+ const first=upstreams.snapshot()[0];
+ const firstTree=JSON.parse(await readFile(join(temp,'tree.json'),'utf8'));
+ assert.equal(first.ownership,'managed');assert.equal(first.processes.length,2);
+ const result=JSON.parse((await upstreams.get(config.id).client.callTool({name:'echo',arguments:{text:'real WSL SDK'}})).content[0].text);
+ assert.equal(result.pid,first.processes[0].pid);assert.deepEqual(result.argv,config.managedProcesses[0].args.slice(1));assert.equal(result.env,config.managedProcesses[0].env.OWNED_VALUE);
+ assert(first.processes.every(p=>p.runtime==='wsl'&&p.launcherPid&&p.supervisorPid&&linuxAlive(p.pid)));
+ let forcedCleanup=false;
+ const rescue=setTimeout(()=>{forcedCleanup=true;execFileSync('wsl.exe',['--distribution','Ubuntu','--exec','kill','-KILL',String(firstTree.child)]);},10000);
+ try{await upstreams.restart(config.id);}finally{clearTimeout(rescue);}
+ assert.equal(forcedCleanup,false,'Stop must reap even a descendant that creates its own session');
+ assert(first.processes.every(p=>!linuxAlive(p.pid)&&!linuxAlive(p.supervisorPid)),'Restart reaps actual Linux processes');
+ assert.equal(linuxAlive(firstTree.child),false,'Restart reaps Linux grandchild');
+ const second=upstreams.snapshot()[0];assert.notEqual(second.pid,first.pid);
+ const secondTree=JSON.parse(await readFile(join(temp,'tree.json'),'utf8'));
+ execFileSync('wsl.exe',['--distribution','Ubuntu','--exec','kill','-KILL',String(second.processes[1].pid)]);
+ const exitDeadline=Date.now()+15000;
+ while(upstreams.snapshot()[0].status!=='error'&&Date.now()<exitDeadline)await new Promise(r=>setTimeout(r,50));
+ await upstreams.get(config.id).queue;
+ assert.equal(upstreams.snapshot()[0].status,'error');assert.deepEqual(upstreams.tools(),[]);
+ assert(second.processes.every(p=>!linuxAlive(p.pid)&&!linuxAlive(p.supervisorPid)),'Companion exit reaps both Linux trees');
+ assert.equal(linuxAlive(secondTree.child),false,'Companion exit reaps primary grandchild');
+ await upstreams.start(config.id);
+ const third=upstreams.snapshot()[0];const thirdTree=JSON.parse(await readFile(join(temp,'tree.json'),'utf8'));
+ await upstreams.remove(config.id);
+ assert(third.processes.every(p=>!linuxAlive(p.pid)&&!linuxAlive(p.supervisorPid)),'Remove reaps actual Linux processes');assert.equal(linuxAlive(thirdTree.child),false);
+ assert.deepEqual(upstreams.snapshot(),[]);
+ console.log(JSON.stringify({verified:true,transport:'http',runtime:'wsl',distro:'Ubuntu',port,initialProcesses:first.processes,restartedProcesses:second.processes,checks:['real SDK initialize/listTools/callTool','literal argv and env','two owned foreground Linux processes','restart/remove/companion-exit reap Linux PIDs and grandchildren']},null,2));
+} catch(error){console.error(logs);throw error;} finally{await upstreams.close();await rm(temp,{recursive:true,force:true});}

@@ -1,0 +1,13 @@
+{
+  "id": "uv",
+  "repository": "https://github.com/astral-sh/uv",
+  "tag": "0.12.12",
+  "commit": "c4be691531385fd7563e2a29d9bfa2e19b4c2025",
+  "license": "Apache-2.0 OR MIT",
+  "installed": {
+    "pathWithinPortable": "runtimes/uv/uv.exe",
+    "bytes": 41455408,
+    "sha256": "efb9599543b26b3ea5adc1649bef69788633d9cc25c6cfd97b799e4dfa0c2cfb"
+  },
+  "correspondence": "Source notice pinned to reported installed version; complete binary build/source/dependency correspondence not established"
+}

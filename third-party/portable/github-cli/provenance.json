@@ -1,0 +1,13 @@
+{
+  "id": "github-cli",
+  "repository": "https://github.com/cli/cli",
+  "tag": "v2.96.0",
+  "commit": "b300f2ec7ec9dc9addc39b2ad88c54097ded7ca0",
+  "license": "MIT",
+  "installed": {
+    "pathWithinPortable": "runtimes/gh/gh.exe",
+    "bytes": 41504056,
+    "sha256": "cd79f16203f1fbe56937c4c96e2b6eadd10549418dcb241d91576ac77af0ac8b"
+  },
+  "correspondence": "Source notice pinned to reported installed version; complete binary build/source/dependency correspondence not established"
+}

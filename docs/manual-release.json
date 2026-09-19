@@ -1,0 +1,23 @@
+{
+  "edition": "Harbor 0.2.0 · Windows Portable · September 2026",
+  "scope": "Operator manual and source-build reference",
+  "reviewed": "2026-09-18",
+  "verification": {
+    "sourceRegression": {
+      "total": 214,
+      "passed": 210,
+      "failed": 0,
+      "skipped": 4,
+      "durationSeconds": 179.126
+    },
+    "authFocusedPassed": 31,
+    "rendererPassed": 56,
+    "sourceDesktopPassed": 6,
+    "nativeAuthenticationPassed": 1,
+    "publicSourcePackagedDesktop": {
+      "passed": 5,
+      "failed": 0,
+      "skipped": 1
+    }
+  }
+}

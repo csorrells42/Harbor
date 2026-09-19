@@ -1,0 +1,94 @@
+{
+  "name": "mcp-harbor",
+  "version": "0.2.0",
+  "description": "A desktop control center and multi-client gateway for MCP servers",
+  "homepage": "https://github.com/csorrells42/Harbor",
+  "desktopName": "mcp-harbor.desktop",
+  "author": "Christopher Sorrells (csorrells42) <clsorrells42@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "main": "src/desktop/main.cjs",
+  "scripts": {
+    "start": "electron .",
+    "test": "node --test tests/*.test.mjs",
+    "test:ui": "playwright test",
+    "pack": "electron-builder --dir",
+    "dist:win": "electron-builder --win nsis",
+    "dist:linux": "electron-builder --linux AppImage deb"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.30.0",
+    "cross-spawn": "7.0.6",
+    "express": "^5.1.0",
+    "zod": "^3.25.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0",
+    "electron": "44.3.0",
+    "electron-builder": "26.15.3"
+  },
+  "build": {
+    "appId": "local.mcpharbor.desktop",
+    "productName": "MCP Harbor",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "src/**/*",
+      "assets/**/*",
+      "package.json",
+      "README.md",
+      "!src/diagnostics/evidence/**/*",
+      "LICENSE",
+      "THIRD-PARTY-NOTICES.txt"
+    ],
+    "extraResources": [
+      {
+        "from": "src/bridge.mjs",
+        "to": "bridge.mjs"
+      },
+      {
+        "from": "HARBOR-MANUAL.pdf",
+        "to": "HARBOR-MANUAL.pdf"
+      },
+      {
+        "from": "LICENSE",
+        "to": "Harbor-LICENSE.txt"
+      },
+      {
+        "from": "THIRD-PARTY-NOTICES.txt",
+        "to": "THIRD-PARTY-NOTICES.txt"
+      },
+      {
+        "from": "third-party",
+        "to": "third-party"
+      }
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icon.ico",
+      "signExecutable": false
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "icon": "assets/icon.png",
+      "syncDesktopName": true,
+      "category": "Development",
+      "maintainer": "Christopher Sorrells (csorrells42) <clsorrells42@gmail.com>"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/csorrells42/Harbor.git"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "@modelcontextprotocol/server-memory",
+  "version": "2026.8.31",
+  "registryUrl": "https://registry.npmjs.org/@modelcontextprotocol%2Fserver-memory/2026.8.31",
+  "gitHead": "a40bc270fb5ece62673f8a1196f57116d885c5eb",
+  "licenseDeclaration": "SEE LICENSE IN LICENSE",
+  "repository": "https://github.com/modelcontextprotocol/servers",
+  "publishedDistribution": {
+    "integrity": "sha512-ljj/3S4aGjxdNSQWw6gucKKGnTLdBPWxzapyY/MT2tOVyZwvxChvevXSLPwx59nKJAlVpUVW+cOlnVRXRwiqMQ==",
+    "shasum": "809f9f4c7e30e5c4e0b34ad0a3781c40664c0bfa",
+    "tarball": "https://registry.npmjs.org/@modelcontextprotocol/server-memory/-/server-memory-2026.8.31.tgz"
+  },
+  "installedPackageManifest": {
+    "pathWithinPortable": "packages/general-local/node_modules/@modelcontextprotocol/server-memory/package.json",
+    "bytes": 1056,
+    "sha256": "b85e6b171da989a8cf4f757b82df857766b50c053524cb2b95a881245dcfa59c"
+  },
+  "installedLock": {
+    "version": "2026.8.31",
+    "integrity": "sha512-ljj/3S4aGjxdNSQWw6gucKKGnTLdBPWxzapyY/MT2tOVyZwvxChvevXSLPwx59nKJAlVpUVW+cOlnVRXRwiqMQ==",
+    "resolved": "https://registry.npmjs.org/@modelcontextprotocol/server-memory/-/server-memory-2026.8.31.tgz"
+  },
+  "lockMatchesPublished": true,
+  "correspondence": "Published registry gitHead and matching lock integrity identify source notice; installed files were not re-downloaded or compared to a package archive"
+}

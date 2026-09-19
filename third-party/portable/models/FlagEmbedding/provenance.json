@@ -1,0 +1,7 @@
+{
+  "id": "models/FlagEmbedding",
+  "repository": "https://github.com/FlagOpen/FlagEmbedding",
+  "checkedRevision": "fd1a2bdf69488ffebe0327999d4400d8c8058a0b",
+  "license": "MIT",
+  "note": "License source linked by BAAI base-model cards. Current linked-source notice is preserved separately; no missing conversion-specific license is invented."
+}
