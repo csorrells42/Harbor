@@ -3,6 +3,7 @@ on: [push, pull_request, workflow_dispatch]
 jobs:
   test:
     strategy:
+      fail-fast: false
       matrix:
         os: [windows-latest, ubuntu-latest]
     runs-on: ${{ matrix.os }}
@@ -22,9 +23,9 @@ jobs:
         if: runner.os == 'Windows'
       - run: xvfb-run -a npm run test:ui
         if: runner.os == 'Linux'
-      - run: npm run dist:win
+      - run: npm run dist:win -- --publish never
         if: runner.os == 'Windows'
-      - run: npm run dist:linux
+      - run: npm run dist:linux -- --publish never
         if: runner.os == 'Linux'
       - uses: actions/upload-artifact@v4
         with:
