@@ -53,11 +53,17 @@ export async function createMaintenance({root,isPaused,gitCommand}) {
   if(await exists(journalFile)){
     const j=JSON.parse(await fs.readFile(journalFile,'utf8'));
     const target=contained(root,j.target),backup=contained(root,j.backup);
+    const abandonedStage=!retainBackups&&j.stage?contained(root,j.stage):null;
+    if(abandonedStage&&(path.dirname(abandonedStage)!==path.join(stateDir,'staging')||abandonedStage===target||abandonedStage===backup))throw new Error('Invalid maintenance recovery staging path');
     if(!await exists(target)&&await exists(backup))await fs.rename(backup,target);
     else if(j.component&&j.stage&&await exists(target)&&!await exists(contained(root,j.stage))){
       if(retainBackups)await atomic(path.join(stateDir,`rollback-${j.component}.json`),{target:j.target,backup:j.backup});
       if(j.selfUpdate)await atomic(path.join(stateDir,'pending-self-update.json'),{stage:j.target,output:j.output,component:j.component});
       if(!retainBackups){await fs.rm(backup,{recursive:true,force:true});await fs.rm(path.join(stateDir,`rollback-${j.component}.json`),{force:true});}
+    }
+    if(abandonedStage){
+      if(!await exists(target))throw new Error('Cannot discard recovery staging while the active component is missing');
+      await fs.rm(abandonedStage,{recursive:true,force:true});
     }
     await fs.unlink(journalFile);
     status.message='Recovered interrupted maintenance activation.';

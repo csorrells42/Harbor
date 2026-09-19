@@ -1,0 +1,4 @@
+# Preserve byte-exact manuals and artwork across platforms.
+*.pdf binary
+*.png binary
+*.ico binary

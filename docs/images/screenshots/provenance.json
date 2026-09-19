@@ -1,0 +1,152 @@
+{
+  "capturedAt": "2026-09-19T03:35:31.173Z",
+  "source": "Canonical source Electron (not packaged or Portable)",
+  "profile": "Disposable screenshot profile; no existing user data imported",
+  "isolation": {
+    "harborDataDirExplicit": true,
+    "chromiumUserDataDirExplicit": true,
+    "ephemeralPort": true,
+    "portableEnvironmentRemoved": true,
+    "livePortableUntouched": true,
+    "clipboardUntouched": true
+  },
+  "viewport": {
+    "width": 1440,
+    "height": 1300
+  },
+  "versions": {
+    "electron": "44.3.0",
+    "node": "24.20.0"
+  },
+  "sourceHashes": {
+    "src/desktop/main.cjs": "9bd62d963fd5c71195b505bffc622c5f54f22ac8965d2da9f6a7a4a04d3b454d",
+    "src/ui/app.js": "f76ad44fadb1e5a7bf86406698799da3cad76a1dc5bb62f62c14c18f0ecc90f2",
+    "src/ui/delivery-settings.js": "a359fca49d5897abb92c51b5f8c056af26d830fa6d142c711fd05d405b1132f0",
+    "src/ui/advisor.js": "7befe23c2d716d67d7c649484e532f4ffa3c1ceb2584dfd863f71f7d89e13645",
+    "src/diagnostics/ui.js": "d33211fdaeb75f24217a9e72b87b00db0bb7720715f91038f0569cdc1cf65148",
+    "src/diagnostics/system-ui.js": "b6bb6f2518c71590ac9fda216aea13507791a9ada6dbaadc4b16b8ddd32df2ff",
+    "src/diagnostics/temperature-ui.js": "f4f9545f60916a8a843e8cc6cdf14787fa559fe2dc4bcaa03045adf64969f98f"
+  },
+  "screenshots": [
+    {
+      "file": "01-gateway-protections.png",
+      "selector": "#gateway-auth-form",
+      "state": "Fresh profile: Use API key and Loopback only enabled; stored generated key never read or displayed; key field empty.",
+      "sha256": "963c252e72da307c335e3430d574047cedf2623c37399552f6b4250ece0a3624",
+      "width": 1153,
+      "height": 410,
+      "privacyChecks": {
+        "noPersonalPathsOrNames": true,
+        "passwordFieldsEmpty": true,
+        "noClipboardActions": true
+      }
+    },
+    {
+      "file": "02-connections.png",
+      "selector": ".client-configurations",
+      "state": "Actual Streamable HTTP configuration preview with placeholder key; ephemeral loopback port; absolute profile paths outside this genuine element crop.",
+      "sha256": "0390442304f3350343c8b054540e26b72ea3d12c3479d1571b02f03e3dfc7f6e",
+      "width": 1116,
+      "height": 468,
+      "privacyChecks": {
+        "noPersonalPathsOrNames": true,
+        "passwordFieldsEmpty": true,
+        "noClipboardActions": true
+      }
+    },
+    {
+      "file": "03-tool-delivery.png",
+      "selector": "#delivery-form",
+      "state": "Unsaved Hybrid draft with default BM25 and local semantic methods; active mode remains Send everything; no delivery apply or download.",
+      "sha256": "7359b284e89ecd077d64d0770c96c12bed3e85da71a416c68602dd91d941ffda",
+      "width": 960,
+      "height": 923,
+      "privacyChecks": {
+        "noPersonalPathsOrNames": true,
+        "passwordFieldsEmpty": true,
+        "noClipboardActions": true
+      }
+    },
+    {
+      "file": "04-diagnostics-hardware.png",
+      "selector": ".diag-system",
+      "state": "Actual whole-host CPU, GPU, system memory and GPU memory readings; real temperature series and legend in the 5-minute window, limited to this newly opened session.",
+      "sha256": "20aeb706cc40b3a2d1a17a41808b5ee7a3f45d0aa425237bbbc6121fe87c170f",
+      "width": 1153,
+      "height": 1032,
+      "privacyChecks": {
+        "noPersonalPathsOrNames": true,
+        "passwordFieldsEmpty": true,
+        "noClipboardActions": true
+      },
+      "historyIsNewSession": true,
+      "hardwareInventoryCollapsed": true
+    },
+    {
+      "file": "05-diagnostics-campaign.png",
+      "selector": "Native viewport crop of .diagnostics children after .diag-system",
+      "state": "Unrun Diagnostics screen: no verified harness; Check Hermes/Start campaign controls; unchanged default campaign/mode/hybrid/hardware-limit fields; Harbor configurations, Models, Harnesses and Combinations tabs; no campaigns and no measured winner.",
+      "sha256": "aea75eea5bbb5d8063adaa37b6a31f589a6c897d3855b685051d41d4bf9a57f5",
+      "width": 1153,
+      "height": 906,
+      "privacyChecks": {
+        "noPersonalPathsOrNames": true,
+        "passwordFieldsEmpty": true,
+        "noClipboardActions": true
+      },
+      "recapturedAt": "2026-09-19T03:37:07.553Z"
+    },
+    {
+      "file": "06-advisor.png",
+      "selector": ".advisor",
+      "state": "Fresh empty server checklist, category and startup-selection controls; no configured servers or claimed readiness.",
+      "sha256": "490ae9794a8a8be015e2202b1bf70b107eeac2ca3d1a8e9ab1b6deef0df72429",
+      "width": 1100,
+      "height": 503,
+      "privacyChecks": {
+        "noPersonalPathsOrNames": true,
+        "passwordFieldsEmpty": true,
+        "noClipboardActions": true
+      }
+    },
+    {
+      "file": "07-maintenance.png",
+      "selector": "#content .connection-card",
+      "state": "Source installation with no Portable recipes: maintenance entry control and explicit recipe-unavailable message; maintenance not entered.",
+      "sha256": "ca8f403d059466d451ad9c73c994e82460209c51ca4c73ab904aeb6efd6c6bcd",
+      "width": 1160,
+      "height": 160,
+      "privacyChecks": {
+        "noPersonalPathsOrNames": true,
+        "passwordFieldsEmpty": true,
+        "noClipboardActions": true
+      }
+    },
+    {
+      "file": "08-add-server.png",
+      "selector": "#server-dialog",
+      "state": "Actual blank custom stdio server editor; nothing saved, started, imported or installed.",
+      "sha256": "abe9a1aad782d23a8fd0380ddd943ead041d4b20217bd2aef7bdf07e514e85cb",
+      "width": 660,
+      "height": 1052,
+      "privacyChecks": {
+        "noPersonalPathsOrNames": true,
+        "passwordFieldsEmpty": true,
+        "noClipboardActions": true
+      }
+    }
+  ],
+  "rendererErrors": [],
+  "review": {
+    "completedAt": "2026-09-19T03:37:58.038Z",
+    "result": "All eight final images directly inspected for privacy, legibility and faithful application state.",
+    "noPrivatePathsOrCredentialsVisible": true,
+    "noInventedTelemetryOrCampaignResults": true,
+    "framing": "Genuine UI element crops; campaign image is a native viewport crop. No UI text, values or images were fabricated or retouched.",
+    "limits": [
+      "Hardware history contains only this newly opened session; ACPI thermal zones are not labelled as CPU-core measurements.",
+      "Connections crop shows the HTTP placeholder preview, not the connected-app list.",
+      "Hybrid is an unsaved draft; source-profile Maintenance has no Portable recipes."
+    ]
+  }
+}

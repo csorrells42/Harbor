@@ -1,5 +1,7 @@
 # Harbor
 
+![Harbor — Local tools. One gateway. Your configuration.](docs/images/harbor-banner.png)
+
 **A desktop control center and shared MCP gateway for local AI tools.**
 
 Created by **Christopher Sorrells (csorrells42)**. Contact: **[clsorrells42@gmail.com](mailto:clsorrells42@gmail.com)**. Open to software engineering opportunities and project enquiries.
@@ -46,10 +48,10 @@ Replace the placeholder with the saved Harbor key, or copy the populated configu
 
 ## Build the application from source
 
-Use Node.js 24 and npm for the tested development baseline:
+The repository uses one branch, **master**. Use Node.js 24 and npm for the tested development baseline:
 
 ```powershell
-git clone https://github.com/csorrells42/Harbor.git
+git clone --branch master --single-branch https://github.com/csorrells42/Harbor.git
 Set-Location Harbor
 npm ci
 npm start
@@ -81,6 +83,7 @@ Complete or cancel any Diagnostics campaign first. In a complete Portable instal
 
 ## Accounts, access and boundaries
 
+- **Source-security gate: pending until the dedicated scanner works.** Functional tests and builds do not constitute security clearance. No substitute manual source-security audit is claimed.
 - The intentionally deferred Brave API key affects live Brave searches, not the core application. The manual includes the later setup steps.
 - GitHub and optional hosted providers require their own local sign-in or credentials; none are included in this repository.
 - The gateway proxies MCP **tools**. Upstream prompts, resources, sampling, roots and elicitation are not proxied.

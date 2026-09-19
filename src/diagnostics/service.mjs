@@ -23,10 +23,19 @@ export async function createDiagnostics({dataDir,adapter,gatewayFactory=createGa
     try{await writeFile(workerPath,source,{flag:'wx'});}catch(e){if(e.code!=='EEXIST')throw e;}
     adapter=createHermesAdapter({workerPath});
   }
-  let inventory=null,campaign=null,active=null,abort=null,problem=null,closed=false;
+  let inventory=null,campaign=null,active=null,abort=null,problem=null,closed=false,closing;
+  const lifetime=new AbortController(),operations=new Set();
+  const track=operation=>{operations.add(operation);operation.then(()=>operations.delete(operation),()=>operations.delete(operation));return operation;};
   try{campaign=JSON.parse(await readFile(path.join(root,'latest.json'),'utf8'));if(campaign.status==='running'){campaign.status='interrupted';campaign.note='Previous process ended; unfinished trials were not scored.';}}catch(e){if(e.code!=='ENOENT')problem='Previous results could not be read.';}
   const persist=async()=>{await save(path.join(root,campaign.id,'campaign.json'),campaign);await save(path.join(root,'latest.json'),campaign);};
-  async function probe(){try{inventory=await adapter.probe();problem=null;return inventory;}catch(e){inventory=null;problem=e.message;throw e;}}
+  function probe(){
+    if(closed)return Promise.reject(new Error('Diagnostics is closed'));
+    return track((async()=>{try{
+      const value=await withDeadline(adapter.probe({signal:lifetime.signal}),30000,lifetime.signal);
+      if(closed)throw new Error('Diagnostics is closed');
+      inventory=value;problem=null;return inventory;
+    }catch(e){if(!closed){inventory=null;problem=e.message;}throw e;}})());
+  }
   function snapshot(){return structuredClone({running:!!active,inventory,problem,defaultPlan:DEFAULT_PLAN,campaign,results:compare(campaign?.trials??[]),dataDir:root,system:systemMonitor.sample()});}
   async function run(plan,rows,baseline,coreHash,lock) {
     const begin=performance.now();
@@ -90,8 +99,7 @@ export async function createDiagnostics({dataDir,adapter,gatewayFactory=createGa
       try{await persist();}finally{try{await lock.close();}finally{active=null;abort=null;}}
     }
   }
-  return {probe,snapshot,
-    async start(input){
+  async function start(input){
       if(closed)throw new Error('Diagnostics is closed');
       if(active)throw new Error('A diagnostic campaign is already running');
       const plan=validatePlan(input),rows=schedule(plan);
@@ -104,12 +112,25 @@ export async function createDiagnostics({dataDir,adapter,gatewayFactory=createGa
         const coreHash=await codeFingerprint();
         campaign={id:randomUUID(),status:'running',createdAt:new Date().toISOString(),plan,input,inventory:baseline,harborFingerprint:coreHash,plannedTrials:rows.length,trials:[],suite:SUITE_VERSION};
         await mkdir(path.join(root,campaign.id));await persist();
+        if(closed){campaign.status='cancelled';campaign.stopReason='application-closing';campaign.endedAt=new Date().toISOString();await persist();throw new Error('Diagnostics is closed');}
         abort=new AbortController();active=run(plan,rows,baseline,coreHash,lock);active.catch(e=>{problem=e.message;});
         return snapshot();
       }catch(e){await lock.close();throw e;}
-    },
+  }
+  return {probe,snapshot,start:input=>track(start(input)),
     cancel(){if(abort){campaign.stopReason='user-cancelled';abort.abort();}return snapshot();},
-    async close(){closed=true;const sensorsClosed=systemMonitor.close();if(abort){campaign.stopReason='application-closing';abort.abort();}await active;await sensorsClosed;},
+    close(){
+      if(closing)return closing;closed=true;lifetime.abort(new Error('Diagnostics is closed'));
+      if(abort){campaign.stopReason='application-closing';abort.abort();}
+      return closing=(async()=>{
+        const cleanup=Promise.allSettled([Promise.resolve().then(()=>systemMonitor.close()),Promise.resolve().then(()=>adapter.close?.())]);
+        // Preflight owns the campaign lock before active exists. Wait for that
+        // operation to unwind, as well as every probe and active trial.
+        await Promise.allSettled([...operations]);
+        const [runResults,cleanupResults]=await Promise.all([Promise.allSettled([active]),cleanup]);
+        const failed=[...runResults,...cleanupResults].find(result=>result.status==='rejected');if(failed)throw failed.reason;
+      })();
+    },
     async wait(){await active;return snapshot();},
   };
 }

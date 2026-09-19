@@ -19,7 +19,7 @@ from reportlab.lib.units import inch
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.platypus import (BaseDocTemplate, Frame, PageTemplate, Paragraph,
-    Spacer, PageBreak, Preformatted, LongTable, TableStyle, KeepTogether)
+    Spacer, PageBreak, Preformatted, LongTable, TableStyle, KeepTogether, Image)
 from reportlab.platypus.tableofcontents import TableOfContents
 import reportlab
 
@@ -63,6 +63,7 @@ def styles():
     s.add(ParagraphStyle('ManualH2',fontName='Body-Bold',fontSize=13.5,leading=19,textColor=TEAL,spaceBefore=14,spaceAfter=8,keepWithNext=True))
     s.add(ParagraphStyle('ManualH3',fontName='Body-Bold',fontSize=10.5,leading=15,textColor=NAVY,spaceBefore=9,spaceAfter=5,keepWithNext=True))
     s.add(ParagraphStyle('ManualCell',parent=s['ManualBody'],fontSize=8.1,leading=11,spaceAfter=0,wordWrap='CJK'))
+    s.add(ParagraphStyle('ManualCaption',parent=s['ManualBody'],fontSize=8.5,leading=12,textColor=GRAY,spaceBefore=6,spaceAfter=13))
     s.add(ParagraphStyle('ManualCode',fontName='Code',fontSize=7.8,leading=11,textColor=INK,backColor=PAPER,borderPadding=10,spaceBefore=5,spaceAfter=12))
     s.add(ParagraphStyle('CoverTitle',fontName='Body-Bold',fontSize=44,leading=51,textColor=NAVY,spaceAfter=18))
     s.add(ParagraphStyle('CoverSub',fontName='Body',fontSize=18,leading=26,textColor=TEAL,spaceAfter=24))
@@ -93,12 +94,30 @@ class ManualDoc(BaseDocTemplate):
             self.canv.addOutlineEntry(title,anchor,level=level,closed=level>0)
             if level<=1:self.notify('TOCEntry',(level,title,self.page,anchor))
 
-def markdown_story(source,s,width):
+def figure(path,caption,s,width,source_dir):
+    if re.match(r'^[a-zA-Z][a-zA-Z0-9+.-]*:',path):
+        raise ValueError('Manual figures must be local package assets')
+    target=(source_dir/path).resolve()
+    if not target.is_relative_to(source_dir.parent.resolve()):
+        raise ValueError('Manual figure escapes the documentation package')
+    if not target.is_file():
+        raise FileNotFoundError(target)
+    img=Image(str(target),mask='auto')
+    scale=min(width/img.imageWidth,480/img.imageHeight)
+    img.drawWidth=img.imageWidth*scale
+    img.drawHeight=img.imageHeight*scale
+    img.hAlign='CENTER'
+    return KeepTogether([Spacer(1,8),img,Paragraph(inline(caption),s['ManualCaption'])])
+
+def markdown_story(source,s,width,source_dir):
     story=[];lines=source.splitlines();i=0;first=True
     while i<len(lines):
         line=lines[i].rstrip();i+=1
         if not line or line.startswith('<!--'):continue
         if line.startswith('# '):continue
+        picture=re.fullmatch(r'!\[([^\]]+)\]\(([^)]+)\)',line)
+        if picture:
+            story.append(figure(picture[2],picture[1],s,width,source_dir));continue
         if line.startswith('```'):
             code=[]
             while i<len(lines) and not lines[i].startswith('```'):
@@ -131,7 +150,7 @@ def markdown_story(source,s,width):
             story.append(Paragraph(inline(('•' if prefix in ('-','*') else prefix)+' '+bullet[1]),s['ManualBullet']));continue
         if line.startswith('> '):
             story.append(Paragraph('<b>Note.</b> '+inline(line[2:]),s['ManualBody']));continue
-        while i<len(lines) and lines[i].strip() and not re.match(r'^(#|\||```|[-*] |\d+\. |<!--|> )',lines[i]):
+        while i<len(lines) and lines[i].strip() and not re.match(r'^(!\[|#|\||```|[-*] |\d+\. |<!--|> )',lines[i]):
             line+=' '+lines[i].strip();i+=1
         story.append(Paragraph(inline(line),s['ManualBody']))
     return story
@@ -142,7 +161,7 @@ def main():
     register_fonts();s=styles();out=root/'HARBOR-MANUAL.pdf';doc=ManualDoc(out,meta)
     story=[Spacer(1,65),Paragraph('HARBOR',s['CoverTitle']),Paragraph('Installation &amp;<br/>Operations Manual',s['CoverSub']),Spacer(1,20),Paragraph('Quickstart · Connections · Configuration<br/>Tool delivery · Diagnostics · Maintenance<br/>Subsystems · Repositories · Recovery',s['CoverMeta']),Spacer(1,30),Paragraph('Christopher Sorrells (csorrells42)',s['CoverMeta']),Paragraph('<link href="mailto:clsorrells42@gmail.com" color="#087d86">clsorrells42@gmail.com</link>',s['CoverMeta']),Spacer(1,14),Paragraph(inline(meta['edition']),s['CoverMeta']),Paragraph(inline(meta['scope']),s['CoverMeta']),Paragraph(inline('Reviewed '+meta['reviewed']),s['CoverMeta']),Spacer(1,20),Paragraph('The complete operator reference for the Harbor desktop application and its Windows Portable toolbox. The same manual is available as searchable Markdown in the project repository.',s['CoverMeta']),PageBreak(),Paragraph('Contents',s['ManualH1'])]
     toc=TableOfContents();toc.levelStyles=[ParagraphStyle('TOC0',fontName='Body-Bold',fontSize=10,leading=15,textColor=NAVY,spaceBefore=8),ParagraphStyle('TOC1',fontName='Body',fontSize=8.5,leading=12,leftIndent=14,textColor=GRAY)]
-    story.extend([toc,PageBreak()]);story.extend(markdown_story(source.read_text(encoding='utf-8'),s,doc.width))
+    story.extend([toc,PageBreak()]);story.extend(markdown_story(source.read_text(encoding='utf-8'),s,doc.width,source.parent))
     doc.multiBuild(story)
     print(json.dumps({'pdf':str(out),'bytes':out.stat().st_size,'sha256':hashlib.sha256(out.read_bytes()).hexdigest(),'sourceSha256':hashlib.sha256(source.read_bytes()).hexdigest()}))
 

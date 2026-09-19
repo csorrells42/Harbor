@@ -4,20 +4,39 @@
   "reviewed": "2026-09-18",
   "verification": {
     "sourceRegression": {
-      "total": 214,
-      "passed": 210,
+      "total": 235,
+      "passed": 233,
       "failed": 0,
-      "skipped": 4,
-      "durationSeconds": 179.126
+      "skipped": 2,
+      "durationSeconds": 168.177,
+      "skippedScope": "Two optional WSL checks",
+      "enabledAcceptance": [
+        "bundled delivery modes",
+        "native authentication with all four protection combinations",
+        "launcher and native visibility",
+        "installed Hermes integration",
+        "native Diagnostics IPC",
+        "six-task native Diagnostics campaign",
+        "restart and persistence"
+      ]
     },
     "authFocusedPassed": 31,
     "rendererPassed": 56,
     "sourceDesktopPassed": 6,
     "nativeAuthenticationPassed": 1,
-    "publicSourcePackagedDesktop": {
-      "passed": 5,
-      "failed": 0,
-      "skipped": 1
-    }
+    "sourceSecurityGate": {
+      "status": "pending",
+      "reason": "Dedicated scanner registration did not complete",
+      "manualSubstituteAudit": false
+    },
+    "documentation": {
+      "screenshots": 8,
+      "chapters": 16,
+      "jsonExamples": 10,
+      "source": "docs/HARBOR-MANUAL.md",
+      "screenshotProvenance": "docs/images/screenshots/provenance.json"
+    },
+    "diagnosticsLifecyclePassed": 13,
+    "maintenanceLauncherPassed": 29
   }
 }

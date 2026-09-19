@@ -12,6 +12,8 @@ This manual covers the Harbor application and the Windows x64 Portable toolbox. 
 
 Read **Quickstart** for an existing Portable installation, **Installation and relocation** for a new machine, **Connections** for client integration, and **Maintenance** before updating components. The subsystem and configuration references explain the operational boundaries needed for custom setups.
 
+The screenshots show the running application with a fresh profile. Empty server, connection or campaign panels illustrate setup states; they are not evidence of a completed diagnostic run. Hardware readings belong to the capture computer and moment. Your configured Portable toolbox, connected clients and available sensors can differ.
+
 ### Path conventions
 
 `<Harbor folder>` means the folder containing `Start Harbor.vbs`, `portable.json`, `application`, `packages`, `runtimes`, `support` and `data`. It can be placed in a user-writable location such as `C:\Tools\Harbor Portable`. Paths in this manual are examples; **This Server** and **Connections** display the authoritative paths and endpoints for the running instance.
@@ -236,6 +238,10 @@ Advisor is an offline rules panel. It uses the configured server IDs and runtime
 
 Choose **Research**, **Coding**, **Files / documents**, **Browser testing**, **Debugging**, **Planning** or **Offline / local**. Recommendations consider the task, the internet preference, current selections and overlapping coverage from running servers. Categories change the recommendation, not the server configuration. **Internet available for this task** is a preference, not a network probe or firewall. Turning it off does not stop existing services.
 
+![Advisor with task controls and an empty startup checklist](images/screenshots/06-advisor.png)
+
+Choose the task category and internet preference, then review recommendations for your configured child servers. This fresh profile has no child entries to select. Add or import servers first; Advisor does not install a toolbox when a category is selected.
+
 **The checklist is persistent.** Checking an entry saves `autoStart: true` immediately. Unchecking saves `autoStart: false` and `autoRestart: false`; the currently running process is left available until explicitly stopped. **Use recommended selection** replaces the saved startup selection with the current recommended set and therefore also disables automatic restart for entries it unchecks. It does not start or stop those processes immediately. Inspect the displayed saved flags to confirm the result.
 
 | Action | Immediate effect | Persistent effect |
@@ -285,6 +291,10 @@ Harbor provides a **Streamable HTTP MCP tools gateway**. It is not a model infer
 4. When entering this example manually, replace `<YOUR_HARBOR_API_KEY>` with Harbor's saved gateway key. The real **Copy configuration** action includes the saved key in the clipboard when authentication is enabled; the on-screen preview intentionally shows a placeholder. Keep pasted client configuration and clipboard contents private. When authentication is disabled, Harbor's copied configuration omits the `headers` entry.
 5. Reconnect or restart the client's MCP connection. Its exact configuration wrapper may differ from `mcpServers`; if it offers a server form, select Streamable HTTP, enter the copied URL, and set the Authorization header to `Bearer ` followed by the saved key when required.
 6. Confirm that the client appears under **Connections → Connected apps**. Confirm discovery by inspecting the client's tools and asking for a small, appropriate read-only operation. In a search mode, seeing discovery/invocation tools instead of hundreds of individual tools is expected.
+
+![Connections with a Streamable HTTP client configuration preview](images/screenshots/02-connections.png)
+
+Choose the configuration address and transport, then use **Copy configuration** for the client. The capture uses a separate listener port; use the address shown by your own running instance. The preview masks the saved gateway key with a placeholder; copying includes the credential when authentication is enabled. After connecting, check **Connected apps** for the client's initialized session.
 
 The UI's **Tools** tab displays the underlying running-server catalog and input schemas. Opening a tool inspector does not execute it. This catalog can be larger than the list initially advertised to a client using a search mode.
 
@@ -372,6 +382,10 @@ This is the **Harbor gateway credential**, used by LM Studio or another client c
 
 On first desktop setup, Harbor creates the gateway authentication store, generates and saves a key, and enables **Use API key**. **Loopback only** also starts enabled. The two switches sit together in **This Server → Gateway access** and are independent. A choice explicitly saved as disabled stays disabled across later launches; the initial defaults do not override it. Upgrading an older desktop profile with no gateway authentication file also creates the first saved key; update and reconnect its client configurations. An existing valid authentication file is retained.
 
+![Gateway access with Use API key and Loopback only enabled](images/screenshots/01-gateway-protections.png)
+
+Review both switches, then select **Apply protections** to save changes. A blank **Gateway API key** field keeps the saved key; it does not mean no key exists. **Generate new key** fills a draft that must be applied before it becomes active.
+
 | Use API key | Loopback only | Result |
 | --- | --- | --- |
 | On | On | Apps on this computer can connect using the saved bearer key. This is the first-setup default. |
@@ -443,6 +457,10 @@ Existing saved choices are retained. A new settings file defaults to **All tools
 
 
 Open **Children Servers Statuses → Add server**. Give the entry a unique stable ID containing 1–40 letters, digits, `_` or `-`, and a readable name. IDs are the namespace boundary and cannot collide. Choose one of these supported transports:
+
+![Add server form before a child server is configured](images/screenshots/08-add-server.png)
+
+Fill in the server identity, transport and launch or connection fields, then choose **Save server**. The blank form creates no server by itself. After saving a new entry, use its **Start** control and inspect the resulting status.
 
 | Transport | Configuration and ownership |
 | --- | --- |
@@ -540,6 +558,10 @@ The desktop's saved incoming authentication is managed through **Gateway access*
 
 Open **Tool Delivery**, select a mode, adjust the fields shown for that mode, then choose **Apply tool delivery**. Reconnect the model client afterward. Tool delivery controls discovery; it does not grant or restrict tool permissions, modify the model's weights, or guarantee correct tool use. Use Diagnostics to compare delivery choices on the actual harness and hardware.
 
+![Tool Delivery with an unsaved Hybrid selection](images/screenshots/03-tool-delivery.png)
+
+For Hybrid, select at least two search methods and review their settings before **Apply tool delivery**. This screenshot shows a draft selection; choosing it does not change the active gateway until Apply succeeds.
+
 | UI mode / saved ID | Model-facing behavior | Dependencies |
 | --- | --- | --- |
 | All tools / `all` | Advertises every available tool definition immediately. | No search model. Large catalogs consume more client/model context. |
@@ -635,6 +657,10 @@ Expand **Processor, memory and storage details** for processor model and core/th
 
 CPU/RAM gauges refresh with the tab at about 1.5-second intervals. GPU readings are requested no more often than about 2.5 seconds and normally appear on a subsequent tab refresh; unavailable GPU telemetry is retried less frequently. Windows hardware inventory refreshes about every 30 seconds while snapshots are requested. These gauge/inventory probes stop scheduling when the tab is no longer requesting snapshots. They do not require Hermes or a running model.
 
+![Diagnostics system gauges and newly collected temperature history](images/screenshots/04-diagnostics-hardware.png)
+
+Open Diagnostics to inspect the current load and begin collecting temperature history. Choose a time window and use the legend to select visible sensors. The screenshot contains only readings collected since the tab was first opened; it is a hardware-monitoring view, not a campaign benchmark.
+
 #### Temperature history
 
 Choose **5 min**, **10 min**, **30 min** or **60 min** above the chart. The legend lists each detected sensor's latest, minimum and maximum for the selected window. Toggle a legend checkbox to hide/show a series; moving the pointer over the chart displays nearby measurements. All chart temperatures use degrees Celsius.
@@ -669,6 +695,10 @@ Each trial starts a fresh Python process and separate Hermes home, connected onl
 4. Choose **Start campaign**. Watch the current configuration/task/repetition and completed/planned count. Trials execute sequentially in seeded, balanced randomized order; a fresh conversation/fixture does not imply a cold model load.
 5. Use **Cancel campaign** to stop the owned Hermes worker and prevent subsequent trials. Closing the tab does not cancel a campaign. Application exit requests cancellation and cleanup.
 6. Review all four comparison views and recent trials, then **Copy results JSON** if a deeper audit is needed. The interface shows the local result-directory location.
+
+![Diagnostics campaign settings before any campaign has run](images/screenshots/05-diagnostics-campaign.png)
+
+Use **Check Hermes** before starting, then choose delivery variants and resource/time limits under **Campaign settings**. These untouched defaults show the setup stage. Scores and comparisons require an actual campaign with a compatible, running harness and model.
 
 | Setting | Default | Supported bounds |
 | --- | --- | --- |
@@ -727,9 +757,13 @@ A provisional configuration leader requires matching task/repetition/pairing/har
 
 Maintenance is an explicit user action. The UI does not provide a schedule or automatically update every component in the background. The portable manifest groups several servers into shared maintenance units; updating one group may update more than one visible server.
 
+![Maintenance in a source profile without Portable component recipes](images/screenshots/07-maintenance.png)
+
+The fresh source profile shown here has no Portable component recipes to run. In the full Portable bundle, open this tab, enter maintenance mode and choose the component's **Update and build** or **Rebuild** action. A missing recipe is not an update failure; component controls require the Portable maintenance manifest.
+
 ### Safe routine workflow
 
-1. Complete or cancel any Diagnostics campaign, then finish or stop client tasks. Hub maintenance does not cancel a separate diagnostic campaign automatically. Entering maintenance pauses gateway tool calls, suspends delivery workers, and stops Harbor-owned child services; an unrelated external server's lifetime remains external.
+1. Finish or stop client tasks, and finish or cancel any Diagnostics campaign. Entering maintenance pauses gateway tool calls, suspends delivery workers, and stops Harbor-owned child services; an unrelated external server's lifetime remains external. Maintenance does not cancel a Diagnostics campaign for you.
 2. Open **Maintenance** and select **Enter maintenance mode**.
 3. Find the component card. Choose **Update and build** for upstream changes, or **Rebuild** to use the current source/dependency lock where defined.
 4. Wait for the displayed phase and log. Only one maintenance job runs at a time; actions and resume are disabled while it is busy. Build commands have cancellation/timeouts; closing Harbor aborts and waits for its active maintenance job during shutdown.
@@ -1173,24 +1207,26 @@ The license files below are included in the documentation package under `third-p
 
 ### Release identity and evidence
 
-Reviewed **September 18, 2026**: **Harbor 0.2.0**, Windows x64 Portable, Electron 44.3.0, MCP TypeScript SDK 1.30.0 and Node.js 24. Windows acceptance used the actual desktop and installed runtimes; source tests use controlled fixtures. Results apply to the tested behavior and environment.
+Reviewed **September 18, 2026**: **Harbor 0.2.0**, Windows x64 Portable, Electron 44.3.0, MCP TypeScript SDK 1.30.0 and Node.js 24. Evidence covers real Windows desktop/runtime acceptance and controlled source fixtures.
 
 | Verification | Observed result and scope |
 | --- | --- |
-| Complete source regression suite | **214 tests: 210 passed, 0 failed, 4 skipped** in 179.126 seconds. Skips cover two WSL cases, the installed-Hermes fixture and opt-in native Diagnostics. Separate native acceptance is identified below. |
+| Complete source regression suite | **235 tests: 233 passed, 0 failed, 2 skipped** in 168.177 seconds. Only two optional WSL checks skipped. Native authentication, launcher, installed-Hermes and six-task Diagnostics acceptance were enabled. |
 | Gateway access controls | Native desktop acceptance passed for all four combinations of **Use API key** and **Loopback only**, generated first-setup credentials, saved disabled choices after restart, key generation/rotation, and client-session invalidation. |
 | Credentials and client configuration | HTTP and stdio configuration copies carried the saved key only through explicit copy actions; ordinary previews and snapshots excluded it. Missing/wrong keys were rejected. |
 | Delivery with authentication | All tools, FastMCP BM25/Regex/Code Mode, Portkey local semantic search and Hybrid worked against the authenticated gateway. These checks do not establish the quality of every model's discovery choices. |
-| Targeted source and desktop checks | Auth-focused checks: 31 passed; renderer UI checks: 56 passed; source desktop checks: 6 passed; native authentication acceptance: 1 passed. These focused results complement the complete suite above. |
-| Default toolbox operations | Representative PDF, Office, DuckDB, MarkItDown, DBHub, Memory, Git, Sequential Thinking, host file/process, Chromium, Typst, GitHub, Context7 and Exa operations were checked against their real runtimes. Each result applies to the operation, account and environment tested. |
+| Targeted source and desktop checks | Focused checks passed: gateway authentication 31; renderer UI 56; source desktop 6; Diagnostics lifecycle 13; maintenance/launcher 29. The full suite also exercised real Hermes, native authentication and campaign persistence. |
+| Default toolbox operations | Real-runtime operations covered PDF, Office, DuckDB, MarkItDown, DBHub, Memory, Git, Sequential Thinking, host files/processes, Chromium, Typst, GitHub, Context7 and Exa. Evidence is specific to the tested operation, account and environment. |
 | Licensing evidence | All 19 default server entries, their local package versions, 66 notice/index hashes and four model-asset sets were reconciled with the inspected installation. Full-toolbox binary/source obligations remain as described in the licensing chapter. |
-| Manual consistency | The PDF is generated from the GitHub Markdown source; its metadata records that source's SHA-256. JSON examples, local documentation links and the required topics are validated, with representative pages visually inspected. |
+| Manual consistency | The PDF records its Markdown source SHA-256 and embeds eight real screenshots. JSON examples, local links and required topics are validated; all figure pages are visually checked. |
 
 ### Recheck after updates
 
-After an update, use the normal shortcut, verify saved protections, connect a client, perform a checkable tool operation and confirm settings after restart. A port or server count alone does not establish success. Cancel Diagnostics campaigns before maintenance; use the build chapter's tests for code changes.
+After updates, use the normal shortcut, check saved protections, connect a client, run a checkable tool operation and restart to verify settings. Finish or cancel Diagnostics before maintenance; apply the build chapter's tests to code changes.
 
 Brave Search credentials remain deferred. Protocol fixtures do not validate real Brave or hosted embedding accounts. Model/harness quality requires matched diagnostic campaigns; no universally best combination is claimed.
 
-A dedicated security scan could not complete registration; it supplied no passing audit result. Toolbox advisories remain for FastMCP 2 paths outside the inspected stdio configuration and for cryptography constrained by Word's dependencies. Reassess affected paths and dependency compatibility when updating or redistributing the toolbox.
+**Source-security gate: pending until the dedicated scanner works.** Registration did not complete; no substitute manual source-security audit or full security clearance is claimed. Functional tests do not close that gate.
+
+Toolbox advisories remain for FastMCP 2 paths outside the inspected stdio configuration and for cryptography constrained by Word's dependencies. Reassess these when updating or redistributing.
 

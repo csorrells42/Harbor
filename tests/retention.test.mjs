@@ -61,3 +61,53 @@ test('application retention keeps current plus one prior build and rejects an in
     await assert.rejects(fs.access(path.join(app,'previous.json')));
   }finally{await fs.rm(root,{recursive:true,force:true});}
 });
+
+
+for(const checkpoint of ['before-backup','after-backup'])test('no-backup recovery removes abandoned staging '+checkpoint,async()=>{
+  const root=await fs.mkdtemp(path.join(os.tmpdir(),'harbor-recovery-stage-'));
+  const target=path.join(root,'packages/tool'),stage='data/maintenance/staging/interrupted',backup='data/maintenance/backups/interrupted',state=path.join(root,'data/maintenance');
+  let manager;
+  try{
+    await fs.mkdir(target,{recursive:true});await fs.writeFile(path.join(target,'version'),'old');
+    await fs.mkdir(path.join(root,stage),{recursive:true});await fs.writeFile(path.join(root,stage,'version'),'candidate');
+    await fs.mkdir(path.dirname(path.join(root,backup)),{recursive:true});
+    await fs.mkdir(path.join(root,'data/workspace'),{recursive:true});await fs.writeFile(path.join(root,'data/workspace/user.txt'),'preserve');
+    await fs.writeFile(path.join(root,'maintenance.json'),JSON.stringify({version:1,retainBackups:false,applicationBackups:0,components:[{id:'tool',name:'Tool',path:'packages/tool'}]}));
+    if(checkpoint==='after-backup')await fs.rename(target,path.join(root,backup));
+    await fs.writeFile(path.join(state,'activation.json'),JSON.stringify({target:'packages/tool',backup,stage,component:'tool'}));
+    manager=await createMaintenance({root,isPaused:()=>true});
+    assert.equal(await fs.readFile(path.join(target,'version'),'utf8'),'old');
+    assert.deepEqual(await fs.readdir(path.join(state,'staging')),[]);
+    assert.deepEqual(await fs.readdir(path.join(state,'backups')),[]);
+    await assert.rejects(fs.access(path.join(state,'activation.json')),{code:'ENOENT'});
+    assert.equal(await fs.readFile(path.join(root,'data/workspace/user.txt'),'utf8'),'preserve');
+  }finally{await manager?.close();await fs.rm(root,{recursive:true,force:true});}
+});
+
+test('recovery cleanup refuses non-staging paths and keeps the journal and user data',async()=>{
+  const root=await fs.mkdtemp(path.join(os.tmpdir(),'harbor-recovery-boundary-'));
+  const target=path.join(root,'packages/tool'),state=path.join(root,'data/maintenance');
+  try{
+    await fs.mkdir(target,{recursive:true});await fs.writeFile(path.join(target,'version'),'old');
+    await fs.mkdir(path.join(root,'data/workspace'),{recursive:true});await fs.writeFile(path.join(root,'data/workspace/user.txt'),'preserve');await fs.mkdir(state,{recursive:true});
+    await fs.writeFile(path.join(root,'maintenance.json'),JSON.stringify({version:1,retainBackups:false,components:[{id:'tool',name:'Tool',path:'packages/tool'}]}));
+    for(const stage of ['data/workspace','packages/tool','data/maintenance/staging']){
+      await fs.writeFile(path.join(state,'activation.json'),JSON.stringify({target:'packages/tool',backup:'data/maintenance/backups/missing',stage,component:'tool'}));
+      await assert.rejects(createMaintenance({root,isPaused:()=>true}),/Invalid maintenance recovery staging path/);
+      await fs.access(path.join(state,'activation.json'));assert.equal(await fs.readFile(path.join(target,'version'),'utf8'),'old');
+      assert.equal(await fs.readFile(path.join(root,'data/workspace/user.txt'),'utf8'),'preserve');
+    }
+  }finally{await fs.rm(root,{recursive:true,force:true});}
+});
+
+test('recovery cleanup preserves the candidate and journal when neither active nor backup exists',async()=>{
+  const root=await fs.mkdtemp(path.join(os.tmpdir(),'harbor-recovery-missing-active-'));
+  const state=path.join(root,'data/maintenance'),stage='data/maintenance/staging/only-candidate';
+  try{
+    await fs.mkdir(path.join(root,stage),{recursive:true});await fs.writeFile(path.join(root,stage,'version'),'candidate');
+    await fs.writeFile(path.join(root,'maintenance.json'),JSON.stringify({version:1,retainBackups:false,components:[{id:'tool',name:'Tool',path:'packages/tool'}]}));
+    await fs.writeFile(path.join(state,'activation.json'),JSON.stringify({target:'packages/tool',backup:'data/maintenance/backups/missing',stage,component:'tool'}));
+    await assert.rejects(createMaintenance({root,isPaused:()=>true}),/active component is missing/);
+    await fs.access(path.join(state,'activation.json'));assert.equal(await fs.readFile(path.join(root,stage,'version'),'utf8'),'candidate');
+  }finally{await fs.rm(root,{recursive:true,force:true});}
+});

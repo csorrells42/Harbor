@@ -1,7 +1,7 @@
 import {SEARCH_DEFAULTS} from '../src/core/delivery-options.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdtemp, readFile, rm, mkdir, readdir, writeFile } from 'node:fs/promises';
+import { mkdtemp, readFile, realpath, rm, mkdir, readdir, writeFile } from 'node:fs/promises';
 import { watch } from 'node:fs';
 import os, { tmpdir, networkInterfaces, hostname } from 'node:os';
 import { syncBuiltinESMExports } from 'node:module';
@@ -184,9 +184,12 @@ test('timeout-only changes apply to existing SDK sessions and future child disco
   assert.equal((await echo(client, { text: 'healthy' })).pid, pid);
   const script = (await readFile(fixture, 'utf8')).replace('const index =', 'await new Promise(r => setTimeout(r, 4000)); const index =');
   await hub.saveServer({ id: 'slow-discovery', command: process.execPath, args: ['--input-type=module', '-e', script], cwd: fileURLToPath(new URL('../', import.meta.url)) });
-  const before = Date.now();
-  await assert.rejects(hub.startServer('slow-discovery'), /timeout|timed out/i);
-  assert.ok(Date.now() - before < 3500, 'new discovery timeout must apply');
+  // startServer also awaits child cleanup; verify the deadline independently of that latency.
+  await assert.rejects(hub.startServer('slow-discovery'), error => {
+    assert.match(error.message, /timeout|timed out/i);
+    assert.ok((error.code === -32001 && error.data?.timeout === 1000) || error.message === 'Operation timed out after 1000 ms', 'new discovery must use the configured 1000 ms deadline');
+    return true;
+  });
   assert.equal(hub.snapshot().servers.find(s => s.id === 'fixture').pid, pid);
 });
 
@@ -335,7 +338,8 @@ test('close during a real atomic settings write waits for completion and reaps e
   await hub.updateSettings(hub.getSettings());
   const next = { ...hub.getSettings(), port: await freePort(), mcpPath: '/race', allowedOrigins: Array.from({ length: 3000 }, (_, i) => `https://client-${i}.example`) };
   let closing;
-  const watcher = watch(dir, (event, name) => { if (name?.endsWith('.tmp') && !closing) closing = hub.close(); });
+  // Expand Windows short-path aliases before libuv compares event paths.
+  const watcher = watch(await realpath(dir), (event, name) => { if (name?.endsWith('.tmp') && !closing) closing = hub.close(); });
   t.after(() => watcher.close());
   const update = hub.updateSettings(next);
   const queued = hub.updateSettings({ ...next, mcpPath: '/queued' });
