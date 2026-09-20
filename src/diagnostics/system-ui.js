@@ -28,7 +28,8 @@ export function createSystemOverview(){
   const details=el('details'),detailsTitle=el('summary','Processor, memory and storage details'),inventory=el('div','','diag-hardware-grid');details.append(detailsTitle,inventory);
   const note=el('p','Whole-system readings include Harbor and other applications. CPU/RAM refresh about every 1.5 s; GPU about every 3 s; drive details every 30 s.','diag-system-note');
   const temperatures=createTemperatureChart();
-  element.append(header,grid,summary,extras,temperatures.element,details,note);
+  const temperatureDetails=el('details');temperatureDetails.append(el('summary','Temperature history and sensors'),temperatures.element);
+  element.append(header,grid,summary,extras,temperatureDetails,details,note);
   let hardwareStamp=null,gpuOptions='';
   function block(title,lines){const b=el('div','','diag-hardware-block');b.append(el('h3',title));for(const line of lines)b.append(el('p',line));return b;}
   function update(s){

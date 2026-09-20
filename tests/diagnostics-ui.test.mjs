@@ -21,6 +21,8 @@ test('diagnostics UI invokes controls, preserves typed variants and compares Har
   browser=await chromium.launch({headless:true});const page=await browser.newPage({viewport:{width:1280,height:1000}});const errors=[];page.on('pageerror',e=>errors.push(e.message));
   await page.addInitScript(({plan,results})=>{window.calls=[];window.data={running:false,defaultPlan:plan,campaign:null,inventory:null,results,dataDir:'C:/explicit-ui-test-fixture'};window.harbor={diagnosticsSnapshot:async()=>window.data,diagnosticsProbe:async input=>{window.probeInput=input;window.calls.push('probe');throw new Error('Fixture: model server is stopped');},diagnosticsStart:async plan=>{window.calls.push(plan);window.data.running=true;},diagnosticsCancel:async()=>{window.calls.push('cancel');window.data.running=false;},copy:async text=>window.calls.push(JSON.parse(text))};},{plan:DEFAULT_PLAN,results:compare([])});
   await page.goto(`http://127.0.0.1:${server.address().port}`);
+  for(const name of ['CPU','GPU','System memory','GPU memory'])await expect(page.getByRole('meter',{name,exact:true})).toBeVisible();
+  assert(await page.locator('.diagnostics > :first-child').getAttribute('aria-label')==='Live system overview');
   const screenshot=async name=>{if(process.env.HARBOR_PHASE2_EVIDENCE){await mkdir(process.env.HARBOR_PHASE2_EVIDENCE,{recursive:true});await page.screenshot({path:path.join(process.env.HARBOR_PHASE2_EVIDENCE,name),fullPage:true});}};
   await screenshot('guided-connection.png');
   await expect(page.getByRole('button',{name:'Check Hermes',exact:true})).toBeVisible();
@@ -109,7 +111,7 @@ test('Diagnostics tab in the real Electron window uses backend IPC and preserves
     await page.getByRole('button',{name:'Check Hermes',exact:true}).waitFor();await page.getByRole('button',{name:'Check Hermes',exact:true}).click();
     await expect.poll(()=>page.evaluate(async()=>{const s=await window.harbor.diagnosticsSnapshot();return !!(s.problem||s.inventory);}),{timeout:30000}).toBe(true);
     const snap=await page.evaluate(()=>window.harbor.diagnosticsSnapshot());assert(snap.problem||snap.inventory.ready);assert.equal(snap.running,false);
-    await page.getByText('Hardware and temperature monitoring',{exact:true}).click();
+    await page.getByText('Temperature history and sensors',{exact:true}).click();
     await expect.poll(()=>page.evaluate(async()=>{const s=await window.harbor.diagnosticsSnapshot();return s.system.hardware.status;}),{timeout:20000}).toBe('ready');
     await expect(page.getByRole('meter',{name:'CPU',exact:true})).toHaveAttribute('aria-valuenow',/\d/);
     await expect(page.getByRole('meter',{name:'System memory',exact:true})).toHaveAttribute('aria-valuenow',/\d/);

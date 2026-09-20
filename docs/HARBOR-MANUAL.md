@@ -721,7 +721,7 @@ Use the interactive account flow; do not copy token output into the manual, chat
 ### Live hardware information
 
 
-Diagnostics begins with five numbered campaign setup steps. Expand **Hardware and temperature monitoring** below the results to see four gauges: overall CPU utilization, selected GPU utilization, system RAM used/total, and selected GPU memory used/total. Multiple NVIDIA devices can be selected. The panel also displays uptime and supported GPU temperature, power and fan readings. An unavailable or stale sensor is shown as unknown, not zero.
+Diagnostics begins with four always-visible gauges: overall CPU utilization, selected GPU utilization, system RAM used/total, and selected GPU memory used/total. Multiple NVIDIA devices can be selected. The panel also displays uptime and supported GPU temperature, power and fan readings. Expand **Temperature history and sensors** for the larger chart; the five numbered campaign setup steps follow the system overview. No model or campaign is needed to watch hardware usage. An unavailable or stale sensor is shown as unknown, not zero.
 
 Expand **Processor, memory and storage details** for processor model and core/thread counts, Windows-reported clock and OS build, RAM modules and configured speeds, physical drive models, volume capacity/free space, and display drivers. The Windows-reported clock is not a live all-core maximum-frequency measurement. Installed module capacity can differ from OS-usable RAM.
 

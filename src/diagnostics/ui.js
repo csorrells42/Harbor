@@ -90,7 +90,7 @@ export function mountDiagnostics(container,api) {
     review.replaceChildren(el('p',`Connection: ${selectedInventory()?.model??'not checked yet'}`),el('p',`Tasks: ${tasks.length} selected`),el('p',`Delivery: ${description}`),el('p',`Planned trials: ${Number.isSafeInteger(trials)&&trials>0?trials:'check your selections'} · ${controls.repetitions.value||'?'} repetitions per task and method`),el('p',`Time limits: ${controls.maxTrialSeconds.value||'?'} seconds per trial; ${controls.maxCampaignSeconds.value||'?'} seconds for the campaign`));
   }
   setup.addEventListener('input',()=>{if(steps[4].panel.open)updateReview();});
-  root.append(intro,status,stepNav,setup,el('h2','Results'),buttons,exportStatus,history,tabs,report,inspection,disclose('Hardware and temperature monitoring',systemOverview.element));container.replaceChildren(root);showStep(0,false);
+  root.append(systemOverview.element,intro,status,stepNav,setup,el('h2','Results'),buttons,exportStatus,history,tabs,report,inspection);container.replaceChildren(root);showStep(0,false);
   async function action(fn){if(busy)return;busy=true;localError=null;start.disabled=probe.disabled=saveButton.disabled=harnessChoice.disabled=true;try{await fn();await refresh();}catch(e){localError=e.message||String(e);status.textContent=localError;}finally{busy=false;start.disabled=!!current?.running;probe.disabled=false;harnessChoice.disabled=!!current?.running;saveButton.disabled=!displayed()?.campaign;}}
   probe.onclick=()=>action(async()=>{checking=true;status.textContent='Checking local model files and live settings; hashing large weights can take up to two minutes.';try{await api.diagnosticsProbe({harness:harnessChoice.value});}finally{checking=false;}});
   start.onclick=()=>action(async()=>{
