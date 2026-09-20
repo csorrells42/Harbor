@@ -1,6 +1,6 @@
 # MCP capabilities in the Phase 2 source
 
-This matrix describes the current source implementation. It does not certify the older installed Portable application or an untested client. Final package, clean-machine and actual LM Studio acceptance remain separate release gates.
+This matrix describes the current source implementation. Candidate13 has separate packaged functional acceptance, and installed LM Studio 0.4.21+2 has native tool-execution evidence; neither establishes that every primitive in this matrix was exercised through every client. Independent clean-machine acceptance and untested client versions remain open. See [Phase 2 acceptance status](PHASE2-STATUS.md) for artifact boundaries, results and limitations.
 
 | Feature | Implemented behavior | Boundary |
 | --- | --- | --- |
