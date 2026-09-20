@@ -1,6 +1,6 @@
 # Representative diagnostics and saved campaigns
 
-These controls are implemented in the Phase 2 source checkout. Final Portable packaging, model-quality comparisons and release acceptance remain pending.
+These controls are implemented in the Phase 2 source checkout and locally tested candidate13 Portable package. See [current acceptance status](PHASE2-STATUS.md) for separate local, independent-PC and public-release gates. Integration checks are distinct from model-quality comparisons.
 
 ## Running the pack
 
@@ -18,7 +18,7 @@ The setup is checked again after the trial. Changes in recorded source/runtime i
 
 Recommendations, including provisional leaders, require positive weight identity, effective context, server-default identity, endpoint ownership and stable exact request observations. Historical campaigns without this evidence remain browsable and retain their outcome rates, but do not regain recommendations under the newer checks.
 
-**Current implementation limit:** runtime/process/request observation and drift checks are implemented. Weight-file fingerprint acquisition, effective server-context/default collection and real model-quality campaigns are still in progress. Their missing values therefore prevent recommendations; the code does not manufacture successful identity evidence for protocol fixtures or a configured model name.
+**Current implementation limit:** [model identity](model-identity.md) is implemented for the explicitly gated Hermes/llama.cpp path. LM Studio paths do not yet establish loaded weight/runtime bytes and every effective inference default, so their missing identity evidence prevents measured recommendations. Independently verified task outcomes remain available. The code does not manufacture successful identity evidence for protocol fixtures or a configured model name. The [native LM Studio adapter](lmstudio-diagnostics.md) is a separate harness selection with its own observed and unknown fields.
 
 | Task | Independent completion check |
 | --- | --- |

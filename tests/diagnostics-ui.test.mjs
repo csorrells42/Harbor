@@ -8,10 +8,17 @@ import {chromium,_electron as electron,expect} from '@playwright/test';
 import {DEFAULT_PLAN} from '../src/diagnostics/plans.mjs';
 import {compare} from '../src/diagnostics/grading.mjs';
 
-test('diagnostics UI invokes controls, preserves typed variants and compares Harbor configurations only',async t=>{
+test('diagnostics UI invokes controls, preserves typed variants and compares Harbor configurations only',{timeout:90000},async t=>{
   const server=createServer(async(req,res)=>{const name=req.url.slice(1);if(name===''){res.end('<html><head><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="/app.css"></head><body><main id="root"></main><script type="module">import {mountDiagnostics} from "/ui.js"; mountDiagnostics(document.querySelector("main"),window.harbor)</script></body></html>');return;}if(name==='app.css'){res.setHeader('Content-Type','text/css');res.end(await readFile(new URL('../src/ui/styles.css',import.meta.url)));return;}if(!['ui.js','ui.css','system-ui.js','temperature-ui.js','workload-catalog.js','catalog-options.js'].includes(name)){res.writeHead(404).end();return;}res.setHeader('Content-Type',name.endsWith('.js')?'text/javascript':'text/css');res.end(await readFile(new URL(`../src/diagnostics/${name}`,import.meta.url)));});
-  await new Promise(r=>server.listen(0,'127.0.0.1',r));t.after(()=>new Promise(r=>server.close(r)));
-  const browser=await chromium.launch({headless:true});t.after(()=>browser.close());const page=await browser.newPage({viewport:{width:1280,height:1000}});const errors=[];page.on('pageerror',e=>errors.push(e.message));
+  await new Promise(r=>server.listen(0,'127.0.0.1',r));
+  let browser;
+  // Stop browser traffic before waiting for the fixture listener to close.
+  // Speculative connections can otherwise keep Windows CI in teardown forever.
+  t.after(async()=>{
+    try{await browser?.close();}
+    finally{server.closeAllConnections();await new Promise(r=>server.close(r));}
+  });
+  browser=await chromium.launch({headless:true});const page=await browser.newPage({viewport:{width:1280,height:1000}});const errors=[];page.on('pageerror',e=>errors.push(e.message));
   await page.addInitScript(({plan,results})=>{window.calls=[];window.data={running:false,defaultPlan:plan,campaign:null,inventory:null,results,dataDir:'C:/explicit-ui-test-fixture'};window.harbor={diagnosticsSnapshot:async()=>window.data,diagnosticsProbe:async input=>{window.probeInput=input;window.calls.push('probe');throw new Error('Fixture: model server is stopped');},diagnosticsStart:async plan=>{window.calls.push(plan);window.data.running=true;},diagnosticsCancel:async()=>{window.calls.push('cancel');window.data.running=false;},copy:async text=>window.calls.push(JSON.parse(text))};},{plan:DEFAULT_PLAN,results:compare([])});
   await page.goto(`http://127.0.0.1:${server.address().port}`);
   const screenshot=async name=>{if(process.env.HARBOR_PHASE2_EVIDENCE){await mkdir(process.env.HARBOR_PHASE2_EVIDENCE,{recursive:true});await page.screenshot({path:path.join(process.env.HARBOR_PHASE2_EVIDENCE,name),fullPage:true});}};
