@@ -12,11 +12,12 @@ test('Hybrid retains one semantic index per provider and invalidates only change
   const root=process.env.HARBOR_TOOL_RUNTIME_ROOT;
   const dir=await fs.mkdtemp(path.join(os.tmpdir(),'harbor-semantic-cache-'));
   const key=path.join(dir,'mock.key');await fs.writeFile(key,'mock-only');
-  const requests=[];let failModel;
+  const requests=[];let failModel,heldModel,releaseEmbedding,embeddingEntered,embeddingGate;
   const server=createServer(async(req,res)=>{
     let body='';for await(const chunk of req)body+=chunk;
     const data=JSON.parse(body),inputs=Array.isArray(data.input)?data.input:[data.input];
     requests.push({model:data.model,count:inputs.length});
+    if(data.model===heldModel){embeddingEntered();await embeddingGate;}
     res.setHeader('content-type','application/json');
     if(data.model===failModel){res.writeHead(401);res.end('{"error":"mock failure"}');return;}
     res.end(JSON.stringify({data:inputs.map((_,index)=>({index,embedding:data.encoding_format==='base64'?Buffer.from(new Float32Array([1,0,0]).buffer).toString('base64'):[1,0,0]})),usage:{prompt_tokens:1,total_tokens:1}}));
@@ -30,6 +31,7 @@ test('Hybrid retains one semantic index per provider and invalidates only change
   proc.on('exit',()=>fail(new Error(`Semantic worker exited: ${stderr}`)));
   createInterface({input:proc.stdout}).on('line',line=>{const result=JSON.parse(line),entry=pending.get(result.id);if(!entry)return;pending.delete(result.id);result.error?entry.reject(new Error(result.error)):entry.resolve(result.result);});
   t.after(async()=>{
+    releaseEmbedding?.();
     if(proc.exitCode===null){const exited=new Promise(resolve=>proc.once('exit',resolve));proc.kill();await exited;}
     server.closeAllConnections();await new Promise(resolve=>server.close(resolve));
     await fs.rm(dir,{recursive:true,force:true});
@@ -63,4 +65,26 @@ test('Hybrid retains one semantic index per provider and invalidates only change
   assert.deepEqual(counts(),[1]);
   await search('portkey-workers',changed,catalog.slice(1));
   assert.deepEqual(counts(),[2,1],'deselected provider is retired instead of retained indefinitely');
+
+  // Hold the actual provider response while a second request queues a changed
+  // catalog. Each result must remain attached to its own catalog generation.
+  heldModel='race-model';
+  const entered=new Promise(resolve=>{embeddingEntered=resolve;});
+  embeddingGate=new Promise(resolve=>{releaseEmbedding=resolve;});
+  const raceSettings={...settings,portkeyApiModel:heldModel};
+  const first=search('portkey-api',raceSettings,catalog);
+  const firstOutcome=first.then(value=>({value}),error=>({error}));
+  await entered;
+  const replacement=[{...catalog[0],name:'replacement_only'}];
+  let secondSettled=false;
+  const second=search('portkey-api',raceSettings,replacement);
+  const secondOutcome=second.then(value=>{secondSettled=true;return {value};},error=>{secondSettled=true;return {error};});
+  assert.equal(secondSettled,false,'Replacement must wait for the held index operation');
+  heldModel=undefined;releaseEmbedding();
+  const [oldResult,newResult]=await Promise.all([firstOutcome,secondOutcome]);
+  assert.ifError(oldResult.error);assert.ifError(newResult.error);
+  assert.deepEqual(oldResult.value.tools.map(tool=>tool.name).sort(),catalog.map(tool=>tool.name).sort());
+  assert.deepEqual(newResult.value.tools.map(tool=>tool.name),['replacement_only']);
+  const subsequent=await search('portkey-api',raceSettings,replacement);
+  assert.deepEqual(subsequent.tools.map(tool=>tool.name),['replacement_only'],'Old completion must not restore the retired catalog');
 });
