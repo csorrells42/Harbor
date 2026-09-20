@@ -12,7 +12,7 @@ The icon files match the project's own `scripts/make-icon.py` generator. Other u
 
 ## Application dependencies and Electron
 
-[THIRD-PARTY-NOTICES.txt](THIRD-PARTY-NOTICES.txt) preserves complete license texts for the audited production npm dependency graph. [docs/DEPENDENCIES.json](docs/DEPENDENCIES.json) records exact versions, declarations, upstream locations and the audited lockfile hash. At the documented snapshot there are 94 installed package instances / 92 unique package-version pairs: MIT, ISC, BSD-2-Clause and BSD-3-Clause. This inventory is not a substitute for checking a changed lockfile.
+[THIRD-PARTY-NOTICES.txt](THIRD-PARTY-NOTICES.txt) preserves complete license texts for the audited production npm dependency graph. [docs/DEPENDENCIES.json](docs/DEPENDENCIES.json) records exact versions, declarations, upstream locations and the audited lockfile hash. At the documented snapshot there are 95 production package instances / 93 unique package-version pairs: MIT, ISC, BSD-2-Clause, BSD-3-Clause and Apache-2.0. Phase 2 adds Playwright Core 1.63.0 for representative browser diagnostics; its complete LICENSE and NOTICE are included. The browser binary is acquired and licensed separately. This inventory is not a substitute for checking a changed lockfile.
 
 Electron is a shipped runtime even though it is installed as a development dependency. Keep its `LICENSE` (packaged as `LICENSE.electron.txt`) and `LICENSES.chromium.html` beside the executable when distributing its binaries. [third-party/Electron-LICENSE.txt](third-party/Electron-LICENSE.txt) copies its own MIT notice. Chromium and its embedded components have additional notices retained in Electron's shipped HTML file. Build tools installed by developers have their own licenses.
 

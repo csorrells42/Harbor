@@ -9,6 +9,7 @@ import {Module,createRequire,syncBuiltinESMExports} from 'node:module';
 import {fileURLToPath,pathToFileURL} from 'node:url';
 import vm from 'node:vm';
 import {connectionInfo} from '../src/desktop/policy.mjs';
+import {load as loadYaml} from 'js-yaml';
 
 const secret='harbor_synthetic_export_key_123456';
 const mainPath=fileURLToPath(new URL('../src/desktop/main.cjs',import.meta.url));
@@ -63,12 +64,37 @@ test('desktop copies usable LM Studio HTTP and stdio credentials only through ex
   assert.equal(d.call('copyConnectionConfiguration',{format:'stdio',endpoint:info.endpoint}),true);
   const stdio=JSON.parse(d.copies.at(-1)).mcpServers.harbor;assert.equal(stdio.command,'node');assert.equal(stdio.args[1],info.endpoint);assert.deepEqual(stdio.env,{HARBOR_API_KEY:secret});
   assert.equal(d.call('copyGatewayKey'),true);assert.equal(d.copies.at(-1),secret);
+  for(const format of ['http','stdio'])for(const client of ['hermes','openclaw']){
+    d.call('copyConnectionConfiguration',{format,endpoint:info.endpoint,client});
+    const exported=d.copies.at(-1);
+    const entry=client==='hermes'?loadYaml(exported).mcp_servers.harbor:JSON.parse(exported).mcp.servers.harbor;
+    if(format==='http'){assert.equal(entry.url,info.endpoint);assert.equal(entry.headers.Authorization,'Bearer '+secret);}
+    else{assert.equal(entry.args[1],info.endpoint);assert.equal(entry.env.HARBOR_API_KEY,secret);}
+    if(client==='openclaw')assert.equal(entry.transport,format==='http'?'streamable-http':'stdio');
+  }
+  const additional=['opencode','opencode-v1','openhands','goose','interpreter','openwebui','letta','anythingllm','general'];
+  for(const client of additional)for(const format of (client==='openwebui'?['http']:['http','stdio'])){
+    d.call('copyConnectionConfiguration',{format,endpoint:info.endpoint,client});
+    assert.ok(d.copies.at(-1).includes(secret),client+' copies the saved key');
+    assert.ok(d.copies.at(-1).includes(info.endpoint),client+' preserves the active endpoint');
+  }
   const copied=d.copies.length;
+  assert.throws(()=>d.call('copyConnectionConfiguration',{format:'stdio',endpoint:info.endpoint,client:'openwebui'}),/Streamable HTTP/);
+
+  assert.throws(()=>d.call('copyConnectionConfiguration',{format:'http',endpoint:info.endpoint,client:'invalid'}),/supported client/);
   assert.throws(()=>d.call('copyConnectionConfiguration',{format:'http',endpoint:'https://unapproved.example/mcp'}),/active Harbor endpoint/);
   assert.throws(()=>d.call('copyConnectionConfiguration',{format:'unknown',endpoint:info.endpoint}),/configuration format/);assert.equal(d.copies.length,copied);
   await d.call('updateGatewayAuth',{enabled:false});
   d.call('copyConnectionConfiguration',{format:'http',endpoint:info.endpoint});assert.equal(JSON.parse(d.copies.at(-1)).mcpServers.harbor.headers,undefined);
   d.call('copyConnectionConfiguration',{format:'stdio',endpoint:info.endpoint});assert.equal(JSON.parse(d.copies.at(-1)).mcpServers.harbor.env,undefined);
+  for(const client of ['hermes','openclaw'])for(const format of ['http','stdio']){
+    d.call('copyConnectionConfiguration',{format,endpoint:info.endpoint,client});
+    assert.ok(!d.copies.at(-1).includes(secret));assert.ok(!d.copies.at(-1).includes('Authorization'));assert.ok(!d.copies.at(-1).includes('HARBOR_API_KEY'));
+  }
+  for(const client of additional)for(const format of (client==='openwebui'?['http']:['http','stdio'])){
+    d.call('copyConnectionConfiguration',{format,endpoint:info.endpoint,client});
+    assert.ok(!d.copies.at(-1).includes(secret),client+' omits the disabled key');
+  }
   assert.deepEqual(d.errors,[]);
 });
 

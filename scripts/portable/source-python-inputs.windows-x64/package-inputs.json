@@ -1,0 +1,404 @@
+{
+  "schemaVersion": 1,
+  "pythonGroups": [
+    "serena",
+    "pdf-tools",
+    "duckdb",
+    "markitdown",
+    "excel",
+    "word",
+    "python-build"
+  ],
+  "sourceManifestSha256": "a8f286848ad8cd677ad4904739c9434415db9086732288025d5f0e8b8c280b6e",
+  "sourceWheelsReceiptSha256": "99effc8520ac83278c7294c21d32dca0c3e6be807e80ca2a6e0193047a1b20d2",
+  "sourceWheels": [
+    {
+      "name": "proxy-tools",
+      "version": "0.1.0",
+      "path": "wheels/proxy_tools-0.1.0-py3-none-any.whl",
+      "bytes": 2944,
+      "sha256": "bf578ced617d53272bad9b164ff15b4c1ced46984899600998fca5a9e20d1510"
+    }
+  ],
+  "sources": [
+    {
+      "id": "serena",
+      "requirements": [
+        "anthropic==0.117.0",
+        "beautifulsoup4==4.14.2",
+        "cryptography==50.0.0",
+        "docstring_parser==0.17.0",
+        "filelock==3.25.2",
+        "flask==3.1.3",
+        "jinja2==3.1.6",
+        "joblib==1.5.1",
+        "lsprotocol==2025.0.0",
+        "mcp==1.28.1",
+        "oslex==2.0.0",
+        "overrides==7.7.0",
+        "pathspec==0.12.1",
+        "psutil==7.0.0",
+        "pydantic==2.12.5",
+        "pygls==2.1.1",
+        "pystray==0.19.5",
+        "python-dotenv==1.2.2",
+        "python-multipart==0.0.31",
+        "pythonnet==3.1.0 ; sys_platform == 'win32'",
+        "pywebview==6.2",
+        "pyyaml==6.0.2",
+        "regex==2026.2.28",
+        "requests==2.33.0",
+        "ruamel.yaml==0.18.14",
+        "sensai-utils==1.5.0",
+        "starlette==1.3.1",
+        "tiktoken==0.12.0",
+        "tqdm==4.67.1",
+        "types-pyyaml==6.0.12.20250516",
+        "urllib3==2.7.0",
+        "werkzeug==3.1.7"
+      ],
+      "sourceTree": "3b3fd56955c86326253a544f536c71ad7beb297d",
+      "projects": [
+        {
+          "path": ".",
+          "name": "serena-agent",
+          "version": "2.0.0.dev0",
+          "extras": [],
+          "pyprojectSha256": "d3c645a7077daec5b054145fe8d50af1ab7361dee2e84015924f3d31eb0db966",
+          "versionSource": null,
+          "buildBackend": "hatchling.build"
+        }
+      ],
+      "localWheelDependencies": [
+        "proxy-tools"
+      ]
+    },
+    {
+      "id": "pdf-tools",
+      "requirements": [
+        "Pillow>=10.0.0",
+        "PyMuPDF>=1.23.0",
+        "fastmcp<3",
+        "fastmcp>=2.14,<3",
+        "httpx>=0.25.0",
+        "markdown>=3.5.0",
+        "mcp<2",
+        "pandas>=2.0.0",
+        "pdf2image>=1.16.0",
+        "pdfplumber>=0.10.0",
+        "pydantic>=2.0.0",
+        "pypandoc>=1.13",
+        "pypandoc_binary",
+        "pypdf>=6.0.0",
+        "pytesseract>=0.3.10",
+        "python-dotenv>=1.0.0",
+        "reportlab>=4.0.0"
+      ],
+      "sourceTree": "e82d93d44f1e38b61f9c4f119ab4bd43021abbcb",
+      "projects": [
+        {
+          "path": ".",
+          "name": "mcp-pdf",
+          "version": "2.3.0",
+          "extras": [
+            "forms",
+            "markdown"
+          ],
+          "pyprojectSha256": "e2ae7dc881a2bd5dc4aa455f41ffa406b736aadd90f8a8b080942eead4f94aca",
+          "versionSource": null,
+          "buildBackend": "hatchling.build"
+        }
+      ],
+      "localWheelDependencies": []
+    },
+    {
+      "id": "duckdb",
+      "requirements": [
+        "click>=8.1.8",
+        "duckdb==1.5.5",
+        "fastmcp>=3.2",
+        "pytz>=2025.2"
+      ],
+      "sourceTree": "e6aef3943d6a57eb21e77bb5b499a04ddb2cea46",
+      "projects": [
+        {
+          "path": ".",
+          "name": "mcp-server-motherduck",
+          "version": "1.0.8",
+          "extras": [],
+          "pyprojectSha256": "95df1abe147844a03a9835eccc4689ddcd9d1ee5752988f825f8be6e24047dc2",
+          "versionSource": null,
+          "buildBackend": "hatchling.build"
+        }
+      ],
+      "localWheelDependencies": []
+    },
+    {
+      "id": "markitdown",
+      "requirements": [
+        "SpeechRecognition",
+        "azure-ai-contentunderstanding>=1.2.0b1",
+        "azure-ai-documentintelligence",
+        "azure-identity",
+        "beautifulsoup4",
+        "charset-normalizer",
+        "defusedxml",
+        "lxml",
+        "magika~=0.6.1",
+        "mammoth~=1.11.0",
+        "markdownify",
+        "mcp>=2.1.1,<3.0.0",
+        "olefile",
+        "openpyxl",
+        "pandas",
+        "pdfminer.six>=20251230",
+        "pdfplumber>=0.11.9",
+        "pydub",
+        "python-pptx",
+        "requests",
+        "requests>=2.0.0,<3.0.0",
+        "xlrd",
+        "youtube-transcript-api~=1.0.0"
+      ],
+      "sourceTree": "704b84badb8b570607eb14432fbac028cd9a7752",
+      "projects": [
+        {
+          "path": "packages/markitdown",
+          "name": "markitdown",
+          "version": "0.1.8b3",
+          "extras": [
+            "all"
+          ],
+          "pyprojectSha256": "ec930a01ea30b4aa0d3384f2a413c8cfbad3abbbe0bc1b7b486a4030faa7c2ab",
+          "versionSource": {
+            "path": "src/markitdown/__about__.py",
+            "sha256": "32d770efe0f08f5bde77a42301ec796ad1e5943ec0bbf2a0382d506029d0b6ec"
+          },
+          "buildBackend": "hatchling.build"
+        },
+        {
+          "path": "packages/markitdown-mcp",
+          "name": "markitdown-mcp",
+          "version": "0.0.1a7",
+          "extras": [],
+          "pyprojectSha256": "d4ff54c7168abfff9deb210b5df213c5dacf2d7262e426887987c2176359e143",
+          "versionSource": {
+            "path": "src/markitdown_mcp/__about__.py",
+            "sha256": "593d4ae0c0c5709a24f5fee260b84c1c75219ff4b88ec7eb37a18ef2df70080d"
+          },
+          "buildBackend": "hatchling.build"
+        }
+      ],
+      "localWheelDependencies": []
+    },
+    {
+      "id": "excel",
+      "requirements": [
+        "fastmcp>=2.0.0,<3.0.0",
+        "mcp<2",
+        "mcp[cli]>=1.10.1",
+        "openpyxl>=3.1.5",
+        "typer>=0.16.0"
+      ],
+      "sourceTree": "2e97d2bdcda0f01a3bb636a77fc047203197600e",
+      "projects": [
+        {
+          "path": ".",
+          "name": "excel-mcp-server",
+          "version": "0.1.8",
+          "extras": [],
+          "pyprojectSha256": "9694e3c843ee4a2f432a29ac55c4624a186185a320c5db8244d637b35854a54b",
+          "versionSource": null,
+          "buildBackend": "hatchling.build"
+        }
+      ],
+      "localWheelDependencies": []
+    },
+    {
+      "id": "word",
+      "requirements": [
+        "lxml>=4.9.0",
+        "mcp<2",
+        "mcp>=1.0.0",
+        "mistune>=3.0",
+        "presidio-analyzer>=2.2",
+        "presidio-anonymizer>=2.2",
+        "spacy>=3.7,<4"
+      ],
+      "sourceTree": "38c4ad18bb96c8f6459d6aaaa9636b4a21caa41c",
+      "projects": [
+        {
+          "path": ".",
+          "name": "docx-mcp-server",
+          "version": "0.7.4",
+          "extras": [],
+          "pyprojectSha256": "68d3580b6941da3fe610a7708bc396995c3be051c10a849868c159869ff34eab",
+          "versionSource": null,
+          "buildBackend": "hatchling.build"
+        }
+      ],
+      "localWheelDependencies": []
+    },
+    {
+      "id": "python-build",
+      "requirements": [
+        "build",
+        "hatchling",
+        "setuptools",
+        "wheel"
+      ],
+      "projects": [],
+      "localWheelDependencies": []
+    }
+  ],
+  "files": [
+    {
+      "id": "serena",
+      "file": "requirements.in",
+      "path": "package-inputs/serena/requirements.in",
+      "bytes": 664,
+      "sha256": "096497fc0c89e30904e9525d2db69e88e7c69805a99fa85946dcec2da7f83ac3"
+    },
+    {
+      "id": "serena",
+      "file": "requirements.txt",
+      "path": "package-inputs/serena/requirements.txt",
+      "bytes": 1266,
+      "sha256": "c3318aec705ea305f8723c17586af762af24cb988bbc6534678c0e3bf93dba7f"
+    },
+    {
+      "id": "serena",
+      "file": "requirements.resolved.txt",
+      "path": "package-inputs/serena/requirements.resolved.txt",
+      "bytes": 1285,
+      "sha256": "f89e448e65e5f02dcfcbb4eac7c033dea9be6970fb8b05157050fe44dcdb9251"
+    },
+    {
+      "id": "pdf-tools",
+      "file": "requirements.in",
+      "path": "package-inputs/pdf-tools/requirements.in",
+      "bytes": 340,
+      "sha256": "9fe0f37ce287c6718972df84e1c82e5d9cf3c421cef011082d2981c5d65165b5"
+    },
+    {
+      "id": "pdf-tools",
+      "file": "requirements.txt",
+      "path": "package-inputs/pdf-tools/requirements.txt",
+      "bytes": 1824,
+      "sha256": "856fcc0924f6ae193da90f843d748896204dcc481dcdbec8cf0d85cf7f99789a"
+    },
+    {
+      "id": "pdf-tools",
+      "file": "requirements.resolved.txt",
+      "path": "package-inputs/pdf-tools/requirements.resolved.txt",
+      "bytes": 1824,
+      "sha256": "856fcc0924f6ae193da90f843d748896204dcc481dcdbec8cf0d85cf7f99789a"
+    },
+    {
+      "id": "duckdb",
+      "file": "requirements.in",
+      "path": "package-inputs/duckdb/requirements.in",
+      "bytes": 130,
+      "sha256": "dee7e8488a152e283f5089ccc37e15eddf63e181318d43d5094cd91a743314b3"
+    },
+    {
+      "id": "duckdb",
+      "file": "requirements.txt",
+      "path": "package-inputs/duckdb/requirements.txt",
+      "bytes": 1298,
+      "sha256": "138a07b1fd66b08285baf08740d739cb20f8ff4fa07edbff3a2dc39b5e1242fb"
+    },
+    {
+      "id": "duckdb",
+      "file": "requirements.resolved.txt",
+      "path": "package-inputs/duckdb/requirements.resolved.txt",
+      "bytes": 1298,
+      "sha256": "138a07b1fd66b08285baf08740d739cb20f8ff4fa07edbff3a2dc39b5e1242fb"
+    },
+    {
+      "id": "markitdown",
+      "file": "requirements.in",
+      "path": "package-inputs/markitdown/requirements.in",
+      "bytes": 440,
+      "sha256": "d80e0bd5ebd62c53233ce5ae09cb0d8866719cf2cbb693dc942b1c090154705d"
+    },
+    {
+      "id": "markitdown",
+      "file": "requirements.txt",
+      "path": "package-inputs/markitdown/requirements.txt",
+      "bytes": 1483,
+      "sha256": "5360645d5176885fe62b12ea128f2bdc40523b281d47ccc29d06590fa87b12fd"
+    },
+    {
+      "id": "markitdown",
+      "file": "requirements.resolved.txt",
+      "path": "package-inputs/markitdown/requirements.resolved.txt",
+      "bytes": 1483,
+      "sha256": "5360645d5176885fe62b12ea128f2bdc40523b281d47ccc29d06590fa87b12fd"
+    },
+    {
+      "id": "excel",
+      "file": "requirements.in",
+      "path": "package-inputs/excel/requirements.in",
+      "bytes": 152,
+      "sha256": "7ce0dc27788f8b57cbb63ee90993e5e7740a61cf63264370a157abd99a889cb7"
+    },
+    {
+      "id": "excel",
+      "file": "requirements.txt",
+      "path": "package-inputs/excel/requirements.txt",
+      "bytes": 1549,
+      "sha256": "ff02a7e016194340ded2e1236a2b857804726a1715f0635c4b43f3ba6416d952"
+    },
+    {
+      "id": "excel",
+      "file": "requirements.resolved.txt",
+      "path": "package-inputs/excel/requirements.resolved.txt",
+      "bytes": 1549,
+      "sha256": "ff02a7e016194340ded2e1236a2b857804726a1715f0635c4b43f3ba6416d952"
+    },
+    {
+      "id": "word",
+      "file": "requirements.in",
+      "path": "package-inputs/word/requirements.in",
+      "bytes": 181,
+      "sha256": "b7aacc3ad6b4ac8b0ee1bab1106f93c4ee262b876f9ad3920645c9c026d7d017"
+    },
+    {
+      "id": "word",
+      "file": "requirements.txt",
+      "path": "package-inputs/word/requirements.txt",
+      "bytes": 1286,
+      "sha256": "9a61d8cb0931521e7709342d9724c3e7c4ea5799558617615b5200a182ca00cb"
+    },
+    {
+      "id": "word",
+      "file": "requirements.resolved.txt",
+      "path": "package-inputs/word/requirements.resolved.txt",
+      "bytes": 1286,
+      "sha256": "9a61d8cb0931521e7709342d9724c3e7c4ea5799558617615b5200a182ca00cb"
+    },
+    {
+      "id": "python-build",
+      "file": "requirements.in",
+      "path": "package-inputs/python-build/requirements.in",
+      "bytes": 110,
+      "sha256": "4b0d0b452e3df54e487fd6f026edbd5b62942552457926e7ad73675fcc9e400e"
+    },
+    {
+      "id": "python-build",
+      "file": "requirements.txt",
+      "path": "package-inputs/python-build/requirements.txt",
+      "bytes": 196,
+      "sha256": "f3940617b84367f34bb60cd7005845d739974c75f9be977a2475928514c64418"
+    },
+    {
+      "id": "python-build",
+      "file": "requirements.resolved.txt",
+      "path": "package-inputs/python-build/requirements.resolved.txt",
+      "bytes": 196,
+      "sha256": "f3940617b84367f34bb60cd7005845d739974c75f9be977a2475928514c64418"
+    }
+  ],
+  "scope": "Resolved dependency versions only. Compatible artifacts, offline source builds, licenses and MCP acceptance require separate evidence."
+}

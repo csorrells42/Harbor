@@ -1,0 +1,9 @@
+packages:
+  - '.'
+  - 'frontend'
+
+ignoredBuiltDependencies:
+  - cpu-features
+  - esbuild
+  - protobufjs
+  - ssh2

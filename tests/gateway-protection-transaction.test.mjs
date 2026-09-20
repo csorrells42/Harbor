@@ -15,7 +15,7 @@ const fixture=fileURLToPath(new URL('./fixtures/server.mjs',import.meta.url));
 const initialize={jsonrpc:'2.0',id:1,method:'initialize',params:{protocolVersion:'2025-03-26',capabilities:{},clientInfo:{name:'protection transaction regression',version:'1'}}};
 const listing={jsonrpc:'2.0',id:2,method:'tools/list',params:{}};
 const deferred=()=>{let resolve;const promise=new Promise(r=>resolve=r);return {promise,resolve};};
-async function waitFor(promise){let timer;try{return await Promise.race([promise,new Promise((_,reject)=>timer=setTimeout(()=>reject(Error('Deterministic transaction interception did not activate')),10000))]);}finally{clearTimeout(timer);}}
+async function waitFor(promise,timeoutMs=10000){let timer;try{return await Promise.race([promise,new Promise((_,reject)=>timer=setTimeout(()=>reject(Error('Deterministic transaction interception did not activate')),timeoutMs))]);}finally{clearTimeout(timer);}}
 async function send(endpoint,{key=null,body=initialize,id}={}){
   const response=await fetch(endpoint,{method:'POST',headers:{Accept:'application/json, text/event-stream','Content-Type':'application/json',...(key?{Authorization:'Bearer '+key}:{}),...(id?{'Mcp-Session-Id':id,'Mcp-Protocol-Version':'2025-03-26'}:{})},body:JSON.stringify(body),signal:AbortSignal.timeout(10000)});
   return {status:response.status,text:await response.text(),id:response.headers.get('mcp-session-id')};
@@ -220,7 +220,10 @@ test('FastMCP candidate listeners allow only their private catalog during a prot
     const restore=interceptRename(t,async(rename,from,to)=>{if(to===settingsFile&&!held){held=true;entered.resolve();await release.promise;}return rename(from,to);});
     const update=hub.updateGatewayAuth({enabled:true,key:NEXT,loopbackOnly:nextLoopback});let token;
     try{
-      await waitFor(entered.promise);token=await fs.readFile(tokenFile,'utf8');assert(token.length>=32);
+      // Hybrid prepares three real Python workers before the settings write.
+      // Keep request-denial assertions unchanged; surface early failure directly.
+      await waitFor(Promise.race([entered.promise,update.then(()=>{throw Error('Protection update completed without the expected settings interception');})]),45000);
+      token=await fs.readFile(tokenFile,'utf8');assert(token.length>=32);
       await denied(endpoint.href,{key:NEXT});await denied(endpoint.href+'/_harbor_catalog',{key:NEXT});await denied(endpoint.href+'/_harbor_catalog',{key:'wrong_private_token'});await denied(endpoint.href,{key:token});
       const internal=await connect(endpoint.href+'/_harbor_catalog',token);assert.equal((await send(endpoint.href+'/_harbor_catalog',{key:token,id:internal,body:listing})).status,200);
     }finally{release.resolve();await update;restore();}

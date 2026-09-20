@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "scope": "Reviewed exact-byte patches applied after registry-integrity verification; original archives are never changed. Upstream drift requires a reviewed patch update.",
+  "patches": [
+    {
+      "id": "desktop-commander-bundled-chromium",
+      "group": "general-local",
+      "packageName": "@wonderwhy-er/desktop-commander",
+      "version": "0.2.51",
+      "packageJson": "node_modules/@wonderwhy-er/desktop-commander/package.json",
+      "file": "node_modules/@wonderwhy-er/desktop-commander/dist/tools/pdf/markdown.js",
+      "beforeSha256": "223a7cf36d662c04a29b9472e8b523f04fe80fdba23e3d836bf0b879c6d686a9",
+      "afterSha256": "1c3767539d848f963ba99b61c557b8e04fd53a6be20b3818d8070030587d8d40",
+      "edits": [
+        {
+          "before": "async function getChromePath() {\n",
+          "after": "async function getChromePath() {\n    // Harbor Portable supplies its verified browser explicitly. A broken bundle\n    // must not fall back to a host installation or an automatic download.\n    if (Object.hasOwn(process.env, 'HARBOR_BUNDLED_CHROMIUM')) {\n        const bundled = process.env.HARBOR_BUNDLED_CHROMIUM;\n        if (!isAbsolute(bundled)) {\n            throw new Error('Harbor bundled Chromium needs an absolute executable path');\n        }\n        let info;\n        try { info = await fs.stat(bundled); }\n        catch { throw new Error('Harbor bundled Chromium is missing: repair the browser component'); }\n        if (!info.isFile()) {\n            throw new Error('Harbor bundled Chromium is not an executable file');\n        }\n        return bundled;\n    }\n"
+        }
+      ]
+    }
+  ]
+}

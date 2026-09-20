@@ -1,0 +1,18 @@
+{
+  "name": "mcp-harbor-general-local",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Isolated stopped-default general-local MCP servers",
+  "dependencies": {
+    "@modelcontextprotocol/server-filesystem": "2026.8.31",
+    "@modelcontextprotocol/server-memory": "2026.8.31",
+    "@modelcontextprotocol/server-sequential-thinking": "2026.8.31",
+    "@wonderwhy-er/desktop-commander": "0.2.51"
+  },
+  "overrides": {
+    "exceljs": {
+      "uuid": "11.1.1"
+    },
+    "sharp": "0.35.4"
+  }
+}

@@ -1,0 +1,30 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import os from 'node:os';
+import {fileURLToPath} from 'node:url';
+import {_electron as electron,expect} from '@playwright/test';
+import {Client} from '@modelcontextprotocol/sdk/client/index.js';
+import {StreamableHTTPClientTransport} from '@modelcontextprotocol/sdk/client/streamableHttp.js';
+
+test('native profile capability controls, real connection counts and revision-specific MCP reads work end to end', {skip:!process.env.HARBOR_TEST_PRIMITIVES,timeout:90000},async t=>{
+  const dir=await fs.mkdtemp(path.join(os.tmpdir(),'Harbor native primitives ')),env={...process.env,HARBOR_DATA_DIR:path.join(dir,'profile'),HARBOR_PORT:'0'};delete env.HARBOR_PORTABLE_ROOT;delete env.ELECTRON_RUN_AS_NODE;
+  const app=await electron.launch({args:[path.resolve(fileURLToPath(new URL('..',import.meta.url)))],env,timeout:30000}),connections=[];
+  t.after(async()=>{for(const {client,transport} of connections){await transport.terminateSession().catch(()=>{});await client.close().catch(()=>{});}const exited=new Promise(resolve=>app.process().once('exit',resolve));await app.evaluate(({app})=>{setTimeout(()=>app.quit(),0);});await exited;await fs.rm(dir,{recursive:true,force:true,maxRetries:10,retryDelay:100});});
+  const page=await app.firstWindow(),errors=[];page.on('pageerror',error=>errors.push(error.message));await expect(page.locator('#gateway-status')).toContainText('Gateway online');await expect.poll(()=>app.evaluate(({BrowserWindow})=>BrowserWindow.getAllWindows()[0].isVisible())).toBe(true);
+  await page.evaluate(config=>window.harbor.saveServer(config),{id:'primitive-fixture',name:'Resources and prompts fixture',command:process.execPath,args:[fileURLToPath(new URL('./fixtures/primitives-server.mjs',import.meta.url))]});
+  await page.getByRole('button',{name:'Profiles',exact:true}).click();await page.getByRole('button',{name:'New profile',exact:true}).click();
+  await page.getByLabel('Profile name',{exact:true}).fill('Resources and prompts acceptance');await page.getByLabel('Profile ID',{exact:true}).fill('primitive-acceptance');await page.getByLabel('Include Resources and prompts fixture',{exact:true}).check();await page.getByLabel('Process ownership',{exact:true}).selectOption('process');await page.getByLabel('tools',{exact:true}).uncheck();
+  await page.getByRole('button',{name:'Save profile',exact:true}).click();await expect(page.locator('#profile-status')).toContainText('Saved revision');await page.getByRole('button',{name:'Test connection',exact:true}).click();await expect(page.locator('#profile-status')).toContainText('0 advertised tools · 2 resources · 1 resource templates · 1 prompts',{timeout:30000});
+  await expect.poll(()=>page.evaluate(async()=> (await window.harbor.getProfiles()).runtimes.length)).toBe(0);
+  const authentication=JSON.parse(await fs.readFile(path.join(dir,'profile/auth/gateway.json'),'utf8')),preview=JSON.parse(await page.getByLabel('Profile connection preview').textContent());
+  async function connect(){const client=new Client({name:'Native primitive acceptance client',version:'1'}),transport=new StreamableHTTPClientTransport(new URL(preview.mcpServers.harbor.url),{requestInit:{headers:{Authorization:'Bearer '+authentication.key}}});await client.connect(transport);const value={client,transport};connections.push(value);return client;}
+  const client=await connect(),capabilities=client.getServerCapabilities();assert.equal(capabilities.tools,undefined);assert(capabilities.resources&&capabilities.prompts);
+  const resources=await client.listResources(),read=await client.readResource({uri:resources.resources[0].uri}),templates=await client.listResourceTemplates(),prompts=await client.listPrompts(),prompt=await client.getPrompt({name:prompts.prompts[0].name});assert.equal(read.contents[0].uri,resources.resources[0].uri);await client.subscribeResource({uri:resources.resources[0].uri});await client.unsubscribeResource({uri:resources.resources[0].uri});assert.equal(prompt.messages[0].content.type,'resource');
+  if(process.env.HARBOR_PHASE2_EVIDENCE){await fs.mkdir(process.env.HARBOR_PHASE2_EVIDENCE,{recursive:true});await page.locator('#profile-status').scrollIntoViewIfNeeded();await page.screenshot({path:path.join(process.env.HARBOR_PHASE2_EVIDENCE,'primitives-native.png'),fullPage:true});await page.getByText('Enabled capability types',{exact:true}).scrollIntoViewIfNeeded();await page.screenshot({path:path.join(process.env.HARBOR_PHASE2_EVIDENCE,'primitives-capabilities.png'),fullPage:true});await fs.writeFile(path.join(process.env.HARBOR_PHASE2_EVIDENCE,'primitives-native.json'),JSON.stringify({capabilities,resourceCount:resources.resources.length,templateCount:templates.resourceTemplates.length,promptCount:prompts.prompts.length,readUriRoundTrip:true,embeddedPromptResource:true,visibleWindow:true},null,2));}
+  if(process.env.HARBOR_PHASE2_EVIDENCE){await page.getByLabel('prompts',{exact:true}).scrollIntoViewIfNeeded();await page.screenshot({path:path.join(process.env.HARBOR_PHASE2_EVIDENCE,'primitives-capabilities.png'),fullPage:true});}
+  await page.getByLabel('tools',{exact:true}).check();await page.getByLabel('resources',{exact:true}).uncheck();await page.getByRole('button',{name:'Save profile',exact:true}).click();await expect(page.locator('#profile-status')).toContainText('Saved revision');
+  const fresh=await connect();assert.equal(fresh.getServerCapabilities().resources,undefined);await assert.rejects(fresh.listResources(),/does not expose/);assert.equal((await client.listResources()).resources.length,2,'old session retains its saved capability revision');
+  await page.getByRole('button',{name:'Disconnect profile sessions',exact:true}).click();await expect(page.locator('#profile-status')).toContainText('Profile sessions disconnected');await expect.poll(()=>page.evaluate(async()=> (await window.harbor.getProfiles()).runtimes.length)).toBe(0);await assert.rejects(client.listResources());assert.deepEqual(errors,[]);
+});

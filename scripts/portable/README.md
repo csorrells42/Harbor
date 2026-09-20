@@ -1,13 +1,29 @@
 # Portable build and verification helpers
 
-The normal clean-checkout application workflow is documented in the repository README: install npm dependencies, install the test browser, run the tests, and package the desktop app. These scripts support an **already prepared Windows Harbor Portable payload**. They do not download and assemble the entire current toolbox from an empty checkout.
+The normal application workflow is documented in the repository README. The Phase 2 recipes below acquire pinned public inputs, stage runtimes and packages, build the application and source components, and assemble a fresh Windows Portable toolbox. Other helpers operate on an **already prepared payload**; inspect each helper's preconditions. A completed assembly does not establish complete redistribution attribution or independent clean-machine acceptance.
 
 No script in this directory is automatically run merely by cloning the repository. Read the script and its inputs before using it. Installation, staging and verification scripts can write to the Portable root passed to them. Test against a disposable, deliberately prepared copy when evaluating a new build; do not point a verification script at an unrelated or actively used profile.
 
+The local server catalog provides host file access under the Windows account running Harbor. Filesystem discovers accessible drive roots; Playwright permits files outside the working directory, including local file URLs; Git Local lets each call choose its repository. A server's working directory is a default location, not a filesystem sandbox. Windows permissions still apply. Document/database tools retain their native document and connection interfaces; search and reasoning tools do not become general file writers.
+
 ## Reusable build helpers
+
+`release-manifest.mjs` provides explicit payload capture and offline hash verification. See the [manifest contract and usage](../../docs/portable-release-manifest.md). The [pinned build workflow](../../docs/portable-build-inputs.md) describes acquisition, component staging, offline source builds and fresh final assembly.
+
+`acquire-inputs.mjs` now acquires explicitly pinned public artifacts into a separate verified cache. The initial Windows x64 input manifest covers Node, uv, GitHub CLI, Python, MinGit and Typst. See [verified build inputs](../../docs/portable-build-inputs.md) for online/offline commands, provenance, bounds and recovery. It does not yet assemble the complete toolbox.
+
+`source-revisions.windows-x64.json` and `source-patches/` preserve nine upstream server revisions and five local patch sets; `source-inputs.windows-x64.json` pins their verified public archives. Archive/index reconstruction matches all expected source trees. `package-inputs.windows-x64.json` and `package-inputs/` preserve three npm package groups plus two Python requirement sets. Nine source checkouts and online/offline extraction of the three npm groups have acceptance evidence. Python artifact hashes, remaining dependency/helper assets and full package assembly remain separate work.
 
 | Helper | Inputs and purpose |
 | --- | --- |
+| `build-harbor-application.mjs` | Allowlisted source, verified runtime/Electron stages, isolated npm cache and fresh output; builds the application with pinned dependencies and publishing disabled. Supports an offline replay. |
+| `assemble-portable.mjs` | Eleven completed, hash-pinned stage receipts and a fresh destination; verifies component files, retains reviewed source histories, writes clean catalog/maintenance recipes and inventories the payload. Does not import user data. |
+| `acquire-inputs.mjs` | Versioned input manifest, separate cache and new receipt; bounded size/SHA-256-verified downloads or offline re-verification. Does not extract or execute inputs. |
+| `stage-runtimes.py` | Validated input manifest/layout, verified cache and new output directory; offline bounded extraction of all six runtimes with per-file hashes and incomplete-stage markers. Requires explicit build Python; does not run extracted code. |
+| `stage-sources.mjs` | Exact source revisions/patches, explicit Git executable and new output directory; fetches pinned commits and stages validated source checkouts with maintenance ancestry. Does not install dependencies or execute source. |
+| `seed-catalog.mjs` | New output JSON path; constructs the nineteen-server release catalog from source declarations without reading personal configuration or accounts. Refuses replacement. Package and browser availability must be verified separately. |
+| `stage-npm-groups.mjs` | Pinned package-input manifest, staged runtime root, existing isolated cache and new output; runs npm's integrity-checked extraction for three groups with lifecycle scripts disabled. Supports `--offline`; actual MCP/native-helper acceptance remains separate. |
+| `release-manifest.mjs` | Explicit payload root and versioned plan; hashes selected files into a new external report, or verifies them against an existing manifest. Does not change the payload or run tools. |
 | `build-dbhub.mjs` | Portable root, staged DBHub package; builds its prepared source with bundled runtimes. |
 | `build-delivery.mjs` | Portable root, component ID, stage; builds FastMCP or Portkey, or resolves a FastMCP lock. Requires the appropriate staged source/dependency metadata. |
 | `prepare-embedding-models.mjs` | Prepared Portable root with the Portkey package; acquires/prepares the configured local model assets. This is an explicit model-preparation operation. |

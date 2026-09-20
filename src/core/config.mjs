@@ -11,6 +11,10 @@ export function validateConfig(input) {
   if (!['stdio', 'http', 'sse'].includes(transport)) throw new Error('Invalid transport');
   if (!['native', 'wsl'].includes(runtime)) throw new Error('Invalid runtime');
   const config = { id, name: input.name ?? id, transport, runtime, args: input.args ?? [], env: input.env ?? {}, autoStart: input.autoStart ?? false, autoRestart: input.autoRestart ?? false };
+  config.enabled=input.enabled??true;config.onDemand=input.onDemand??false;config.idleMinutes=input.idleMinutes??5;
+  for(const key of ['enabled','onDemand'])if(typeof config[key]!=='boolean')throw new Error(`${key} must be boolean`);
+  if(!Number.isInteger(config.idleMinutes)||config.idleMinutes<1||config.idleMinutes>1440)throw new Error('idleMinutes must be 1–1440');
+  if(!config.enabled&&(config.autoStart||config.onDemand))throw new Error('Disabled servers cannot start automatically or on demand');
   if (typeof config.name !== 'string' || !config.name.trim()) throw new Error('Invalid name');
   if (!Array.isArray(config.args) || config.args.some(x => typeof x !== 'string' || x.includes('\0'))) throw new Error('args must be an array of strings');
   if (!config.env || Array.isArray(config.env) || typeof config.env !== 'object' || Object.entries(config.env).some(([k, v]) => !/^[A-Za-z_][A-Za-z0-9_]*$/.test(k) || typeof v !== 'string' || v.includes('\0'))) throw new Error('env must contain string values with valid environment names');

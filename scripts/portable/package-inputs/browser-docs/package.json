@@ -1,0 +1,10 @@
+{
+  "name": "mcp-harbor-browser-docs-servers",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Isolated official Context7 and Playwright MCP servers; not Harbor application dependencies",
+  "dependencies": {
+    "@playwright/mcp": "0.0.82",
+    "@upstash/context7-mcp": "4.1.1"
+  }
+}

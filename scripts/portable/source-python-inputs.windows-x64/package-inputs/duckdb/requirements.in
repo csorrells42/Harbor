@@ -1,0 +1,5 @@
+# Reviewed source-project dependencies; local projects are built separately.
+click>=8.1.8
+duckdb==1.5.5
+fastmcp>=3.2
+pytz>=2025.2

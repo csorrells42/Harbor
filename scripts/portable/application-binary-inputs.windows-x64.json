@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "release": "phase2-application-binaries-1",
+  "artifacts": [
+    {"id":"github-mcp-win-x64","role":"server","version":"1.12.2","usage":"runtime","url":"https://github.com/github/github-mcp-server/releases/download/v1.12.2/github-mcp-server_Windows_x86_64.zip","bytes":8480261,"sha256":"c08872e69f700d4219e7b4ab9607d56d7993171519ee32b62fccb8fba0cab673","license":"MIT; transitive notices separate"},
+    {"id":"electron-win-x64","role":"application","version":"44.3.0","usage":"both","url":"https://github.com/electron/electron/releases/download/v44.3.0/electron-v44.3.0-win32-x64.zip","bytes":158149320,"sha256":"26bf9a617d58d81772b3d68305d59ee48272969c15083c06db634a77358a8d9d","license":"MIT plus bundled third-party notices"}
+  ],
+  "provenance": "Exact sizes and SHA-256 from official GitHub release asset metadata; GitHub MCP matches the previously accepted release version. No claim of separate signature verification."
+}

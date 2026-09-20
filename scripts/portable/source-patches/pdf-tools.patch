@@ -1,0 +1,99 @@
+diff --git a/.gitignore b/.gitignore
+index b69d3640868d60d4f191a765f8712176a8646508..1f0fdb7586fb1337707c075263fb55919b5652b5 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -93,3 +93,6 @@ ocr_results/
+ # Log files
+ *.log
+ logs/
++
++/python/
++
+diff --git a/pyproject.toml b/pyproject.toml
+index d0c2126e7fa08c5c6a81b55f900315a6acf7534e..f5361444f0a82e18bf74519fec53a4234b58da57 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -30,7 +30,8 @@ classifiers = [
+     "Topic :: Office/Business",
+ ]
+ dependencies = [
+-    "fastmcp>=0.1.0",
++    "fastmcp>=2.14,<3",
++    "mcp<2",
+     "httpx>=0.25.0",
+     "pydantic>=2.0.0",
+     "python-dotenv>=1.0.0",
+diff --git a/src/mcp_pdf/mixins_official/form_management.py b/src/mcp_pdf/mixins_official/form_management.py
+index 975554a86a82db9bc42aa004cb8aa5c8c440d902..dc1095562228b8023ff759a30bc733d012e51703 100644
+--- a/src/mcp_pdf/mixins_official/form_management.py
++++ b/src/mcp_pdf/mixins_official/form_management.py
+@@ -73,6 +73,7 @@ class FormManagementMixin(MCPMixin):
+                 }
+ 
+             doc = fitz.open(str(path))
++            total_pages = len(doc)
+ 
+             form_fields = []
+             total_fields = 0
+@@ -142,7 +143,7 @@ class FormManagementMixin(MCPMixin):
+                 "form_fields": form_fields,
+                 "file_info": {
+                     "path": str(path),
+-                    "total_pages": len(doc) if 'doc' in locals() else 0
++                    "total_pages": total_pages
+                 },
+                 "extraction_time": round(time.time() - start_time, 2)
+             }
+@@ -563,4 +564,4 @@ class FormManagementMixin(MCPMixin):
+             return {
+                 "error": error_msg,
+                 "extraction_time": round(time.time() - start_time, 2),
+-            }
+\ No newline at end of file
++            }
+diff --git a/src/mcp_pdf/mixins_official/image_processing.py b/src/mcp_pdf/mixins_official/image_processing.py
+index 16b8e865535c6a4291f0171a142884b8022d4352..fa03f275555108d92a41bb34a3667878b69133f7 100644
+--- a/src/mcp_pdf/mixins_official/image_processing.py
++++ b/src/mcp_pdf/mixins_official/image_processing.py
+@@ -1051,7 +1051,7 @@ class ImageProcessingMixin(MCPMixin):
+ 
+         start_time = time.time()
+ 
+-        ENGINE_PREFERENCE = ["xelatex", "pdflatex", "tectonic", "weasyprint", "wkhtmltopdf"]
++        ENGINE_PREFERENCE = ["typst", "xelatex", "pdflatex", "tectonic", "weasyprint", "wkhtmltopdf"]
+ 
+         try:
+             # Optional dep check — pypandoc is gated behind the [markdown] extra
+@@ -1192,4 +1192,4 @@ class ImageProcessingMixin(MCPMixin):
+             return {
+                 "error": error_msg,
+                 "conversion_time": round(time.time() - start_time, 2),
+-            }
+\ No newline at end of file
++            }
+diff --git a/tests/test_harbor_form_readback.py b/tests/test_harbor_form_readback.py
+new file mode 100644
+index 0000000000000000000000000000000000000000..2522b4ba18e75d8d2c7e01343a643a7f10dda242
+--- /dev/null
++++ b/tests/test_harbor_form_readback.py
+@@ -0,0 +1,20 @@
++import asyncio
++import pymupdf
++from mcp_pdf.mixins_official.form_management import FormManagementMixin
++
++
++def test_filled_form_readback_keeps_page_count_after_close(tmp_path):
++    filename = tmp_path / 'form.pdf'
++    with pymupdf.open() as document:
++        page = document.new_page()
++        widget = pymupdf.Widget()
++        widget.field_name = 'project'
++        widget.field_type = pymupdf.PDF_WIDGET_TYPE_TEXT
++        widget.field_value = 'Harbor'
++        widget.rect = pymupdf.Rect(20, 20, 200, 50)
++        page.add_widget(widget)
++        document.save(filename)
++    result = asyncio.run(FormManagementMixin().extract_form_data(str(filename)))
++    assert result['success'] is True
++    assert result['file_info']['total_pages'] == 1
++    assert result['form_fields'][0]['field_value'] == 'Harbor'

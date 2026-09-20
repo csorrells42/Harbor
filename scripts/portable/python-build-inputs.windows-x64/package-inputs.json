@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "pythonGroups": [
+    "python-build"
+  ],
+  "sourceManifestSha256": "a8f286848ad8cd677ad4904739c9434415db9086732288025d5f0e8b8c280b6e",
+  "sources": [
+    {
+      "id": "python-build",
+      "requirements": [
+        "build",
+        "hatchling",
+        "setuptools",
+        "wheel"
+      ],
+      "projects": []
+    }
+  ],
+  "files": [
+    {
+      "id": "python-build",
+      "file": "requirements.in",
+      "path": "package-inputs/python-build/requirements.in",
+      "bytes": 110,
+      "sha256": "4b0d0b452e3df54e487fd6f026edbd5b62942552457926e7ad73675fcc9e400e"
+    },
+    {
+      "id": "python-build",
+      "file": "requirements.txt",
+      "path": "package-inputs/python-build/requirements.txt",
+      "bytes": 196,
+      "sha256": "f3940617b84367f34bb60cd7005845d739974c75f9be977a2475928514c64418"
+    }
+  ],
+  "scope": "Resolved dependency versions only. Compatible artifacts, offline source builds, licenses and MCP acceptance require separate evidence."
+}

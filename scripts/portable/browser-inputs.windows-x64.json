@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "release": "phase2-windows-x64-browser-inputs-1",
+  "artifacts": [
+    {
+      "id": "chromium-win-x64",
+      "role": "browser",
+      "version": "154.0.8037.0",
+      "usage": "runtime",
+      "url": "https://cdn.playwright.dev/builds/cft/154.0.8037.0/win64/chrome-win64.zip",
+      "bytes": 205733764,
+      "sha256": "ed8b09ec970e5d5709678e05a2dafb7014c94c2ad959214e7e0f19ae69d2da12",
+      "license": "NOASSERTION; archive has no standalone notice file; browser credits and redistribution review pending"
+    },
+    {
+      "id": "ffmpeg-win-x64",
+      "role": "browser",
+      "version": "1011",
+      "usage": "runtime",
+      "url": "https://cdn.playwright.dev/dbazure/download/playwright/builds/ffmpeg/1011/ffmpeg-win64.zip",
+      "bytes": 1411741,
+      "sha256": "8d08827c019ad36e7b9d49d3648447d884534cb2acf200e71c715f6dd834cc50",
+      "license": "COPYING.LGPLv2.1 included; build configuration, corresponding source and redistribution review pending"
+    },
+    {
+      "id": "winldd-win-x64",
+      "role": "browser",
+      "version": "1007",
+      "usage": "runtime",
+      "url": "https://cdn.playwright.dev/dbazure/download/playwright/builds/winldd/1007/winldd-win64.zip",
+      "bytes": 128684,
+      "sha256": "0069f0d11d4ad6df068a068c003d22fe7dbec192a47bba64b2e115e9c8ce41d8",
+      "license": "NOASSERTION; archive has no standalone notice file; upstream provenance and redistribution review pending"
+    }
+  ]
+}

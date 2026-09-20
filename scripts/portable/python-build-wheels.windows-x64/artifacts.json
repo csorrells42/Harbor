@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 1,
+  "release": "python-cp313-win-amd64",
+  "artifacts": [
+    {
+      "id": "py-build-ecd351a4be9d35a9",
+      "role": "server",
+      "version": "1.6.1",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/ad/9b/9fb3585dabcd73a1b2a6267f63f62649347c9e6d072c9fde365b105abb2c/build-1.6.1-py3-none-any.whl",
+      "bytes": 31179,
+      "sha256": "ecd351a4be9d35a9eaaba244a7687143c9c7d4aea6ac964e7e7ddab20cbcf4e7",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-colorama-4f1d9991f5acc0ca",
+      "role": "server",
+      "version": "0.4.6",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/d1/d6/3965ed04c63042e047cb6a3e6ed1a63a35087b6a609aa3a15ed8ac56c221/colorama-0.4.6-py2.py3-none-any.whl",
+      "bytes": 25335,
+      "sha256": "4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-hatchling-d05b350af5d9aa5b",
+      "role": "server",
+      "version": "1.32.3",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/f6/89/268c7e4b2bcf2071047366c4c3b4b0e89f640e13ea7bfdaf1df6c40e5140/hatchling-1.32.3-py3-none-any.whl",
+      "bytes": 78895,
+      "sha256": "d05b350af5d9aa5bf7b34b434a45a742b99e67d0b48ea67d240cfeab98e13945",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-packaging-d7193f7c8e4e93f4",
+      "role": "server",
+      "version": "26.3",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/63/34/ba1c580383c9eada3711951fef0795c80b829a078d72188184bcab9dd527/packaging-26.3-py3-none-any.whl",
+      "bytes": 129956,
+      "sha256": "d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-pathspec-a00ce642f577bf7f",
+      "role": "server",
+      "version": "1.1.1",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/f1/d9/7fb5aa316bc299258e68c73ba3bddbc499654a07f151cba08f6153988714/pathspec-1.1.1-py3-none-any.whl",
+      "bytes": 57328,
+      "sha256": "a00ce642f577bf7f473932318056212bc4f8bfdf53128c78bbd5af0b9b20b189",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-pluggy-e920276dd6813095",
+      "role": "server",
+      "version": "1.6.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/54/20/4d324d65cc6d9205fabedc306948156824eb9f0ee1633355a8f7ec5c66bf/pluggy-1.6.0-py3-none-any.whl",
+      "bytes": 20538,
+      "sha256": "e920276dd6813095e9377c0bc5566d94c932c33b27a3e3945d8389c374dd4746",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-pyproject-hooks-5fc53fdac9f7bd63",
+      "role": "server",
+      "version": "1.3.3",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/85/11/044d1ae1b4ec0d7af88ee5bc91e081be1022533032b906a7bdabdbb60977/pyproject_hooks-1.3.3-py3-none-any.whl",
+      "bytes": 10724,
+      "sha256": "5fc53fdac9f7bd63fbcdc868fb5f90b4784d78a53a3d3388cd738b807441a20b",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-setuptools-51a52592b3b99e10",
+      "role": "server",
+      "version": "84.0.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/95/9c/c510029fc6ef33a6275cd2c5d3cecd6613dfd6aa401d57c54f1c18852ccf/setuptools-84.0.0-py3-none-any.whl",
+      "bytes": 818216,
+      "sha256": "51a52592b3b99e102b609654876bd65f19f999935166d1352678931132b0c670",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-tomlkit-177a05aece5a8ca5",
+      "role": "server",
+      "version": "0.15.1",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/13/bc/8c13eb66537dce1d2bd3a57132902f38d0e7f5bb46fa9f4daed9fe9d76ee/tomlkit-0.15.1-py3-none-any.whl",
+      "bytes": 49449,
+      "sha256": "177a05aece5a8ca5266fd3c448abb47b8d352f09d477d3ca8332db4d89b24304",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-trove-classifiers-ab4c4ec93cc4a4e7",
+      "role": "server",
+      "version": "2026.6.1.19",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/7c/a4/81502f486f01db95bc8320646a8a12511f5e556cb63d5e224d91816605c4/trove_classifiers-2026.6.1.19-py3-none-any.whl",
+      "bytes": 14211,
+      "sha256": "ab4c4ec93cc4a4e7815fa759906e05e6bb3f2fbd92ea0f897288c6a43efd15b3",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-wheel-3217dcc807155e45",
+      "role": "server",
+      "version": "0.48.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/2e/29/69cfbb602cd91690c55d38ba9fe53e6a7e76a6fa647bf38f19c138d25449/wheel-0.48.0-py3-none-any.whl",
+      "bytes": 33320,
+      "sha256": "3217dcc807155e45db462d7ef2431f5ddda0d7273b700d05a67b271ceb1287ab",
+      "license": "NOASSERTION"
+    }
+  ]
+}

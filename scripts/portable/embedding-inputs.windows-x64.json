@@ -1,0 +1,356 @@
+{
+  "schemaVersion": 1,
+  "release": "phase2-embedding-models-1",
+  "artifacts": [
+    {
+      "id": "all-minilm-l6-v2-config-json",
+      "role": "model",
+      "version": "751bff37182d3f1213fa05d7196b954e230abad9",
+      "usage": "runtime",
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/751bff37182d3f1213fa05d7196b954e230abad9/config.json",
+      "bytes": 650,
+      "sha256": "7135149f7cffa1a573466c6e4d8423ed73b62fd2332c575bf738a0d033f70df7",
+      "license": "apache-2.0"
+    },
+    {
+      "id": "all-minilm-l6-v2-tokenizer-json",
+      "role": "model",
+      "version": "751bff37182d3f1213fa05d7196b954e230abad9",
+      "usage": "runtime",
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer.json",
+      "bytes": 711661,
+      "sha256": "da0e79933b9ed51798a3ae27893d3c5fa4a201126cef75586296df9b4d2c62a0",
+      "license": "apache-2.0"
+    },
+    {
+      "id": "all-minilm-l6-v2-tokenizer-config-json",
+      "role": "model",
+      "version": "751bff37182d3f1213fa05d7196b954e230abad9",
+      "usage": "runtime",
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/751bff37182d3f1213fa05d7196b954e230abad9/tokenizer_config.json",
+      "bytes": 366,
+      "sha256": "9261e7d79b44c8195c1cada2b453e55b00aeb81e907a6664974b4d7776172ab3",
+      "license": "apache-2.0"
+    },
+    {
+      "id": "all-minilm-l6-v2-onnx-model-quantized-onnx",
+      "role": "model",
+      "version": "751bff37182d3f1213fa05d7196b954e230abad9",
+      "usage": "runtime",
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/751bff37182d3f1213fa05d7196b954e230abad9/onnx/model_quantized.onnx",
+      "bytes": 22972370,
+      "sha256": "afdb6f1a0e45b715d0bb9b11772f032c399babd23bfc31fed1c170afc848bdb1",
+      "license": "apache-2.0"
+    },
+    {
+      "id": "all-minilm-l6-v2-readme-md",
+      "role": "license",
+      "version": "751bff37182d3f1213fa05d7196b954e230abad9",
+      "usage": "runtime",
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L6-v2/resolve/751bff37182d3f1213fa05d7196b954e230abad9/README.md",
+      "bytes": 1767,
+      "sha256": "63ea99bf681a2e9eda4f6a537d5ed8fda95d1677111656da37e9cfd080c3af02",
+      "license": "apache-2.0"
+    },
+    {
+      "id": "all-minilm-l12-v2-config-json",
+      "role": "model",
+      "version": "beeb2e4b69e95f188a15cc2e90d09fd035dac229",
+      "usage": "runtime",
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L12-v2/resolve/beeb2e4b69e95f188a15cc2e90d09fd035dac229/config.json",
+      "bytes": 610,
+      "sha256": "98cfb098e4f623321632b32b3e62d58ea49601e90dd3c13736c42812b4533ab7",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "all-minilm-l12-v2-tokenizer-json",
+      "role": "model",
+      "version": "beeb2e4b69e95f188a15cc2e90d09fd035dac229",
+      "usage": "runtime",
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L12-v2/resolve/beeb2e4b69e95f188a15cc2e90d09fd035dac229/tokenizer.json",
+      "bytes": 711661,
+      "sha256": "da0e79933b9ed51798a3ae27893d3c5fa4a201126cef75586296df9b4d2c62a0",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "all-minilm-l12-v2-tokenizer-config-json",
+      "role": "model",
+      "version": "beeb2e4b69e95f188a15cc2e90d09fd035dac229",
+      "usage": "runtime",
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L12-v2/resolve/beeb2e4b69e95f188a15cc2e90d09fd035dac229/tokenizer_config.json",
+      "bytes": 366,
+      "sha256": "9261e7d79b44c8195c1cada2b453e55b00aeb81e907a6664974b4d7776172ab3",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "all-minilm-l12-v2-onnx-model-quantized-onnx",
+      "role": "model",
+      "version": "beeb2e4b69e95f188a15cc2e90d09fd035dac229",
+      "usage": "runtime",
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L12-v2/resolve/beeb2e4b69e95f188a15cc2e90d09fd035dac229/onnx/model_quantized.onnx",
+      "bytes": 34014366,
+      "sha256": "f51725bc66b2bf5335cacb5c005763b57bcd741172372795819741cd945a9dd9",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "all-minilm-l12-v2-readme-md",
+      "role": "license",
+      "version": "beeb2e4b69e95f188a15cc2e90d09fd035dac229",
+      "usage": "runtime",
+      "url": "https://huggingface.co/Xenova/all-MiniLM-L12-v2/resolve/beeb2e4b69e95f188a15cc2e90d09fd035dac229/README.md",
+      "bytes": 1124,
+      "sha256": "553da7c9b2dd275d48558fbc37f8a9494185ab3d28865a0f9cc142f1c7e5783c",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "bge-small-en-v1-5-config-json",
+      "role": "model",
+      "version": "ea104dacec62c0de699686887e3f920caeb4f3e3",
+      "usage": "runtime",
+      "url": "https://huggingface.co/Xenova/bge-small-en-v1.5/resolve/ea104dacec62c0de699686887e3f920caeb4f3e3/config.json",
+      "bytes": 683,
+      "sha256": "fa73f90bf92c8cace1fbcb709626306f2bdbc9ea3e5b5f94b440df9b6aa56350",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "bge-small-en-v1-5-tokenizer-json",
+      "role": "model",
+      "version": "ea104dacec62c0de699686887e3f920caeb4f3e3",
+      "usage": "runtime",
+      "url": "https://huggingface.co/Xenova/bge-small-en-v1.5/resolve/ea104dacec62c0de699686887e3f920caeb4f3e3/tokenizer.json",
+      "bytes": 711396,
+      "sha256": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "bge-small-en-v1-5-tokenizer-config-json",
+      "role": "model",
+      "version": "ea104dacec62c0de699686887e3f920caeb4f3e3",
+      "usage": "runtime",
+      "url": "https://huggingface.co/Xenova/bge-small-en-v1.5/resolve/ea104dacec62c0de699686887e3f920caeb4f3e3/tokenizer_config.json",
+      "bytes": 366,
+      "sha256": "9261e7d79b44c8195c1cada2b453e55b00aeb81e907a6664974b4d7776172ab3",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "bge-small-en-v1-5-onnx-model-quantized-onnx",
+      "role": "model",
+      "version": "ea104dacec62c0de699686887e3f920caeb4f3e3",
+      "usage": "runtime",
+      "url": "https://huggingface.co/Xenova/bge-small-en-v1.5/resolve/ea104dacec62c0de699686887e3f920caeb4f3e3/onnx/model_quantized.onnx",
+      "bytes": 34014426,
+      "sha256": "6c9c6101a956d62dfb5e7190c538226c0c5bb9cb27b651234b6df063ee7dbfe4",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "bge-small-en-v1-5-readme-md",
+      "role": "license",
+      "version": "ea104dacec62c0de699686887e3f920caeb4f3e3",
+      "usage": "runtime",
+      "url": "https://huggingface.co/Xenova/bge-small-en-v1.5/resolve/ea104dacec62c0de699686887e3f920caeb4f3e3/README.md",
+      "bytes": 3134,
+      "sha256": "ce711ead2cb11725c9c6de69779d918c500ab12c74c5c2437ff0c448ed1566a5",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "bge-base-en-v1-5-config-json",
+      "role": "model",
+      "version": "4d6cd88e18e51a5e020c2c305726d76ada9c03cf",
+      "usage": "runtime",
+      "url": "https://huggingface.co/Xenova/bge-base-en-v1.5/resolve/4d6cd88e18e51a5e020c2c305726d76ada9c03cf/config.json",
+      "bytes": 717,
+      "sha256": "d83c21fa7366994560727112ef0a31d8a2ec1c280c2a3e66326fdb877f64c91e",
+      "license": "mit"
+    },
+    {
+      "id": "bge-base-en-v1-5-tokenizer-json",
+      "role": "model",
+      "version": "4d6cd88e18e51a5e020c2c305726d76ada9c03cf",
+      "usage": "runtime",
+      "url": "https://huggingface.co/Xenova/bge-base-en-v1.5/resolve/4d6cd88e18e51a5e020c2c305726d76ada9c03cf/tokenizer.json",
+      "bytes": 711396,
+      "sha256": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+      "license": "mit"
+    },
+    {
+      "id": "bge-base-en-v1-5-tokenizer-config-json",
+      "role": "model",
+      "version": "4d6cd88e18e51a5e020c2c305726d76ada9c03cf",
+      "usage": "runtime",
+      "url": "https://huggingface.co/Xenova/bge-base-en-v1.5/resolve/4d6cd88e18e51a5e020c2c305726d76ada9c03cf/tokenizer_config.json",
+      "bytes": 366,
+      "sha256": "9261e7d79b44c8195c1cada2b453e55b00aeb81e907a6664974b4d7776172ab3",
+      "license": "mit"
+    },
+    {
+      "id": "bge-base-en-v1-5-onnx-model-quantized-onnx",
+      "role": "model",
+      "version": "4d6cd88e18e51a5e020c2c305726d76ada9c03cf",
+      "usage": "runtime",
+      "url": "https://huggingface.co/Xenova/bge-base-en-v1.5/resolve/4d6cd88e18e51a5e020c2c305726d76ada9c03cf/onnx/model_quantized.onnx",
+      "bytes": 110083337,
+      "sha256": "c9729cc84cbd0e9fecc759505d2be65916c9fe05222d7ea26c65fcb3382af38d",
+      "license": "mit"
+    },
+    {
+      "id": "bge-base-en-v1-5-readme-md",
+      "role": "license",
+      "version": "4d6cd88e18e51a5e020c2c305726d76ada9c03cf",
+      "usage": "runtime",
+      "url": "https://huggingface.co/Xenova/bge-base-en-v1.5/resolve/4d6cd88e18e51a5e020c2c305726d76ada9c03cf/README.md",
+      "bytes": 3148,
+      "sha256": "1963d4a1a4eddad5efb3c46c9a26d4b4738f13e3f1f6c09117b4d4ee17b515bd",
+      "license": "mit"
+    }
+  ],
+  "models": [
+    {
+      "id": "Xenova/all-MiniLM-L6-v2",
+      "revision": "751bff37182d3f1213fa05d7196b954e230abad9",
+      "declaredLicense": "apache-2.0",
+      "files": [
+        {
+          "artifact": "all-minilm-l6-v2-config-json",
+          "path": "config.json",
+          "gitBlobId": "72147e4ff4426ebedbfa2146c4a0999def51a313",
+          "verification": "Git blob checked; SHA-256 computed"
+        },
+        {
+          "artifact": "all-minilm-l6-v2-tokenizer-json",
+          "path": "tokenizer.json",
+          "gitBlobId": "c17ed520ed8438736732a54957a69306b8822215",
+          "verification": "Git blob checked; SHA-256 computed"
+        },
+        {
+          "artifact": "all-minilm-l6-v2-tokenizer-config-json",
+          "path": "tokenizer_config.json",
+          "gitBlobId": "37fca74771bc76a8e01178ce3a6055a0995f8093",
+          "verification": "Git blob checked; SHA-256 computed"
+        },
+        {
+          "artifact": "all-minilm-l6-v2-onnx-model-quantized-onnx",
+          "path": "onnx/model_quantized.onnx",
+          "gitBlobId": "bdb02d11c4446148e92a9210ab4d1013b3450a72",
+          "verification": "Repository LFS SHA-256"
+        },
+        {
+          "artifact": "all-minilm-l6-v2-readme-md",
+          "path": "README.md",
+          "gitBlobId": "980ba38150c4c24f9858f3b585a1113ab01f47a2",
+          "verification": "Git blob checked; SHA-256 computed"
+        }
+      ]
+    },
+    {
+      "id": "Xenova/all-MiniLM-L12-v2",
+      "revision": "beeb2e4b69e95f188a15cc2e90d09fd035dac229",
+      "declaredLicense": "NOASSERTION",
+      "files": [
+        {
+          "artifact": "all-minilm-l12-v2-config-json",
+          "path": "config.json",
+          "gitBlobId": "d0fcb9b31b0e770baadd3710ca18aed70be2f13d",
+          "verification": "Git blob checked; SHA-256 computed"
+        },
+        {
+          "artifact": "all-minilm-l12-v2-tokenizer-json",
+          "path": "tokenizer.json",
+          "gitBlobId": "c17ed520ed8438736732a54957a69306b8822215",
+          "verification": "Git blob checked; SHA-256 computed"
+        },
+        {
+          "artifact": "all-minilm-l12-v2-tokenizer-config-json",
+          "path": "tokenizer_config.json",
+          "gitBlobId": "37fca74771bc76a8e01178ce3a6055a0995f8093",
+          "verification": "Git blob checked; SHA-256 computed"
+        },
+        {
+          "artifact": "all-minilm-l12-v2-onnx-model-quantized-onnx",
+          "path": "onnx/model_quantized.onnx",
+          "gitBlobId": "30d17e1ae76dfefc2dbd509609a5edd8c98295b4",
+          "verification": "Repository LFS SHA-256"
+        },
+        {
+          "artifact": "all-minilm-l12-v2-readme-md",
+          "path": "README.md",
+          "gitBlobId": "6873191303eb140b622cb97cfb80605976917db5",
+          "verification": "Git blob checked; SHA-256 computed"
+        }
+      ]
+    },
+    {
+      "id": "Xenova/bge-small-en-v1.5",
+      "revision": "ea104dacec62c0de699686887e3f920caeb4f3e3",
+      "declaredLicense": "NOASSERTION",
+      "files": [
+        {
+          "artifact": "bge-small-en-v1-5-config-json",
+          "path": "config.json",
+          "gitBlobId": "0c4d86248983ce46dfc09a9091b6f56bb0224550",
+          "verification": "Git blob checked; SHA-256 computed"
+        },
+        {
+          "artifact": "bge-small-en-v1-5-tokenizer-json",
+          "path": "tokenizer.json",
+          "gitBlobId": "688882a79f44442ddc1f60d70334a7ff5df0fb47",
+          "verification": "Git blob checked; SHA-256 computed"
+        },
+        {
+          "artifact": "bge-small-en-v1-5-tokenizer-config-json",
+          "path": "tokenizer_config.json",
+          "gitBlobId": "37fca74771bc76a8e01178ce3a6055a0995f8093",
+          "verification": "Git blob checked; SHA-256 computed"
+        },
+        {
+          "artifact": "bge-small-en-v1-5-onnx-model-quantized-onnx",
+          "path": "onnx/model_quantized.onnx",
+          "gitBlobId": "e5f3a4e07c216a5b862d3ce4858052a8521ac3c9",
+          "verification": "Repository LFS SHA-256"
+        },
+        {
+          "artifact": "bge-small-en-v1-5-readme-md",
+          "path": "README.md",
+          "gitBlobId": "2980035375c8cc66f727629cfb8374ac1053efc5",
+          "verification": "Git blob checked; SHA-256 computed"
+        }
+      ]
+    },
+    {
+      "id": "Xenova/bge-base-en-v1.5",
+      "revision": "4d6cd88e18e51a5e020c2c305726d76ada9c03cf",
+      "declaredLicense": "mit",
+      "files": [
+        {
+          "artifact": "bge-base-en-v1-5-config-json",
+          "path": "config.json",
+          "gitBlobId": "e86fb509da014deb2e24e7c98e2409ec093e8b16",
+          "verification": "Git blob checked; SHA-256 computed"
+        },
+        {
+          "artifact": "bge-base-en-v1-5-tokenizer-json",
+          "path": "tokenizer.json",
+          "gitBlobId": "688882a79f44442ddc1f60d70334a7ff5df0fb47",
+          "verification": "Git blob checked; SHA-256 computed"
+        },
+        {
+          "artifact": "bge-base-en-v1-5-tokenizer-config-json",
+          "path": "tokenizer_config.json",
+          "gitBlobId": "37fca74771bc76a8e01178ce3a6055a0995f8093",
+          "verification": "Git blob checked; SHA-256 computed"
+        },
+        {
+          "artifact": "bge-base-en-v1-5-onnx-model-quantized-onnx",
+          "path": "onnx/model_quantized.onnx",
+          "gitBlobId": "53c1e0288be232644a96052ba5ab2b19bc71d77e",
+          "verification": "Repository LFS SHA-256"
+        },
+        {
+          "artifact": "bge-base-en-v1-5-readme-md",
+          "path": "README.md",
+          "gitBlobId": "1262830abf4703f9feac14f39437f399adfef305",
+          "verification": "Git blob checked; SHA-256 computed"
+        }
+      ]
+    }
+  ]
+}

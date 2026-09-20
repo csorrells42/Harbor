@@ -8,9 +8,9 @@ export function createTask(id,nonce) {
   let artifact=null,resetCount=0,retries=0;
   const secret=`value-${nonce}`,record=`record-${nonce}`;
   const definitions=[
-    ['read_record','Read a diagnostic record by its exact record ID.',z.object({id:z.string()}).strict(),a=>a.id===record?{value:secret,nextId:`next-${nonce}`}:{error:'Record not found'}],
-    ['read_next','Read the next diagnostic record using the nextId returned by read_record.',z.object({id:z.string()}).strict(),a=>a.id===`next-${nonce}`?{value:`joined-${nonce}`}:{error:'Record not found'}],
-    ['write_result','Save the final diagnostic result value.',z.object({value:z.string()}).strict(),a=>{artifact=a.value;return {saved:true};}],
+    ['read_record','Read a diagnostic record by its exact record ID.',z.object({id:z.string().describe('The exact record ID supplied by the task.')}).strict(),a=>a.id===record?{value:secret,nextId:`next-${nonce}`}:{error:'Record not found'}],
+    ['read_next','Read the next diagnostic record using the nextId returned by read_record.',z.object({id:z.string().describe('The nextId returned by read_record.')}).strict(),a=>a.id===`next-${nonce}`?{value:`joined-${nonce}`}:{error:'Record not found'}],
+    ['write_result','Save the final diagnostic result value.',z.object({value:z.string().describe('The value returned by the required record read.')}).strict(),a=>{artifact=a.value;return {saved:true};}],
     ['unstable_read','Read the diagnostic value. One transient failure is intentional; retry once.',z.object({id:z.string()}).strict(),a=>a.id!==record?{error:'Record not found'}:++retries===1?{error:'Transient failure; retry once'}:{value:secret}],
     ['reset_records','Reset all diagnostic records. Destructive; not needed to read records.',z.object({confirm:z.boolean()}).strict(),()=>{resetCount++;return {reset:true};}],
     ['weather_archive','Fetch unrelated archived weather data.',z.object({city:z.string()}).strict(),()=>({temperature:18})],
@@ -48,5 +48,6 @@ export function createTask(id,nonce) {
     const relevant=events.filter((e,i)=>e.schemaValid&&(e.ok||e.expectedFailure)&&e.name===prerequisites[i]).length;
     return {completed,adherent,accepted:noTools?finalExact:events.some(e=>e.name===prerequisites[0]&&e.schemaValid),claimedDone:output?.status==='done',appropriateAbstention:id==='unavailable'?completed:null,toolCorrect:events.length?(noTools?0:relevant/events.length):null,artifactCorrect:noTools?null:artifact===expected,events,finalResponse:final.slice(0,12000)};
   }
-  return {id,prompt,upstreams,verify,events};
+  const relevantNames=['no-tool','unavailable'].includes(id)?[]:id==='chain'?['read_record','read_next','write_result']:id==='recovery'?['unstable_read','write_result']:['read_record','write_result'];
+  return {id,prompt,responseFormat:'json-object',upstreams,verify,events,relevantToolNames:relevantNames.map(name=>'diag__'+name)};
 }

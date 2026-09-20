@@ -9,7 +9,7 @@ async function openUI(t) {
   const server = createServer(async (req, res) => {
     try {
       const path = req.url === '/' ? 'index.html' : req.url.slice(1);
-      if (!['index.html','styles.css','app.js','helpers.js','advisor.js','advisor-rules.js','delivery-settings.js','core/delivery-options.js'].includes(path)) { res.writeHead(404).end(); return; }
+      if (!['index.html','styles.css','app.js','profiles.js','helpers.js','advisor.js','advisor-rules.js','measured-advice.js','delivery-settings.js','core/delivery-options.js','core/client-config.js'].includes(path)) { res.writeHead(404).end(); return; }
       res.setHeader('Content-Type', path.endsWith('.js') ? 'text/javascript' : path.endsWith('.css') ? 'text/css' : 'text/html');
       res.end(await readFile(new URL('../src/' + (path.startsWith('core/') ? path : 'ui/'+path), import.meta.url)));
     } catch { res.writeHead(404).end(); }
@@ -69,6 +69,32 @@ async function openUI(t) {
   await page.goto(`http://127.0.0.1:${server.address().port}`);
   return { page, errors };
 }
+
+test('maintenance controls refresh when only readiness or transition changes', {timeout:30000}, async t=>{
+  const {page,errors}=await openUI(t);
+  await page.waitForFunction(()=>document.querySelector('#gateway-status').textContent.includes('Gateway online'));
+  await page.evaluate(()=>Object.assign(window.fixture,{
+    maintenance:true,maintenanceReady:false,maintenanceTransition:'entering',
+    maintenanceInfo:{busy:false,phase:'idle',message:'Ready',log:[],components:[{id:'fixture',name:'Fixture',repository:'',notes:'',updatable:true,canRestore:false}]}
+  }));
+  await page.getByRole('button',{name:'Maintenance',exact:true}).click();
+  await page.getByRole('button',{name:'Stopping servers…',exact:true}).waitFor();
+  assert.equal(await page.getByRole('button',{name:'Rebuild',exact:true}).isDisabled(),true);
+  // Keep catalogs, maintenanceInfo and the pause flag identical: only the
+  // completed drain changes. No navigation or action may force a redraw.
+  await page.evaluate(()=>{window.fixture.maintenanceReady=true;window.fixture.maintenanceTransition=null;});
+  await page.getByRole('button',{name:'Resume servers',exact:true}).waitFor({timeout:5000});
+  assert.equal(await page.getByRole('button',{name:'Rebuild',exact:true}).isEnabled(),true);
+  await page.evaluate(()=>{window.fixture.maintenanceReady=false;window.fixture.maintenanceTransition='entering';});
+  await page.getByRole('button',{name:'Stopping servers…',exact:true}).waitFor({timeout:5000});
+  await page.evaluate(()=>{window.fixture.maintenanceTransition=null;});
+  await page.getByRole('button',{name:'Retry maintenance',exact:true}).waitFor({timeout:5000});
+  assert.equal(await page.getByRole('button',{name:'Rebuild',exact:true}).isDisabled(),true);
+  await page.evaluate(()=>{window.fixture.maintenanceReady=true;});
+  await page.getByRole('button',{name:'Resume servers',exact:true}).waitFor({timeout:5000});
+  assert.equal(await page.getByRole('button',{name:'Rebuild',exact:true}).isEnabled(),true);
+  assert.deepEqual(errors,[]);
+});
 
 for(const action of ['Start selected','Keep selected running'])for(const remove of [true,false])test(`Advisor cross-tab ${action} invalidates ${remove?'same-launch removal and re-add':'launch change and restore'} without returning`,async t=>{
   const {page,errors}=await openUI(t);
@@ -603,16 +629,28 @@ test('authenticated connection snippets stay redacted and copy configurations th
   assert.match(await page.locator('.client-configurations pre').textContent(),/<YOUR_HARBOR_API_KEY>/);
   assert.doesNotMatch(await page.locator('body').textContent(),/saved-clipboard-secret-123/);
   await page.getByRole('button',{name:'Copy configuration',exact:true}).click();
-  assert.deepEqual(await page.evaluate(()=>window.connectionCopyCalls.at(-1)),{format:'http',endpoint:'http://192.168.1.20:37373/mcp'});
+  assert.deepEqual(await page.evaluate(()=>window.connectionCopyCalls.at(-1)),{format:'http',endpoint:'http://192.168.1.20:37373/mcp',client:'lmstudio'});
   const http=JSON.parse(await page.evaluate(()=>window.copied));
   assert.equal(http.mcpServers.harbor.headers.Authorization,'Bearer saved-clipboard-secret-123');
   await page.getByRole('button',{name:'Stdio bridge',exact:true}).click();
   assert.match(await page.locator('.client-configurations pre').textContent(),/<YOUR_HARBOR_API_KEY>/);
   await page.getByRole('button',{name:'Copy configuration',exact:true}).click();
-  assert.deepEqual(await page.evaluate(()=>window.connectionCopyCalls.at(-1)),{format:'stdio',endpoint:'http://192.168.1.20:37373/mcp'});
+  assert.deepEqual(await page.evaluate(()=>window.connectionCopyCalls.at(-1)),{format:'stdio',endpoint:'http://192.168.1.20:37373/mcp',client:'lmstudio'});
   const stdio=JSON.parse(await page.evaluate(()=>window.copied));
   assert.equal(stdio.mcpServers.harbor.env.HARBOR_API_KEY,'saved-clipboard-secret-123');
   assert.deepEqual(stdio.mcpServers.harbor.args,['bridge.mjs','http://192.168.1.20:37373/mcp']);
+  for(const client of ['hermes','openclaw']){
+    await page.getByLabel('Client application',{exact:true}).selectOption(client);
+    assert.match(await page.locator('.client-configurations pre').textContent(),client==='hermes'?/mcp_servers:/ : /"mcp":/);
+    assert.match(await page.locator('.client-setup-steps').textContent(),client==='hermes'?/config.yaml/:/openclaw.json/);
+    await page.getByRole('button',{name:'Copy configuration',exact:true}).click();
+    assert.deepEqual(await page.evaluate(()=>window.connectionCopyCalls.at(-1)),{format:'stdio',endpoint:'http://192.168.1.20:37373/mcp',client});
+    await page.getByRole('button',{name:'Streamable HTTP',exact:true}).click();
+    assert.match(await page.locator('.client-configurations pre').textContent(),/Bearer <YOUR_HARBOR_API_KEY>/);
+    await page.getByRole('button',{name:'Copy configuration',exact:true}).click();
+    assert.deepEqual(await page.evaluate(()=>window.connectionCopyCalls.at(-1)),{format:'http',endpoint:'http://192.168.1.20:37373/mcp',client});
+    await page.getByRole('button',{name:'Stdio bridge',exact:true}).click();
+  }
   assert.doesNotMatch(await page.locator('body').textContent(),/saved-clipboard-secret-123/);
   assert.doesNotMatch(await page.evaluate(async()=>JSON.stringify([await window.harbor.snapshot(),await window.harbor.connectionInfo()])),/saved-clipboard-secret-123/);
   assert.deepEqual(errors,[]);
@@ -656,7 +694,7 @@ test('This Server applies complete settings while preserving saved gateway prote
   await page.getByRole('button',{name:'Apply settings',exact:true}).click();
   await page.getByText('Settings applied. Reconnect your model client if the endpoint or tool delivery changed so it refreshes its tool list.',{exact:true}).waitFor();
   assert.deepEqual(await page.evaluate(()=>window.calls),[['settings',{port:38400,networkEnabled:true,bindAddress:'0.0.0.0',mcpPath:'/tools',requestTimeoutMs:45000,toolTimeoutMs:180000,allowedOrigins:['https://client.example'],toolMode:'all',...SEARCH_DEFAULTS}]]);
-  await page.getByText('http://127.0.0.1:38400/tools',{exact:true}).waitFor();
+  await page.locator('.this-server-connection .connection-card > .endpoint-line').getByText('http://127.0.0.1:38400/tools',{exact:true}).waitFor();
   assert.deepEqual(errors,[]);
 });
 
@@ -673,7 +711,7 @@ test('This Server exposes active local and LAN connection copies without adverti
   assert.equal(await page.evaluate(()=>window.copied),'http://127.0.0.1:37373/mcp');
   await page.getByRole('button',{name:'Copy network endpoint 2',exact:true}).click();
   assert.equal(await page.evaluate(()=>window.copied),'http://[fd00::20]:37373/mcp');
-  await page.getByText('Client configurations',{exact:true}).click();
+  await page.getByText('Help with connections',{exact:true}).click();
   await page.getByLabel('Configuration address').selectOption('http://192.168.1.20:37373/mcp');
   await page.getByRole('button',{name:'Copy configuration',exact:true}).click();
   assert.equal(JSON.parse(await page.evaluate(()=>window.copied)).mcpServers.harbor.url,'http://192.168.1.20:37373/mcp');
@@ -703,7 +741,7 @@ test('settings rebind errors preserve drafts through polling and navigation', as
   await page.getByRole('button',{name:'This Server',exact:true}).click();
   assert.equal(await page.getByLabel('Port',{exact:true}).inputValue(),'38401');
   assert.match(await page.locator('#settings-error').textContent(),/EADDRINUSE/);
-  await page.getByText('http://127.0.0.1:37373/mcp',{exact:true}).waitFor();
+  await page.locator('.this-server-connection .connection-card > .endpoint-line').getByText('http://127.0.0.1:37373/mcp',{exact:true}).waitFor();
   assert.equal(await page.evaluate(()=>window.fixture.settings.port),37373);
   assert.deepEqual(errors,[]);
 });
@@ -898,5 +936,61 @@ test('renderer has honest empty state and saves a draft without executing it', a
   assert.deepEqual(await page.evaluate(()=>window.calls[0][1].args),['a path.mjs']);
   await page.getByRole('button',{name:'Start',exact:true}).click();
   await page.getByText('Running',{exact:true}).waitFor();
+  assert.deepEqual(errors,[]);
+});
+
+test('connection dropdown covers all recipes, preserves LAN address and switches HTTP-only clients safely',async t=>{
+  const {page,errors}=await openUI(t);
+  await page.evaluate(()=>window.fixture.endpoints.network=['http://192.168.1.20:37373/mcp']);
+  await page.getByRole('button',{name:'Connections',exact:true}).click();
+  await page.getByLabel('Configuration address').selectOption('http://192.168.1.20:37373/mcp');
+  const clients=['lmstudio','hermes','openclaw','opencode','opencode-v1','openhands','goose','interpreter','openwebui','letta','anythingllm','general'];
+  assert.deepEqual(await page.getByLabel('Client application',{exact:true}).locator('option').evaluateAll(items=>items.map(item=>item.value)),clients);
+  await page.getByRole('button',{name:'Stdio bridge',exact:true}).click();
+  for(const client of clients){
+    await page.getByLabel('Client application',{exact:true}).selectOption(client);
+    assert.match(await page.locator('.client-configurations pre').textContent(),/http:\/\/192.168.1.20:37373\/mcp/);
+    assert.equal(await page.locator('.client-setup-steps li').count(),4);
+    if(client==='openwebui'){
+      assert.equal(await page.getByRole('button',{name:'Stdio bridge',exact:true}).count(),0);
+      assert.match(await page.locator('.client-configurations pre').textContent(),/Type: MCP \(Streamable HTTP\)/);
+    }
+    await page.getByRole('button',{name:'Copy configuration',exact:true}).click();
+    assert.deepEqual(await page.evaluate(()=>window.connectionCopyCalls.at(-1)),{client,endpoint:'http://192.168.1.20:37373/mcp',format:clients.indexOf(client)<8?'stdio':'http'});
+  }
+  if(process.env.HARBOR_CLIENT_HELP_EVIDENCE){
+    const fs=await import('node:fs/promises');await fs.mkdir(process.env.HARBOR_CLIENT_HELP_EVIDENCE,{recursive:true});
+    await page.getByLabel('Client application',{exact:true}).selectOption('openwebui');
+    await page.setViewportSize({width:1200,height:1500});await page.locator('#content').evaluate(node=>node.scrollTop=0);await page.screenshot({path:process.env.HARBOR_CLIENT_HELP_EVIDENCE+'/connection-help-openwebui.png'});
+  }
+  await page.setViewportSize({width:600,height:800});
+  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+  const addressBox=await page.locator('.connection-string code').boundingBox();assert.ok(addressBox.width>200&&addressBox.height<50,'connection string must remain readable at narrow widths');
+  if(process.env.HARBOR_CLIENT_HELP_EVIDENCE){await page.setViewportSize({width:600,height:1800});await page.locator('#content').evaluate(node=>node.scrollTop=0);await page.screenshot({path:process.env.HARBOR_CLIENT_HELP_EVIDENCE+'/connection-help-narrow.png'});}
+  assert.deepEqual(errors,[]);
+});
+
+test('profile connection recipes retain the profile endpoint and recover from HTTP-only selection',async t=>{
+  const {page,errors}=await openUI(t);
+  await page.evaluate(()=>{
+    window.harbor.getProfiles=async()=>({defaultProfile:{id:'default',name:'Default',delivery:{toolMode:'all'}},profiles:[{id:'build',name:'Build',revision:1,serverIds:[],missingServerIds:[],capabilities:['tools'],delivery:{toolMode:'all'}}],servers:[],clients:[],runtimes:[],admission:{public:{active:0,queued:0},maxSessions:10}});
+    window.harbor.profileConnectionInfo=async()=>({endpoint:'http://127.0.0.1:37373/mcp/profiles/build',authentication:{enabled:true},httpConfig:{mcpServers:{harbor:{url:'http://127.0.0.1:37373/mcp/profiles/build',headers:{Authorization:'Bearer <YOUR_HARBOR_API_KEY>'}}}},stdioConfig:{mcpServers:{harbor:{command:'node',args:['C:\\Harbor ü\\bridge.mjs','http://127.0.0.1:37373/mcp/profiles/build'],env:{HARBOR_API_KEY:'<YOUR_HARBOR_API_KEY>'}}}}});
+  });
+  await page.getByRole('button',{name:'Profiles',exact:true}).click();
+  await page.getByLabel('Selected profile').selectOption('build');
+  await page.getByLabel('Configuration format',{exact:true}).selectOption('stdio');
+  await page.getByLabel('Client application',{exact:true}).selectOption('openwebui');
+  assert.equal(await page.getByLabel('Configuration format',{exact:true}).inputValue(),'http');
+  assert.equal(await page.locator('#profile-format option[value="stdio"]').isDisabled(),true);
+  for(const client of ['opencode','opencode-v1','openhands','goose','interpreter','openwebui','letta','anythingllm','general']){
+    await page.getByLabel('Client application',{exact:true}).selectOption(client);
+    assert.match(await page.getByLabel('Profile connection preview').textContent(),/\/mcp\/profiles\/build/);
+    assert.match(await page.getByLabel('Profile connection preview').textContent(),/<YOUR_HARBOR_API_KEY>/);
+    await page.getByRole('button',{name:'Copy configuration',exact:true}).click();
+    assert.deepEqual(await page.evaluate(()=>window.connectionCopyCalls.at(-1)),{client,format:'http',endpoint:'http://127.0.0.1:37373/mcp/profiles/build',profileId:'build'});
+  }
+  assert.equal(await page.locator('#profile-format option[value="stdio"]').isDisabled(),false);
+  await page.getByLabel('Configuration format',{exact:true}).selectOption('stdio');
+  assert.match(await page.getByLabel('Profile connection preview').textContent(),/Harbor ü/);
   assert.deepEqual(errors,[]);
 });

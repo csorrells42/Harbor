@@ -1,0 +1,5 @@
+# Reviewed source-project dependencies; local projects are built separately.
+build
+hatchling
+setuptools
+wheel

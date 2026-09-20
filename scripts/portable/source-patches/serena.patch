@@ -1,0 +1,10 @@
+diff --git a/.gitignore b/.gitignore
+index 5ced6cbf86eb50854b2a854f53a69d654d4c9d36..80a0371ac0cfb00be2988d5421558840182379b3 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -279,3 +279,5 @@ zz-misc/
+ vue-implementation/
+ 
+ news/news.json
++
++/python/

@@ -20,11 +20,14 @@ export function parseImport(text) {
   if (!Object.keys(data.mcpServers).length) throw new Error('Add at least one server to mcpServers.');
   return { mcpServers: Object.fromEntries(Object.entries(data.mcpServers).map(([id, config]) => {
     if (!object(config)) throw new Error(`Server ${id} must be an object.`);
-    return [id, { ...config, autoStart: false, autoRestart: false }];
+    return [id, { ...config, autoStart: false, autoRestart: false,onDemand:false }];
   })) };
 }
 
 export function parseServerForm(form) {
+  const activation={enabled:form.enabled!==false,onDemand:form.onDemand===true,idleMinutes:form.idleMinutes===undefined?5:Number(form.idleMinutes)};
+  if(!Number.isInteger(activation.idleMinutes)||activation.idleMinutes<1||activation.idleMinutes>1440)throw new Error('Idle shutdown must be 1–1440 minutes');
+  if(!activation.enabled&&(form.autoStart||activation.onDemand))throw new Error('Disable startup and on-demand eligibility before disabling this server');
   if (!['stdio', 'http', 'sse'].includes(form.transport ?? 'stdio')) throw new Error('Transport must be stdio, HTTP or SSE.');
   if (!['native', 'wsl'].includes(form.runtime ?? 'native')) throw new Error('Runtime must be native or WSL.');
   if (form.transport === 'http' || form.transport === 'sse') {
@@ -47,7 +50,7 @@ export function parseServerForm(form) {
         || !['native','wsl'].includes(spec.runtime ?? 'native') || ['cwd','distro'].some(key => spec[key] !== undefined && !validString(spec[key]))) throw new Error(`Managed processes [${index}]: use a command, string args/env, native or wsl runtime, and optional string cwd/distro only.`);
       if ((spec.runtime ?? 'native') === 'native' && /(^|[\\/])wsl(?:\.exe)?$/i.test(spec.command)) throw new Error('Managed processes: use runtime "wsl" and the Linux command, not a native wsl.exe wrapper.');
     }
-    return { id, name, transport: form.transport, runtime:'native', url:String(form.url).trim(), command:'', args:[], env:{}, cwd:'', distro:'', autoStart:form.autoStart===true, autoRestart:form.autoRestart===true, ...(form.managedProcesses !== undefined ? {managedProcesses} : {}) };
+    return { id, name, transport: form.transport, runtime:'native', url:String(form.url).trim(), command:'', args:[], env:{}, cwd:'', distro:'', autoStart:form.autoStart===true, autoRestart:form.autoRestart===true,...activation, ...(form.managedProcesses !== undefined ? {managedProcesses} : {}) };
   }
   const args = jsonField(form.args, '[]', 'Arguments');
   const env = jsonField(form.env, '{}', 'Environment');
@@ -55,5 +58,5 @@ export function parseServerForm(form) {
   if (!object(env) || Object.values(env).some(value => typeof value !== 'string')) throw new Error('Environment must be a JSON object with string values.');
   const command = String(form.command ?? '').trim();
   if (!command && (form.transport ?? 'stdio') === 'stdio') throw new Error('Command is required for stdio.');
-  return { id, name, transport: form.transport ?? 'stdio', runtime: form.runtime ?? 'native', command, args, env, cwd: String(form.cwd ?? '').trim(), url: String(form.url ?? '').trim(), distro: String(form.distro ?? '').trim(), autoStart: form.autoStart === true, autoRestart: form.autoRestart === true };
+  return { id, name, transport: form.transport ?? 'stdio', runtime: form.runtime ?? 'native', command, args, env, cwd: String(form.cwd ?? '').trim(), url: String(form.url ?? '').trim(), distro: String(form.distro ?? '').trim(), autoStart: form.autoStart === true, autoRestart: form.autoRestart === true,...activation };
 }

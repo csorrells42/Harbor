@@ -167,6 +167,11 @@ export async function createMaintenance({root,isPaused,gitCommand}) {
     async rollback(id){
       if(status.busy||!isPaused())throw new Error('Rollback requires idle maintenance mode');
       if(!ids.has(id))throw new Error('Unknown component');
+      // Reserve the same admission state used by builds before the first await.
+      // Restoring directories is not cancellable halfway through; close drains it.
+      status={...status,busy:true,phase:'restoring',message:'Restoring previous version',component:id,log:[],error:undefined,activated:false};
+      controller=undefined;
+      const operation=(async()=>{
       if(!retainBackups){
         const c=manifest.components.find(c=>c.id===id);
         if(!c.selfUpdate||manifest.applicationBackups!==1)throw new Error('Previous versions are not retained for this component');
@@ -195,6 +200,15 @@ export async function createMaintenance({root,isPaused,gitCommand}) {
         status.message=hasPending?'Pending Harbor update cancelled; previous source restored':'Previous Harbor restored for the next Start Harbor launch';status.phase='restart-required';await persist();return snapshot();
       }
       status.message='Previous version restored';status.phase='rolled-back';await persist();return snapshot();
+      })().catch(error=>{
+        status.phase='failed';status.error=error.message;status.message='Restore did not finish; inspect the error before resuming';log(error.message);throw error;
+      }).finally(async()=>{
+        status.busy=false;
+        try{await persist();}catch(error){status.error=`Maintenance status could not be saved: ${error.message}`;log(status.error);}
+      });
+      // Keep close/wait drainable even when the caller receives a failed restore.
+      job=operation.catch(()=>{});
+      await operation;return snapshot();
     },
     async close(){controller?.abort();await job;},
     async wait(){await job;return snapshot();}

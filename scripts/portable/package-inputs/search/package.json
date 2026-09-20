@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@brave/brave-search-mcp-server": "2.1.4"
+  }
+}

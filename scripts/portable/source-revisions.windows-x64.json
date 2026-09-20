@@ -1,0 +1,126 @@
+{
+  "schemaVersion": 1,
+  "observedAt": "2026-09-19T13:16:22.321Z",
+  "scope": "Exact upstream source revisions and tracked local patch deltas. No dependencies, runtimes, model assets, account configuration or generated package trees are copied. This is not an acquired/build-verified full toolbox.",
+  "components": [
+    {
+      "id": "typst-mcp",
+      "repository": "https://github.com/edward-lcl/typst-mcp",
+      "upstreamRevision": "a0f0f0e5411349c0a42f6084e3812edeef77ec2e",
+      "upstreamTree": "cebf798b92e8864b7e9c1f1a57f7ad0d97a76648",
+      "patchedTree": "76b37f4c602a1b0a545adc3db7c02fb61ab03cc6",
+      "observedRevision": "0d46d109bd0c87de29f74f5f2b98cc05ab9c607d",
+      "archiveUrl": "https://codeload.github.com/edward-lcl/typst-mcp/zip/a0f0f0e5411349c0a42f6084e3812edeef77ec2e",
+      "patch": {
+        "path": "source-patches/typst-mcp.patch",
+        "bytes": 98380,
+        "sha256": "68b28df8ff54ab0ffcb08fa11bb5e6fdf1cdf9f95b67d5b13a16a88b59e079df"
+      },
+      "acquisitionStatus": "Archive size/SHA-256 and upstream/patched Git-tree reconstruction verified; clean source staging and dependency build pending"
+    },
+    {
+      "id": "serena",
+      "repository": "https://github.com/oraios/serena",
+      "upstreamRevision": "c6fbd1c5932df2494ffa0020af5a9fbe80b82143",
+      "upstreamTree": "d48897f32c294d9223b04266d05cfeb669eac5ed",
+      "patchedTree": "3b3fd56955c86326253a544f536c71ad7beb297d",
+      "observedRevision": "829b09928260283fc97d4eebe8191504b5a94fd1",
+      "archiveUrl": "https://codeload.github.com/oraios/serena/zip/c6fbd1c5932df2494ffa0020af5a9fbe80b82143",
+      "patch": {
+        "path": "source-patches/serena.patch",
+        "bytes": 248,
+        "sha256": "a5ce2e18fa9b7d7655c4729309f1702e8a06f8fab8f9595764cfb73b7e803c53"
+      },
+      "acquisitionStatus": "Archive size/SHA-256 and upstream/patched Git-tree reconstruction verified; clean source staging and dependency build pending"
+    },
+    {
+      "id": "pdf-tools",
+      "repository": "https://github.com/rsp2k/mcp-pdf",
+      "upstreamRevision": "345a69c062ef5f4fd312a29d0cca6d09988899df",
+      "upstreamTree": "9212759f3925d2538281dc8c2a2ef7437b1e0e5a",
+      "patchedTree": "e82d93d44f1e38b61f9c4f119ab4bd43021abbcb",
+      "observedRevision": "dd75687c2095e7beefb81a7e64b765fe6e926884",
+      "archiveUrl": "https://codeload.github.com/rsp2k/mcp-pdf/zip/345a69c062ef5f4fd312a29d0cca6d09988899df",
+      "patch": {
+        "path": "source-patches/pdf-tools.patch",
+        "bytes": 3864,
+        "sha256": "49205f02a796f8953cbfca0e77275698776d95da8b856abf388c6014dd4aaea8"
+      },
+      "acquisitionStatus": "Archive size/SHA-256 and upstream/patched Git-tree reconstruction verified; clean source staging and dependency build pending"
+    },
+    {
+      "id": "duckdb",
+      "repository": "https://github.com/motherduckdb/mcp-server-motherduck",
+      "upstreamRevision": "275d2e7d2ba4f5b48ce8ad3f01a9aeea8bd08616",
+      "upstreamTree": "e6aef3943d6a57eb21e77bb5b499a04ddb2cea46",
+      "patchedTree": "e6aef3943d6a57eb21e77bb5b499a04ddb2cea46",
+      "observedRevision": "275d2e7d2ba4f5b48ce8ad3f01a9aeea8bd08616",
+      "archiveUrl": "https://codeload.github.com/motherduckdb/mcp-server-motherduck/zip/275d2e7d2ba4f5b48ce8ad3f01a9aeea8bd08616",
+      "patch": null,
+      "acquisitionStatus": "Archive size/SHA-256 and upstream/patched Git-tree reconstruction verified; clean source staging and dependency build pending"
+    },
+    {
+      "id": "markitdown",
+      "repository": "https://github.com/microsoft/markitdown",
+      "upstreamRevision": "945314a45ddbe02935f2fd287b797dc0ba4a01e4",
+      "upstreamTree": "704b84badb8b570607eb14432fbac028cd9a7752",
+      "patchedTree": "704b84badb8b570607eb14432fbac028cd9a7752",
+      "observedRevision": "945314a45ddbe02935f2fd287b797dc0ba4a01e4",
+      "archiveUrl": "https://codeload.github.com/microsoft/markitdown/zip/945314a45ddbe02935f2fd287b797dc0ba4a01e4",
+      "patch": null,
+      "acquisitionStatus": "Archive size/SHA-256 and upstream/patched Git-tree reconstruction verified; clean source staging and dependency build pending"
+    },
+    {
+      "id": "excel",
+      "repository": "https://github.com/haris-musa/excel-mcp-server",
+      "upstreamRevision": "f51340ecd5778952405044b203d3a2d4c8a46833",
+      "upstreamTree": "2e97d2bdcda0f01a3bb636a77fc047203197600e",
+      "patchedTree": "2e97d2bdcda0f01a3bb636a77fc047203197600e",
+      "observedRevision": "f51340ecd5778952405044b203d3a2d4c8a46833",
+      "archiveUrl": "https://codeload.github.com/haris-musa/excel-mcp-server/zip/f51340ecd5778952405044b203d3a2d4c8a46833",
+      "patch": null,
+      "acquisitionStatus": "Archive size/SHA-256 and upstream/patched Git-tree reconstruction verified; clean source staging and dependency build pending"
+    },
+    {
+      "id": "word",
+      "repository": "https://github.com/SecurityRonin/docx-mcp",
+      "upstreamRevision": "9c0c0b7694d8123e82fe6b7c480899890dca0695",
+      "upstreamTree": "38c4ad18bb96c8f6459d6aaaa9636b4a21caa41c",
+      "patchedTree": "38c4ad18bb96c8f6459d6aaaa9636b4a21caa41c",
+      "observedRevision": "9c0c0b7694d8123e82fe6b7c480899890dca0695",
+      "archiveUrl": "https://codeload.github.com/SecurityRonin/docx-mcp/zip/9c0c0b7694d8123e82fe6b7c480899890dca0695",
+      "patch": null,
+      "acquisitionStatus": "Archive size/SHA-256 and upstream/patched Git-tree reconstruction verified; clean source staging and dependency build pending"
+    },
+    {
+      "id": "dbhub",
+      "repository": "https://github.com/bytebase/dbhub",
+      "upstreamRevision": "80b87cb74f16c20a711d8b1d12a0cbb08432f8cd",
+      "upstreamTree": "7f154eb1afe628c44f4d06301de8cfd9b1ddd9cd",
+      "patchedTree": "fab6e3936a1b4a216d02a31490020cab21e79413",
+      "observedRevision": "95ce8bb714162255aafa3c8591b007f5fbe871b3",
+      "archiveUrl": "https://codeload.github.com/bytebase/dbhub/zip/80b87cb74f16c20a711d8b1d12a0cbb08432f8cd",
+      "patch": {
+        "path": "source-patches/dbhub.patch",
+        "bytes": 305644,
+        "sha256": "67754232b1d279322c2e606e46b96aec652c5afc87da83ac67edf9a9efcbf224"
+      },
+      "acquisitionStatus": "Archive size/SHA-256 and upstream/patched Git-tree reconstruction verified; clean source staging and dependency build pending"
+    },
+    {
+      "id": "portkey-tools",
+      "repository": "https://github.com/Portkey-AI/mcp-tool-filter",
+      "upstreamRevision": "f53ebc13793268ba4ca1d549239f3fb59b403a63",
+      "upstreamTree": "1b6879be81d938eb6b6ae6272b429632d2c5dd32",
+      "patchedTree": "3ce71db91f74790bd4f9015bbdf9d6b50adc9eae",
+      "observedRevision": "6e46d15c12d052ddfe600d84a3d9f6a1b6cbbcb2",
+      "archiveUrl": "https://codeload.github.com/Portkey-AI/mcp-tool-filter/zip/f53ebc13793268ba4ca1d549239f3fb59b403a63",
+      "patch": {
+        "path": "source-patches/portkey-tools.patch",
+        "bytes": 420345,
+        "sha256": "e6325358e4799786f89517ccb3d743549a8d72673d1d09c1d435f70ea6f49636"
+      },
+      "acquisitionStatus": "Archive size/SHA-256 and upstream/patched Git-tree reconstruction verified; clean source staging and dependency build pending"
+    }
+  ]
+}

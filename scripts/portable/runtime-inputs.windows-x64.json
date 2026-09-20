@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "release": "phase2-windows-x64-runtime-inputs-3",
+  "artifacts": [
+    {
+      "id": "node-win-x64",
+      "role": "runtime",
+      "version": "24.19.0",
+      "usage": "both",
+      "url": "https://nodejs.org/dist/v24.19.0/node-v24.19.0-win-x64.zip",
+      "bytes": 37304352,
+      "sha256": "57f71ab3652e797d84acddc79c81cc9ff1c6ddb2a1974cdb83f00fee9bff4c73",
+      "license": "MIT plus bundled third-party notices"
+    },
+    {
+      "id": "uv-win-x64",
+      "role": "build-tool",
+      "version": "0.12.12",
+      "usage": "both",
+      "url": "https://github.com/astral-sh/uv/releases/download/0.12.12/uv-x86_64-pc-windows-msvc.zip",
+      "bytes": 17558567,
+      "sha256": "3d54912924c36e862c14f427d04f2ed70a99e8001d1c30caa101f6d5711626d5",
+      "license": "Apache-2.0 OR MIT"
+    },
+    {
+      "id": "gh-win-x64",
+      "role": "runtime",
+      "version": "2.96.0",
+      "usage": "both",
+      "url": "https://github.com/cli/cli/releases/download/v2.96.0/gh_2.96.0_windows_amd64.zip",
+      "bytes": 14821821,
+      "sha256": "c2d6acc935cd2f00e2144d7e036d5cd82e6b6bd5594e8c75aa75ef2a4ed6aac3",
+      "license": "MIT"
+    },
+    {
+      "id": "python-win-x64",
+      "role": "runtime",
+      "version": "3.13.15+20260901",
+      "usage": "both",
+      "url": "https://github.com/astral-sh/python-build-standalone/releases/download/20260901/cpython-3.13.15%2B20260901-x86_64-pc-windows-msvc-install_only_stripped.tar.gz",
+      "bytes": 21936514,
+      "sha256": "63d263ab0162f34a241a56dc5b283c22d6e131f5516117e6a921350c69ba7d4f",
+      "license": "PSF-2.0 plus bundled third-party notices"
+    },
+    {
+      "id": "git-win-x64",
+      "role": "runtime",
+      "version": "2.55.0.windows.5",
+      "usage": "both",
+      "url": "https://github.com/git-for-windows/git/releases/download/v2.55.0.windows.5/MinGit-2.55.0.5-64-bit.zip",
+      "bytes": 38989688,
+      "sha256": "56d7b226b7693196cfc71fef26568f536c4a021ab6c37ff2db4287bed908e96e",
+      "license": "GPL-2.0 plus bundled third-party notices"
+    },
+    {
+      "id": "typst-win-x64",
+      "role": "runtime",
+      "version": "0.15.1",
+      "usage": "both",
+      "url": "https://github.com/typst/typst/releases/download/v0.15.1/typst-x86_64-pc-windows-msvc.zip",
+      "bytes": 22463684,
+      "sha256": "19ce3551153c2fe7ee9fa2f95208310c8f4d3209fedb699e0333faf8913f6736",
+      "license": "Apache-2.0"
+    }
+  ]
+}

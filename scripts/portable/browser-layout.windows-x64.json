@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "components": [
+    {"artifact":"chromium-win-x64","format":"zip","target":"runtimes/browsers/chromium-1246","stripPrefix":"","maxUnpackedBytes":536870912},
+    {"artifact":"ffmpeg-win-x64","format":"zip","target":"runtimes/browsers/ffmpeg-1011","stripPrefix":"","maxUnpackedBytes":8388608},
+    {"artifact":"winldd-win-x64","format":"zip","target":"runtimes/browsers/winldd-1007","stripPrefix":"","maxUnpackedBytes":1048576}
+  ]
+}

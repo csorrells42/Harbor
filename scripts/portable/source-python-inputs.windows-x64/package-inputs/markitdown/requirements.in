@@ -1,0 +1,24 @@
+# Reviewed source-project dependencies; local projects are built separately.
+SpeechRecognition
+azure-ai-contentunderstanding>=1.2.0b1
+azure-ai-documentintelligence
+azure-identity
+beautifulsoup4
+charset-normalizer
+defusedxml
+lxml
+magika~=0.6.1
+mammoth~=1.11.0
+markdownify
+mcp>=2.1.1,<3.0.0
+olefile
+openpyxl
+pandas
+pdfminer.six>=20251230
+pdfplumber>=0.11.9
+pydub
+python-pptx
+requests
+requests>=2.0.0,<3.0.0
+xlrd
+youtube-transcript-api~=1.0.0

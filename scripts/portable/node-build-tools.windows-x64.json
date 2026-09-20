@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "release": "phase2-node-build-tools-1",
+  "artifacts": [
+    {
+      "id": "pnpm-build-tool",
+      "role": "build-tool",
+      "version": "10.17.1",
+      "usage": "build",
+      "url": "https://registry.npmjs.org/pnpm/-/pnpm-10.17.1.tgz",
+      "bytes": 4168471,
+      "sha256": "a1e0133f6801c13039ae41309e5e5a7d1058a3a1e1edd020a4944a83c5368d04",
+      "license": "MIT"
+    }
+  ],
+  "provenance": {
+    "metadataUrl": "https://registry.npmjs.org/pnpm/10.17.1",
+    "registryIntegrity": "sha512-F8Vg/KSGeulHOjiZrYSogzSRTzeb5G1FXL+S5c9LOdNJhdRS0lg7rxmWf6dstcF7yeJFUp0LmHRXIapyAOyveg==",
+    "sha256Verification": "Downloaded bytes matched official npm registry SHA-512, then SHA-256 recorded."
+  }
+}

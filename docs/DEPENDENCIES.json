@@ -1,6 +1,6 @@
 {
   "scope": "Harbor application production npm graph; no runtime binaries or model weights included in this source repository",
-  "packageLockSha256": "20fe3ac9b269915a2c2324e59c135baba2ed59efe7ce35cbf16deeabfd7ad972",
+  "packageLockSha256": "6bc4b376643335ec2e9f297afae28b8197194d80515ec26b8d4bc1bae8f42639",
   "packages": [
     {
       "name": "@hono/node-server",
@@ -537,6 +537,14 @@
       "repository": "git+https://github.com/crouchcd/pkce-challenge.git",
       "homepage": "https://github.com/crouchcd/pkce-challenge#readme",
       "packageLockIntegrity": "sha512-wQ0b/W4Fr01qtpHlqSqspcj3EhBvimsdh0KlHhH8HRZnMsEa0ea2fTULOXOS9ccQr3om+GcGRk4e+isrZWV8qQ=="
+    },
+    {
+      "name": "playwright-core",
+      "version": "1.63.0",
+      "spdx": "Apache-2.0",
+      "repository": "git+https://github.com/microsoft/playwright.git",
+      "homepage": "https://playwright.dev",
+      "packageLockIntegrity": "sha512-rYCsBF/M5HjUch52bbtVONEFjv6Xu8sm8h72dNlR5bzIE1fvC/bxgspzkjSfU+MweEMmPM8KJebG6nnyxo5mCg=="
     },
     {
       "name": "proxy-addr",

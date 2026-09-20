@@ -1,5 +1,22 @@
 .diagnostics {display:grid;gap:16px;max-width:1400px}
 .diagnostics p {margin:0;line-height:1.5}
+.diagnostics {min-width:0}
+.diag-intro {max-width:850px;color:#c5cddd}
+.diag-step-nav {display:flex;gap:8px;flex-wrap:wrap}
+.diag-step-nav button {flex:1 1 130px;text-align:left}
+.diag-step-nav button[aria-current=step] {background:#294875;border-color:#7ca5ff;color:#fff}
+.diag-setup {display:grid;gap:10px;min-width:0}
+.diagnostics .diag-step {padding:0;background:#191d25;border-color:#384354;scroll-margin-top:16px}
+.diag-step>summary {padding:18px;font-size:17px}
+.diag-step[open]>summary {border-bottom:1px solid #384354;color:#c5d8ff}
+.diag-step-body {padding:20px;display:grid;gap:18px;min-width:0}
+.diag-step-body>button {justify-self:start}
+.diag-step-body .diag-fields {margin:0}
+.diag-step-body details>summary {margin-bottom:0}
+.diag-step-body details[open]>summary {margin-bottom:18px}
+.diag-review {display:grid;gap:12px;padding:18px;border:1px solid #435675;border-radius:8px;background:#152230;overflow-wrap:anywhere}
+.diagnostics button:focus-visible,.diagnostics summary:focus-visible {outline:2px solid #9fbfff;outline-offset:3px}
+@media(max-width:650px){.diag-step-body{padding:14px}.diag-fields{grid-template-columns:minmax(0,1fr)}.diag-step-nav button{flex-basis:100px}.diag-gauge-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.diag-temperature-legend{grid-template-columns:minmax(0,1fr)}}
 .diag-status {padding:14px 18px;border:1px solid #507491;border-radius:8px;background:#152630;color:#dceefa}
 .diag-fields {display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin:16px 0}
 .diag-fields label {display:grid;gap:8px}
@@ -11,7 +28,7 @@
 .diag-note {padding:14px;border-left:3px solid #cfb15e;background:#262319;color:#e7dcae}
 .diag-scroll {overflow:auto;margin:16px 0}
 .diag-table {width:100%;border-collapse:collapse;font-size:13px}
-.diag-table th,.diag-table td {text-align:left;padding:12px;border-bottom:1px solid #45494e;vertical-align:top;overflow-wrap:anywhere;max-width:240px}
+.diag-table th,.diag-table td {text-align:left;padding:12px;border-bottom:1px solid #45494e;vertical-align:top;overflow-wrap:break-word;min-width:105px;max-width:240px}
 .diag-system {padding:20px;border:1px solid #41454e;border-radius:12px;background:#15171c;display:grid;gap:14px}
 .diag-system-heading {display:flex;align-items:center;gap:16px;flex-wrap:wrap}
 .diag-system-heading h2 {margin:0;font-size:18px;flex:1}

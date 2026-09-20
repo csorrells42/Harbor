@@ -1,0 +1,6 @@
+# Reviewed source-project dependencies; local projects are built separately.
+fastmcp>=2.0.0,<3.0.0
+mcp<2
+mcp[cli]>=1.10.1
+openpyxl>=3.1.5
+typer>=0.16.0

@@ -1,0 +1,2296 @@
+{
+  "schemaVersion": 1,
+  "release": "python-cp313-win-amd64",
+  "artifacts": [
+    {
+      "id": "py-annotated-types-f072f4d804ea359e",
+      "role": "server",
+      "version": "0.8.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/99/91/8acff4f5e50511b911bbccb72b8628a49c68ce14148cd9f6431094859a90/annotated_types-0.8.0-py3-none-any.whl",
+      "bytes": 13427,
+      "sha256": "f072f4d804ea359e4eaf198b1af7a8b0943881a87f31bb764f8bf219bb9419e0",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-anthropic-451a0a6905f11dff",
+      "role": "server",
+      "version": "0.117.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/b7/4c/917d21d6619a4475cdafc6d13a69fdb3b901ddac57e76caca5a25c117b6d/anthropic-0.117.0-py3-none-any.whl",
+      "bytes": 998327,
+      "sha256": "451a0a6905f11dff7663d13e4ee5dbf909eb8942b1d049803c7b937a13ac47ec",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-anyio-6152fdbbf9a77fde",
+      "role": "server",
+      "version": "4.15.1",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/12/b8/4bd346e22b28902df4d651910f5242c28d84e4a5c2435ca5c3f797ed7e2e/anyio-4.15.1-py3-none-any.whl",
+      "bytes": 132079,
+      "sha256": "6152fdbbf9a77fdec97731721bebf7c4c44f7c29b424b0065826173efc7ed101",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-attrs-c647aa4a12dfbad9",
+      "role": "server",
+      "version": "26.1.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/64/b4/17d4b0b2a2dc85a6df63d1157e028ed19f90d4cd97c36717afef2bc2f395/attrs-26.1.0-py3-none-any.whl",
+      "bytes": 67548,
+      "sha256": "c647aa4a12dfbad9333ca4e71fe62ddc36f4e63b2d260a37a8b83d2f043ac309",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-beautifulsoup4-5ef6fa3a8cbece84",
+      "role": "server",
+      "version": "4.14.2",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/94/fe/3aed5d0be4d404d12d36ab97e2f1791424d9ca39c2f754a6285d59a3b01d/beautifulsoup4-4.14.2-py3-none-any.whl",
+      "bytes": 106392,
+      "sha256": "5ef6fa3a8cbece8488d66985560f97ed091e22bbc4e9c2338508a9d5de6d4515",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-blinker-ba0efaa9080b619f",
+      "role": "server",
+      "version": "1.9.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/10/cb/f2ad4230dc2eb1a74edf38f1a38b9b52277f75bef262d8908e60d957e13c/blinker-1.9.0-py3-none-any.whl",
+      "bytes": 8458,
+      "sha256": "ba0efaa9080b619ff2f3459d1d500c57bddea4a6b424b60a91141db6fd2f08bc",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-bottle-045684fbd2764eac",
+      "role": "server",
+      "version": "0.13.4",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/83/f6/b55ec74cfe68c6584163faa311503c20b0da4c09883a41e8e00d6726c954/bottle-0.13.4-py2.py3-none-any.whl",
+      "bytes": 103807,
+      "sha256": "045684fbd2764eac9cdeb824861d1551d113e8b683d8d26e296898d3dd99a12e",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-cattrs-c680f17cd1df3a1c",
+      "role": "server",
+      "version": "26.2.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/f5/4d/6b8460462012a52075ba97932197f8c141be71b8e5f7e918af08ee73424b/cattrs-26.2.0-py3-none-any.whl",
+      "bytes": 74830,
+      "sha256": "c680f17cd1df3a1c038ad1db8d90a9c595568cc54c4e8098e7ceb8d7b9bd826b",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-certifi-62f22742b58a1a33",
+      "role": "server",
+      "version": "2026.7.22",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/0b/a7/71ac2cff56fec219ed242bb11b8efb69fcc4bec75db06fb7bfe35de520e6/certifi-2026.7.22-py3-none-any.whl",
+      "bytes": 136983,
+      "sha256": "62f22742b58a1a33014a2b6b706588a8d7e2a88ae7bd1a6ebe8c992928483775",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-cffi-1aa5645c30469b09",
+      "role": "server",
+      "version": "2.1.1",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/60/a6/8b149b2c3f2e11aaa1618ef64500b45f50f22c57a977a4dff1aff1f91042/cffi-2.1.1-cp313-cp313-win_amd64.whl",
+      "bytes": 185688,
+      "sha256": "1aa5645c30469b09530c4ebca77ebf8f17618293c58f8549cb1a543a50236e7d",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-charset-normalizer-aea996a6aba25260",
+      "role": "server",
+      "version": "3.5.1",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/8a/33/56d97ade41c8db611e727168c52ae46c9224c362ec28d4b65d7e9869e8da/charset_normalizer-3.5.1-cp313-cp313-win_amd64.whl",
+      "bytes": 199295,
+      "sha256": "aea996a6aba25260827c9ea511d1addfde2da9eb686ac961838509086188b7e6",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-click-255bc9599cf7748b",
+      "role": "server",
+      "version": "8.5.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/58/50/6c0d534c5f134586a8e1ba4e330569e32f057e33372ae556463212fb4cd3/click-8.5.0-py3-none-any.whl",
+      "bytes": 125251,
+      "sha256": "255bc9599cf7748b4b1a446ccc735421bd08a2ae529a8b88597d3de5664ee360",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-clr-loader-cbad189de20d202a",
+      "role": "server",
+      "version": "0.3.1",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/5e/da/ec1a6e36624000b6df0dd61183c42342ee5814c073315e802cadaad04d2f/clr_loader-0.3.1-py3-none-any.whl",
+      "bytes": 55730,
+      "sha256": "cbad189de20d202a7d621956b0fc38049e13c9bf7ca2923441eff725cd121aa1",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-colorama-4f1d9991f5acc0ca",
+      "role": "server",
+      "version": "0.4.6",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/d1/d6/3965ed04c63042e047cb6a3e6ed1a63a35087b6a609aa3a15ed8ac56c221/colorama-0.4.6-py2.py3-none-any.whl",
+      "bytes": 25335,
+      "sha256": "4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-cryptography-bd1c592e4d5974f0",
+      "role": "server",
+      "version": "50.0.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/32/2e/c9db68a0c4bfa28e310707527c0ee3a2bd254104d2e02e68f368e197aa4c/cryptography-50.0.0-cp311-abi3-win_amd64.whl",
+      "bytes": 3840395,
+      "sha256": "bd1c592e4d5974f0d08d4888e432157adba757c66da0246918e43677fafa2d30",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-distro-7bffd925d65168f8",
+      "role": "server",
+      "version": "1.9.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/12/b3/231ffd4ab1fc9d679809f356cebee130ac7daa00d6d6f3206dd4fd137e9e/distro-1.9.0-py3-none-any.whl",
+      "bytes": 20277,
+      "sha256": "7bffd925d65168f85027d8da9af6bddab658135b840670a223589bc0c8ef02b2",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-docstring-parser-cf2569abd23dce80",
+      "role": "server",
+      "version": "0.17.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/55/e2/2537ebcff11c1ee1ff17d8d0b6f4db75873e3b0fb32c2d4a2ee31ecb310a/docstring_parser-0.17.0-py3-none-any.whl",
+      "bytes": 36896,
+      "sha256": "cf2569abd23dce8099b300f9b4fa8191e9582dda731fd533daf54c4551658708",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-filelock-ca8afb0da15f2297",
+      "role": "server",
+      "version": "3.25.2",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/a4/a5/842ae8f0c08b61d6484b52f99a03510a3a72d23141942d216ebe81fefbce/filelock-3.25.2-py3-none-any.whl",
+      "bytes": 26759,
+      "sha256": "ca8afb0da15f229774c9ad1b455ed96e85a81373065fb10446672f64444ddf70",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-flask-f4bcbefc12429192",
+      "role": "server",
+      "version": "3.1.3",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/7f/9c/34f6962f9b9e9c71f6e5ed806e0d0ff03c9d1b0b2340088a0cf4bce09b18/flask-3.1.3-py3-none-any.whl",
+      "bytes": 103424,
+      "sha256": "f4bcbefc124291925f1a26446da31a5178f9483862233b23c0c96a20701f670c",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-h11-63cf8bbe7522de3b",
+      "role": "server",
+      "version": "0.16.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/04/4b/29cac41a4d98d144bf5f6d33995617b185d14b22401f75ca86f384e87ff1/h11-0.16.0-py3-none-any.whl",
+      "bytes": 37515,
+      "sha256": "63cf8bbe7522de3bf65932fda1d9c2772064ffb3dae62d55932da54b31cb6c86",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-httpcore-2d400746a40668fc",
+      "role": "server",
+      "version": "1.0.9",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/7e/f5/f66802a942d491edb555dd61e3a9961140fd64c90bce1eafd741609d334d/httpcore-1.0.9-py3-none-any.whl",
+      "bytes": 78784,
+      "sha256": "2d400746a40668fc9dec9810239072b40b4484b640a8c38fd654a024c7a1bf55",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-httpx-d909fcccc110f8c7",
+      "role": "server",
+      "version": "0.28.1",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/2a/39/e50c7c3a983047577ee07d2a9e53faf5a69493943ec3f6a384bdc792deb2/httpx-0.28.1-py3-none-any.whl",
+      "bytes": 73517,
+      "sha256": "d909fcccc110f8c7faf814ca82a9a4d816bc5a6dbfea25d6591d6985b8ba59ad",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-httpx-sse-0ac1c9fe3c0afad2",
+      "role": "server",
+      "version": "0.4.3",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/d2/fd/6668e5aec43ab844de6fc74927e155a3b37bf40d7c3790e49fc0406b6578/httpx_sse-0.4.3-py3-none-any.whl",
+      "bytes": 8960,
+      "sha256": "0ac1c9fe3c0afad2e0ebb25a934a59f4c7823b60792691f779fad2c5568830fc",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-idna-ab7ae71229745533",
+      "role": "server",
+      "version": "3.20",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/58/a2/bb081bab032533a855d44de1d56f8e8426114ff1ba5d1f07a438a0a654f8/idna-3.20-py3-none-any.whl",
+      "bytes": 69583,
+      "sha256": "ab7ae7122974553370f0bdb919e1a960b2cd1bc1ef0276416d896db81c14582c",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-itsdangerous-c6242fc49e35958c",
+      "role": "server",
+      "version": "2.2.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/04/96/92447566d16df59b2a776c0fb82dbc4d9e07cd95062562af01e408583fc4/itsdangerous-2.2.0-py3-none-any.whl",
+      "bytes": 16234,
+      "sha256": "c6242fc49e35958c8b15141343aa660db5fc54d4f13a1db01a3f5891b98700ef",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-jinja2-85ece4451f492d0c",
+      "role": "server",
+      "version": "3.1.6",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/62/a1/3d680cbfd5f4b8f15abc1d571870c5fc3e594bb582bc3b64ea099db13e56/jinja2-3.1.6-py3-none-any.whl",
+      "bytes": 134899,
+      "sha256": "85ece4451f492d0c13c5dd7c13a64681a86afae63a5f347908daf103ce6d2f67",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-jiter-a3cebb1fe4a1abb0",
+      "role": "server",
+      "version": "0.17.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/b8/d2/9a49aac2b27af4cc5015e368c0cc3588491a532f717a668ffce1f1ac57da/jiter-0.17.0-cp313-cp313-win_amd64.whl",
+      "bytes": 226601,
+      "sha256": "a3cebb1fe4a1abb00465f3f8a17e09112603e8b7c59e5c3adbcd9f7815a64acd",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-joblib-4719a31f054c7d76",
+      "role": "server",
+      "version": "1.5.1",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/7d/4f/1195bbac8e0c2acc5f740661631d8d750dc38d4a32b23ee5df3cde6f4e0d/joblib-1.5.1-py3-none-any.whl",
+      "bytes": 307746,
+      "sha256": "4719a31f054c7d766948dcd83e9613686b27114f190f717cec7eaa2084f8a74a",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-jsonschema-d489f15263b8d200",
+      "role": "server",
+      "version": "4.26.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/69/90/f63fb5873511e014207a475e2bb4e8b2e570d655b00ac19a9a0ca0a385ee/jsonschema-4.26.0-py3-none-any.whl",
+      "bytes": 90630,
+      "sha256": "d489f15263b8d200f8387e64b4c3a75f06629559fb73deb8fdfb525f2dab50ce",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-jsonschema-specifications-98802fee3a11ee76",
+      "role": "server",
+      "version": "2025.9.1",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/41/45/1a4ed80516f02155c51f51e8cedb3c1902296743db0bbc66608a0db2814f/jsonschema_specifications-2025.9.1-py3-none-any.whl",
+      "bytes": 18437,
+      "sha256": "98802fee3a11ee76ecaca44429fda8a41bff98b00a0f2838151b113f210cc6fe",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-lsprotocol-f9d78f25221f2a60",
+      "role": "server",
+      "version": "2025.0.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/7b/f0/92f2d609d6642b5f30cb50a885d2bf1483301c69d5786286500d15651ef2/lsprotocol-2025.0.0-py3-none-any.whl",
+      "bytes": 76250,
+      "sha256": "f9d78f25221f2a60eaa4a96d3b4ffae011b107537facee61d3da3313880995c7",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-markupsafe-9a1abfdc021a1648",
+      "role": "server",
+      "version": "3.0.3",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/05/73/c4abe620b841b6b791f2edc248f556900667a5a1cf023a6646967ae98335/markupsafe-3.0.3-cp313-cp313-win_amd64.whl",
+      "bytes": 15113,
+      "sha256": "9a1abfdc021a164803f4d485104931fb8f8c1efd55bc6b748d2f5774e78b62c5",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-mcp-2726bca5e7193f61",
+      "role": "server",
+      "version": "1.28.1",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/e2/5e/d118fce19f87a2e7d8101c35c8ae0ec289098a4df0ff244cec23e415aca0/mcp-1.28.1-py3-none-any.whl",
+      "bytes": 222620,
+      "sha256": "2726bca5e7193f61c5dde8b12500a6de2d9acf6d1a1c0be9e8c2e706437991df",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-mslex-c7074b347201b346",
+      "role": "server",
+      "version": "1.3.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/64/f2/66bd65ca0139675a0d7b18f0bada6e12b51a984e41a76dbe44761bf1b3ee/mslex-1.3.0-py3-none-any.whl",
+      "bytes": 7820,
+      "sha256": "c7074b347201b3466fc077c5692fbce9b5f62a63a51f537a53fbbd02eff2eea4",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-oslex-f1c2944072aafcb0",
+      "role": "server",
+      "version": "2.0.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/b1/d1/3c0bad919598c4216944934db565ed9834ad5b792e1b5e67e911bb2976d2/oslex-2.0.0-py3-none-any.whl",
+      "bytes": 5905,
+      "sha256": "f1c2944072aafcb06b6ee8a6c018d9ebb8a7f43d7cf0b6630b4f5d7be45f6ae4",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-overrides-c7ed9d062f78b8e4",
+      "role": "server",
+      "version": "7.7.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/2c/ab/fc8290c6a4c722e5514d80f62b2dc4c4df1a68a41d1364e625c35990fcf3/overrides-7.7.0-py3-none-any.whl",
+      "bytes": 17832,
+      "sha256": "c7ed9d062f78b8e4c1a7b70bd8796b35ead4d9f510227ef9c5dc7626c60d7e49",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-pathspec-a0d503e138a4c123",
+      "role": "server",
+      "version": "0.12.1",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/cc/20/ff623b09d963f88bfde16306a54e12ee5ea43e9b597108672ff3a408aad6/pathspec-0.12.1-py3-none-any.whl",
+      "bytes": 31191,
+      "sha256": "a0d503e138a4c123b27490a4f7beda6a01c6f288df0e4a8b79c7eb0dc7b4cc08",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-pillow-1cca606cd25738df",
+      "role": "server",
+      "version": "12.3.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/a6/9b/7a58e61d62be561da3a356fe2384d4059a6345fc130e23ef1c36a5b81d24/pillow-12.3.0-cp313-cp313-win_amd64.whl",
+      "bytes": 7239691,
+      "sha256": "1cca606cd25738df4ed873d5ad46bbdb3d83b5cbca291f6b4ff13a4df6b0bbe8",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-psutil-4cf3d4eb1aa9b348",
+      "role": "server",
+      "version": "7.0.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/50/1b/6921afe68c74868b4c9fa424dad3be35b095e16687989ebbb50ce4fceb7c/psutil-7.0.0-cp37-abi3-win_amd64.whl",
+      "bytes": 244885,
+      "sha256": "4cf3d4eb1aa9b348dec30105c55cd9b7d4629285735a102beb4441e38db90553",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-pycparser-b727414169a36b7d",
+      "role": "server",
+      "version": "3.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/0c/c3/44f3fbbfa403ea2a7c779186dc20772604442dde72947e7d01069cbe98e3/pycparser-3.0-py3-none-any.whl",
+      "bytes": 48172,
+      "sha256": "b727414169a36b7d524c1c3e31839a521725078d7b2ff038656844266160a992",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-pydantic-e561593fccf61e8a",
+      "role": "server",
+      "version": "2.12.5",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/5a/87/b70ad306ebb6f9b585f114d0ac2137d792b48be34d732d60e597c2f8465a/pydantic-2.12.5-py3-none-any.whl",
+      "bytes": 463580,
+      "sha256": "e561593fccf61e8a20fc46dfc2dfe075b8be7d0188df33f221ad1f0139180f9d",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-pydantic-core-79ec52ec461e99e1",
+      "role": "server",
+      "version": "2.41.5",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/9e/8b/341991b158ddab181cff136acd2552c9f35bd30380422a639c0671e99a91/pydantic_core-2.41.5-cp313-cp313-win_amd64.whl",
+      "bytes": 2019766,
+      "sha256": "79ec52ec461e99e13791ec6508c722742ad745571f234ea6255bed38c6480f11",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-pydantic-settings-0ba092c291c94bac",
+      "role": "server",
+      "version": "2.15.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/30/a4/2bffa9f8e804325a09867f0e9d30795c80ea9f8d62560bd1b6ad6220eb2f/pydantic_settings-2.15.0-py3-none-any.whl",
+      "bytes": 69413,
+      "sha256": "0ba092c291c94baceb5eff768aa0d56400a457585bc0175925a5a5510303da42",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-pygls-510a6dea24761772",
+      "role": "server",
+      "version": "2.1.1",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/fd/1a/208293b6c350f5abea6941d5606080d4a492644052504f5312e5de30a902/pygls-2.1.1-py3-none-any.whl",
+      "bytes": 68975,
+      "sha256": "510a6dea2476177230c7d851125e5948efdf3fdb9ebfd8543fc434972f8faed4",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-pyjwt-ad0cef71c756a56e",
+      "role": "server",
+      "version": "2.14.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/9c/97/672cb32ce0dfea44b740cb7b4f97038463b9cf7c0ead1aacf595572851d6/pyjwt-2.14.0-py3-none-any.whl",
+      "bytes": 32896,
+      "sha256": "ad0cef71c756a56e74863c2919cf0985f72decbcfcb550ee2f422e7c62b5eedc",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-pystray-a0c2229d02cf8720",
+      "role": "server",
+      "version": "0.19.5",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/5c/64/927a4b9024196a4799eba0180e0ca31568426f258a4a5c90f87a97f51d28/pystray-0.19.5-py2.py3-none-any.whl",
+      "bytes": 49068,
+      "sha256": "a0c2229d02cf87207297c22d86ffc57c86c227517b038c0d3c59df79295ac617",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-python-dotenv-1d8214789a24de45",
+      "role": "server",
+      "version": "1.2.2",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/0b/d7/1959b9648791274998a9c3526f6d0ec8fd2233e4d4acce81bbae76b44b2a/python_dotenv-1.2.2-py3-none-any.whl",
+      "bytes": 22101,
+      "sha256": "1d8214789a24de455a8b8bd8ae6fe3c6b69a5e3d64aa8a8e5d68e694bbcb285a",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-python-multipart-8408153d68a97732",
+      "role": "server",
+      "version": "0.0.31",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/5e/1e/7f7f299527a5a8ad90acd5f2f78dfa6c8495c6301a3205106ea68a84de96/python_multipart-0.0.31-py3-none-any.whl",
+      "bytes": 29996,
+      "sha256": "8408153d68a9773291fc1da39a8b85a50044bddbabd2dd72e9229776b7b15e28",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-pythonnet-7bdd4de03df3547a",
+      "role": "server",
+      "version": "3.1.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/db/67/031124fdcb937c266a3265118525bbf6dc13b8c79786d6a7290aecb6e7bb/pythonnet-3.1.0-cp310.cp311.cp312.cp313.cp314-none-win32.win_amd64.whl",
+      "bytes": 1644898,
+      "sha256": "7bdd4de03df3547a48122a3989265c8b31d5be0d19dadffa009eec7df8085e0b",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-pywebview-94681a1f456ed217",
+      "role": "server",
+      "version": "6.2",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/9a/1c/78260d06d244d9138b8012eef541679f74e1e2b97e4e9dbf32a842b5b61a/pywebview-6.2-py3-none-any.whl",
+      "bytes": 524555,
+      "sha256": "94681a1f456ed217f8a2139a1de612988c0d37cdb30d74d54279438e85572c41",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-pywin32-c53e878d15a1c447",
+      "role": "server",
+      "version": "312",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/ba/db/36a78e3403099d31d9746d13fdcde5accc43c1155f375a34d15983a479a7/pywin32-312-cp313-cp313-win_amd64.whl",
+      "bytes": 6914298,
+      "sha256": "c53e878d15a1c44788082bfe712a905433473aa38f86375b7cf8b45e3acbaaf9",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-pyyaml-8388ee1976c41673",
+      "role": "server",
+      "version": "6.0.2",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/fa/de/02b54f42487e3d3c6efb3f89428677074ca7bf43aae402517bc7cca949f3/PyYAML-6.0.2-cp313-cp313-win_amd64.whl",
+      "bytes": 156446,
+      "sha256": "8388ee1976c416731879ac16da0aff3f63b286ffdd57cdeb95f3f2e085687563",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-referencing-381329a9f99628c9",
+      "role": "server",
+      "version": "0.37.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/2c/58/ca301544e1fa93ed4f80d724bf5b194f6e4b945841c5bfd555878eea9fcb/referencing-0.37.0-py3-none-any.whl",
+      "bytes": 26766,
+      "sha256": "381329a9f99628c9069361716891d34ad94af76e461dcb0335825aecc7692231",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-regex-71a911098be38c85",
+      "role": "server",
+      "version": "2026.2.28",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/85/4f/16e9ebb1fe5425e11b9596c8d57bf8877dcb32391da0bfd33742e3290637/regex-2026.2.28-cp313-cp313-win_amd64.whl",
+      "bytes": 277282,
+      "sha256": "71a911098be38c859ceb3f9a9ce43f4ed9f4c6720ad8684a066ea246b76ad9ff",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-requests-3324635456fa1852",
+      "role": "server",
+      "version": "2.33.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/56/5d/c814546c2333ceea4ba42262d8c4d55763003e767fa169adc693bd524478/requests-2.33.0-py3-none-any.whl",
+      "bytes": 65017,
+      "sha256": "3324635456fa185245e24865e810cecec7b4caf933d7eb133dcde67d48cee69b",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-rpds-py-9250a9a0a6fd4648",
+      "role": "server",
+      "version": "2026.6.3",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/7b/ed/a03b09668e74e5dabbf2e211f6468e1820c0552f7b0500082da31841bf7b/rpds_py-2026.6.3-cp313-cp313-win_amd64.whl",
+      "bytes": 219454,
+      "sha256": "9250a9a0a6fd4648b3f868da8d91a4c52b5811a62df58e753d50ae4454a36f80",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-ruamel-yaml-710ff198bb53da66",
+      "role": "server",
+      "version": "0.18.14",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/af/6d/6fe4805235e193aad4aaf979160dd1f3c487c57d48b810c816e6e842171b/ruamel.yaml-0.18.14-py3-none-any.whl",
+      "bytes": 118570,
+      "sha256": "710ff198bb53da66718c7db27eec4fbcc9aa6ca7204e4c1df2f282b6fe5eb6b2",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-ruamel-yaml-clib-45702dfbea1420ba",
+      "role": "server",
+      "version": "0.2.15",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/06/c4/c124fbcef0684fcf3c9b72374c2a8c35c94464d8694c50f37eef27f5a145/ruamel_yaml_clib-0.2.15-cp313-cp313-win_amd64.whl",
+      "bytes": 118845,
+      "sha256": "45702dfbea1420ba3450bb3dd9a80b33f0badd57539c6aac09f42584303e0db6",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-sensai-utils-c23c51d23d353e7a",
+      "role": "server",
+      "version": "1.5.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/ad/d5/62a0e693230bace8e9a767d6d187a4d9421a7c6ee4b48551f8ff7bd1629a/sensai_utils-1.5.0-py3-none-any.whl",
+      "bytes": 68836,
+      "sha256": "c23c51d23d353e7a9b77c70aa8ba7f2d0a8fe4e67ee5bc1ef41c69dba5e4befb",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-six-4721f391ed90541f",
+      "role": "server",
+      "version": "1.17.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/b7/ce/149a00dd41f10bc29e5921b496af8b574d8413afcd5e30dfa0ed46c2cc5e/six-1.17.0-py2.py3-none-any.whl",
+      "bytes": 11050,
+      "sha256": "4721f391ed90541fddacab5acf947aa0d3dc7d27b2e1e8eda2be8970586c3274",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-sniffio-2f6da418d1f1e0fd",
+      "role": "server",
+      "version": "1.3.1",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/e9/44/75a9c9421471a6c4805dbf2356f7c181a29c1879239abab1ea2cc8f38b40/sniffio-1.3.1-py3-none-any.whl",
+      "bytes": 10235,
+      "sha256": "2f6da418d1f1e0fddd844478f41680e794e6051915791a034ff65e5f100525a2",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-soupsieve-8089a26fd974ca7a",
+      "role": "server",
+      "version": "2.9.2",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/eb/dc/ad025c1ee131eba60c69f4dd5779b18fcf1e6b21a343e2162a84d5d133c7/soupsieve-2.9.2-py3-none-any.whl",
+      "bytes": 37370,
+      "sha256": "8089a26fd974ca7a1f30276d3d8492ab266ab15af581642dfe8aa162e0c1c823",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-sse-starlette-c7b2244bdff016fe",
+      "role": "server",
+      "version": "3.4.11",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/98/6a/2ba3ed4a69babf3afdddf7d8314a48d87562c0a442206bbc2a1b50d5efc0/sse_starlette-3.4.11-py3-none-any.whl",
+      "bytes": 17122,
+      "sha256": "c7b2244bdff016fe7f64e10075e89a3e6bbf899649cc89b0fe884b5545042453",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-starlette-c7372aae11c3c3f2",
+      "role": "server",
+      "version": "1.3.1",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/ec/bb/2799cc2ede3ed41131f8975621e7213dfc7ef4acbbaadfa440f32500c370/starlette-1.3.1-py3-none-any.whl",
+      "bytes": 73632,
+      "sha256": "c7372aae11c3c3f26a42df7bd626cec2f47d03483d261d369516a615a53714c6",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-tiktoken-b8a0cd0c789a61f3",
+      "role": "server",
+      "version": "0.12.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/8e/32/45d02e2e0ea2be3a9ed22afc47d93741247e75018aac967b713b2941f8ea/tiktoken-0.12.0-cp313-cp313-win_amd64.whl",
+      "bytes": 879117,
+      "sha256": "b8a0cd0c789a61f31bf44851defbd609e8dd1e2c8589c614cc1060940ef1f697",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-tqdm-26445eca388f82e7",
+      "role": "server",
+      "version": "4.67.1",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/d0/30/dc54f88dd4a2b5dc8a0279bdd7270e735851848b762aeb1c1184ed1f6b14/tqdm-4.67.1-py3-none-any.whl",
+      "bytes": 78540,
+      "sha256": "26445eca388f82e72884e0d580d5464cd801a3ea01e63e5601bdff9ba6a48de2",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-types-pyyaml-8478208feaeb53a3",
+      "role": "server",
+      "version": "6.0.12.20250516",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/99/5f/e0af6f7f6a260d9af67e1db4f54d732abad514252a7a378a6c4d17dd1036/types_pyyaml-6.0.12.20250516-py3-none-any.whl",
+      "bytes": 20312,
+      "sha256": "8478208feaeb53a34cb5d970c56a7cd76b72659442e733e268a94dc72b2d0530",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-typing-extensions-481caa481374e813",
+      "role": "server",
+      "version": "4.16.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/49/d3/b8441a820a491ddfc024b0b0cf0393375b75ea13866d9c66727e54c2fc80/typing_extensions-4.16.0-py3-none-any.whl",
+      "bytes": 45571,
+      "sha256": "481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-typing-inspection-65b8397ba37ccbce",
+      "role": "server",
+      "version": "0.4.4",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/67/81/4add07e5172b7ac40d8ed5ff580409a7801a4fe26d529bdd915401dabfbe/typing_inspection-0.4.4-py3-none-any.whl",
+      "bytes": 14750,
+      "sha256": "65b8397ba37ccbce054456aaccddfc91e6e3083c92824df348d96ca832f3f147",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-urllib3-9fb4c81ebbb1ce95",
+      "role": "server",
+      "version": "2.7.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/7f/3e/5db95bcf282c52709639744ca2a8b149baccf648e39c8cc87553df9eae0c/urllib3-2.7.0-py3-none-any.whl",
+      "bytes": 131087,
+      "sha256": "9fb4c81ebbb1ce9531cce37674bbc6f1360472bc18ca9a553ede278ef7276897",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-uvicorn-e8dca71ec86dce5f",
+      "role": "server",
+      "version": "0.53.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/76/18/0eea75741ee812e9f598b687619ce2454f6c3a1c5cd21ea990ec6bd26f45/uvicorn-0.53.0-py3-none-any.whl",
+      "bytes": 87081,
+      "sha256": "e8dca71ec86dce5f04e333f0d56cdedf942446e6643b9cea1af0d6d3a02cb03e",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-werkzeug-4b314d81163a3e1a",
+      "role": "server",
+      "version": "3.1.7",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/7f/b2/0bba9bbb4596d2d2f285a16c2ab04118f6b957d8441566e1abb892e6a6b2/werkzeug-3.1.7-py3-none-any.whl",
+      "bytes": 226295,
+      "sha256": "4b314d81163a3e1a169b6a0be2a000a0e204e8873c5de6586f453c55688d422f",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-annotated-doc-117bac03a25ede5d",
+      "role": "server",
+      "version": "0.0.5",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/3e/30/e900b21425a860e195f32e37657aa1f7c7f2b1bfb26f03ca209b90933c06/annotated_doc-0.0.5-py3-none-any.whl",
+      "bytes": 5302,
+      "sha256": "117bac03a25ede5df5440e855b32d556049ca169ead221505badf432fed4b101",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-authlib-88aebbd9af6757e1",
+      "role": "server",
+      "version": "1.8.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/b8/c6/6f124bcfbbfb20fba22c939b4e43a06dccfc0e1ca20e5634ca573cb1e271/authlib-1.8.0-py2.py3-none-any.whl",
+      "bytes": 260804,
+      "sha256": "88aebbd9af6757e14e912d5dc007ae1dc1f3e27e3b2152ce7c552ee2c3b3c121",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-beartype-d16c9bbc61ea1463",
+      "role": "server",
+      "version": "0.22.9",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/71/cc/18245721fa7747065ab478316c7fea7c74777d07f37ae60db2e84f8172e8/beartype-0.22.9-py3-none-any.whl",
+      "bytes": 1333658,
+      "sha256": "d16c9bbc61ea14637596c5f6fbff2ee99cbe3573e46a716401734ef50c3060c2",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-burner-redis-f6cf4ac666766b32",
+      "role": "server",
+      "version": "0.1.7",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/f5/30/207f47f406619a5b564355d2946c3171f84231a28b800709b5645b06a5ae/burner_redis-0.1.7-cp310-abi3-win_amd64.whl",
+      "bytes": 1117564,
+      "sha256": "f6cf4ac666766b32fd63940aad0c120847905fd3102c17e5b6b305f91a21d079",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-cachetools-3045213f186b89fd",
+      "role": "server",
+      "version": "7.2.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/cc/bb/1c6e7a89b11da19f137e4ef5a5c5fe47a5bb686449ba343944ccf8fb34b2/cachetools-7.2.0-py3-none-any.whl",
+      "bytes": 16918,
+      "sha256": "3045213f186b89fdd95d94441354c4bd87c570b7a38d8c3fd1d9dd37f6dc90d8",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-cloudpickle-9acb47f6afd73f60",
+      "role": "server",
+      "version": "3.1.2",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/88/39/799be3f2f0f38cc727ee3b4f1445fe6d5e4133064ec2e4115069418a5bb6/cloudpickle-3.1.2-py3-none-any.whl",
+      "bytes": 22228,
+      "sha256": "9acb47f6afd73f60dc1df93bb801b472f05ff42fa6c84167d25cb206be1fbf4a",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-cronsim-1e1431fa08c51dc7",
+      "role": "server",
+      "version": "2.7",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/fb/1a/02f105147f7f2e06ed4f734ff5a6439590bb275a53dd91fc73df6312298a/cronsim-2.7-py3-none-any.whl",
+      "bytes": 14213,
+      "sha256": "1e1431fa08c51dc7f72e67e571c7c7a09af26420169b607badd4ca9677ffad1e",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-cryptography-aed8db4f6d71c51e",
+      "role": "server",
+      "version": "50.0.1",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/42/8b/cb12b1b60c91b074ca6bf0fdd59aa8f10d8bc5f73af8faece86ef0421b37/cryptography-50.0.1-cp311-abi3-win_amd64.whl",
+      "bytes": 3842826,
+      "sha256": "aed8db4f6d71c51efb89530e12d9464e7bf2923d46c3205dc794a2a93f8c0648",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-cyclopts-40e76b3153ea90e8",
+      "role": "server",
+      "version": "4.25.3",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/a9/cc/e879da3d54cf727f90e6d90118e132672c3913338b566740486f8797190d/cyclopts-4.25.3-py3-none-any.whl",
+      "bytes": 242748,
+      "sha256": "40e76b3153ea90e885abd8d3a4d8184db5a5eec2fde8540025aae8d72fc973fc",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-diskcache-5e31b2d5fbad117c",
+      "role": "server",
+      "version": "5.6.3",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/3f/27/4570e78fc0bf5ea0ca45eb1de3818a23787af9b390c0b0a0033a1b8236f9/diskcache-5.6.3-py3-none-any.whl",
+      "bytes": 45550,
+      "sha256": "5e31b2d5fbad117cc363ebaf6b689474db18a1f6438bc82358b024abd4c2ca19",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-dnspython-01d9bbc4a2d76bf0",
+      "role": "server",
+      "version": "2.8.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/ba/5a/18ad964b0086c6e62e2e7500f7edc89e3faa45033c71c1893d34eed2b2de/dnspython-2.8.0-py3-none-any.whl",
+      "bytes": 331094,
+      "sha256": "01d9bbc4a2d76bf0db7c1f729812ded6d912bd318d3b1cf81d30c0f845dbf3af",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-docstring-parser-b3fcbed555c47d84",
+      "role": "server",
+      "version": "0.18.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/a7/5f/ed01f9a3cdffbd5a008556fc7b2a08ddb1cc6ace7effa7340604b1d16699/docstring_parser-0.18.0-py3-none-any.whl",
+      "bytes": 22484,
+      "sha256": "b3fcbed555c47d8479be0796ef7e19c2670d428d72e96da63f3a40122860374b",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-email-validator-80f13f623413e6b1",
+      "role": "server",
+      "version": "2.3.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/de/15/545e2b6cf2e3be84bc1ed85613edd75b8aea69807a71c26f4ca6a9258e82/email_validator-2.3.0-py3-none-any.whl",
+      "bytes": 35604,
+      "sha256": "80f13f623413e6b197ae73bb10bf4eb0908faf509ad8362c5edeb0be7fd450b4",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-exceptiongroup-a7a39a3bd276781e",
+      "role": "server",
+      "version": "1.3.1",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/8a/0e/97c33bf5009bdbac74fd2beace167cab3f978feb69cc36f1ef79360d6c4e/exceptiongroup-1.3.1-py3-none-any.whl",
+      "bytes": 16740,
+      "sha256": "a7a39a3bd276781e98394987d3a5701d0c4edffb633bb7a5144577f82c773598",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-fakeredis-0107ec99d48913e7",
+      "role": "server",
+      "version": "2.34.1",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/49/b5/82f89307d0d769cd9bf46a54fb9136be08e4e57c5570ae421db4c9a2ba62/fakeredis-2.34.1-py3-none-any.whl",
+      "bytes": 122160,
+      "sha256": "0107ec99d48913e7eec2a5e3e2403d1bd5f8aa6489d1a634571b975289c48f12",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-fastmcp-e081a5222a6d302a",
+      "role": "server",
+      "version": "2.14.7",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/a6/f1/56310847b0bdd5b14c2af8f0a39082af078deff60d0dc43efef4e366a83e/fastmcp-2.14.7-py3-none-any.whl",
+      "bytes": 418162,
+      "sha256": "e081a5222a6d302a148871d89fd714b13130cee6594f53a3e1afd7518f0096c0",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-jaraco-classes-f662826b6bed8cac",
+      "role": "server",
+      "version": "3.4.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/7f/66/b15ce62552d84bbfcec9a4873ab79d993a1dd4edb922cbfccae192bd5b5f/jaraco.classes-3.4.0-py3-none-any.whl",
+      "bytes": 6777,
+      "sha256": "f662826b6bed8cace05e7ff873ce0f9283b5c924470fe664fff1c2f00f581790",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-jaraco-context-bf8150b79a2d5d91",
+      "role": "server",
+      "version": "6.1.2",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/f2/58/bc8954bda5fcda97bd7c19be11b85f91973d67a706ed4a3aec33e7de22db/jaraco_context-6.1.2-py3-none-any.whl",
+      "bytes": 7871,
+      "sha256": "bf8150b79a2d5d91ae48629d8b427a8f7ba0e1097dd6202a9059f29a36379535",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-jaraco-functools-99e3dc0060c5cbe8",
+      "role": "server",
+      "version": "4.6.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/02/36/ecc85bc96c273dc8a11273ed4782272975e6338d4a3e9228621175edf0e3/jaraco_functools-4.6.0-py3-none-any.whl",
+      "bytes": 11677,
+      "sha256": "99e3dc0060c5cbe8fcd1cdb36258e2a65ca40f1566b2033b12abb1bb44dd3c30",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-joserfc-add2c2c84e8373b0",
+      "role": "server",
+      "version": "1.7.5",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/67/c5/82addfd375e5ee6520644e0553e4aadde92d668c4fc99cc716d337fe7bb3/joserfc-1.7.5-py3-none-any.whl",
+      "bytes": 71269,
+      "sha256": "add2c2c84e8373b084d526a8b53daba5d7a513a118cd2dcd9fc9f979d0922159",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-jsonref-590dc7773df6c21c",
+      "role": "server",
+      "version": "1.1.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/0c/ec/e1db9922bceb168197a558a2b8c03a7963f1afe93517ddd3cf99f202f996/jsonref-1.1.0-py3-none-any.whl",
+      "bytes": 9425,
+      "sha256": "590dc7773df6c21cbf948b5dac07a72a251db28b0238ceecce0a2abfa8ec30a9",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-jsonschema-path-2790a070bc7abb08",
+      "role": "server",
+      "version": "0.5.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/04/2c/9e69d73c4297508be9e3b64a970ea3971b3eb8db64ffc5802d40bd25981f/jsonschema_path-0.5.0-py3-none-any.whl",
+      "bytes": 24077,
+      "sha256": "2790a070bc7abb08ea3dbe4d340ece4efadf639223001f020c7503229ba068e2",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-keyring-be4a0b195f149690",
+      "role": "server",
+      "version": "25.7.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/81/db/e655086b7f3a705df045bf0933bdd9c2f79bb3c97bfef1384598bb79a217/keyring-25.7.0-py3-none-any.whl",
+      "bytes": 39160,
+      "sha256": "be4a0b195f149690c166e850609a477c532ddbfbaed96a404d4e43f8d5e2689f",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-lupa-ce9404c661dbac65",
+      "role": "server",
+      "version": "2.8",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/fe/18/3ac638ec90edf178242b8a2b2f00f8adae694248c03a26341ef941bb746e/lupa-2.8-cp313-cp313-win_amd64.whl",
+      "bytes": 1936754,
+      "sha256": "ce9404c661dbac65cc9bed351ad45e797af93d30d70be309a3fa8209ac86d93b",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-markdown-fa6c92a00a4a3c98",
+      "role": "server",
+      "version": "3.10.3",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/64/69/4a5af2bc115a9a33fefe51709749de8262be3f9ba063d1753a837cdbc49c/markdown-3.10.3-py3-none-any.whl",
+      "bytes": 110757,
+      "sha256": "fa6c92a00a4a3c98b22728c64a935ae1928250ae65058a6ded814d2cc29a4cea",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-markdown-it-py-9f7ebbcd14fe5949",
+      "role": "server",
+      "version": "4.2.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/b3/81/4da04ced5a082363ecfa159c010d200ecbd959ae410c10c0264a38cac0f5/markdown_it_py-4.2.0-py3-none-any.whl",
+      "bytes": 91687,
+      "sha256": "9f7ebbcd14fe59494226453aed97c1070d83f8d24b6fc3a3bcf9a38092641c4a",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-mcp-666edb5009503e10",
+      "role": "server",
+      "version": "1.30.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/f5/f4/e58bc33317c92a0203664daaf00bf6f41166cc0149e5d6870a03f7cd004a/mcp-1.30.0-py3-none-any.whl",
+      "bytes": 234581,
+      "sha256": "666edb5009503e1047c9d60346a756f94b261f05cc2625f23d41c728ffc484d0",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-mdurl-84008a41e51615a4",
+      "role": "server",
+      "version": "0.1.2",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/b3/38/89ba8ad64ae25be8de66a6d463314cf1eb366222074cfda9ee839c56a4b4/mdurl-0.1.2-py3-none-any.whl",
+      "bytes": 9979,
+      "sha256": "84008a41e51615a49fc9966191ff91509e3c40b939176e643fd50a5c2196b8f8",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-more-itertools-4b65538ae22f6fed",
+      "role": "server",
+      "version": "11.1.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/e8/3d/1087453384dbde46a8c7f9356eead2c58be8a7bf156bca40243377c85715/more_itertools-11.1.0-py3-none-any.whl",
+      "bytes": 72226,
+      "sha256": "4b65538ae22f6fed0ce4874efd317463a7489796a0939fa66824dd542125a192",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-numpy-71cad2b2a7451ab7",
+      "role": "server",
+      "version": "2.5.3",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/f3/ec/100f2b1794ede74a9b3d7ec6b9736927f56713414c1dfe19ab6c383494bf/numpy-2.5.3-cp313-cp313-win_amd64.whl",
+      "bytes": 12560965,
+      "sha256": "71cad2b2a7451ab79d8f5e71b453485b6775963d5cf794179144a7463fe6e8ec",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-openapi-pydantic-a3a09ef4586f5bd7",
+      "role": "server",
+      "version": "0.5.1",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/12/cf/03675d8bd8ecbf4445504d8071adab19f5f993676795708e36402ab38263/openapi_pydantic-0.5.1-py3-none-any.whl",
+      "bytes": 96381,
+      "sha256": "a3a09ef4586f5bd760a8df7f43028b60cafb6d9f61de2acba9574766255ab146",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-opentelemetry-api-94b98c893a91b886",
+      "role": "server",
+      "version": "1.44.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/ca/6f/a04e900f465ff3221ccc395522503e2d10e79fa21f2723c8e177aae1e0d1/opentelemetry_api-1.44.0-py3-none-any.whl",
+      "bytes": 60018,
+      "sha256": "94b98c893a91b88657eaac1e3ba89618cdb85be6918196705354f34728b2cdef",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-packaging-d7193f7c8e4e93f4",
+      "role": "server",
+      "version": "26.3",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/63/34/ba1c580383c9eada3711951fef0795c80b829a078d72188184bcab9dd527/packaging-26.3-py3-none-any.whl",
+      "bytes": 129956,
+      "sha256": "d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-pandas-f3ce8a6968045481",
+      "role": "server",
+      "version": "3.0.6",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/c0/bd/63cb67e6903ef6d9c2871916dbcbc09d254da0fe8b870cf62e16b21945f2/pandas-3.0.6-cp313-cp313-win_amd64.whl",
+      "bytes": 9638092,
+      "sha256": "f3ce8a6968045481e91a3990e797e348ce13db45ee164a7095bbc824e26c09dd",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-pathable-82c4ca6c98c502ad",
+      "role": "server",
+      "version": "0.6.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/a2/e8/6d75ffd9784bce2e93d1ae4415649427e39a53bb172d4672b2b59c6f0a7b/pathable-0.6.0-py3-none-any.whl",
+      "bytes": 18983,
+      "sha256": "82c4ca6c98c502ad12e0d4e9779b6210afee93c38990988c8c5d1b49bdcdf566",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-pathvalidate-5263baab691f8e1a",
+      "role": "server",
+      "version": "3.3.1",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/9a/70/875f4a23bfc4731703a5835487d0d2fb999031bd415e7d17c0ae615c18b7/pathvalidate-3.3.1-py3-none-any.whl",
+      "bytes": 24305,
+      "sha256": "5263baab691f8e1af96092fa5137ee17df5bdfbd6cff1fcac4d6ef4bc2e1735f",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-pdf2image-ecdd58d7afb810df",
+      "role": "server",
+      "version": "1.17.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/62/33/61766ae033518957f877ab246f87ca30a85b778ebaad65b7f74fa7e52988/pdf2image-1.17.0-py3-none-any.whl",
+      "bytes": 11618,
+      "sha256": "ecdd58d7afb810dffe21ef2b1bbc057ef434dabbac6c33778a38a3f7744a27e2",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-pdfminer-six-366585ba97e80dff",
+      "role": "server",
+      "version": "20260107",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/20/8b/28c4eaec9d6b036a52cb44720408f26b1a143ca9bce76cc19e8f5de00ab4/pdfminer_six-20260107-py3-none-any.whl",
+      "bytes": 6592252,
+      "sha256": "366585ba97e80dffa8f00cebe303d2f381884d8637af4ce422f1df3ef38111a9",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-pdfplumber-7741ea81bf165b47",
+      "role": "server",
+      "version": "0.11.10",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/a2/9a/07d658e1e7fad860f1c541ab941348125dbdab773be3a0afaf32361866c7/pdfplumber-0.11.10-py3-none-any.whl",
+      "bytes": 60047,
+      "sha256": "7741ea81bf165b474b153e6789d10d18e06b6ddcf3ec84289c3ef2fed6802580",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-platformdirs-972ea6b2b387155a",
+      "role": "server",
+      "version": "4.11.11",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/39/be/3ae887e84c38c4dd1c549cd5825adc93f48069a94fe1cb8ac52a9da16f15/platformdirs-4.11.11-py3-none-any.whl",
+      "bytes": 24992,
+      "sha256": "972ea6b2b387155a536226a0750e46923d731d459a387c4a255c583ed2f64547",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-prometheus-client-fa93d06737aa02ba",
+      "role": "server",
+      "version": "0.26.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/eb/a3/b69efbf4143b5b9859b977770bbbabcc2796b702fa69dc40271e45cd5a56/prometheus_client-0.26.0-py3-none-any.whl",
+      "bytes": 64494,
+      "sha256": "fa93d06737aa02bacd05794768508bb97d2fbee28cb3bca04eaae92f0ca953d6",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-py-key-value-aio-1c781915766078bf",
+      "role": "server",
+      "version": "0.3.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/99/10/72f6f213b8f0bce36eff21fda0a13271834e9eeff7f9609b01afdc253c79/py_key_value_aio-0.3.0-py3-none-any.whl",
+      "bytes": 96342,
+      "sha256": "1c781915766078bfd608daa769fefb97e65d1d73746a3dfb640460e322071b64",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-py-key-value-shared-5b0efba7ebca08bb",
+      "role": "server",
+      "version": "0.3.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/51/e4/b8b0a03ece72f47dce2307d36e1c34725b7223d209fc679315ffe6a4e2c3/py_key_value_shared-0.3.0-py3-none-any.whl",
+      "bytes": 19560,
+      "sha256": "5b0efba7ebca08bb158b1e93afc2f07d30b8f40c2fc12ce24a4c0d84f42f9298",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-pydantic-346a034f080da375",
+      "role": "server",
+      "version": "2.13.5",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/eb/47/c95ffc2009878c7aac0c5e08528022dcb885933252a88b5f170058014464/pydantic-2.13.5-py3-none-any.whl",
+      "bytes": 472589,
+      "sha256": "346a034f080da3755d8e9cb5e00e8b07de1d39e4f6e2c87d8ab7cafa0b269a73",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-pydantic-core-15f4a94963c95acc",
+      "role": "server",
+      "version": "2.46.5",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/2c/1e/1d5371213f4cc9a7ed70c0bfcc7911de22311ee99a662a56077d7292d2ac/pydantic_core-2.46.5-cp313-cp313-win_amd64.whl",
+      "bytes": 2041980,
+      "sha256": "15f4a94963c95accac15b7b657bb177d3ad82bb90b0d0526d9a9b85079925db5",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-pydocket-ad3cc6a1045e1d97",
+      "role": "server",
+      "version": "0.25.2",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/54/55/b4ff1d381519ddedb2b5559dfc2b298e7aca2ba36ed897cbeb4c1d7bdb56/pydocket-0.25.2-py3-none-any.whl",
+      "bytes": 140162,
+      "sha256": "ad3cc6a1045e1d979589d3543768da96fabc8711fbcdb1a06c54e6c6ac993766",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-pygments-2363c69b61c4a97c",
+      "role": "server",
+      "version": "2.21.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/71/46/17f022dd3e953bf20a04a028a21ec746d942f8d2af30fa0f124fa0e6a684/pygments-2.21.0-py3-none-any.whl",
+      "bytes": 1250147,
+      "sha256": "2363c69b61c4a97c838da3b130dcd6468f4848992b21a82f2a63ec34377137d9",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-pymupdf-ebd244918798502d",
+      "role": "server",
+      "version": "1.28.2",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/4a/61/d563bbccba262f9dd6d2d35ccb72593648184d886188efb12d9ce8f34dd6/pymupdf-1.28.2-cp310-abi3-win_amd64.whl",
+      "bytes": 19826532,
+      "sha256": "ebd244918798502d7b4504c90410d1711a4d7675a32584ca30f1bab419ecbffe",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-pypandoc-01fdbffa61edb9f8",
+      "role": "server",
+      "version": "1.17",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/0c/86/e2ffa604eacfbec3f430b1d850e7e04c4101eca1a5828f9ae54bf51dfba4/pypandoc-1.17-py3-none-any.whl",
+      "bytes": 23554,
+      "sha256": "01fdbffa61edb9f8e82e8faad6954efcb7b6f8f0634aead4d89e322a00225a67",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-pypandoc-binary-76fae066cd2d7e78",
+      "role": "server",
+      "version": "1.17",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/c6/b9/f47b77ba75ed5d47ec85fcc2ecfbf7f78e3a73347f3a09836634d930de98/pypandoc_binary-1.17-py3-none-win_amd64.whl",
+      "bytes": 40891661,
+      "sha256": "76fae066cd2d7e78fb97f0ec8e9e36f437b07187b689b0b415ca18216f8f898a",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-pypdf-7e5d6e730e7dae87",
+      "role": "server",
+      "version": "6.19.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/3c/2c/c43c03eaf630435f023f1dc61ec4a4a78951ad5530a62c71cc89bde307b7/pypdf-6.19.0-py3-none-any.whl",
+      "bytes": 395480,
+      "sha256": "7e5d6e730e7dae87d560a2cee218b852f6498c8be61966f3cd02ead971e48d14",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-pypdfium2-47dcca2a8d507b5f",
+      "role": "server",
+      "version": "5.13.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/5d/99/a37b6b902457569468ed5908c94e56cb6c4032541f02cf89f723d42a9148/pypdfium2-5.13.0-py3-none-win_amd64.whl",
+      "bytes": 3885553,
+      "sha256": "47dcca2a8d507b5fd24f94c3c9d48fb379430f097bc20f01beff6c963ffbcedb",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-pyperclip-299403e9ff44581c",
+      "role": "server",
+      "version": "1.11.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/df/80/fc9d01d5ed37ba4c42ca2b55b4339ae6e200b456be3a1aaddf4a9fa99b8c/pyperclip-1.11.0-py3-none-any.whl",
+      "bytes": 11063,
+      "sha256": "299403e9ff44581cb9ba2ffeed69c7aa96a008622ad0c46cb575ca75b5b84273",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-pytesseract-7a99c6c2ac598360",
+      "role": "server",
+      "version": "0.3.13",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/7a/33/8312d7ce74670c9d39a532b2c246a853861120486be9443eebf048043637/pytesseract-0.3.13-py3-none-any.whl",
+      "bytes": 14705,
+      "sha256": "7a99c6c2ac598360693d83a416e36e0b33a67638bb9d77fdcac094a3589d4b34",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-python-dateutil-a8b2bc7bffae2822",
+      "role": "server",
+      "version": "2.9.0.post0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/ec/57/56b9bcc3c9c6a792fcbaf139543cee77261f3651ca9da0c93f5c1221264b/python_dateutil-2.9.0.post0-py2.py3-none-any.whl",
+      "bytes": 229892,
+      "sha256": "a8b2bc7bffae282281c8140a97d3aa9c14da0b136dfe83f850eea9a5f7470427",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-python-dotenv-904552145e8bfed2",
+      "role": "server",
+      "version": "1.2.3",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/0d/17/c5c6b53ddc18f297992099b3d9ec16c855c0ccc83263a21fe4d1c625ec6c/python_dotenv-1.2.3-py3-none-any.whl",
+      "bytes": 22780,
+      "sha256": "904552145e8bfed22162c09dab1c2b9b54fefa7b23ba780f4f26ca0316b0f0d9",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-python-json-logger-158a52126fcd6869",
+      "role": "server",
+      "version": "4.2.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/dc/55/6467fde553886cb293e41538f3a8b4e4fd4688c6df242cf982162d8367fb/python_json_logger-4.2.0-py3-none-any.whl",
+      "bytes": 14988,
+      "sha256": "158a52126fcd6869e09574d2b66272666f3dc8f468c62637ef9a1fa883719cb9",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-python-multipart-ff6d3f776f16878c",
+      "role": "server",
+      "version": "0.0.32",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/e1/04/e8135ebd1ad02c56ec633277529b2602ff99ff634be76cdba5744cf554fd/python_multipart-0.0.32-py3-none-any.whl",
+      "bytes": 30042,
+      "sha256": "ff6d3f776f16878c894e52e107296ffc890e913c611b1a4ec6c44e2821fe2e23",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-pywin32-ctypes-8a1513379d709975",
+      "role": "server",
+      "version": "0.2.3",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/de/3d/8161f7711c017e01ac9f008dfddd9410dff3674334c233bde66e7ba65bbf/pywin32_ctypes-0.2.3-py3-none-any.whl",
+      "bytes": 30756,
+      "sha256": "8a1513379d709975552d202d942d9837758905c8d01eb82b8bcc30918929e7b8",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-pyyaml-79005a0d97d5ddab",
+      "role": "server",
+      "version": "6.0.3",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/97/c9/39d5b874e8b28845e4ec2202b5da735d0199dbe5b8fb85f91398814a9a46/pyyaml-6.0.3-cp313-cp313-win_amd64.whl",
+      "bytes": 154090,
+      "sha256": "79005a0d97d5ddabfeeea4cf676af11e647e41d81c9a7722a193022accdb6b7c",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-redis-a4fe1aac3d3b3cc7",
+      "role": "server",
+      "version": "8.1.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/66/9d/c5731f6e3608663d4d3656fd8d3aecee8b509c3082818f5a13eae925baea/redis-8.1.0-py3-none-any.whl",
+      "bytes": 560618,
+      "sha256": "a4fe1aac3d3b3cc791d4b3d5931c5a956045dc951ee74d1c913ee3ac4d2ee9fb",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-reportlab-1c36e6bb0e71780c",
+      "role": "server",
+      "version": "5.0.1",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/db/cb/dacbc268cb68d0428ea2cbd85266195a9ab3e677449589ddae59bd7542ac/reportlab-5.0.1-py3-none-any.whl",
+      "bytes": 1957258,
+      "sha256": "1c36e6bb0e71780c72331eba60da7f602e8d4389a8723825af71342e49d791e8",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-rich-33bd4ef74232fb73",
+      "role": "server",
+      "version": "15.0.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/82/3b/64d4899d73f91ba49a8c18a8ff3f0ea8f1c1d75481760df8c68ef5235bf5/rich-15.0.0-py3-none-any.whl",
+      "bytes": 310654,
+      "sha256": "33bd4ef74232fb73fe9279a257718407f169c09b78a87ad3d296f548e27de0bb",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-rich-rst-7ecd1343ee12c879",
+      "role": "server",
+      "version": "2.1.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/2a/68/1fc93dd759605b5d00fc98b50200739e41ed32bd22d6ba35ca6c3932371b/rich_rst-2.1.0-py3-none-any.whl",
+      "bytes": 272987,
+      "sha256": "7ecd1343ee12c879d0e7ae74c3eb6d263b023d2929c6d114212eb1fd91057255",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-shellingham-7ecfff8f2fd72616",
+      "role": "server",
+      "version": "1.5.4",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/e0/f9/0595336914c5619e5f28a1fb793285925a8cd4b432c9da0a987836c7f822/shellingham-1.5.4-py2.py3-none-any.whl",
+      "bytes": 9755,
+      "sha256": "7ecfff8f2fd72616f7481040475a65b2bf8af90a56c89140852d1120324e8686",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-sortedcontainers-a163dcaede0f1c02",
+      "role": "server",
+      "version": "2.4.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/32/46/9cb0e58b2deb7f82b84065f37f3bffeb12413f947f9388e4cac22c4621ce/sortedcontainers-2.4.0-py2.py3-none-any.whl",
+      "bytes": 29575,
+      "sha256": "a163dcaede0f1c021485e957a39245190e74249897e2ae4b2aa38595db237ee0",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-starlette-a86dd39d14bb45f8",
+      "role": "server",
+      "version": "1.6.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/c8/cb/6a6a47d5b464bd08695d254f3da6e7986cc70c9fa5d778eda57538edfe56/starlette-1.6.0-py3-none-any.whl",
+      "bytes": 75969,
+      "sha256": "a86dd39d14bb45f85a3d18525215a9ef0cfd1f192ac793220e72598c90335f0c",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-typer-b3a5fc4342d5fc8f",
+      "role": "server",
+      "version": "0.27.2",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/dc/bf/205d0004930ede8f542fb58f601526fccf4ae7626075ca1e6c4de5d3d652/typer-0.27.2-py3-none-any.whl",
+      "bytes": 123130,
+      "sha256": "b3a5fc4342d5fc8fda8fc3010b1cf117e9249aab7fae800c2eff62fd3842d97d",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-tzdata-c2169a8b0a7a5e96",
+      "role": "server",
+      "version": "2026.4",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/f9/bc/8737e8d54cf51106118039b83f485a4783112fab49ea9d044b234978a46e/tzdata-2026.4-py2.py3-none-any.whl",
+      "bytes": 347494,
+      "sha256": "c2169a8b0a7a5e9674da5a135ccdfb2b3e671b333ed9fed17b41f73c34476e81",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-uncalled-for-16c4bb3337532e4b",
+      "role": "server",
+      "version": "0.4.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/a2/40/97cec87c077eb3291fc7905e6633e08b7ca593c57d30238444bcb6bb3d53/uncalled_for-0.4.0-py3-none-any.whl",
+      "bytes": 15502,
+      "sha256": "16c4bb3337532e4bd5569adc192285976f3ad5305402256d34c67a12b5c968bd",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-websockets-0340bbef6bfbe16d",
+      "role": "server",
+      "version": "17.1",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/22/36/fb521f0f2994c25509651f169efe5582dddd8713d57a0757ba87859372ef/websockets-17.1-cp313-cp313-win_amd64.whl",
+      "bytes": 217784,
+      "sha256": "0340bbef6bfbe16da888b3983d666a4db4954ac3253c38f13bc7aba0c7db5a2f",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-aiofile-5c1bcc9e929c5083",
+      "role": "server",
+      "version": "3.12.3",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/4e/79/6e45e778c4c3cab39e0937b007b720c15f76c50c6453d153282d0fcc3588/aiofile-3.12.3-py3-none-any.whl",
+      "bytes": 22122,
+      "sha256": "5c1bcc9e929c50834608e8cc1a4cc1d7503eb60c15a535b779fd39e2f372c017",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-caio-7a5e231bbf81eaed",
+      "role": "server",
+      "version": "0.12.4",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/e8/e6/07100a694613344d22958fb6d803fdf914ee9395278fe58ad1b1b9c59e52/caio-0.12.4-py3-none-any.whl",
+      "bytes": 25628,
+      "sha256": "7a5e231bbf81eaed269f99afa9ef46457f51f9407952a1795c0795b3a62c23c0",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-duckdb-6826504277dba513",
+      "role": "server",
+      "version": "1.5.5",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/07/9f/c44dfc1f924ac29b3252dc1b91393c01d009dbfe9f8ed33f10b986151bd1/duckdb-1.5.5-cp313-cp313-win_amd64.whl",
+      "bytes": 13168028,
+      "sha256": "6826504277dba513c0c5d71d828456c94d729c9d2482f94b2e289f90a9167e28",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-fastmcp-1d30e5ba6b711318",
+      "role": "server",
+      "version": "4.0.5",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/ca/c0/1f985175c9eee7725ebef1be5a7c210787ad0c7649f56dab5c5af5185816/fastmcp-4.0.5-py3-none-any.whl",
+      "bytes": 8074,
+      "sha256": "1d30e5ba6b711318bf2ddc929cf9c0d6299a6330fbf42b2925dd120984176dc8",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-fastmcp-slim-2bb5bc1ff0a0f3ae",
+      "role": "server",
+      "version": "4.0.5",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/ed/76/8dc551ef1f222bd146537ae100baf7441628aa1050494b567249ece997c2/fastmcp_slim-4.0.5-py3-none-any.whl",
+      "bytes": 862080,
+      "sha256": "2bb5bc1ff0a0f3ae063b97f647ea3730d32d5481050231818c161214b9047f67",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-griffelib-1b8f9cd525681c26",
+      "role": "server",
+      "version": "2.3.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/41/63/e876e789525063c840ccfa8857febdabd6523bcef9ce7eb979b9305ea895/griffelib-2.3.0-py3-none-any.whl",
+      "bytes": 169423,
+      "sha256": "1b8f9cd525681c26b1d6d574faa1371651e8459ca51d209684f50b8096ae06e0",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-httpcore2-35ae5be347aa4046",
+      "role": "server",
+      "version": "2.13.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/7e/0d/117a771a2bb91df334b66bf4da14cd02f21aefbcfe53180f336ce55e8f90/httpcore2-2.13.0-py3-none-any.whl",
+      "bytes": 83162,
+      "sha256": "35ae5be347aa40467b4a5dc032ac67ebb6d27189fc97e8cebcf99616f6a1bb9e",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-httpx2-fc12720cedf72faa",
+      "role": "server",
+      "version": "2.13.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/fe/d1/a0c72b0e006df654709fbc366cc5bcb53e5aee13e1e3395152c6dd293376/httpx2-2.13.0-py3-none-any.whl",
+      "bytes": 95565,
+      "sha256": "fc12720cedf72faa26cca6b4ca394e05c894e7d7933fc45cafe767960804e49a",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-mcp-bde982589473a060",
+      "role": "server",
+      "version": "2.2.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/1b/ff/8e7eade68b8a28f7da0ed1085544341b51f9c935dbf6b95c76b7edfea6a0/mcp-2.2.0-py3-none-any.whl",
+      "bytes": 365656,
+      "sha256": "bde982589473a060ae145e3406e9a5333fe538c97229ba841f5a7f92be004f81",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-mcp-types-ea476b73ee86709a",
+      "role": "server",
+      "version": "2.2.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/8f/d7/6ffba5d8cd5dd9b8a19478875c50e04945314ba5074e84d749283f27f62d/mcp_types-2.2.0-py3-none-any.whl",
+      "bytes": 69106,
+      "sha256": "ea476b73ee86709ab5abc9452385ed36cc05907e582355622e294595c9a04f13",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-py-key-value-aio-820b30c7959fc738",
+      "role": "server",
+      "version": "0.4.6",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/9a/46/12871550fb0613d149144bb9d41f22680d5f46717bc45a76eb5798c20c3f/py_key_value_aio-0.4.6-py3-none-any.whl",
+      "bytes": 171289,
+      "sha256": "820b30c7959fc738ea3d00160cdb10cd258f51e38737b2add530defeea1ded77",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-pytz-dd95840dd199baea",
+      "role": "server",
+      "version": "2026.3.post1",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/0f/7b/39c34ca613b0b198cb866466651b26b045e2009864c5183c979a3b83f383/pytz-2026.3.post1-py2.py3-none-any.whl",
+      "bytes": 508283,
+      "sha256": "dd95840dd199baea12d9cc096a1d452caa6596a1c1e4b5f3dbd1541855d5e815",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-truststore-adaeaecf1cbb5f4d",
+      "role": "server",
+      "version": "0.10.4",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/19/97/56608b2249fe206a67cd573bc93cd9896e1efb9e98bce9c163bcdc704b88/truststore-0.10.4-py3-none-any.whl",
+      "bytes": 18660,
+      "sha256": "adaeaecf1cbb5f4de3b1959b42d41f6fab57b2b1666adb59e89cb0b53361d981",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-watchfiles-a0f27f01bee51861",
+      "role": "server",
+      "version": "1.2.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/f9/36/14b76ca57652e5cc5fd1c11f32a261292c08a0d19a00351013c2549cbfb2/watchfiles-1.2.0-cp313-cp313-win_amd64.whl",
+      "bytes": 288059,
+      "sha256": "a0f27f01bee51861392bb6b7c4fdb290b27d1eb194e9e28788d68102a0e898d9",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-audioop-lts-a2c2a947fae7d106",
+      "role": "server",
+      "version": "0.2.2",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/34/a5/9d78fdb5b844a83da8a71226c7bdae7cc638861085fff7a1d707cb4823fa/audioop_lts-0.2.2-cp313-abi3-win_amd64.whl",
+      "bytes": 30503,
+      "sha256": "a2c2a947fae7d1062ef08c4e369e0ba2086049a5e598fda41122535557012e9e",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-azure-ai-contentunderstanding-a2554333b39d68d5",
+      "role": "server",
+      "version": "1.2.0b3",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/18/02/5c393c5c13d3c910b437080fc71f6bf743f56fb14b0cfbc62520b00cd5d7/azure_ai_contentunderstanding-1.2.0b3-py3-none-any.whl",
+      "bytes": 127209,
+      "sha256": "a2554333b39d68d523f6ad165215232026f605c9fb77eedb5e136b87187657a8",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-azure-ai-documentintelligence-e1fb446abbdeccc9",
+      "role": "server",
+      "version": "1.0.2",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/d9/75/c9ec040f23082f54ffb1977ff8f364c2d21c79a640a13d1c1809e7fd6b1a/azure_ai_documentintelligence-1.0.2-py3-none-any.whl",
+      "bytes": 106005,
+      "sha256": "e1fb446abbdeccc9759d897898a0fe13141ed29f9ad11fc705f951925822ed59",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-azure-core-522b4011e8180b1a",
+      "role": "server",
+      "version": "1.41.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/5b/db/325c6d7312d2200251c52323878281045aaffcb5586612296484e4280eaa/azure_core-1.41.0-py3-none-any.whl",
+      "bytes": 220920,
+      "sha256": "522b4011e8180b1a3dcd2024396a4e7fe9ac37fb8597db47163d230b5efe892d",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-azure-identity-f4d0b956a8146f30",
+      "role": "server",
+      "version": "1.25.3",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/49/9a/417b3a533e01953a7c618884df2cb05a71e7b68bdbce4fbdb62349d2a2e8/azure_identity-1.25.3-py3-none-any.whl",
+      "bytes": 192138,
+      "sha256": "f4d0b956a8146f30333e071374171f3cfa7bdb8073adb8c3814b65567aa7447c",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-beautifulsoup4-d6f88de62e1d4e38",
+      "role": "server",
+      "version": "4.15.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/88/c6/92fcd42f1ba33e1184263f25bfabf3d27c383410470f169e4b8163bf9c17/beautifulsoup4-4.15.0-py3-none-any.whl",
+      "bytes": 109924,
+      "sha256": "d6f88de62e1d4e38ecb1077eb9724cd0eff29d2a08ca16a401e9b9e93f117cf9",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-cobble-36c91b1655e599fd",
+      "role": "server",
+      "version": "0.1.4",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/d5/e1/3714a2f371985215c219c2a70953d38e3eed81ef165aed061d21de0e998b/cobble-0.1.4-py3-none-any.whl",
+      "bytes": 3984,
+      "sha256": "36c91b1655e599fd428e2b95fdd5f0da1ca2e9f1abb0bc871dec21a0e78a2b44",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-coloredlogs-612ee75c546f53e9",
+      "role": "server",
+      "version": "15.0.1",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/a7/06/3d6badcf13db419e25b07041d9c7b4a2c331d3f4e7134445ec5df57714cd/coloredlogs-15.0.1-py2.py3-none-any.whl",
+      "bytes": 46018,
+      "sha256": "612ee75c546f53e92e70049c9dbfcc18c935a2b9a53b66085ce9ef6a6e5c0934",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-defusedxml-a352e7e428770286",
+      "role": "server",
+      "version": "0.7.1",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/07/6c/aa3f2f849e01cb6a001cd8554a88d4c77c5c1a31c95bdf1cf9301e6d9ef4/defusedxml-0.7.1-py2.py3-none-any.whl",
+      "bytes": 25604,
+      "sha256": "a352e7e428770286cc899e2542b6cdaedb2b4953ff269a210103ec58f6198a61",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-et-xmlfile-7a91720bc7568435",
+      "role": "server",
+      "version": "2.0.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/c1/8b/5fe2cc11fee489817272089c4203e679c63b570a5aaeb18d852ae3cbba6a/et_xmlfile-2.0.0-py3-none-any.whl",
+      "bytes": 18059,
+      "sha256": "7a91720bc756843502c3b7504c77b8fe44217c85c537d85037f0f536151b2caa",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-flatbuffers-7634f50c427838bb",
+      "role": "server",
+      "version": "25.12.19",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/e8/2d/d2a548598be01649e2d46231d151a6c56d10b964d94043a335ae56ea2d92/flatbuffers-25.12.19-py2.py3-none-any.whl",
+      "bytes": 26661,
+      "sha256": "7634f50c427838bb021c2d66a3d1168e9d199b0607e6329399f04846d42e20b4",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-humanfriendly-1697e1a8a8f550fd",
+      "role": "server",
+      "version": "10.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/f0/0f/310fb31e39e2d734ccaa2c0fb981ee41f7bd5056ce9bc29b2248bd569169/humanfriendly-10.0-py2.py3-none-any.whl",
+      "bytes": 86794,
+      "sha256": "1697e1a8a8f550fd43c2865cd84542fc175a61dcb779b6fee18cf6b6ccba1477",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-isodate-28009937d8031054",
+      "role": "server",
+      "version": "0.7.2",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/15/aa/0aca39a37d3c7eb941ba736ede56d689e7be91cab5d9ca846bde3999eba6/isodate-0.7.2-py3-none-any.whl",
+      "bytes": 22320,
+      "sha256": "28009937d8031054830160fce6d409ed342816b543597cece116d966c6d99e15",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-lxml-e477aca0bc0d19f3",
+      "role": "server",
+      "version": "6.1.3",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/c0/28/e46a7702bd95e9043291f7c3539b6184cba66f96cea9936f20939b284eeb/lxml-6.1.3-cp313-cp313-win_amd64.whl",
+      "bytes": 4004091,
+      "sha256": "e477aca0bc0d19f3b4ae9e4f2a1cfd687c31bf772d78734910658186b40b2477",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-magika-e57f75674447b20c",
+      "role": "server",
+      "version": "0.6.3",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/7b/9e/f8ee7d644affa3b80efdd623a3d75865c8f058f3950cb87fb0c48e3559bc/magika-0.6.3-py3-none-win_amd64.whl",
+      "bytes": 12692831,
+      "sha256": "e57f75674447b20cab4db928ae58ab264d7d8582b55183a0b876711c2b2787f3",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-mammoth-c077ab0d450bd7c0",
+      "role": "server",
+      "version": "1.11.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/ca/54/2e39566a131b13f6d8d193f974cb6a34e81bb7cc2fa6f7e03de067b36588/mammoth-1.11.0-py2.py3-none-any.whl",
+      "bytes": 54752,
+      "sha256": "c077ab0d450bd7c0c6ecd529a23bf7e0fa8190c929e28998308ff4eada3f063b",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-markdownify-a189a0bedfd14009",
+      "role": "server",
+      "version": "1.2.3",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/04/10/fa543d484e8b1199243fe20eedd02cc5af050edebce98a7293a5773df592/markdownify-1.2.3-py3-none-any.whl",
+      "bytes": 15732,
+      "sha256": "a189a0bedfd14009030fde5f85bb6f77c56897cb839b5c25315dd7d4e3e290ba",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-mpmath-a0b2b9fe80bbcd81",
+      "role": "server",
+      "version": "1.3.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/43/e3/7d92a15f894aa0c9c4b49b8ee9ac9850d6e63b03c9c32c0367a13ae62209/mpmath-1.3.0-py3-none-any.whl",
+      "bytes": 536198,
+      "sha256": "a0b2b9fe80bbcd81a6647ff13108738cfb482d481d826cc0e02f5b35e5c88d2c",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-msal-2d2577886906cd72",
+      "role": "server",
+      "version": "1.39.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/a4/32/178457385925ce301c7b3232bd85665d4df57da39568b62dcfc74031873f/msal-1.39.0-py3-none-any.whl",
+      "bytes": 131629,
+      "sha256": "2d2577886906cd7293850dffa2da29119966c213bfc6ec0cecf8bf7621e1ca77",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-msal-extensions-96d3de4d034504e9",
+      "role": "server",
+      "version": "1.3.1",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/5e/75/bd9b7bb966668920f06b200e84454c8f3566b102183bc55c5473d96cb2b9/msal_extensions-1.3.1-py3-none-any.whl",
+      "bytes": 20583,
+      "sha256": "96d3de4d034504e969ac5e85bae8106c8373b5c6568e4c8fa7af2eca9dbe6bca",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-olefile-543c7da2a7adadf2",
+      "role": "server",
+      "version": "0.47",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/17/d3/b64c356a907242d719fc668b71befd73324e47ab46c8ebbbede252c154b2/olefile-0.47-py2.py3-none-any.whl",
+      "bytes": 114565,
+      "sha256": "543c7da2a7adadf21214938bb79c83ea12b473a4b6ee4ad4bf854e7715e13d1f",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-onnxruntime-d30367df7e70f1d9",
+      "role": "server",
+      "version": "1.20.1",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/d8/e0/50db43188ca1c945decaa8fc2a024c33446d31afed40149897d4f9de505f/onnxruntime-1.20.1-cp313-cp313-win_amd64.whl",
+      "bytes": 11331758,
+      "sha256": "d30367df7e70f1d9fc5a6a68106f5961686d39b54d3221f760085524e8d38e16",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-openpyxl-5282c12b107bffee",
+      "role": "server",
+      "version": "3.1.5",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/c0/da/977ded879c29cbd04de313843e76868e6e13408a94ed6b987245dc7c8506/openpyxl-3.1.5-py2.py3-none-any.whl",
+      "bytes": 250910,
+      "sha256": "5282c12b107bffeef825f4617dc029afaf41d0ea60823bbb665ef3079dc79de2",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-protobuf-a300819d441e078a",
+      "role": "server",
+      "version": "7.36.2",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/8a/55/b77bda4e5e5f5971fb51b07663694690e9afdb9402136c16a522bd621cad/protobuf-7.36.2-cp310-abi3-win_amd64.whl",
+      "bytes": 456514,
+      "sha256": "a300819d441e078a5608c0d3c709796bb548136058fda017ae51d425b44fd353",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-pydub-65617e33033874b5",
+      "role": "server",
+      "version": "0.25.1",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/a6/53/d78dc063216e62fc55f6b2eebb447f6a4b0a59f55c8406376f76bf959b08/pydub-0.25.1-py2.py3-none-any.whl",
+      "bytes": 32327,
+      "sha256": "65617e33033874b59d87db603aa1ed450633288aefead953b30bded59cb599a6",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-pyreadline3-8449b734232e42a5",
+      "role": "server",
+      "version": "3.5.6",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/f7/5e/35c856e186b74678c24927847ad9895a51f1bc02a0c6126477a6c6040064/pyreadline3-3.5.6-py3-none-any.whl",
+      "bytes": 85243,
+      "sha256": "8449b734232e42a5dcd74048e39b60db2839a4c38cf3ae2bf7707d58b5389c0d",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-python-pptx-160838e0b8565a8b",
+      "role": "server",
+      "version": "1.0.2",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/d9/4f/00be2196329ebbff56ce564aa94efb0fbc828d00de250b1980de1a34ab49/python_pptx-1.0.2-py3-none-any.whl",
+      "bytes": 472788,
+      "sha256": "160838e0b8565a8b1f67947675886e9fea18aa5e795db7ae531606d68e785cba",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-requests-2a0d60c172f83ac6",
+      "role": "server",
+      "version": "2.34.2",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/a0/f4/c67b0b3f1b9245e8d266f0f112c500d50e5b4e83cb6f3b71b6528104182a/requests-2.34.2-py3-none-any.whl",
+      "bytes": 73075,
+      "sha256": "2a0d60c172f83ac6ab31e4554906c0f3b3588d37b5cb939b1c061f4907e278e0",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-speechrecognition-754f2cd9d7fbeff5",
+      "role": "server",
+      "version": "3.17.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/aa/e7/13e260a9cb53a40177783a882ebdfa437b2414fa21ca6f1cb8d9043b3fc9/speechrecognition-3.17.0-py3-none-any.whl",
+      "bytes": 32855722,
+      "sha256": "754f2cd9d7fbeff5e05ad91b906350cb7983fd2ef82002d91e117ac44aa94efa",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-standard-aifc-f7ae09cc57de1224",
+      "role": "server",
+      "version": "3.13.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/c3/52/5fbb203394cc852334d1575cc020f6bcec768d2265355984dfd361968f36/standard_aifc-3.13.0-py3-none-any.whl",
+      "bytes": 10492,
+      "sha256": "f7ae09cc57de1224a0dd8e3eb8f73830be7c3d0bc485de4c1f82b4a7f645ac66",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-standard-chunk-17880a26c285189c",
+      "role": "server",
+      "version": "3.13.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/7a/90/a5c1084d87767d787a6caba615aa50dc587229646308d9420c960cb5e4c0/standard_chunk-3.13.0-py3-none-any.whl",
+      "bytes": 4944,
+      "sha256": "17880a26c285189c644bd5bd8f8ed2bdb795d216e3293e6dbe55bbd848e2982c",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-sympy-e091cc3e99d2141a",
+      "role": "server",
+      "version": "1.14.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/a2/09/77d55d46fd61b4a135c444fc97158ef34a095e5681d0a6c10b75bf356191/sympy-1.14.0-py3-none-any.whl",
+      "bytes": 6299353,
+      "sha256": "e091cc3e99d2141a0ba2847328f5479b05d94a6635cb96148ccb3f34671bd8f5",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-urllib3-0cf3cae568d36aa9",
+      "role": "server",
+      "version": "2.8.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/92/9d/c4e665119135114480843e7ab388fa94d8480650450e6f8e26b70d323a4c/urllib3-2.8.0-py3-none-any.whl",
+      "bytes": 135717,
+      "sha256": "0cf3cae568d36aa9576b28dfb35f11328f1cb974ca7647d9475ebb86c75ac6e3",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-xlrd-ea762c3d29f4cca4",
+      "role": "server",
+      "version": "2.0.2",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/1a/62/c8d562e7766786ba6587d09c5a8ba9f718ed3fa8af7f4553e8f91c36f302/xlrd-2.0.2-py2.py3-none-any.whl",
+      "bytes": 96555,
+      "sha256": "ea762c3d29f4cca48d82df517b6d89fbce4db3107f9d78713e48cd321d5c9aa9",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-xlsxwriter-9a5db42bc5dff014",
+      "role": "server",
+      "version": "3.2.9",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/3a/0c/3662f4a66880196a590b202f0db82d919dd2f89e99a27fadef91c4a33d41/xlsxwriter-3.2.9-py3-none-any.whl",
+      "bytes": 175315,
+      "sha256": "9a5db42bc5dff014806c58a20b9eae7322a134abb6fce3c92c181bfb275ec5b3",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-youtube-transcript-api-d1874e57de65cf14",
+      "role": "server",
+      "version": "1.0.3",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/f0/44/40c03bb0f8bddfb9d2beff2ed31641f52d96c287ba881d20e0c074784ac2/youtube_transcript_api-1.0.3-py3-none-any.whl",
+      "bytes": 2169911,
+      "sha256": "d1874e57de65cf14c9d7d09b2b37c814d6287fa0e770d4922c4cd32a5b3f6c47",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-blis-7a0fc4b237a3a453",
+      "role": "server",
+      "version": "1.3.3",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/31/07/4cdc81a47bf862c0b06d91f1bc6782064e8b69ac9b5d4ff51d97e4ff03da/blis-1.3.3-cp313-cp313-win_amd64.whl",
+      "bytes": 6192624,
+      "sha256": "7a0fc4b237a3a453bdc3c7ab48d91439fcd2d013b665c46948d9eaf9c3e45a97",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-catalogue-58c2de0020aa90f4",
+      "role": "server",
+      "version": "2.0.10",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/9e/96/d32b941a501ab566a16358d68b6eb4e4acc373fab3c3c4d7d9e649f7b4bb/catalogue-2.0.10-py3-none-any.whl",
+      "bytes": 17325,
+      "sha256": "58c2de0020aa90f4a2da7dfad161bf7b3b054c86a5f09fcedc0b2b740c109a9f",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-cloudpathlib-8faef3ed3a0dd71d",
+      "role": "server",
+      "version": "0.25.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/37/f9/9084c945d0b3ef8f129b4f0dd21baec759761a337902b70f17a3945015dd/cloudpathlib-0.25.0-py3-none-any.whl",
+      "bytes": 66109,
+      "sha256": "8faef3ed3a0dd71d134e8617b4fdc5ce56a12a6b485c080cfe80106e5f1d1f5d",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-confection-b9fef9ee84b237ef",
+      "role": "server",
+      "version": "1.3.3",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/8d/e4/d66708bdf0d92fb4d49b22cdff4b10cec38aca5dcd7e81d909bb55c65cd7/confection-1.3.3-py3-none-any.whl",
+      "bytes": 35902,
+      "sha256": "b9fef9ee84b237ef4611ec3eb5797b70e13063e6310ad9f15536373f5e313c82",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-cryptography-39489bfca54c7a1f",
+      "role": "server",
+      "version": "48.0.1",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/c5/69/0572c77dbace6fef72f33755bd52ea399c71367250d366237f8691826b9e/cryptography-48.0.1-cp311-abi3-win_amd64.whl",
+      "bytes": 3817138,
+      "sha256": "39489bfca54c7a1f6b297efcd8bc608ab92d16c4ca631b0cad4da46724588b24",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-cymem-38aefeb269597c1a",
+      "role": "server",
+      "version": "2.0.13",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/70/66/d23b06166864fa94e13a98e5922986ce774832936473578febce64448d75/cymem-2.0.13-cp313-cp313-win_amd64.whl",
+      "bytes": 40103,
+      "sha256": "38aefeb269597c1a0c2ddf1567dd8605489b661fa0369c6406c1acd433b4c7ba",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-filelock-481a321a27bef441",
+      "role": "server",
+      "version": "4.0.1",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/29/33/af0635ab07fe83b1788a1dbe370ff3e226062495a998335cb18a1cac81aa/filelock-4.0.1-py3-none-any.whl",
+      "bytes": 106219,
+      "sha256": "481a321a27bef441e23c53371c6abc8d7d16e26b97090074ba44f7538a3fd55a",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-mistune-ee015381e955e370",
+      "role": "server",
+      "version": "3.3.4",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/77/e4/288365afae98953bc01de09f686f40d8ee84578135aa7767d5d4e60b5278/mistune-3.3.4-py3-none-any.whl",
+      "bytes": 66862,
+      "sha256": "ee015381e955e370962968befe1d729ab60fafb6a715ac6751763fbce38c8d4a",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-murmurhash-9aba94c5d841e190",
+      "role": "server",
+      "version": "1.0.15",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/00/db/da73462dbfa77f6433b128d2120ba7ba300f8c06dc4f4e022c38d240a5f5/murmurhash-1.0.15-cp313-cp313-win_amd64.whl",
+      "bytes": 25682,
+      "sha256": "9aba94c5d841e1904cd110e94ceb7f49cfb60a874bbfb27e0373622998fb7c7c",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-numpy-c4fc99836233ea19",
+      "role": "server",
+      "version": "2.4.6",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/b5/cd/9cc4dc876fb065d5c220aae4d5e14826b2715331bb7618ce1fb07a679d99/numpy-2.4.6-cp313-cp313-win_amd64.whl",
+      "bytes": 12318598,
+      "sha256": "c4fc99836233ea196540b17ab0983aff60ed07941751930f5f4d05bc3b3b7359",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-phonenumbers-d83b878d0188c81a",
+      "role": "server",
+      "version": "9.0.39",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/99/53/238c99f028b9c638ceae8218a33904e4b84d60e1c3bd707c0ff231b388cf/phonenumbers-9.0.39-py2.py3-none-any.whl",
+      "bytes": 2594744,
+      "sha256": "d83b878d0188c81a5f5e8572cedcc7262bd0ea3806eb7c8e35d8666d262a8af0",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-preshed-461327f8dd36520d",
+      "role": "server",
+      "version": "3.0.13",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/e3/b9/96fb71499049885ce19545903fdd38877bbc2be0da47e37c04d01f3e9f66/preshed-3.0.13-cp313-cp313-win_amd64.whl",
+      "bytes": 122134,
+      "sha256": "461327f8dd36520dcf1fd55a671e0c3c2c97a2d95e22fc85faa31173f4785dda",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-presidio-analyzer-0a9eeb60ccc416c5",
+      "role": "server",
+      "version": "2.2.364",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/a6/15/44a64276cd5c45485716314addfb7966c24f61034d8ff8e9a78d13d0afbe/presidio_analyzer-2.2.364-py3-none-any.whl",
+      "bytes": 266299,
+      "sha256": "0a9eeb60ccc416c505367b4989d056becb84ef082703ee3361c046fb75941739",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-presidio-anonymizer-f3edfe80b5e83a22",
+      "role": "server",
+      "version": "2.2.364",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/c2/47/9a353565cbd6d1af87c9e6f68e9e2b89dd5ced7be9634284c6975abd63d2/presidio_anonymizer-2.2.364-py3-none-any.whl",
+      "bytes": 38128,
+      "sha256": "f3edfe80b5e83a22976439727e9d449c796b12efdf6cd70a6db860d4942a6b72",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-regex-20e8bfb07ad79a28",
+      "role": "server",
+      "version": "2026.9.10",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/cd/fd/5c85fa6cfb8e034080bda5a72fa0a4df2b7777a35eb7e73c2799c2adda7a/regex-2026.9.10-cp313-cp313-win_amd64.whl",
+      "bytes": 277894,
+      "sha256": "20e8bfb07ad79a282f8b95b56fe67f9750b1b7f775724e4ba1f23cb296115ce4",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-requests-file-d0f5eb94353986d9",
+      "role": "server",
+      "version": "3.0.1",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/e1/d5/de8f089119205a09da657ed4784c584ede8381a0ce6821212a6d4ca47054/requests_file-3.0.1-py2.py3-none-any.whl",
+      "bytes": 4514,
+      "sha256": "d0f5eb94353986d998f80ac63c7f146a307728be051d4d1cd390dbdb59c10fa2",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-setuptools-51a52592b3b99e10",
+      "role": "server",
+      "version": "84.0.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/95/9c/c510029fc6ef33a6275cd2c5d3cecd6613dfd6aa401d57c54f1c18852ccf/setuptools-84.0.0-py3-none-any.whl",
+      "bytes": 818216,
+      "sha256": "51a52592b3b99e102b609654876bd65f19f999935166d1352678931132b0c670",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-smart-open-3e97f90e92a952cb",
+      "role": "server",
+      "version": "8.0.1",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/c3/96/325b8c507ccecc50421fecc0345a502ee6e4a44785af3c4e6ecbadad624a/smart_open-8.0.1-py3-none-any.whl",
+      "bytes": 73504,
+      "sha256": "3e97f90e92a952cb57863dfe132082c400a52eeeb27c067692fb51dbcc5b0089",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-spacy-cc7e449aec9a313b",
+      "role": "server",
+      "version": "3.8.16",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/55/f4/a613999ef17bf8252d4e6a62609b9d16a932e1cfd56f9c682e5dd82d91ba/spacy-3.8.16-cp313-cp313-win_amd64.whl",
+      "bytes": 15163063,
+      "sha256": "cc7e449aec9a313bc037ef5ea45fb0ac99135d92dace8421d68414d16be39543",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-spacy-legacy-476e3bd0d05f8c33",
+      "role": "server",
+      "version": "3.0.12",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/c3/55/12e842c70ff8828e34e543a2c7176dac4da006ca6901c9e8b43efab8bc6b/spacy_legacy-3.0.12-py2.py3-none-any.whl",
+      "bytes": 29971,
+      "sha256": "476e3bd0d05f8c339ed60f40986c07387c0a71479245d6d0f4298dbd52cda55f",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-spacy-loggers-196284c9c446cc0c",
+      "role": "server",
+      "version": "1.0.5",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/33/78/d1a1a026ef3af911159398c939b1509d5c36fe524c7b644f34a5146c4e16/spacy_loggers-1.0.5-py3-none-any.whl",
+      "bytes": 22343,
+      "sha256": "196284c9c446cc0cdb944005384270d775fdeaf4f494d8e269466cfa497ef645",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-srsly-111805927f05f5db",
+      "role": "server",
+      "version": "2.5.3",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/a4/d9/5531f8a19492060b4e76e4ab06aca6f096fb5128fe18cc813d1772daf653/srsly-2.5.3-cp313-cp313-win_amd64.whl",
+      "bytes": 650820,
+      "sha256": "111805927f05f5db440aeeacb85ce43da0b19ce7b2a09567a9ef8d30f3cc4d83",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-thinc-8ad40307f20e83f7",
+      "role": "server",
+      "version": "8.3.13",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/0f/a8/763cd7ba949334c9d2cddc92dadb68b344cb9546dc01b8d4a733dcaa16c1/thinc-8.3.13-cp313-cp313-win_amd64.whl",
+      "bytes": 1720309,
+      "sha256": "8ad40307f20e83f77af28ff5c6be0b86af7a8b251d1231c545508d2763157d8f",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-tldextract-6c90d2a259f5c89f",
+      "role": "server",
+      "version": "5.3.2",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/4a/3b/930310b274dfe3b9a4fe64ef8b24e5faf376c9a6f94bba6fc6e438058598/tldextract-5.3.2-py3-none-any.whl",
+      "bytes": 106415,
+      "sha256": "6c90d2a259f5c89f4fcf01f97af15708416a59ffedddff006d67222ab30d0fb0",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-tqdm-c293e525e6fef9c2",
+      "role": "server",
+      "version": "4.70.1",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/a7/03/921a3d3c75785aca9ebfbfcabfbc3a1be12e2ab5265deb026d55a5a3f83e/tqdm-4.70.1-py3-none-any.whl",
+      "bytes": 80199,
+      "sha256": "c293e525e6fef9c20e8728fd4612df02a0aa31bb5fe91ecd93e123b1b7bffa73",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-wasabi-f76e16e8f7e79f8c",
+      "role": "server",
+      "version": "1.1.3",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/06/7c/34330a89da55610daa5f245ddce5aab81244321101614751e7537f125133/wasabi-1.1.3-py3-none-any.whl",
+      "bytes": 27880,
+      "sha256": "f76e16e8f7e79f8c4c8be49b4024ac725713ab10cd7f19350ad18a8e3f71728c",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-weasel-89518acee027f49d",
+      "role": "server",
+      "version": "1.0.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/0a/07/57ebf7a6798b016c064bd0ca81b4c6a99daa4dc377b898bc7b41eb6b5af0/weasel-1.0.0-py3-none-any.whl",
+      "bytes": 50713,
+      "sha256": "89518acee027f49d743126c3502d35e6dd14f5768be5c37c9af47c171b6005cc",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-wrapt-1fe758b9c2d49138",
+      "role": "server",
+      "version": "2.4.1",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/b7/1d/d53bcf5910209a45191c8bc173ff0e00830416547d8038772dc444932ee0/wrapt-2.4.1-cp313-cp313-win_amd64.whl",
+      "bytes": 98569,
+      "sha256": "1fe758b9c2d49138231ec3efabd106fec665f86fec50b3d02d7edd75f08a69ca",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-build-ecd351a4be9d35a9",
+      "role": "server",
+      "version": "1.6.1",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/ad/9b/9fb3585dabcd73a1b2a6267f63f62649347c9e6d072c9fde365b105abb2c/build-1.6.1-py3-none-any.whl",
+      "bytes": 31179,
+      "sha256": "ecd351a4be9d35a9eaaba244a7687143c9c7d4aea6ac964e7e7ddab20cbcf4e7",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-hatchling-d05b350af5d9aa5b",
+      "role": "server",
+      "version": "1.32.3",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/f6/89/268c7e4b2bcf2071047366c4c3b4b0e89f640e13ea7bfdaf1df6c40e5140/hatchling-1.32.3-py3-none-any.whl",
+      "bytes": 78895,
+      "sha256": "d05b350af5d9aa5bf7b34b434a45a742b99e67d0b48ea67d240cfeab98e13945",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-pathspec-a00ce642f577bf7f",
+      "role": "server",
+      "version": "1.1.1",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/f1/d9/7fb5aa316bc299258e68c73ba3bddbc499654a07f151cba08f6153988714/pathspec-1.1.1-py3-none-any.whl",
+      "bytes": 57328,
+      "sha256": "a00ce642f577bf7f473932318056212bc4f8bfdf53128c78bbd5af0b9b20b189",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-pluggy-e920276dd6813095",
+      "role": "server",
+      "version": "1.6.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/54/20/4d324d65cc6d9205fabedc306948156824eb9f0ee1633355a8f7ec5c66bf/pluggy-1.6.0-py3-none-any.whl",
+      "bytes": 20538,
+      "sha256": "e920276dd6813095e9377c0bc5566d94c932c33b27a3e3945d8389c374dd4746",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-pyproject-hooks-5fc53fdac9f7bd63",
+      "role": "server",
+      "version": "1.3.3",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/85/11/044d1ae1b4ec0d7af88ee5bc91e081be1022533032b906a7bdabdbb60977/pyproject_hooks-1.3.3-py3-none-any.whl",
+      "bytes": 10724,
+      "sha256": "5fc53fdac9f7bd63fbcdc868fb5f90b4784d78a53a3d3388cd738b807441a20b",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-tomlkit-177a05aece5a8ca5",
+      "role": "server",
+      "version": "0.15.1",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/13/bc/8c13eb66537dce1d2bd3a57132902f38d0e7f5bb46fa9f4daed9fe9d76ee/tomlkit-0.15.1-py3-none-any.whl",
+      "bytes": 49449,
+      "sha256": "177a05aece5a8ca5266fd3c448abb47b8d352f09d477d3ca8332db4d89b24304",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-trove-classifiers-ab4c4ec93cc4a4e7",
+      "role": "server",
+      "version": "2026.6.1.19",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/7c/a4/81502f486f01db95bc8320646a8a12511f5e556cb63d5e224d91816605c4/trove_classifiers-2026.6.1.19-py3-none-any.whl",
+      "bytes": 14211,
+      "sha256": "ab4c4ec93cc4a4e7815fa759906e05e6bb3f2fbd92ea0f897288c6a43efd15b3",
+      "license": "NOASSERTION"
+    },
+    {
+      "id": "py-wheel-3217dcc807155e45",
+      "role": "server",
+      "version": "0.48.0",
+      "usage": "runtime",
+      "url": "https://files.pythonhosted.org/packages/2e/29/69cfbb602cd91690c55d38ba9fe53e6a7e76a6fa647bf38f19c138d25449/wheel-0.48.0-py3-none-any.whl",
+      "bytes": 33320,
+      "sha256": "3217dcc807155e45db462d7ef2431f5ddda0d7273b700d05a67b271ceb1287ab",
+      "license": "NOASSERTION"
+    }
+  ]
+}

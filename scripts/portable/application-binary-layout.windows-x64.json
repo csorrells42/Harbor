@@ -1,0 +1,7 @@
+{
+  "schemaVersion": 1,
+  "components": [
+    {"artifact":"github-mcp-win-x64","format":"zip","target":"runtimes/github-mcp","stripPrefix":"","maxUnpackedBytes":134217728},
+    {"artifact":"electron-win-x64","format":"zip","target":"runtimes/electron","stripPrefix":"","maxUnpackedBytes":805306368}
+  ]
+}

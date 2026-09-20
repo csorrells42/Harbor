@@ -1,0 +1,57 @@
+{
+  "name": "typst-mcp",
+  "version": "0.1.0",
+  "description": "MCP server for agent-driven Typst/LaTeX document authoring — compile, navigate, edit, review, and register research documents",
+  "type": "module",
+  "bin": {
+    "typst-mcp": "./bin/typst-mcp.js"
+  },
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "tsx src/index.ts",
+    "dev": "tsx src/index.ts",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prepublishOnly": "pnpm run build"
+  },
+  "keywords": [
+    "mcp",
+    "typst",
+    "latex",
+    "research",
+    "documents",
+    "agent",
+    "ai",
+    "llm",
+    "academic",
+    "model-context-protocol"
+  ],
+  "license": "MIT",
+  "author": "Kairo Intelligence Technologies",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/edward-lcl/typst-mcp"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.19.19",
+    "tsx": "^4.22.3",
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.4"
+  },
+  "files": [
+    "dist/",
+    "bin/",
+    "README.md",
+    "LICENSE"
+  ]
+}

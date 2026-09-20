@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "python": "3.13.15",
+  "platform": "win_amd64",
+  "packageInputsSha256": "b134afde8d768b84d68ddd20cdde8a5311beda88d922dbb92b650ab17312f6e0",
+  "artifactManifestSha256": "5554af267d00e00d55214c3dc2b3a9b50282df0c034c2313428924782515420b",
+  "scope": "Exact compatible PyPI wheel identities. License review, acquisition, offline staging and runtime acceptance are separate gates.",
+  "groups": [
+    {
+      "id": "python-build",
+      "sourceRequirementsSha256": "f3940617b84367f34bb60cd7005845d739974c75f9be977a2475928514c64418",
+      "packages": [
+        {
+          "name": "build",
+          "version": "1.6.1",
+          "artifact": "py-build-ecd351a4be9d35a9",
+          "filename": "build-1.6.1-py3-none-any.whl",
+          "sha256": "ecd351a4be9d35a9eaaba244a7687143c9c7d4aea6ac964e7e7ddab20cbcf4e7",
+          "metadataUrl": "https://pypi.org/pypi/build/1.6.1/json",
+          "metadataSha256": "064e9dcb80e948b5de7a841c3fd9b5644a980eb27bb644fb7f562b7d773b157b"
+        },
+        {
+          "name": "colorama",
+          "version": "0.4.6",
+          "artifact": "py-colorama-4f1d9991f5acc0ca",
+          "filename": "colorama-0.4.6-py2.py3-none-any.whl",
+          "sha256": "4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6",
+          "metadataUrl": "https://pypi.org/pypi/colorama/0.4.6/json",
+          "metadataSha256": "43fb351344384a44c2b7d7fff1c63496b89ac830aea714301525c1f3718addd1"
+        },
+        {
+          "name": "hatchling",
+          "version": "1.32.3",
+          "artifact": "py-hatchling-d05b350af5d9aa5b",
+          "filename": "hatchling-1.32.3-py3-none-any.whl",
+          "sha256": "d05b350af5d9aa5bf7b34b434a45a742b99e67d0b48ea67d240cfeab98e13945",
+          "metadataUrl": "https://pypi.org/pypi/hatchling/1.32.3/json",
+          "metadataSha256": "d3dd45d6f54a8273616cec236884dbbd87fa7629c78a704c80c18b1e211adb2c"
+        },
+        {
+          "name": "packaging",
+          "version": "26.3",
+          "artifact": "py-packaging-d7193f7c8e4e93f4",
+          "filename": "packaging-26.3-py3-none-any.whl",
+          "sha256": "d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c",
+          "metadataUrl": "https://pypi.org/pypi/packaging/26.3/json",
+          "metadataSha256": "4f190d2f0b312b3086058cee64ab4333bf3ce67fb78b4c2bdb43899049b29f4d"
+        },
+        {
+          "name": "pathspec",
+          "version": "1.1.1",
+          "artifact": "py-pathspec-a00ce642f577bf7f",
+          "filename": "pathspec-1.1.1-py3-none-any.whl",
+          "sha256": "a00ce642f577bf7f473932318056212bc4f8bfdf53128c78bbd5af0b9b20b189",
+          "metadataUrl": "https://pypi.org/pypi/pathspec/1.1.1/json",
+          "metadataSha256": "24f66829a7f40485bdccfcf32294218b0f4260b289ee4806ab644feb6c194766"
+        },
+        {
+          "name": "pluggy",
+          "version": "1.6.0",
+          "artifact": "py-pluggy-e920276dd6813095",
+          "filename": "pluggy-1.6.0-py3-none-any.whl",
+          "sha256": "e920276dd6813095e9377c0bc5566d94c932c33b27a3e3945d8389c374dd4746",
+          "metadataUrl": "https://pypi.org/pypi/pluggy/1.6.0/json",
+          "metadataSha256": "db23d1227f5870da7538b1e29371d9fc9a93b0499989f8e3ef021fdccd75bc8e"
+        },
+        {
+          "name": "pyproject-hooks",
+          "version": "1.3.3",
+          "artifact": "py-pyproject-hooks-5fc53fdac9f7bd63",
+          "filename": "pyproject_hooks-1.3.3-py3-none-any.whl",
+          "sha256": "5fc53fdac9f7bd63fbcdc868fb5f90b4784d78a53a3d3388cd738b807441a20b",
+          "metadataUrl": "https://pypi.org/pypi/pyproject-hooks/1.3.3/json",
+          "metadataSha256": "ef47170935f8a098c070a3cd65d637d5bbf646158d9559eebac9c465b83d0401"
+        },
+        {
+          "name": "setuptools",
+          "version": "84.0.0",
+          "artifact": "py-setuptools-51a52592b3b99e10",
+          "filename": "setuptools-84.0.0-py3-none-any.whl",
+          "sha256": "51a52592b3b99e102b609654876bd65f19f999935166d1352678931132b0c670",
+          "metadataUrl": "https://pypi.org/pypi/setuptools/84.0.0/json",
+          "metadataSha256": "24d07932459261bbf9e66e5cfdebfeba23a977234ab24bf9c3a1df053c53ba21"
+        },
+        {
+          "name": "tomlkit",
+          "version": "0.15.1",
+          "artifact": "py-tomlkit-177a05aece5a8ca5",
+          "filename": "tomlkit-0.15.1-py3-none-any.whl",
+          "sha256": "177a05aece5a8ca5266fd3c448abb47b8d352f09d477d3ca8332db4d89b24304",
+          "metadataUrl": "https://pypi.org/pypi/tomlkit/0.15.1/json",
+          "metadataSha256": "1fbf5e091a2fa4aec078b995db1ba7dc341fd28746895eb9b910442b1558c0cb"
+        },
+        {
+          "name": "trove-classifiers",
+          "version": "2026.6.1.19",
+          "artifact": "py-trove-classifiers-ab4c4ec93cc4a4e7",
+          "filename": "trove_classifiers-2026.6.1.19-py3-none-any.whl",
+          "sha256": "ab4c4ec93cc4a4e7815fa759906e05e6bb3f2fbd92ea0f897288c6a43efd15b3",
+          "metadataUrl": "https://pypi.org/pypi/trove-classifiers/2026.6.1.19/json",
+          "metadataSha256": "0b9446653c68cac29b011e49c18aa268372c28889093865a716137820451f6f8"
+        },
+        {
+          "name": "wheel",
+          "version": "0.48.0",
+          "artifact": "py-wheel-3217dcc807155e45",
+          "filename": "wheel-0.48.0-py3-none-any.whl",
+          "sha256": "3217dcc807155e45db462d7ef2431f5ddda0d7273b700d05a67b271ceb1287ab",
+          "metadataUrl": "https://pypi.org/pypi/wheel/0.48.0/json",
+          "metadataSha256": "03f655da3a6dd010d9ac41d4771d5d973109cb662a1e10eb9d967535ffd145f8"
+        }
+      ]
+    }
+  ]
+}

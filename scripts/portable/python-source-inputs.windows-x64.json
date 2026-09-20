@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "release": "python-reviewed-source-dependencies",
+  "artifacts": [
+    {
+      "id": "proxy-tools-source",
+      "role": "server",
+      "usage": "build",
+      "version": "0.1.0",
+      "url": "https://files.pythonhosted.org/packages/f2/cf/77d3e19b7fabd03895caca7857ef51e4c409e0ca6b37ee6e9f7daa50b642/proxy_tools-0.1.0.tar.gz",
+      "bytes": 2978,
+      "sha256": "ccb3751f529c047e2d8a58440d86b205303cf0fe8146f784d1cbcd94f0a28010",
+      "license": "NOASSERTION"
+    }
+  ],
+  "review": "The exact proxy-tools 0.1.0 setup.py and single Python module were inspected. No build-time network or custom commands are declared. PyPI metadata says MIT while the source header says BSD and references an absent LICENSE; redistribution notice review remains open."
+}

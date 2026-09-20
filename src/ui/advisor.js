@@ -1,4 +1,5 @@
 import {advise, categories, tierLabels} from './advisor-rules.js';
+import {createMeasuredAdvice} from './measured-advice.js';
 
 // Keep controls and keyed rows alive: polling must not steal focus or drafts.
 export function createAdvisor({el,button,openEditor,api,refresh,getSnapshot}) {
@@ -25,6 +26,7 @@ export function createAdvisor({el,button,openEditor,api,refresh,getSnapshot}) {
   }
   const root=el('section','advisor');
   root.append(el('p','eyebrow','LOCAL ADVISOR · EXPLAINABLE RULES'),el('p','muted','Checked servers start with Harbor. Changes save immediately and stay selected across restarts. Task categories only change recommendations.'));
+  root.append(createMeasuredAdvice({api}).root);
   const controls=el('div','advisor-controls');
   const label=el('label','','Task category');label.htmlFor='advisor-task';
   const task=el('select');task.id=label.htmlFor;

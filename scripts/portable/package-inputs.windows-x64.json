@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 1,
+  "observedAt": "2026-09-19T13:17:41.779Z",
+  "scope": "Reviewed package manifests/locks only. npm locks contain exact registry integrity; Python requirements pin versions but still require artifact hashes, platform wheel acquisition and offline installation validation. No environment, account configuration or installed dependency trees copied.",
+  "files": [
+    {
+      "id": "general-local",
+      "file": "package.json",
+      "sourceSha256": "f3153b3da8abe02e2f993e7c3de55dc75a60a98235b64d73d4f70e8e1e04d2e8",
+      "transformation": "none",
+      "path": "package-inputs/general-local/package.json",
+      "bytes": 520,
+      "sha256": "f3153b3da8abe02e2f993e7c3de55dc75a60a98235b64d73d4f70e8e1e04d2e8"
+    },
+    {
+      "id": "general-local",
+      "file": "package-lock.json",
+      "sourceSha256": "7a274fd4729f8d5128dee5b7892afaff6d8e0a2e5937dfa52bdddd53d3ab10fe",
+      "transformation": "none",
+      "path": "package-inputs/general-local/package-lock.json",
+      "bytes": 295026,
+      "sha256": "7a274fd4729f8d5128dee5b7892afaff6d8e0a2e5937dfa52bdddd53d3ab10fe"
+    },
+    {
+      "id": "browser-docs",
+      "file": "package.json",
+      "sourceSha256": "92598e8c76265b6273c6923901a93d36ec9ea8091becdccddbe3803a8bed3971",
+      "transformation": "none",
+      "path": "package-inputs/browser-docs/package.json",
+      "bytes": 295,
+      "sha256": "92598e8c76265b6273c6923901a93d36ec9ea8091becdccddbe3803a8bed3971"
+    },
+    {
+      "id": "browser-docs",
+      "file": "package-lock.json",
+      "sourceSha256": "32dfbea4bba6d3fa58a83240608c7ddd1dc6ed2b33dac291af678c4a6ccbb3e2",
+      "transformation": "none",
+      "path": "package-inputs/browser-docs/package-lock.json",
+      "bytes": 50766,
+      "sha256": "32dfbea4bba6d3fa58a83240608c7ddd1dc6ed2b33dac291af678c4a6ccbb3e2"
+    },
+    {
+      "id": "search",
+      "file": "package.json",
+      "sourceSha256": "27eb07b01f2bfd7e91cec43448995a8e3f977a9510e4efb4d96387f1b916831f",
+      "transformation": "none",
+      "path": "package-inputs/search/package.json",
+      "bytes": 74,
+      "sha256": "27eb07b01f2bfd7e91cec43448995a8e3f977a9510e4efb4d96387f1b916831f"
+    },
+    {
+      "id": "search",
+      "file": "package-lock.json",
+      "sourceSha256": "2daf473ee675c5833272297db6ca00ed00bb9dc08d983d345ecd18130d2199a7",
+      "transformation": "none",
+      "path": "package-inputs/search/package-lock.json",
+      "bytes": 43489,
+      "sha256": "2daf473ee675c5833272297db6ca00ed00bb9dc08d983d345ecd18130d2199a7"
+    },
+    {
+      "id": "python-tools",
+      "file": "requirements.in",
+      "sourceSha256": "b1e74d5128e0b159a46202e172e1b7ce1bef943d78f3d7aa60f92d643d3839d6",
+      "transformation": "none",
+      "path": "package-inputs/python-tools/requirements.in",
+      "bytes": 41,
+      "sha256": "b1e74d5128e0b159a46202e172e1b7ce1bef943d78f3d7aa60f92d643d3839d6"
+    },
+    {
+      "id": "python-tools",
+      "file": "requirements.txt",
+      "sourceSha256": "32b88aca1b1dd3949928e4219fd0cbfbf3de4f24dea174141a9294600811243f",
+      "transformation": "Removed two generated command-header lines and normalized CRLF; dependency lines unchanged",
+      "path": "package-inputs/python-tools/requirements.txt",
+      "bytes": 2667,
+      "sha256": "bcbb8020540750c9e83f815adbf217e625ae31cd8cc866842edda74f242fa8cb"
+    },
+    {
+      "id": "fastmcp-tools",
+      "file": "requirements.in",
+      "sourceSha256": "4f5fa3f0d695af969e82f55a2a6cbdb2800b78b8488c5b4f82cfd56d6d709aa1",
+      "transformation": "none",
+      "path": "package-inputs/fastmcp-tools/requirements.in",
+      "bytes": 30,
+      "sha256": "4f5fa3f0d695af969e82f55a2a6cbdb2800b78b8488c5b4f82cfd56d6d709aa1"
+    },
+    {
+      "id": "fastmcp-tools",
+      "file": "requirements.txt",
+      "sourceSha256": "97c6c917445aebfbba4dd17950c6844cc10c14ff73321e328acb1bf7e2c4e129",
+      "transformation": "Removed two generated command-header lines and normalized CRLF; dependency lines unchanged",
+      "path": "package-inputs/fastmcp-tools/requirements.txt",
+      "bytes": 4073,
+      "sha256": "7f9b152a595d734b03874b5da9e0dd08b0446fd2924f4696a99116a3afd57509"
+    }
+  ]
+}

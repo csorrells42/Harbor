@@ -1,0 +1,102 @@
+{
+  "name": "dbhub",
+  "version": "1.2.5",
+  "mcpName": "io.github.bytebase/dbhub",
+  "description": "Minimal, token-efficient Database MCP Server for PostgreSQL, MySQL, SQL Server, SQLite, MariaDB",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bytebase/dbhub.git"
+  },
+  "main": "dist/index.js",
+  "type": "module",
+  "bin": {
+    "dbhub": "dist/index.js"
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "pnpm run generate:api-types && tsup && cd frontend && pnpm run build",
+    "build:backend": "pnpm run generate:api-types && tsup",
+    "build:frontend": "cd frontend && pnpm run build",
+    "build:mcpb": "pnpm run build:backend && node scripts/build-mcpb.mjs",
+    "test:mcpb": "node scripts/smoke-test-mcpb.mjs",
+    "start": "node dist/index.js",
+    "dev": "concurrently --kill-others \"pnpm run dev:backend\" \"pnpm run dev:frontend\"",
+    "dev:backend": "NODE_ENV=development tsx src/index.ts --transport=http",
+    "dev:frontend": "cd frontend && pnpm run dev",
+    "crossdev": "cross-env NODE_ENV=development tsx src/index.ts",
+    "generate:api-types": "openapi-typescript src/api/openapi.yaml -o src/api/openapi.d.ts",
+    "test": "vitest run",
+    "test:unit": "vitest run --project unit",
+    "test:watch": "vitest",
+    "test:integration": "vitest run --project integration",
+    "test:build": "node scripts/smoke-test-build.mjs",
+    "sync-version": "node scripts/sync-version.mjs",
+    "version": "pnpm run sync-version && git add plugin/.claude-plugin/plugin.json plugin/.mcp.json server.json"
+  },
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "packageManager": "pnpm@10.17.1",
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@iarna/toml": "^2.2.5",
+    "@modelcontextprotocol/node": "^2.0.0",
+    "@modelcontextprotocol/server": "^2.0.0",
+    "dotenv": "^16.6.1",
+    "express": "^4.22.3",
+    "ssh-config": "^5.3.0",
+    "ssh2": "^1.17.0",
+    "zod": "^4.6.5",
+    "hono": "4.13.5"
+  },
+  "optionalDependencies": {
+    "@aws-sdk/credential-providers": "^3.1136.0",
+    "@aws-sdk/rds-signer": "^3.1136.0",
+    "@azure/identity": "^4.13.3",
+    "mariadb": "^3.5.4",
+    "mssql": "^11.0.2",
+    "mysql2": "^3.24.4",
+    "pg": "^8.23.0"
+  },
+  "devDependencies": {
+    "@anthropic-ai/mcpb": "^2.1.2",
+    "@modelcontextprotocol/client": "^2.0.0",
+    "@testcontainers/mariadb": "^11.14.0",
+    "@testcontainers/mssqlserver": "^11.14.0",
+    "@testcontainers/mysql": "^11.14.0",
+    "@testcontainers/postgresql": "^11.14.0",
+    "@types/express": "^4.17.25",
+    "@types/mssql": "^9.1.11",
+    "@types/node": "^22.20.4",
+    "@types/pg": "^8.23.1",
+    "@types/ssh2": "^1.15.6",
+    "concurrently": "^9.2.4",
+    "cross-env": "^7.0.3",
+    "openapi-typescript": "^7.13.0",
+    "prettier": "^3.9.8",
+    "testcontainers": "^11.14.0",
+    "ts-node": "^10.9.2",
+    "tsup": "^8.5.1",
+    "tsx": "^4.23.13",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.11"
+  },
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "esModuleInterop": true,
+    "strict": true,
+    "outDir": "dist",
+    "rootDir": "src"
+  },
+  "include": [
+    "src/**/*"
+  ]
+}

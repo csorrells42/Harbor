@@ -17,9 +17,11 @@
         <button class="nav-item" data-view="this-server" aria-label="This Server"><span data-icon="harbor"></span>This Server</button>
         <button class="nav-item active" data-view="servers" aria-label="Children Servers Statuses" aria-current="page"><span data-icon="servers"></span><span class="nav-title">Children Servers Statuses</span><span class="nav-count" id="nav-servers">0</span></button>
         <button class="nav-item" data-view="tool-delivery" aria-label="Tool Delivery"><span data-icon="search"></span>Tool Delivery</button>
+        <button class="nav-item" data-view="profiles" aria-label="Profiles"><span data-icon="connections"></span>Profiles</button>
         <button class="nav-item" data-view="diagnostics" aria-label="Diagnostics"><span data-icon="activity"></span>Diagnostics</button>
         <button class="nav-item" data-view="advisor" aria-label="Advisor"><span data-icon="shield"></span>Advisor</button>
         <button class="nav-item" data-view="tools" aria-label="Tools"><span data-icon="tools"></span>Tools<span class="nav-count" id="nav-tools">0</span></button>
+        <button class="nav-item" data-view="timeline" aria-label="Request timeline"><span data-icon="activity"></span>Request timeline</button>
         <button class="nav-item" data-view="activity" aria-label="Activity"><span data-icon="activity"></span>Activity</button>
         <button class="nav-item" data-view="connections" aria-label="Connections"><span data-icon="connections"></span>Connections</button>
         <button class="nav-item" data-view="maintenance" aria-label="Maintenance"><span data-icon="tools"></span>Maintenance</button>
@@ -61,7 +63,8 @@
         <div id="remote-fields" hidden><div class="field"><label for="url">Server URL</label><input id="url" name="url" type="url" class="mono" placeholder="https://your-server.example/mcp"><small>Enter the full HTTP/SSE endpoint. Custom authentication headers are not supported.</small></div>
           <div class="field"><label for="managedProcesses">Managed processes (JSON array)</label><textarea id="managedProcesses" name="managedProcesses" rows="6" spellcheck="false">[]</textarea><small>Optional HTTP/SSE launch section. [] means externally managed: Start, Stop and Restart affect only the connection. A nonempty array makes Harbor own every foreground process and stop them together.</small><small>Each entry: {"command":"node","args":["server.mjs"],"cwd":"optional path","env":{},"runtime":"native","distro":"optional WSL distribution"}. Use runtime "wsl" with Linux commands/paths; WSL requires python3. Do not use detached launchers. Stop the existing service before transferring ownership. Startup uses the gateway initialization/discovery timeout. Values are saved locally in plain text.</small></div>
         </div>
-        <div class="checkboxes"><label><input type="checkbox" id="autoStart" name="autoStart"> Start automatically when Harbor opens</label><label><input type="checkbox" id="autoRestart" name="autoRestart"> Restart automatically after a failure</label></div>
+        <div class="checkboxes"><label><input type="checkbox" id="server-enabled" name="enabled" checked> Enabled for use</label><label><input type="checkbox" id="autoStart" name="autoStart"> Start automatically when Harbor opens</label><label><input type="checkbox" id="onDemand" name="onDemand"> Eligible for on-demand start</label><label><input type="checkbox" id="autoRestart" name="autoRestart"> Restart automatically after a failure</label></div>
+        <div class="field"><label for="idleMinutes">On-demand idle shutdown (minutes)</label><input type="number" id="idleMinutes" name="idleMinutes" min="1" max="1440" value="5"><small>Applies only to processes started on demand, with no active calls or profile session retaining them. Start once to capture a catalog. Search uses that cache without starting the server. Stop suppresses on-demand use until an explicit Start, configuration save or next Harbor launch.</small></div>
         <p class="notice">Shared upstream: all connected apps use this server’s process, tools and mutable state. Use separate entries for project isolation.</p>
         <div id="form-error" class="form-error" role="alert" hidden></div>
       </div>

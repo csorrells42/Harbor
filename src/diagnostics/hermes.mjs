@@ -3,14 +3,14 @@ import {createInterface} from 'node:readline';
 import {fileURLToPath} from 'node:url';
 import path from 'node:path';
 
-export function createHermesAdapter({source=path.join(process.env.LOCALAPPDATA||'', 'hermes'),workerPath=fileURLToPath(new URL('./hermes_worker.py',import.meta.url)),spawnProcess=spawn}={}) {
+export function createHermesAdapter({source=path.join(process.env.LOCALAPPDATA||'', 'hermes'),inference=null,workerPath=fileURLToPath(new URL('./hermes_worker.py',import.meta.url)),spawnProcess=spawn}={}) {
   const python=path.join(source,'hermes-agent/venv/Scripts/python.exe');
   const invocations=new Set();let closed=false,closing;
   function invoke(request,{signal,onEvent=()=>{},timeout=30000}={}) {
     if(closed)return Promise.reject(new Error('Hermes adapter is closed'));
     const invocation={stop:null,done:null};
     const done=new Promise((resolve,reject)=>{
-      const events=[];let stopping=null,force,ended=false,termination=Promise.resolve();
+      const events=[];let stopping=null,force,ended=false,termination=Promise.resolve(),capturedBytes=0,eventsTruncated=false,resultRecord;
       const child=spawnProcess(python,['-B',workerPath],{windowsHide:true,detached:process.platform!=='win32',stdio:['pipe','pipe','ignore'],env:{...process.env,PYTHONDONTWRITEBYTECODE:'1'}});
       const kill=reason=>{
         if(stopping||ended)return;stopping=reason;
@@ -30,18 +30,24 @@ export function createHermesAdapter({source=path.join(process.env.LOCALAPPDATA||
       const abort=()=>kill('cancelled');
       signal?.addEventListener('abort',abort,{once:true});if(signal?.aborted)abort();
       const timer=setTimeout(()=>kill('timeout'),timeout);
-      createInterface({input:child.stdout}).on('line',line=>{if(line.length>200000)return;try{const e=JSON.parse(line);events.push(e);onEvent(e);}catch{}});
-      child.stdin.on('error',()=>{});child.stdin.end(JSON.stringify({...request,source}));
+      createInterface({input:child.stdout}).on('line',line=>{
+        if(line.length>200000){eventsTruncated=true;return;}
+        try{const e=JSON.parse(line);if(e.type==='result')resultRecord=e;
+          const bytes=Buffer.byteLength(line);if(events.length<2000&&capturedBytes+bytes<=8*1024*1024){events.push(e);capturedBytes+=bytes;}else eventsTruncated=true;
+          onEvent(e);
+        }catch{}
+      });
+      child.stdin.on('error',()=>{});child.stdin.end(JSON.stringify({...request,source,inference}));
       const cleanup=()=>{clearTimeout(timer);clearTimeout(force);signal?.removeEventListener('abort',abort);};
       child.on('error',error=>{ended=true;cleanup();reject(new Error(`Hermes Python could not start: ${error.code||'unknown'}`));});
-      child.on('close',async code=>{ended=true;cleanup();await termination;resolve({events,status:stopping||(code===0?'finished':'infrastructure-error'),error:events.find(e=>e.type==='error')?.message,result:events.find(e=>e.type==='result')});});
+      child.on('close',async code=>{ended=true;cleanup();await termination;resolve({events,eventsTruncated,capturedBytes,status:stopping||(code===0?'finished':'infrastructure-error'),error:events.find(e=>e.type==='error')?.message,result:resultRecord});});
     });
     invocation.done=done;invocations.add(invocation);
     done.then(()=>invocations.delete(invocation),()=>invocations.delete(invocation));
     return done;
   }
   return {
-    async probe(options){const r=await invoke({op:'probe'},options);const inventory=r.events.find(e=>e.type==='inventory');if(!inventory)throw new Error(r.error||`Hermes probe ${r.status}`);return inventory;},
+    async probe(options){const r=await invoke({op:'probe'},{timeout:120000,...options});const inventory=r.events.find(e=>e.type==='inventory');if(!inventory)throw new Error(r.error||`Hermes probe ${r.status}`);return inventory;},
     run:(request,options)=>invoke({op:'run',...request},{...options,timeout:request.maxTrialSeconds*1000}),
     close(){
       if(closing)return closing;closed=true;

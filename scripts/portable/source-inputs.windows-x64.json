@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "release": "phase2-windows-x64-server-sources-1",
+  "artifacts": [
+    {
+      "id": "typst-mcp-source",
+      "role": "server",
+      "version": "a0f0f0e5411349c0a42f6084e3812edeef77ec2e",
+      "usage": "both",
+      "url": "https://codeload.github.com/edward-lcl/typst-mcp/zip/a0f0f0e5411349c0a42f6084e3812edeef77ec2e",
+      "bytes": 78451,
+      "sha256": "a7223faca65f95814217cbad24447b304a024bc3d7831edf13806c110569c71c",
+      "license": "MIT"
+    },
+    {
+      "id": "serena-source",
+      "role": "server",
+      "version": "c6fbd1c5932df2494ffa0020af5a9fbe80b82143",
+      "usage": "both",
+      "url": "https://codeload.github.com/oraios/serena/zip/c6fbd1c5932df2494ffa0020af5a9fbe80b82143",
+      "bytes": 3033224,
+      "sha256": "3b8a7eed655178ee1f2c1a1594764b752ef5ccccbc239464e9a372c14281ceaa",
+      "license": "GPL-3.0-or-later application; SolidLSP remains MIT"
+    },
+    {
+      "id": "pdf-tools-source",
+      "role": "server",
+      "version": "345a69c062ef5f4fd312a29d0cca6d09988899df",
+      "usage": "both",
+      "url": "https://codeload.github.com/rsp2k/mcp-pdf/zip/345a69c062ef5f4fd312a29d0cca6d09988899df",
+      "bytes": 2390711,
+      "sha256": "b09a33979441cb461f3b3d54ebeb3cc9e94eaf34d1c41ec8b626423d99ad6b58",
+      "license": "MIT for the server project"
+    },
+    {
+      "id": "duckdb-source",
+      "role": "server",
+      "version": "275d2e7d2ba4f5b48ce8ad3f01a9aeea8bd08616",
+      "usage": "both",
+      "url": "https://codeload.github.com/motherduckdb/mcp-server-motherduck/zip/275d2e7d2ba4f5b48ce8ad3f01a9aeea8bd08616",
+      "bytes": 168014,
+      "sha256": "9bad9307a7b771ecf412832c06d5b10a36ac243f8fa35f820c8bdeceb6e305cb",
+      "license": "MIT"
+    },
+    {
+      "id": "markitdown-source",
+      "role": "server",
+      "version": "945314a45ddbe02935f2fd287b797dc0ba4a01e4",
+      "usage": "both",
+      "url": "https://codeload.github.com/microsoft/markitdown/zip/945314a45ddbe02935f2fd287b797dc0ba4a01e4",
+      "bytes": 4128535,
+      "sha256": "8dbd14e035b7355187caea64e9ce2960bd4342c4e4a77b451f4c8c0011bc8188",
+      "license": "MIT"
+    },
+    {
+      "id": "excel-source",
+      "role": "server",
+      "version": "f51340ecd5778952405044b203d3a2d4c8a46833",
+      "usage": "both",
+      "url": "https://codeload.github.com/haris-musa/excel-mcp-server/zip/f51340ecd5778952405044b203d3a2d4c8a46833",
+      "bytes": 118568,
+      "sha256": "dcb4d35c79ed28fc6febe3c708745bf5a69095c747813af6b7adbfec25c2818d",
+      "license": "MIT"
+    },
+    {
+      "id": "word-source",
+      "role": "server",
+      "version": "9c0c0b7694d8123e82fe6b7c480899890dca0695",
+      "usage": "both",
+      "url": "https://codeload.github.com/SecurityRonin/docx-mcp/zip/9c0c0b7694d8123e82fe6b7c480899890dca0695",
+      "bytes": 2694058,
+      "sha256": "6724b29f91508177f9637c8a04cce9b7da3b5ea40cb88a63568359d3179b4cf3",
+      "license": "MIT"
+    },
+    {
+      "id": "dbhub-source",
+      "role": "server",
+      "version": "80b87cb74f16c20a711d8b1d12a0cbb08432f8cd",
+      "usage": "both",
+      "url": "https://codeload.github.com/bytebase/dbhub/zip/80b87cb74f16c20a711d8b1d12a0cbb08432f8cd",
+      "bytes": 1513800,
+      "sha256": "4a91d19f602f366f98a30ee80910ce6eb0cd31882df3bc17a69ac71155e2b66d",
+      "license": "MIT"
+    },
+    {
+      "id": "portkey-tools-source",
+      "role": "server",
+      "version": "f53ebc13793268ba4ca1d549239f3fb59b403a63",
+      "usage": "both",
+      "url": "https://codeload.github.com/Portkey-AI/mcp-tool-filter/zip/f53ebc13793268ba4ca1d549239f3fb59b403a63",
+      "bytes": 150699,
+      "sha256": "f2735093c6797211ee797f897f66d4dd920e15eb460026fa0dfcc01953353e09",
+      "license": "MIT"
+    }
+  ]
+}

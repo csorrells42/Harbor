@@ -1,11 +1,12 @@
 import {DELIVERY_MODES,SEARCH_DEFAULTS} from '../core/delivery-options.js';
+import {CONNECTION_CLIENTS,formatClientConfiguration,clientConnectionSteps,clientConnectionHelp} from '../core/client-config.js';
 import {createDeliveryPanel} from './delivery-settings.js';
 import { parseServerForm, createTemplate, parseImport } from './helpers.js';
 import { createAdvisor } from './advisor.js';
 
 const $ = selector => document.querySelector(selector);
 const api = window.harbor;
-let advisor,deliveryPanel,gatewayAuthPanel,disposeDiagnostics,viewRevision=0;
+let advisor,deliveryPanel,gatewayAuthPanel,disposeDiagnostics,disposeTimeline,disposeProfiles,viewRevision=0;
 const state = { view:'servers', snapshot:{servers:[],tools:[],clients:[],logs:[]}, info:null, loaded:false, search:'', filter:'all', busy:new Set(), editing:null, signature:'', polling:false };
 const paths = {
   harbor:'M12 3v14m-4-6 4 4 4-4M5 12H3a9 9 0 0 0 18 0h-2M9 4h6',
@@ -43,12 +44,19 @@ function searchBox(label) { const wrap=el('div','search-wrap'); const input=el('
 function setView(view) {
   const revision=++viewRevision;
   disposeDiagnostics?.();disposeDiagnostics=undefined;
+  disposeTimeline?.();disposeTimeline=undefined;
+  disposeProfiles?.();disposeProfiles=undefined;
   state.view=view;state.search='';state.filter='all';state.signature='';
   document.querySelectorAll('[data-view]').forEach(node=>{const active=node.dataset.view===view;node.classList.toggle('active',active);if(active)node.setAttribute('aria-current','page');else node.removeAttribute('aria-current');});
-  const title=view==='tool-delivery'?'Tool Delivery':view==='this-server'?'This Server':view==='servers'?'Children Servers Statuses':view[0].toUpperCase()+view.slice(1); $('#breadcrumb-view').textContent=title;$('#page-title').textContent=title;
-  $('#page-subtitle').textContent={'tool-delivery':'Control how your model finds tools and receives search results.',diagnostics:'Compare models, harnesses and tool delivery with repeatable tests.',advisor:'Choose the tools for this task, not every tool at once.','this-server':'Connection details and settings for your MCP gateway.',servers:'Manage the servers behind your AI tools.',tools:'Explore the tools available through your gateway.',activity:'A live view of server lifecycle and diagnostic logs.',connections:'One local endpoint for all your MCP-compatible apps.',maintenance:'Update and rebuild your bundled tools on request.'}[view];
+  const title=view==='timeline'?'Request timeline':view==='tool-delivery'?'Tool Delivery':view==='this-server'?'This Server':view==='servers'?'Children Servers Statuses':view[0].toUpperCase()+view.slice(1); $('#breadcrumb-view').textContent=title;$('#page-title').textContent=title;
+  $('#page-subtitle').textContent={timeline:'Inspect requests, discovery and execution with bounded local traces.','tool-delivery':'Control how your model finds tools and receives search results.',diagnostics:'Compare Harbor delivery for one fixed harness and model setup.',advisor:'Choose the tools for this task, not every tool at once.','this-server':'Connection details and settings for your MCP gateway.',servers:'Manage the servers behind your AI tools.',tools:'Explore the tools available through your gateway.',activity:'A live view of server lifecycle and diagnostic logs.',connections:'One local endpoint for all your MCP-compatible apps.',maintenance:'Update and rebuild your bundled tools on request.'}[view];
   const actions=$('#page-actions');actions.replaceChildren();const content=$('#content');content.replaceChildren();
-  if(view==='diagnostics'){
+  if(view==='profiles'){
+    $('#page-subtitle').textContent='Separate toolboxes, explicit ownership and saved client connections.';
+    import('./profiles.js').then(({mountProfiles})=>{if(state.view==='profiles'&&revision===viewRevision)disposeProfiles=mountProfiles(content,api);}).catch(error=>toast(errorText(error)));
+  } else if(view==='timeline'){
+    import('./request-timeline.js').then(({mountRequestTimeline})=>{if(state.view==='timeline'&&revision===viewRevision)disposeTimeline=mountRequestTimeline(content,api);}).catch(error=>toast(errorText(error)));
+  } else if(view==='diagnostics'){
     const target=content;import('../diagnostics/ui.js').then(({mountDiagnostics})=>{if(state.view==='diagnostics'&&revision===viewRevision)disposeDiagnostics=mountDiagnostics(target,api);}).catch(error=>toast(errorText(error)));
   } else if(view==='servers') {
     actions.append(button('Import config',openImport,'ghost','import'),button('Add server',()=>openEditor(),'primary','plus'));
@@ -70,7 +78,7 @@ function renderLive(force=false) {
   $('#nav-servers').textContent=servers.length;$('#nav-tools').textContent=tools.length;
   $('#status-summary').textContent=state.loaded?`${servers.length} servers · ${tools.length} tools · ${clients.length} connected apps`:'Loading workspace…';
   const selected=['servers','advisor'].includes(state.view)?servers:state.snapshot[state.view==='activity'?'logs':state.view==='connections'?'clients':'tools'];
-  const signature=JSON.stringify([selected,state.search,state.filter,[...state.busy],state.loaded,tools.length,clients.length,state.info,state.snapshot.settings,state.snapshot.authentication,state.snapshot.endpoints,state.snapshot.maintenance,state.snapshot.maintenanceInfo]);
+  const signature=JSON.stringify([selected,state.search,state.filter,[...state.busy],state.loaded,tools.length,clients.length,state.info,state.snapshot.settings,state.snapshot.authentication,state.snapshot.endpoints,state.snapshot.maintenance,state.snapshot.maintenanceReady,state.snapshot.maintenanceTransition,state.snapshot.maintenanceInfo]);
   if(!force&&signature===state.signature)return;state.signature=signature;
   const results=$('#content .results');if(!results)return;
   if(state.view==='servers') {
@@ -94,10 +102,11 @@ function renderLive(force=false) {
   else renderConnections(results);
 }
 function renderMaintenance(results){
-  const info=state.snapshot.maintenanceInfo,paused=state.snapshot.maintenance;
+  const info=state.snapshot.maintenanceInfo,paused=state.snapshot.maintenance,ready=state.snapshot.maintenanceReady===true,transition=state.snapshot.maintenanceTransition;
   const panel=el('div','connection-card');panel.append(el('h2','','Maintenance'),el('p','muted','Check project repositories and build updates when you request them. Entering maintenance pauses tool calls and stops Harbor-owned servers. Existing selections and project data are retained.'));
   const act=async operation=>{try{await operation();await refresh();}catch(error){toast(errorText(error));}};
-  const toggle=button(paused?'Resume servers':'Enter maintenance mode',()=>act(()=>paused?api.leaveMaintenance():api.enterMaintenance()),'primary');toggle.disabled=!!info?.busy;panel.append(toggle);
+  const toggle=button(transition==='entering'?'Stopping servers…':transition==='leaving'?'Resuming servers…':ready?'Resume servers':paused?'Retry maintenance':'Enter maintenance mode',()=>act(()=>ready?api.leaveMaintenance():api.enterMaintenance()),'primary');toggle.disabled=!!info?.busy||!!transition;panel.append(toggle);
+  if(paused&&!ready&&!transition)panel.append(el('p','notice','Server shutdown did not finish. Updates remain unavailable; retry maintenance after resolving the reported error.'));
   if(!info){panel.append(el('p','hint','Portable build recipes are not present in this installation.'));results.replaceChildren(panel);return;}
   panel.append(el('p','hint',`${info.phase}: ${info.message}`));if(info.error)panel.append(el('p','form-error',info.error));
   for(const component of info.components){
@@ -105,7 +114,7 @@ function renderMaintenance(results){
     const buttons=el('div','actions');
     for(const [label,operation] of [ ['Update and build',()=>api.updateComponent(component.id,{rebuild:false})],['Rebuild',()=>api.updateComponent(component.id,{rebuild:true})],['Restore previous',()=>api.rollbackComponent(component.id)] ]){
       if(label==='Restore previous'&&component.canRestore===false)continue;
-      const b=button(label,()=>act(operation),'ghost');b.disabled=!paused||info.busy||(label==='Update and build'&&!component.updatable);buttons.append(b);
+      const b=button(label,()=>act(operation),'ghost');b.disabled=!ready||!!transition||info.busy||(label==='Update and build'&&!component.updatable);buttons.append(b);
     }
     card.append(buttons);panel.append(card);
   }
@@ -252,7 +261,7 @@ function renderThisServer(results) {
   const details=results.querySelector('.this-server-connection');
   renderConnections(details,false);
 }
-let snippetMode='http', snippetAddress=null, configurationsOpen=false;
+let snippetMode='http', snippetClient='lmstudio', snippetAddress=null, configurationsOpen=false;
 // Change only exact endpoint values; never interpolate untrusted data into HTML.
 function withEndpoint(config,from,to) {
   if(typeof config==='string')return config===from?to:config;
@@ -289,17 +298,22 @@ function renderConnections(results,includeClients=true){
   gateway.append(el('p','hint',`Listening on ${bindAddress??'unknown'} · ${networkEndpoints.length?'Network access enabled':'No network URLs advertised'}`));
   gateway.append(el('p','hint',`Tool delivery: ${Object.fromEntries(DELIVERY_MODES)[state.snapshot.settings?.toolMode??info.settings?.toolMode??'all']}`));
   if(info.serverName)gateway.append(el('p','hint',`Protocol server: ${info.serverName}${info.version?` · ${info.version}`:''}`));
-  gateway.append(el('p','hint',activeAuthentication().enabled?'API key required for gateway connections. Traffic uses HTTP and is not encrypted. Prompts and resources are not proxied.':'No authentication. Any process or device that can reach the endpoint can use its tools. Prompts and resources are not proxied.'));
-  const configs=el('details','client-configurations');configs.open=includeClients||configurationsOpen;configs.append(el('summary','','Client configurations'));configs.addEventListener('toggle',()=>{if(!includeClients&&configs.isConnected)configurationsOpen=configs.open;});
+  gateway.append(el('p','hint',(activeAuthentication().enabled?'API key required for gateway connections. Traffic uses HTTP and is not encrypted.':'No authentication. Any process or device that can reach the endpoint can use its exposed capabilities.')+' Tools, resources and prompts follow the selected profile. Sampling and elicitation are unsupported.'));
+  const configs=el('details','client-configurations');configs.open=includeClients||configurationsOpen;configs.append(el('summary','','Help with connections'));configs.addEventListener('toggle',()=>{if(!includeClients&&configs.isConnected)configurationsOpen=configs.open;});
+  const clientField=el('div','field'),clientLabel=el('label','','Client application'),clientSelect=el('select');clientLabel.htmlFor='configuration-client';clientSelect.id=clientLabel.htmlFor;
+  for(const [value,label] of CONNECTION_CLIENTS){const option=el('option','',label);option.value=value;clientSelect.append(option);}clientSelect.value=snippetClient;
+  clientSelect.addEventListener('change',()=>{snippetClient=clientSelect.value;renderLive(true);});clientField.append(clientLabel,clientSelect);configs.append(clientField);
   const addressField=el('div','field');const caption=el('label','','Configuration address');caption.htmlFor='configuration-address';const addresses=el('select');addresses.id=caption.htmlFor;
   const choices=[endpoint,...networkEndpoints];if(!choices.includes(snippetAddress))snippetAddress=endpoint;
   choices.forEach((url,index)=>{const option=el('option','',`${index?'LAN':'Local'} · ${url}`);option.value=url;addresses.append(option);});addresses.value=snippetAddress;
   addresses.addEventListener('change',()=>{snippetAddress=addresses.value;renderLive(true);});addressField.append(caption,addresses);configs.append(addressField);
+  const help=clientConnectionHelp(snippetClient);if(!help.formats.includes(snippetMode))snippetMode=help.formats[0];
+  const selectedLine=el('div','endpoint-line connection-string');selectedLine.append(el('span','hint','Connection string'),el('code','',snippetAddress),button('Copy selected endpoint',()=>copy(snippetAddress),'ghost','copy'));configs.append(selectedLine);
   const segmented=el('div','segmented');segmented.setAttribute('aria-label','Configuration format');
-  for(const [value,label] of [['http','Streamable HTTP'],['stdio','Stdio bridge']]){const b=button(label,()=>{snippetMode=value;renderLive(true);},snippetMode===value?'active':'');b.setAttribute('aria-pressed',String(snippetMode===value));segmented.append(b);}
-  const snippet=JSON.stringify(connectionTemplate(info,snippetMode,snippetAddress),null,2);
-  configs.append(segmented,el('p','',snippetMode==='http'?'For apps that accept a remote Streamable HTTP server. Paste into the app’s MCP configuration; its exact wrapper may differ.':'For apps that only launch stdio servers. The bridge requires Node.js and the bridge file at the shown path on the client machine. It forwards to Harbor without starting another upstream server.'));
-  configs.append(el('pre','',snippet));const copyRow=el('div','connection-top');copyRow.append(el('span','hint',activeAuthentication().enabled?'Example key is hidden. Copy configuration includes the saved key; keep the clipboard and pasted configuration private.':'Merge the entry into your existing config, then reconnect your app.'),button('Copy configuration',async()=>{try{await api.copyConnectionConfiguration({format:snippetMode,endpoint:snippetAddress});toast('Configuration copied to clipboard');}catch{toast('Could not copy the connection configuration. Refresh the connection details and try again.');}},'ghost','copy'));configs.append(copyRow);gateway.append(configs);
+  for(const [value,label] of [['http','Streamable HTTP'],['stdio','Stdio bridge']]){if(!help.formats.includes(value))continue;const b=button(label,()=>{snippetMode=value;renderLive(true);},snippetMode===value?'active':'');b.setAttribute('aria-pressed',String(snippetMode===value));segmented.append(b);}
+  const snippet=formatClientConfiguration(connectionTemplate(info,snippetMode,snippetAddress),snippetClient);
+  const steps=el('ol','client-setup-steps');for(const step of clientConnectionSteps(snippetClient,snippetMode))steps.append(el('li','',step));configs.append(segmented,el('p','hint','Setup recipe: support depends on your client version. A saved configuration is not a verified connection. Reconnect and check the tools in your client.'),steps);
+  configs.append(el('p','hint',help.caption),el('pre','',snippet));const copyRow=el('div','connection-top');copyRow.append(el('span','hint',activeAuthentication().enabled?'Example key is hidden. Copy configuration includes the saved key; keep the clipboard and pasted configuration private.':'Use the copied settings in the selected client, then reconnect your app.'),button('Copy configuration',async()=>{try{await api.copyConnectionConfiguration({format:snippetMode,endpoint:snippetAddress,client:snippetClient});toast('Configuration copied to clipboard');}catch{toast('Could not copy the connection configuration. Refresh the connection details and try again.');}},'ghost','copy'));configs.append(copyRow);gateway.append(configs);
   gateway.append(el('p','config-path',`Children configuration: ${info.configPath}`),el('p','config-path',`Gateway settings: ${info.settingsPath??'Unavailable'}`));results.append(gateway);
   if(!includeClients)return;
   const clients=el('section','connection-card');const heading=el('div','connection-top');heading.append(el('h3','','Connected apps'),el('span','tag',`${state.snapshot.clients.length} sessions`));clients.append(heading);
@@ -332,6 +346,8 @@ function renderServers(results) {
     const status=['running','starting','stopped','error'].includes(server.status)?server.status:'stopped';const badge=el('span',`status-badge status-${status}`);badge.append(el('span','status-dot'),document.createTextNode(status[0].toUpperCase()+status.slice(1)));main.append(avatar,details,badge);card.append(main);
     if(server.error)card.append(el('div','server-error',server.error));
     const footer=el('div','server-footer');const tags=el('div','server-tags');for(const text of [server.transport==='stdio'?(server.runtime==='wsl'?'WSL · stdio':'Native · stdio'):(server.transport==='sse'?'SSE':'HTTP'),`${server.toolCount??0} tools`,server.pid?`PID ${server.pid}`:server.transport==='stdio'?'No active PID':'Remote process',server.id])tags.append(el('span','tag',text));
+    if(server.enabled===false)tags.append(el('span','tag','Disabled for use'));
+    else if(server.onDemand)tags.append(el('span','tag',server.onDemandBlocked?'On-demand suppressed by Stop':server.idleUncertain?'Idle shutdown paused: request outcome unknown':`${server.cachedToolCount??0} cached tools · on demand${server.onDemandOwned?' · idle shutdown enabled':''}`));
     if(server.transport!=='stdio') {
       const owned=server.ownership==='managed'||server.managedProcesses?.length;
       tags.append(el('span','tag',owned?'Harbor-owned processes':'Externally managed · connection only'));
@@ -342,7 +358,7 @@ function renderServers(results) {
     else actions.append(button('Start',()=>serverAction('startServer',server.id),'','play'));
     if(status==='running'||status==='error')actions.append(button('Restart',()=>serverAction('restartServer',server.id),'ghost'));
     actions.append(button('Configure',()=>openEditor(server),'ghost'),button('Remove',()=>confirmRemove(server),'ghost'));
-    actions.querySelectorAll('button').forEach(b=>b.disabled=state.busy.has(server.id));footer.append(tags,actions);card.append(footer);list.append(card);
+    actions.querySelectorAll('button').forEach(b=>{b.disabled=state.busy.has(server.id)||(server.enabled===false&&['Start','Restart'].includes(b.textContent));if(server.enabled===false&&['Start','Restart'].includes(b.textContent))b.title='Enable this server for use in Configure first';});footer.append(tags,actions);card.append(footer);list.append(card);
   }
   results.append(list,sharedNote());
 }
@@ -371,6 +387,7 @@ function populateForm(config={}) {
   $('#args').value=JSON.stringify(config.args??[],null,2);$('#env').value=JSON.stringify(config.env??{},null,2);
   $('#managedProcesses').value=JSON.stringify(config.managedProcesses??[],null,2);
   $('#autoStart').checked=config.autoStart===true;$('#autoRestart').checked=config.autoRestart===true;syncFields();
+  $('#server-enabled').checked=config.enabled!==false;$('#onDemand').checked=config.onDemand===true;$('#idleMinutes').value=config.idleMinutes??5;
 }
 function syncFields(){const remote=$('#transport').value!=='stdio';$('#stdio-fields').hidden=remote;$('#remote-fields').hidden=!remote;$('#runtime-field').hidden=remote;$('#distro-field').hidden=$('#runtime').value!=='wsl';$('#browse-directory').disabled=$('#runtime').value==='wsl';}
 function openEditor(server=null,template='custom') {
@@ -403,6 +420,7 @@ $('#server-form').addEventListener('submit',async event=>{
   event.preventDefault();message('#form-error','');const save=$('#save-server');save.disabled=true;
   try{
     const form=Object.fromEntries(new FormData(event.currentTarget));form.autoStart=$('#autoStart').checked;form.autoRestart=$('#autoRestart').checked;
+    form.enabled=$('#server-enabled').checked;form.onDemand=$('#onDemand').checked;
     const config=parseServerForm(form);
     if(!state.editing&&state.snapshot.servers.some(s=>s.id===config.id))throw new Error('This server ID already exists. Choose a unique ID.');
     await api.saveServer(config);await refresh(true);$('#server-dialog').close();toast('Server configuration saved');
