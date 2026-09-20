@@ -38,7 +38,7 @@ Follow the connection path first, then explore delivery modes and Diagnostics. E
 
 ### Use an existing Portable bundle
 
-1. Extract the full Harbor Portable bundle into a user-writable folder. Keep its directory structure intact. Do not run a lone executable copied away from its resources, runtimes and packages.
+1. Extract the full Harbor Portable bundle into a short, user-writable destination such as **`C:\H`**. Deep Desktop or Downloads paths can exceed Windows extraction limits. If extraction reports long filenames, use a fresh short destination; do not run the partial copy. Keep the directory structure intact and do not run a lone executable copied away from its resources, runtimes and packages.
 2. Double-click **Start Harbor.vbs**. Use **Start Harbor.cmd** if you want to launch from a command prompt. Allow initial discovery to finish.
 3. Open **This Server**. Confirm the gateway is online and note the actual endpoint. The default local endpoint is `http://127.0.0.1:37373/mcp`.
 4. Open **Children Servers Statuses**. Inspect startup errors. Start only the servers appropriate to your work, or use **Advisor** to choose a toolbox. Advisor checkboxes save next-launch startup preferences immediately; **Start selected** starts eligible stopped entries now.
@@ -1253,7 +1253,7 @@ For public release, package application code, documentation, dependency/license 
 
 The gateway's optional shared bearer key and optional loopback restriction are independent; new installations enable both. A saved disabled choice persists. The key restricts gateway access but provides neither TLS nor per-client/per-tool permissions. With the key disabled, any process or device that can reach the selected listener can call its available tools. Harbor does not create firewall/router rules. The plaintext gateway store, server environment files and provider credential files require ordinary filesystem protection and must not be included in a public distribution containing real keys. Explicit clipboard copies of a key or authenticated configuration contain secrets even though ordinary snapshots/previews do not.
 
-Diagnostics supports version-gated installed Windows Hermes and OpenClaw adapters and synthetic conformance/file/database/browser tasks. It does not automatically choose/download models, rank several harnesses from a single campaign, aggregate unmatched historical campaigns, measure authoritative cost/token usage, or enforce hard hardware allocations. Explicit measured advice can change a named profile after evidence review; missing model identity withholds that advice. Temperature availability is provider-dependent. External-account functionality must be tested with authorized credentials; a deferred missing key should remain explicitly unverified.
+Diagnostics supports version-gated installed Windows Hermes, OpenClaw and native LM Studio adapters, with conformance/file/database/browser tasks and independent result checks. It does not automatically choose/download models, rank several harnesses from a single campaign, aggregate unmatched historical campaigns, measure authoritative cost/token usage, or enforce hard hardware allocations. Explicit measured advice can change a named profile after evidence review; missing model identity withholds that advice. Temperature availability is provider-dependent. External-account functionality must be tested with authorized credentials; a deferred missing key should remain explicitly unverified.
 
 ## 15. Licensing, attribution and contact
 
@@ -1321,11 +1321,15 @@ The license files below are included in the documentation package under `third-p
 
 ### Release identity and evidence
 
-Source repair verified **September 19, 2026**: **Harbor 0.2.0**, Windows x64, Electron 44.3.0, MCP TypeScript SDK 1.30.0 and Node.js 24. Machine-specific package and installation results belong to the accompanying `HARBOR-QA-REPORT.md` and verification records. Earlier Portable acceptance remains historical evidence.
+Latest runtime correction verified **September 20, 2026**, source **`f2c8c97`**: **Harbor 0.2.0**, Windows x64, Electron 44.3.0, MCP TypeScript SDK 1.30.0 and Node.js 24. The Windows job owner now acknowledges complete process cleanup before Harbor restarts a managed server, including after abrupt supervisor termination. [Final Windows/Linux CI](https://github.com/csorrells42/Harbor/actions/runs/35501681851) and the accompanying package/installation records identify the tested artifacts. Candidate13 remains the earlier private transfer package; its ZIP has not been silently replaced by the later installed correction.
 
 | Verification | Observed result and scope |
 | --- | --- |
-| Complete repaired-source suite | **252 tests: 250 passed, 0 failed, 2 optional WSL checks skipped**, 228.575 seconds. Native GUI, authentication, installed Hermes fixtures, local semantic models and FastMCP checks were enabled. |
+| Final Windows CI | **474 tests: 441 passed, 0 failed, 33 skipped**. Five additional UI checks and the Windows build passed. Skipped environment-dependent checks are not passing tests. |
+| Final Linux CI | **474 tests: 434 passed, 0 failed, 40 skipped**. Five additional UI checks and the Linux build passed. Six Windows-specific checks, two WSL checks, one unavailable port-80 check and 31 optional installed-runtime/native checks were skipped. |
+| Windows ownership correction | **19/19 focused source checks and 19/19 packaged checks passed**. The actual packaged desktop passed Start/Restart/Stop, reaped six tracked processes and displayed all four resource gauges with zero renderer errors. |
+| Native LM Studio integration | LM Studio **0.4.21+2** was exercised with the loaded small Qwen model. The model read the record but omitted the required write while claiming completion; Harbor correctly reported incomplete work. This establishes integration behavior, not a passing model-quality result. |
+| Historical September 19 source suite | **252 tests: 250 passed, 0 failed, 2 optional WSL checks skipped**, 228.575 seconds. Native GUI, authentication, installed Hermes fixtures, local semantic models and FastMCP checks were enabled for that earlier source snapshot. |
 | Protection repair matrix | **34 passed, 0 failed, 0 skipped**, including 16 transaction tests. Covers queued saves, slow requests, rollback failures, interrupted-save recovery, offline edits and key-only changes without discovery runtimes. |
 | Gateway access controls | All four final combinations, disabled-state persistence, omitted-key preservation, rotation, session invalidation and child-process continuity passed. The actual desktop regression fails on prepatch source and passes with the repair. |
 | Delivery and client configuration | Real FastMCP BM25, Regex, Code and Hybrid search/calls passed. Explicit client copies carry saved credentials; ordinary previews exclude them. This does not establish every model's discovery quality. |
@@ -1341,7 +1345,9 @@ Brave credentials remain deferred. Fixtures do not validate live Brave or hosted
 
 **Confirmed source finding repaired.** The September 19 manual review found **HARBOR-MANUAL-GATEWAY-001 (Medium)**. The verified repair blocks public requests during queued protection/settings changes, coordinates saved credentials with the listener, and recovers interrupted saves before listening. It cannot undo tool side effects dispatched before a change begins.
 
-The original review fully read 56 files. Independent candidate review found no surviving admission bypass and identified two compatibility regressions; both were repaired and passed subsequent core regressions. The independent reviewer did not rerun that revised candidate. This is remediation within the manual audit scope, not a blanket security certification. The dedicated scanner failed before registration and did not run; third-party dependencies were not exhaustively source-audited.
+The original September 19 review fully read 56 files. Independent candidate review found no surviving admission bypass and identified two compatibility regressions; both were repaired and passed subsequent core regressions. The independent reviewer did not rerun that revised candidate. The scanner attempt associated with that older review failed before registration.
+
+The later, single final first-party static review completed on **September 20, 2026**, scan **`a5b07d40-e095-414d-a681-748047e6c11d`**, with **zero validated vulnerabilities within its stated scope**. Upstream dependency implementations, legal compliance and live penetration testing were excluded. Subsequent gauge, test-cleanup and Windows ownership corrections have separate functional evidence and are not retroactively covered by the sealed review. No repeat security scan was run. These scoped results are not a blanket security certification.
 
 Existing dependency advisories and clean-machine portability limits remain. Reassess them when updating or redistributing.
 

@@ -1,7 +1,7 @@
 {
-  "edition": "Harbor 0.2.0 · Windows Portable · September 2026",
+  "edition": "Harbor 0.2.0 \u00b7 Windows Portable \u00b7 September 2026",
   "scope": "Operator manual and source-build reference",
-  "reviewed": "2026-09-19",
+  "reviewed": "2026-09-20",
   "verification": {
     "sourceRegression": {
       "total": 252,
@@ -20,7 +20,8 @@
         "restart and persistence"
       ],
       "cancelled": 0,
-      "verified": "2026-09-19"
+      "verified": "2026-09-19",
+      "scope": "Historical September 19 source snapshot; latest runtime results are under finalRuntime."
     },
     "sourceSecurityGate": {
       "status": "verified_remediation_within_manual_audit_scope",
@@ -79,6 +80,28 @@
         "diagnosticsLifecyclePassed": 13,
         "maintenanceLauncherPassed": 29
       }
+    },
+    "finalRuntime": {
+      "sourceCommit": "f2c8c970c538d499be4d8204fc4d4b8c9fe8d0fe",
+      "ci": "https://github.com/csorrells42/Harbor/actions/runs/35501681851",
+      "windows": {
+        "total": 474,
+        "passed": 441,
+        "failed": 0,
+        "skipped": 33
+      },
+      "linux": {
+        "total": 474,
+        "passed": 434,
+        "failed": 0,
+        "skipped": 40
+      },
+      "uiChecksPerPlatform": 5,
+      "focusedSourcePassed": 19,
+      "focusedPackagedPassed": 19,
+      "nativeDesktopPassed": true,
+      "installedArchiveSha256": "90a8a0115cf6f9d173ea5e688464eec241c6650134957b88b8223794f891d5ef",
+      "securityScope": "Later Windows ownership fix is outside the sealed review; no repeat scan."
     }
   }
 }
