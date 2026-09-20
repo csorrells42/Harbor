@@ -27,7 +27,11 @@ The final corrected portable candidate completed assembly-specific functional ac
 
 The corrected application was also installed locally, all 146 application files were hash-verified, and the actual desktop shortcut opened Harbor. Existing user data and tool configuration were preserved.
 
-The single final static security review completed on September 20, 2026 (scan `a5b07d40-e095-414d-a681-748047e6c11d`) with zero validated vulnerabilities in the reviewed first-party source, executable fixtures and build consumers. Upstream dependency implementations, legal compliance, live penetration testing and passive presentation artifacts were excluded. Broad operator-authorized host access remains intentional; this is not a security certification.
+The later gauge-restoration commit `c7f5ec7` restores CPU/GPU/RAM/VRAM to the top of Diagnostics while leaving temperature history expandable. Its focused browser check and installed native live-readings check passed. The installed overlay changes two presentation modules, with all 2,616 existing application archive entries compared; the immutable Candidate13 transfer ZIP remains unchanged.
+
+[Windows and Linux CI passed for `c7f5ec7`](https://github.com/csorrells42/Harbor/actions/runs/35498774433): Windows ran 436 tests successfully with 33 optional/environment-dependent tests skipped; Linux ran 431 successfully with 38 skipped. Both had zero failures or cancellations, five additional UI checks passed, and their distribution builds completed. Native/toolbox tests not enabled in CI retain their separate local evidence. The preceding Windows teardown hang was fixed in the browser fixture cleanup.
+
+The single final static security review completed on September 20, 2026 (scan `a5b07d40-e095-414d-a681-748047e6c11d`) with zero validated vulnerabilities in the reviewed first-party source, executable fixtures and build consumers. Upstream dependency implementations, legal compliance, live penetration testing and passive presentation artifacts were excluded. The later test-cleanup and gauge-presentation changes have separate functional evidence and are not retroactively included in the sealed snapshot. Broad operator-authorized host access remains intentional; this is not a security certification.
 
 **Portable extraction:** use a fresh short destination such as **`C:\H`**, then open `C:\H\Harbor Portable\Start Harbor.vbs`. The archive's longest entry is 203 characters; a deep Desktop/Downloads destination can exceed legacy Windows extraction limits. A second-PC attempt reported long filenames under Desktop; recovery at the short destination is not yet confirmed. Do not run a partially extracted copy.
 
@@ -36,6 +40,6 @@ The single final static security review completed on September 20, 2026 (scan `a
 - Independent Windows runtime/build validation.
 - Installed-demo verification (the corrected package itself passed local functional acceptance).
 - Remaining third-party notices and applicable corresponding-source obligations before public binary redistribution.
-- GitHub Windows CI completion. Linux passed. The Windows run was canceled after about fifty minutes: 435 passed, 32 skipped, one diagnostics UI test canceled. Its fixture cleanup now closes the browser before the HTTP server; the focused Windows check passed in 16.56 seconds. This test-only correction leaves application bytes unchanged and requires a fresh CI result.
+- A real-model matched delivery comparison demonstrating a useful improvement. Positive measured-advice decisions currently have engineering-fixture acceptance; incomplete model identity correctly withholds automatic advice for native LM Studio campaigns.
 
 Harbor is MIT-licensed original software; bundled tools and runtimes keep their own licenses. See [licensing](../LICENSING.md). No claim of universal client compatibility, blanket security certification or a universally best model is made.
