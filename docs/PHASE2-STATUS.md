@@ -35,6 +35,10 @@ The single final static security review completed on September 20, 2026 (scan `a
 
 **Portable extraction:** use a fresh short destination such as **`C:\H`**, then open `C:\H\Harbor Portable\Start Harbor.vbs`. The archive's longest entry is 203 characters; a deep Desktop/Downloads destination can exceed legacy Windows extraction limits. A second-PC attempt reported long filenames under Desktop; recovery at the short destination is not yet confirmed. Do not run a partially extracted copy.
 
+## Windows lifecycle correction after the preceding CI pass
+
+[CI for test-only commit `1609301`](https://github.com/csorrells42/Harbor/actions/runs/35500147894) passed Linux but failed two Windows managed-process checks. The corrected source uses an independent guardian and requires an empty-job acknowledgement before restart. All nineteen focused Windows tests passed locally, including abrupt supervisor death. Packaged verification and CI for this runtime correction remain pending. The installed app and Candidate13 transfer package have not been replaced with this correction. It is outside the earlier sealed security snapshot; no repeat security scan ran. [Details and test scope](lifecycle-acceptance.md).
+
 ## Release work still open
 
 - Independent Windows runtime/build validation.

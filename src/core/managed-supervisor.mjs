@@ -3,12 +3,13 @@
 import { spawn } from 'node:child_process';
 import crossSpawn from 'cross-spawn';
 import { createInterface } from 'node:readline';
+import { fileURLToPath } from 'node:url';
 const emit = value => process.stdout.write(JSON.stringify(value)+'\n');
 const lines=createInterface({input:process.stdin});
-let child, guardian, stopping=false, launched=false;
+let child, guardian, guardianReady=false, stopping=false, launched=false;
 async function stop() {
   if(stopping)return;stopping=true;
-  if(guardian){guardian.stdin.end();return;}
+  if(guardian){if(guardianReady)process.exit(0);return;}
   if(child?.pid){try{process.kill(-child.pid,'SIGTERM');}catch{} await new Promise(r=>setTimeout(r,250));try{process.kill(-child.pid,'SIGKILL');}catch{}}
   process.exit(0);
 }
@@ -29,6 +30,44 @@ public class HarborJob {
  [DllImport("kernel32.dll")] static extern bool AssignProcessToJobObject(IntPtr j,IntPtr p);
  [DllImport("kernel32.dll")] static extern IntPtr OpenProcess(uint a,bool i,int p);
  [DllImport("kernel32.dll")] public static extern bool CloseHandle(IntPtr h);
+ [DllImport("kernel32.dll")] static extern bool TerminateJobObject(IntPtr job,uint code);
+ [DllImport("kernel32.dll")] static extern bool QueryInformationJobObject(IntPtr job,int type,IntPtr info,uint size,IntPtr returned);
+ [DllImport("kernel32.dll")] static extern uint WaitForSingleObject(IntPtr handle,uint timeout);
+ public static void Lease(int pid,string completionPath) {
+  IntPtr supervisor=OpenProcess(0x100000,false,pid);
+  if(supervisor==IntPtr.Zero) throw new Exception("Cannot observe ownership supervisor");
+  IntPtr job=IntPtr.Zero;
+  // Observe a process handle, not the parent's pipes: abrupt termination must
+  // release the same owned tree as a graceful end of its stdin lease.
+  try {
+   job=Own(pid);Console.Out.WriteLine("ready");Console.Out.Flush();
+   if(WaitForSingleObject(supervisor,0xffffffff)!=0) throw new Exception("Cannot wait for ownership supervisor");
+  }
+  finally {
+   try {if(job!=IntPtr.Zero)Reap(job,completionPath);}
+   catch(Exception error) {System.IO.File.WriteAllText(completionPath+".error",error.Message);throw;}
+   finally {if(job!=IntPtr.Zero)CloseHandle(job);CloseHandle(supervisor);}
+  }
+ }
+ public static void Reap(IntPtr job,string completionPath) {
+  if(!TerminateJobObject(job,1)) throw new Exception("Cannot terminate owned job");
+  IntPtr info=Marshal.AllocHGlobal(48);
+  try {
+   DateTime deadline=DateTime.UtcNow.AddSeconds(12);
+   while(true) {
+    if(!QueryInformationJobObject(job,1,info,48,IntPtr.Zero)) throw new Exception("Cannot confirm owned job cleanup");
+    // JOBOBJECT_BASIC_ACCOUNTING_INFORMATION.ActiveProcesses follows four
+    // LARGE_INTEGER fields and two DWORD fields, on both Windows ABIs.
+    if(Marshal.ReadInt32(info,40)==0) {
+     // Keep the receipt in this invocation: killing the supervisor closes the
+     // PowerShell host's pipes and can interrupt subsequent script statements.
+     System.IO.File.WriteAllText(completionPath,"reaped"); return;
+    }
+    if(DateTime.UtcNow>=deadline) throw new Exception("Owned job cleanup timed out");
+    System.Threading.Thread.Sleep(20);
+   }
+  } finally {Marshal.FreeHGlobal(info);}
+ }
  public static IntPtr Own(int pid) {
   IntPtr job=CreateJobObject(IntPtr.Zero,null);
   int size=IntPtr.Size==8?144:112; IntPtr info=Marshal.AllocHGlobal(size);
@@ -42,14 +81,13 @@ public class HarborJob {
  }
 }
 '@
-$job=[HarborJob]::Own(${process.pid})
-try { [Console]::Out.WriteLine('ready'); [Console]::Out.Flush(); [Console]::In.ReadLine() | Out-Null }
-finally { [HarborJob]::CloseHandle($job) | Out-Null }`;
-   guardian=spawn('powershell.exe',['-NoProfile','-NonInteractive','-Command',script],{stdio:['pipe','pipe','pipe'],windowsHide:true});
+[HarborJob]::Lease(${process.pid},$env:HARBOR_MANAGED_COMPLETION_PATH)`;
+   guardian=spawn(process.execPath,[fileURLToPath(new URL('./managed-windows-guardian.mjs',import.meta.url)),script],{env:{...process.env,HARBOR_MANAGED_COMPLETION_PATH:spec.completionPath},stdio:['pipe','pipe','pipe'],windowsHide:true,detached:true});
    guardian.stderr.pipe(process.stderr);
    await new Promise((resolve,reject)=>{guardian.once('error',reject);guardian.once('exit',code=>reject(new Error(`Ownership guardian exited (${code})`)));guardian.stdout.once('data',()=>resolve());});
    guardian.on('exit',()=>process.exit(0));
-   if(stopping){guardian.stdin.end();return;}
+   guardianReady=true;
+   if(stopping){process.exit(0);return;}
   }
   if(stopping)return;
   child=crossSpawn(spec.command,spec.args??[],{cwd:spec.cwd||undefined,env:{...process.env,...spec.env},stdio:['ignore','pipe','pipe'],shell:false,windowsHide:true,detached:process.platform!=='win32'});

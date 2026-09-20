@@ -31,7 +31,7 @@ export function launchManaged(spec, log, onExit) {
   // Linux ownership requires Python 3 + Linux prctl(/proc) subreaping: process
   // groups alone do not retain descendants that create their own sessions.
   const linux = !wsl && process.platform === 'linux';
-  const completionDir = wsl ? mkdtempSync(join(tmpdir(),'harbor-owned-lease-')) : undefined;
+  const completionDir = wsl || process.platform === 'win32' ? mkdtempSync(join(tmpdir(),'harbor-owned-lease-')) : undefined;
   const completionPath = completionDir && join(completionDir,'complete');
   const args = wsl ? [...(spec.distro ? ['--distribution',spec.distro] : []),'--exec','python3','-u','-c',wslBootstrap] : linux ? ['-u','-c',wslSupervisor] : [fileURLToPath(new URL('./managed-supervisor.mjs',import.meta.url))];
   const child=spawn(wsl ? 'wsl.exe' : linux ? 'python3' : process.execPath,args,{
@@ -62,14 +62,16 @@ export function launchManaged(spec, log, onExit) {
       catch(error){log(`Graceful shutdown failed: ${error.message}`);}
     }
     if(!closed)child.stdin.end();
-    // A WSL launcher exit is NOT an ownership acknowledgement. Its detached
-    // owner must report that it actually reaped the tree, even after a crash.
+    // A launcher/supervisor exit is not proof that all descendants have exited.
+    // The outside owner acknowledges the emptied job/tree before a restart.
     await exited;
     if(completionPath) {
       const deadline=Date.now()+15000;
       try {
         while(await readFile(completionPath,'utf8').catch(error=>{if(error.code==='ENOENT')return '';throw error;})!=='reaped') {
-          if(Date.now()>=deadline)throw new Error('Linux ownership cleanup was not acknowledged; requires Python 3, wslpath and a WSL-accessible Windows temp directory');
+          const detail=await readFile(completionPath+'.error','utf8').catch(()=>undefined);
+          if(detail)throw new Error(`Ownership cleanup failed: ${detail}`);
+          if(Date.now()>=deadline)throw new Error(wsl ? 'Linux ownership cleanup was not acknowledged; requires Python 3, wslpath and a WSL-accessible Windows temp directory' : 'Windows ownership cleanup was not acknowledged; the managed process tree is not confirmed stopped');
           await new Promise(resolve=>setTimeout(resolve,25));
         }
       } finally {await rm(completionDir,{recursive:true,force:true});}
